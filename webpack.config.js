@@ -66,7 +66,7 @@ module.exports = {
       directory: path.join(__dirname, 'public'),
     },
     open: true,
-    port: 3000,
+    port: 5000,
     // 별도의 API 백엔드 개발 서버가 있고 동일한 도메인에서 API 요청을 보내려는 경우 일부 URL을 프록시하는 것이 유용할 수 있다.
     // PORT 7000에는 api 서버가, PORT 3000에는 devServer가 실행중이기에 호스트와 포트를 명시하지 않으면 404에러가 발생한다.
     // proxy: {
