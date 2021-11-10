@@ -34,11 +34,19 @@
       margin: 0 auto;
       padding: 0 20px;
 
+      @include mobile {
+        justify-content: space-between;
+      }
+
       &__btn {
         width: rem(90);
         margin: 0 rem(12);
         padding: rem(11);
         font-size: rem(12);
+
+        @include mobile {
+          width: 40%;
+        }
       }
 
       &__btn.button-deactive {
@@ -57,8 +65,8 @@
     border-radius: rem(10);
 
     &__type {
-      font-size: rem(8);
-      font-weight: 300;
+      font-size: rem(12);
+      font-weight: 700;
       color: $purple;
       padding: rem(3);
       border: 1px solid $purple;
@@ -69,6 +77,9 @@
       margin-top: rem(10);
       font-size: rem(18);
       font-weight: 700;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
     }
 
     &__detail {
@@ -76,14 +87,24 @@
       justify-content: space-between;
 
       .user {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: rem(5);
+
         &__tier {
           width: rem(25);
         }
 
         &__name {
+          display: inline-block;
+          max-width: rem(80);
           font-size: rem(14);
           font-weight: 700;
           color: $gray05;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          overflow: hidden;
         }
       }
 
@@ -104,6 +125,33 @@
 
     &__item {
       padding: rem(3);
+
+      &:after {
+        content: '';
+      }
+
+      &--completed {
+        opacity: 0.5;
+        position: relative;
+      }
+
+      &--completed:after {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: rem(30);
+        height: rem(17);
+        content: '마감';
+        position: absolute;
+        font-size: rem(12);
+        // font-weight: 700;
+        line-height: 1;
+        top: rem(35);
+        left: rem(3);
+        border: 1px solid $purple;
+        border-radius: rem(5);
+        color: $purple;
+      }
     }
 
     &__img {
