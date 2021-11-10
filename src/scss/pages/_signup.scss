@@ -1,0 +1,156 @@
+@import '../utils/';
+
+.signup-form {
+  padding: 0 10%;
+  padding-top: rem(20px);
+
+  &__title {
+    text-align: center;
+    font-weight: bold;
+
+    @include desktop {
+      font-size: rem(30px);
+      padding: 5% 0;
+    }
+
+    @include mobile {
+      font-size: rem(18px);
+      padding: 5% 0;
+    }
+  }
+
+  &__input {
+    display: inline-block;
+    width: 100%;
+    min-width: rem(200px);
+    min-height: rem(40px);
+    border-radius: rem(5px);
+    background-color: $input;
+    outline: none;
+    font-weight: bold;
+
+    &:hover {
+      background-color: #e5e5e5;
+      transition: 0.1s;
+    }
+
+    &:focus {
+      border: 1.5px solid black;
+      background-color: $white;
+    }
+
+    @include desktop {
+      text-indent: 1.5rem;
+      font-size: rem(15px);
+      margin-top: rem(15px);
+      margin-bottom: rem(15px);
+      padding: rem(20px) 0;
+      padding-right: 0;
+    }
+
+    @include mobile {
+      text-indent: 1rem;
+      font-size: rem(12px);
+      margin-top: rem(10px);
+      margin-bottom: rem(10px);
+      padding: rem(10px) 0;
+      padding-right: 0;
+    }
+  }
+
+  &__success-message,
+  &__warning-message {
+    padding-left: rem(1px);
+
+    @include desktop {
+    }
+    @include mobile {
+      font-size: rem(12px);
+    }
+  }
+
+  //   &__warning-message {
+  //     padding-left: rem(5px);
+  //     @include mobile {
+  //       font-size: rem(12px);
+  //     }
+  //   }
+
+  &__summonername-check {
+    display: flex;
+    min-height: rem(40px);
+    justify-content: space-between;
+    margin-top: rem(10px);
+    margin-bottom: rem(10px);
+  }
+
+  &__check-name {
+    width: 20%;
+    // height: 20%;
+    // height: rem(40px);
+    border-radius: rem(5px);
+    background-color: $main;
+    color: $white;
+    font-weight: bold;
+
+    &:disabled {
+      border: 2px solid #dadada;
+      color: #dadada;
+      background-color: $white;
+    }
+
+    @include desktop {
+      font-size: rem(16px);
+      padding: 4%;
+    }
+
+    @include mobile {
+      padding: 4%;
+      font-size: rem(12px);
+    }
+  }
+
+  &__button {
+    display: block;
+    box-sizing: border-box;
+    padding: 16px 48px;
+    border-radius: 4px;
+    background-color: $main;
+    font-size: 20px;
+    font-weight: 700;
+    width: 100%;
+    border: none;
+    color: $white;
+    margin-top: rem(20px);
+    margin-bottom: rem(30px);
+
+    box-shadow: 0 4px 4px 0px $gray04;
+
+    &:disabled {
+      border: 3px solid #dadada;
+      color: #dadada;
+      background-color: $white;
+      box-shadow: none;
+    }
+  }
+
+  &__goto-login {
+    display: block;
+    text-align: center;
+    margin-bottom: rem(40px);
+
+    @include desktop {
+      font-size: rem(15px);
+    }
+
+    @include mobile {
+      font-size: rem(12px);
+    }
+  }
+}
+
+.signup-form__input.summoner-input {
+  min-width: rem(130px);
+  margin: 0;
+  width: 70%;
+}

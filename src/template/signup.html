@@ -7,49 +7,58 @@
     <title>회원가입</title>
   </head>
   <body class="membership-body">
-    <h1><img src="./images/membership-logo.png" alt="" /></h1>
+    <header class="membership-header">
+      <h1><img src="./images/membership-logo.png" alt="팟" /></h1>
+    </header>
+    <main class="membership-main">
+      <form action="" class="signup-form">
+        <fieldset>
+          <legend class="signup-form__title"><h2>회원가입</h2></legend>
+          <input type="text" name="id" placeholder="아이디" class="signup-form__input" />
+          <div class="signup-form__success-message hidden">
+            <img src="./images/success.svg" alt="성공" />
+            <span>올바른 아이디입니다.</span>
+          </div>
+          <div class="signup-form__warning-message hidden">
+            <img src="./images/warning.svg" alt="경고" />
+            <span>영문으로 시작하는 4~20자의 영문+숫자로 입력해주세요.</span>
+          </div>
+          <div class="signup-form__summonername-check">
+            <input type="text" name="summoner-name" placeholder="소환사 명" class="signup-form__input summoner-input" />
+            <button class="signup-form__check-name" disabled>이름확인</button>
+          </div>
+          <div class="signup-form__success-message hidden">
+            <img src="./images/success.svg" alt="성공" />
+            <span>올바른 소환사 명입니다.</span>
+          </div>
+          <div class="signup-form__warning-message hidden">
+            <img src="./images/warning.svg" alt="경고" />
+            <span>올바르지 않은 소환사 명입니다.</span>
+          </div>
+          <input type="password" name="password" placeholder="비밀번호" class="signup-form__input" />
+          <div class="signup-form__success-message hidden">
+            <img src="./images/success.svg" alt="성공" />
+            <span>올바른 비밀번호입니다.</span>
+          </div>
+          <div class="signup-form__warning-message hidden">
+            <img src="./images/warning.svg" alt="경고" />
+            <span>8자리 이상의 영문, 숫자조합을 입력하세요.</span>
+          </div>
+          <input type="password" name="confirm-password" placeholder="비밀번호 확인" class="signup-form__input" />
+          <div class="signup-form__success-message hidden">
+            <img src="./images/success.svg" alt="성공" />
+            <span>비밀번호가 일치합니다.</span>
+          </div>
+          <div class="signup-form__warning-message hidden">
+            <img src="./images/warning.svg" alt="경고" />
+            <span>비밀번호가 일치하지 않습니다.</span>
+          </div>
+          <button class="signup-form__button" disabled>회원가입</button>
+          <a href="/signin.html" class="signup-form__goto-login"
+            ><span class="signup-form__goto-login">로그인 하러가기</span></a
+          >
+        </fieldset>
+      </form>
+    </main>
   </body>
-  <main class="membership-main">
-    <form action="">
-      <fieldset>
-        <legend><h2>회원가입</h2></legend>
-        <input type="text" name="id" placeholder="아이디" />
-        <div class="success-message">
-          <img src="./images/success.svg" alt="성공" />
-          <span>올바른 아이디입니다.</span>
-        </div>
-        <div class="warning-message">
-          <img src="./images/warning.svg" alt="경고" />
-          <span>영문으로 시작하는 4~20자의 영문+숫자로 입력해주세요.</span>
-        </div>
-        <input type="text" name="summoner-name" placeholder="소환사 명" />
-        <div class="warning-message">
-          <img src="./images/success.svg" alt="성공" />
-          <span>올바른 소환사 명입니다.</span>
-        </div>
-        <div class="warning-message">
-          <img src="./images/warning.svg" alt="경고" />
-          <span>올바르지 않은 소환사 명입니다.</span>
-        </div>
-        <input type="password" name="password" placeholder="비밀번호" />
-        <div class="warning-message">
-          <img src="./images/warning.svg" alt="성공" />
-          <span>올바른 비밀번호입니다.</span>
-        </div>
-        <div class="warning-message">
-          <img src="./images/warning.svg" alt="경고" />
-          <span>8자리 이상의 영문, 숫자조합을 입력하세요.</span>
-        </div>
-        <input type="password" name="confirm-password" placeholder="비밀번호 확인" />
-        <div class="warning-message">
-          <img src="./images/success.svg" alt="성공" />
-          <span>비밀번호가 일치합니다.</span>
-        </div>
-        <div class="warning-message">
-          <img src="./images/warning.svg" alt="경고" />
-          <span>비밀번호가 일치하지 않습니다.</span>
-        </div>
-      </fieldset>
-    </form>
-  </main>
 </html>
