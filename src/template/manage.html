@@ -49,137 +49,139 @@
       </nav>
     </div>
   </header>
+  <div class="manage-main__container">
 
-  <main class="main">
-    <h2 class="main__title">게시글 타이틀</h2>
-    <div class="main__container">
-      <div class="main__filter-container">
-        <div class="main__filter-wrapper">
-          <div class="main__filter-position">
-            <h3 class="main__filter-position-title">남은 포지션</h3>
-            <ul class="main__filter-position-list">
-              <li class="main__filter-position-item all">
-                <button class="select">
-                  <img src="./images/position/all.png" alt="all">
-                </button>
-              </li>
-              <li class="main__filter-position-item top">
-                <button>
-                  <img src="./images/position/top.png" alt="top">
-                </button>
-              </li>
-              <li class="main__filter-position-item jungle">
-                <button>
-                  <img src="./images/position/jungle.png" alt="jungle">
-                </button>
-              </li>
-              <li class="main__filter-position-item mid">
-                <button>
-                  <img src="./images/position/mid.png" alt="mid">
-                </button>
-              </li>
-              <li class="main__filter-position-item bottom">
-                <button>
-                  <img src="./images/position/bottom.png" alt="bottom">
-                </button>
-              </li>
-              <li class="main__filter-position-item support">
-                <button>
-                  <img src="./images/position/support.png" alt="support">
-                </button>
-              </li>
-            </ul>
+    <main class="main">
+      <h2 class="main__title">게시글 타이틀</h2>
+      <div class="main__container">
+        <div class="main__filter-container">
+          <div class="main__filter-wrapper">
+            <div class="main__filter-position">
+              <h3 class="main__filter-position-title">남은 포지션</h3>
+              <ul class="main__filter-position-list">
+                <li class="main__filter-position-item all">
+                  <button class="select">
+                    <img src="./images/position/all.png" alt="all">
+                  </button>
+                </li>
+                <li class="main__filter-position-item top">
+                  <button>
+                    <img src="./images/position/top.png" alt="top">
+                  </button>
+                </li>
+                <li class="main__filter-position-item jungle">
+                  <button>
+                    <img src="./images/position/jungle.png" alt="jungle">
+                  </button>
+                </li>
+                <li class="main__filter-position-item mid">
+                  <button>
+                    <img src="./images/position/mid.png" alt="mid">
+                  </button>
+                </li>
+                <li class="main__filter-position-item bottom">
+                  <button>
+                    <img src="./images/position/bottom.png" alt="bottom">
+                  </button>
+                </li>
+                <li class="main__filter-position-item support">
+                  <button>
+                    <img src="./images/position/support.png" alt="support">
+                  </button>
+                </li>
+              </ul>
+            </div>
+            <button class="main__filter-button">
+              <span class="main__filter-button-title">랭킹 순</span>
+              <box-icon name='chevron-down'></box-icon>
+            </button>
           </div>
-          <button class="main__filter-button">
-            <span class="main__filter-button-title">랭킹 순</span>
-            <box-icon name='chevron-down'></box-icon>
-          </button>
+        </div>
+        <div class="main__wrapper">
+          <ul class="participant-list">
+            <li class="participant">
+              <div class="participant__main-wrapper">
+                <img class="participant-tear" src="./images/emblem/gold.png" alt="gold">
+                <div class="participant__check-wrapper">
+                  <button class="approve-participant">
+                    <box-icon name="check" color="#9182f6"></box-icon>
+                  </button>
+                  <button class="refuse-participant">
+                    <box-icon name="x" color="#ff3838"></box-icon>
+                </div>
+              </div>
+              <div class="participant__info">
+                <ul class="participant__info-list">
+                  <li class="participant__info-summoner-name">
+                    <span class="participant__info-title">소환사 명</span>
+                    <span class="participant__info-description">파기로</span>
+                  </li>
+                  <li class="participant__info-summoner-tier">
+                    <span class="participant__info-title">티어</span>
+                    <span class="participant__info-description">골드 4</span>
+                  </li>
+                  <li class="participant__info-summoner-main-champ">
+                    <span class="participant__info-title">주요챔프</span>
+                    <ul class="participant__info-summoner-champ-list">
+                      <li class="participant__info-summoner-champ">
+                        <img src="./images/champ/trindamier.png" alt="trindamier">
+                      </li>
+                      <li class="participant__info-summoner-champ">
+                        <img src="./images/champ/trindamier.png" alt="trindamier">
+                      </li>
+                      <li class="participant__info-summoner-champ">
+                        <img src="./images/champ/trindamier.png" alt="trindamier">
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+              </button>
+            </li>
+            <li class="participant">
+              <div class="participant__main-wrapper">
+                <img class="participant-tear" src="./images/emblem/gold.png" alt="gold">
+                <div class="participant__check-wrapper">
+                  <button class="approve-participant">
+                    <box-icon name="check" color="#9182f6"></box-icon>
+                  </button>
+                  <button class="refuse-participant">
+                    <box-icon name="x" color="#ff3838"></box-icon>
+                </div>
+              </div>
+              <div class="participant__info">
+                <ul class="participant__info-list">
+                  <li class="participant__info-summoner-name">
+                    <span class="participant__info-title">소환사 명</span>
+                    <span class="participant__info-description">파기로</span>
+                  </li>
+                  <li class="participant__info-summoner-tier">
+                    <span class="participant__info-title">티어</span>
+                    <span class="participant__info-description">골드 4</span>
+                  </li>
+                  <li class="participant__info-summoner-main-champ">
+                    <span class="participant__info-title">주요챔프</span>
+                    <ul class="participant__info-summoner-champ-list">
+                      <li class="participant__info-summoner-champ">
+                        <img src="./images/champ/trindamier.png" alt="trindamier">
+                      </li>
+                      <li class="participant__info-summoner-champ">
+                        <img src="./images/champ/trindamier.png" alt="trindamier">
+                      </li>
+                      <li class="participant__info-summoner-champ">
+                        <img src="./images/champ/trindamier.png" alt="trindamier">
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+              </button>
+            </li>
+          </ul>
         </div>
       </div>
-      <div class="main__wrapper">
-        <ul class="participant-list">
-          <li class="participant">
-            <div class="participant__main-wrapper">
-              <img class="participant-tear" src="./images/emblem/gold.png" alt="gold">
-              <div class="participant__check-wrapper">
-                <button class="approve-participant">
-                  <box-icon name="check" color="#9182f6"></box-icon>
-                </button>
-                <button class="refuse-participant">
-                  <box-icon name="x" color="#ff3838"></box-icon>
-              </div>
-            </div>
-            <div class="participant__info">
-              <ul class="participant__info-list">
-                <li class="participant__info-summoner-name">
-                  <span class="participant__info-title">소환사 명</span>
-                  <span class="participant__info-description">파기로</span>
-                </li>
-                <li class="participant__info-summoner-tier">
-                  <span class="participant__info-title">티어</span>
-                  <span class="participant__info-description">골드 4</span>
-                </li>
-                <li class="participant__info-summoner-main-champ">
-                  <span class="participant__info-title">주요챔프</span>
-                  <ul class="participant__info-summoner-champ-list">
-                    <li class="participant__info-summoner-champ">
-                      <img src="./images/champ/trindamier.png" alt="trindamier">
-                    </li>
-                    <li class="participant__info-summoner-champ">
-                      <img src="./images/champ/trindamier.png" alt="trindamier">
-                    </li>
-                    <li class="participant__info-summoner-champ">
-                      <img src="./images/champ/trindamier.png" alt="trindamier">
-                    </li>
-                  </ul>
-                </li>
-              </ul>
-            </div>
-            </button>
-          </li>
-          <li class="participant">
-            <div class="participant__main-wrapper">
-              <img class="participant-tear" src="./images/emblem/gold.png" alt="gold">
-              <div class="participant__check-wrapper">
-                <button class="approve-participant">
-                  <box-icon name="check" color="#9182f6"></box-icon>
-                </button>
-                <button class="refuse-participant">
-                  <box-icon name="x" color="#ff3838"></box-icon>
-              </div>
-            </div>
-            <div class="participant__info">
-              <ul class="participant__info-list">
-                <li class="participant__info-summoner-name">
-                  <span class="participant__info-title">소환사 명</span>
-                  <span class="participant__info-description">파기로</span>
-                </li>
-                <li class="participant__info-summoner-tier">
-                  <span class="participant__info-title">티어</span>
-                  <span class="participant__info-description">골드 4</span>
-                </li>
-                <li class="participant__info-summoner-main-champ">
-                  <span class="participant__info-title">주요챔프</span>
-                  <ul class="participant__info-summoner-champ-list">
-                    <li class="participant__info-summoner-champ">
-                      <img src="./images/champ/trindamier.png" alt="trindamier">
-                    </li>
-                    <li class="participant__info-summoner-champ">
-                      <img src="./images/champ/trindamier.png" alt="trindamier">
-                    </li>
-                    <li class="participant__info-summoner-champ">
-                      <img src="./images/champ/trindamier.png" alt="trindamier">
-                    </li>
-                  </ul>
-                </li>
-              </ul>
-            </div>
-            </button>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </main>
+    </main>
+  </div>
 </body>
 
 </html>
