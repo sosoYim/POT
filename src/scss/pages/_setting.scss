@@ -1,0 +1,121 @@
+@import '../utils/';
+@import '../components/';
+
+html,
+body {
+  height: 100%;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.setting-container {
+  flex: 1;
+  .main,
+  .main__container,
+  .main__wrapper {
+    height: 100%;
+  }
+  &__title {
+    font-size: 28px;
+    font-weight: 700;
+    padding-top: rem(70);
+    margin-bottom: rem(59);
+  }
+  .form {
+    &__row {
+      &--img {
+        display: flex;
+        flex-direction: column;
+        width: rem(160);
+      }
+      &--sommener {
+        margin-top: rem(20);
+        margin-bottom: rem(50);
+        width: rem(487);
+      }
+      &--buttons {
+        font-size: 16px;
+        display: flex;
+        gap: rem(5);
+        height: rem(48);
+        .button {
+          padding: rem(10) rem(15);
+        }
+        .submit {
+          flex: 1;
+        }
+      }
+    }
+  }
+  .form-file {
+    &__image {
+      border-radius: rem(10);
+      border: 2px solid $gray03;
+      box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+    }
+    &__file {
+      display: none;
+    }
+    &__label {
+      cursor: pointer;
+      padding: rem(10) rem(15);
+      text-align: center;
+      margin: rem(17) 0;
+      font-size: 16px;
+    }
+  }
+
+  .form-text {
+    &__label {
+      display: block;
+      font-weight: 700;
+      margin: 20px 0;
+    }
+    &__input-container {
+      position: relative;
+      display: flex;
+      padding-bottom: rem(24);
+      gap: rem(5);
+      &--msg {
+        position: absolute;
+        font-size: rem(10);
+        bottom: 0;
+      }
+    }
+    &__input {
+      border: 1px solid $gray05;
+      border-radius: rem(5);
+      padding: rem(14);
+      flex-basis: 70%;
+    }
+    &__button {
+      font-size: 16px;
+      padding: rem(10) rem(15);
+    }
+  }
+  @include mobile {
+    .form {
+      &__row {
+        &--sommener {
+          width: 100%;
+        }
+        &--buttons {
+          display: flex;
+          gap: rem(5);
+        }
+      }
+    }
+    .form-text {
+      &__input-container {
+        justify-content: space-between;
+      }
+      &__input {
+        flex-basis: 75%;
+      }
+    }
+  }
+}
