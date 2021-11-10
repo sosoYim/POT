@@ -1,0 +1,17 @@
+@import '../utils/';
+
+.main__container {
+  width: 100%;
+  background-color: $background;
+}
+.main__filter-wrapper {
+  box-shadow: 0 -6px 6px 0 rgba($color: #000000, $alpha: 0.1);
+  height: 100px;
+  background-color: $white;
+}
+.main__wrapper {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 0 20px;
+  height: 100vh;
+}
