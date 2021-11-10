@@ -35,10 +35,11 @@
 
       &.select {
         box-shadow: 0 0 0 4px $main inset;
+        background-color: rgba($color: $main, $alpha: 0.2);
+      }
 
-        &:hover {
-          background-color: rgba($color: $main, $alpha: 0.2);
-        }
+      &:hover {
+        box-shadow: 0 0 0 4px $main inset;
       }
     }
   }
