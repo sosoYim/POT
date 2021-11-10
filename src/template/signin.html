@@ -1,15 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-
-<body>
-  <h1>signin</h1>
-</body>
-
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>로그인</title>
+  </head>
+  <body class="membership-body">
+    <header class="membership-header">
+      <h1><img src="./images/membership-logo.png" alt="팟" /></h1>
+    </header>
+    <main class="membership-main">
+      <form action="" class="login-form">
+        <fieldset>
+          <legend class="login-form__title"><h2>로그인</h2></legend>
+          <span class="login-form__error-message">계정이름과 비밀번호가 일치하지 않습니다.</span>
+          <input type="text" class="login-form__input" name="id" placeholder="계정이름" />
+          <input type="password" class="login-form__input" placeholder="비밀번호" />
+          <!-- <img src="./images/hidden.svg" alt="가려진 눈모양" class="login-form__password-icon" />
+          <img src="./images/show.svg" alt="가려진 눈모양" class="login-form__password-icon" /> -->
+          <label class="login-form__checkbox"
+            >로그인 상태 유지
+            <input type="checkbox" />
+            <span class="login-form__checkbox--checkmark"></span>
+          </label>
+          <button class="login-form__button" disabled>로그인</button>
+          <a href="/signup.html" class="login-form__goto-signup"
+            ><span class="login-form__goto-signup">계정 생성하기</span></a
+          >
+        </fieldset>
+      </form>
+    </main>
+  </body>
 </html>

@@ -2,6 +2,9 @@
 # Created by https://www.toptal.com/developers/gitignore/api/macos,node,windows
 # Edit at https://www.toptal.com/developers/gitignore?templates=macos,node,windows
 
+# 게임해조
+public
+
 ### macOS ###
 # General
 .DS_Store

@@ -1,0 +1,228 @@
+@import '../utils/';
+
+.membership-body {
+  background-image: url('../images/signin-background.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.membership-header {
+  @include autoMargin;
+
+  @include desktop {
+    width: rem(120px);
+    height: rem(120px);
+
+    margin-top: rem(40px);
+    margin-bottom: rem(40px);
+
+    img {
+      width: rem(120px);
+      height: rem(120px);
+    }
+  }
+
+  @include mobile {
+    width: rem(100px);
+    height: rem(100px);
+
+    margin-top: rem(60px);
+    margin-bottom: rem(40px);
+  }
+}
+
+.membership-main {
+  position: relative;
+  background-color: white;
+  border-radius: 2%;
+  @include autoMargin;
+  min-height: rem(400px);
+  @include desktop {
+    width: rem(380px);
+  }
+  @include mobile {
+    min-width: rem(260px);
+    width: 80%;
+  }
+}
+
+.login-form {
+  padding: 0 10%;
+  padding-top: rem(20px);
+
+  &__title {
+    text-align: center;
+    font-weight: bold;
+
+    @include desktop {
+      font-size: rem(30px);
+      padding: 5% 0;
+    }
+
+    @include mobile {
+      font-size: rem(18px);
+      padding: 5% 0;
+    }
+  }
+
+  &__error-message {
+    display: none;
+    text-align: center;
+    font-weight: bold;
+    font-size: rem(10px);
+
+    color: $inputErrorPlaceholder;
+
+    @include desktop {
+      font-size: rem(15px);
+      margin-top: rem(-20px);
+      margin-bottom: rem(30px);
+    }
+
+    @include mobile {
+      margin-top: rem(-10px);
+      margin-bottom: rem(20px);
+    }
+  }
+
+  &__input {
+    display: block;
+    width: 100%;
+    min-width: rem(200px);
+    min-height: rem(40px);
+    border-radius: rem(5px);
+    background-color: $input;
+    outline: none;
+    font-weight: bold;
+
+    &:hover {
+      background-color: #e5e5e5;
+      transition: 0.1s;
+    }
+
+    &:focus {
+      border: 1.5px solid black;
+      background-color: $white;
+    }
+
+    @include desktop {
+      text-indent: 1.5rem;
+      font-size: rem(15px);
+      margin-top: rem(15px);
+      margin-bottom: rem(15px);
+      padding: rem(20px) 0;
+      padding-right: 0;
+    }
+
+    @include mobile {
+      text-indent: 1rem;
+      font-size: rem(12px);
+      margin-top: rem(10px);
+      margin-bottom: rem(10px);
+      padding: rem(10px) 0;
+      padding-right: 0;
+    }
+  }
+
+  // &__password-icon {
+  //   position: absolute;
+  //   right: 0;
+  //   top: 1;
+  // }
+
+  &__checkbox {
+    display: block;
+    position: relative;
+    user-select: none;
+
+    line-height: 1.8;
+
+    margin: rem(20px) 0;
+
+    @include desktop {
+      font-size: rem(12px);
+      padding-left: rem(30px);
+    }
+
+    @include mobile {
+      font-size: rem(8px);
+      padding-left: rem(24px);
+    }
+
+    &--checkmark {
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      @include desktop {
+        height: rem(20px);
+        width: rem(20px);
+      }
+
+      @include mobile {
+        height: rem(15px);
+        width: rem(15px);
+      }
+      border-radius: rem(2px);
+      background-color: $input;
+
+      &:hover {
+        background-color: #e5e5e5;
+        transition: 0.1s;
+      }
+
+      &:checked {
+        background-color: blue;
+      }
+    }
+
+    input:checked + .checkmark {
+      background-color: blue;
+    }
+  }
+
+  &__button {
+    display: block;
+    box-sizing: border-box;
+    padding: 16px 48px;
+    border-radius: 4px;
+    background-color: $main;
+    font-size: 20px;
+    font-weight: 700;
+    width: 100%;
+    border: none;
+    color: $white;
+    margin-bottom: rem(30px);
+
+    box-shadow: 0 4px 4px 0px $gray04;
+
+    &:disabled {
+      border: 3px solid #dadada;
+      color: #dadada;
+      background-color: $white;
+      box-shadow: none;
+    }
+  }
+
+  &__goto-signup {
+    display: block;
+    text-align: center;
+    margin-bottom: rem(50px);
+
+    @include desktop {
+      font-size: rem(15px);
+    }
+
+    @include mobile {
+      font-size: rem(12px);
+    }
+  }
+}
+
+// @keyframes text-field-animate-in {
+// }
+
+// animation: 0.55s text-field-animate-in cubic-bezier(0.22, 0.68, 0, 1) backwards;

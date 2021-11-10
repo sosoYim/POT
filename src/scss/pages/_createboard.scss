@@ -1,0 +1,130 @@
+@import '../utils/';
+
+.createboard-container {
+  min-width: rem(365);
+  max-width: rem(1040);
+  @include autoMargin;
+  .form {
+    margin-top: rem(45);
+    &__row {
+      width: 100%;
+      &--title {
+        font-size: rem(36);
+        height: rem(52);
+        margin-bottom: rem(45);
+        border-bottom: 1px solid $black;
+      }
+      &--type {
+        margin-bottom: rem(28);
+      }
+      &--position {
+        margin-bottom: rem(14);
+      }
+      &--editor {
+        background-color: aquamarine;
+        min-height: rem(351);
+        margin-bottom: rem(26);
+      }
+      &--buttons {
+        display: flex;
+        // display: inline-flex;
+        // flex-wrap: wrap;
+        // gap: rem(346);
+        justify-content: space-between;
+      }
+    }
+  }
+
+  .editor {
+    // scrolling editor
+    height: 100%;
+    overflow-y: auto;
+    &__api {
+      height: auto;
+      min-height: 100%;
+      padding: rem(50);
+
+      .ql-editor {
+        overflow-y: visible;
+      }
+    }
+  }
+
+  .form-text {
+    width: 100%;
+    height: 100%;
+  }
+
+  .form-radio {
+    width: 100%;
+    height: 100%;
+    &__label {
+      cursor: pointer;
+      display: inline-block;
+      margin-right: rem(25);
+    }
+    &__radio {
+    }
+  }
+
+  .form-checkbox {
+    font-weight: 700;
+    &__icons {
+      margin-top: rem(4);
+    }
+    &__label {
+      &:hover {
+        cursor: pointer;
+      }
+      margin-right: rem(18);
+      width: rem(51);
+      height: rem(51);
+      display: inline-block;
+      background-repeat: no-repeat;
+      &--top {
+        background-image: url(../images/icon-top.png);
+      }
+      &--jungle {
+        background-image: url(../images/icon-jungle.png);
+      }
+      &--mid {
+        background-image: url(../images/icon-mid.png);
+      }
+      &--adc {
+        background-image: url(../images/icon-adc.png);
+      }
+      &--support {
+        background-image: url(../images/icon-support.png);
+      }
+    }
+    &__checkbox {
+    }
+  }
+
+  @include mobile {
+    padding: 0 rem(20);
+
+    .form-radio {
+      display: inline-flex;
+      flex-wrap: wrap;
+      gap: rem(10);
+      // justify-content: space-between;
+      &__label {
+        margin: 0;
+      }
+    }
+  }
+
+  // FOR FILTER ====================================
+  .position-wrapper {
+    max-width: 500px;
+    @include mobile {
+      max-width: 300px;
+    }
+  }
+
+  .main__filter-position-list button {
+    border: 4px solid $main;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+}
