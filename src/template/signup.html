@@ -1,15 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-
-<body>
-  <h1>signup</h1>
-</body>
-
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>회원가입</title>
+  </head>
+  <body class="membership-body">
+    <h1><img src="./images/membership-logo.png" alt="" /></h1>
+  </body>
+  <main class="membership-main">
+    <form action="">
+      <fieldset>
+        <legend><h2>회원가입</h2></legend>
+        <input type="text" name="id" placeholder="아이디" />
+        <div class="success-message">
+          <img src="./images/success.svg" alt="성공" />
+          <span>올바른 아이디입니다.</span>
+        </div>
+        <div class="warning-message">
+          <img src="./images/warning.svg" alt="경고" />
+          <span>영문으로 시작하는 4~20자의 영문+숫자로 입력해주세요.</span>
+        </div>
+        <input type="text" name="summoner-name" placeholder="소환사 명" />
+        <div class="warning-message">
+          <img src="./images/success.svg" alt="성공" />
+          <span>올바른 소환사 명입니다.</span>
+        </div>
+        <div class="warning-message">
+          <img src="./images/warning.svg" alt="경고" />
+          <span>올바르지 않은 소환사 명입니다.</span>
+        </div>
+        <input type="password" name="password" placeholder="비밀번호" />
+        <div class="warning-message">
+          <img src="./images/warning.svg" alt="성공" />
+          <span>올바른 비밀번호입니다.</span>
+        </div>
+        <div class="warning-message">
+          <img src="./images/warning.svg" alt="경고" />
+          <span>8자리 이상의 영문, 숫자조합을 입력하세요.</span>
+        </div>
+        <input type="password" name="confirm-password" placeholder="비밀번호 확인" />
+        <div class="warning-message">
+          <img src="./images/success.svg" alt="성공" />
+          <span>비밀번호가 일치합니다.</span>
+        </div>
+        <div class="warning-message">
+          <img src="./images/warning.svg" alt="경고" />
+          <span>비밀번호가 일치하지 않습니다.</span>
+        </div>
+      </fieldset>
+    </form>
+  </main>
 </html>
