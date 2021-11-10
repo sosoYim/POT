@@ -76,7 +76,7 @@
                   <input type="checkbox" name="position" id="jungle" class='form-checkbox__checkbox'>
                   <label for="mid" class='form-checkbox__label form-checkbox__label--mid'>MID</label>
                   <input type="checkbox" name="position" id="mid" class='form-checkbox__checkbox'>
-                  <label for="onedeal" class='form-checkbox__label form-checkbox__label--onedeal'>ONE</label>
+                  <label for="onedeal" class='form-checkbox__label form-checkbox__label--adc'>ONE</label>
                   <input type="checkbox" name="position" id="onedeal" class='form-checkbox__checkbox'>
                   <label for="support" class='form-checkbox__label form-checkbox__label--support'>SUP</label>
                   <input type="checkbox" name="position" id="support" class='form-checkbox__checkbox'>
@@ -100,7 +100,15 @@
         <!-- Initialize Quill editor -->
         <script>
           const quill = new Quill('#editor', {
-          theme: 'snow'
+            modules: {
+              toolbar: [
+                ['bold', 'italic'],
+                ['blockquote'],
+                [{ list: 'ordered' }, { list: 'bullet' }]
+              ]
+            },
+            placeholder: '모집 내용을 입력해 주세요.',
+            theme: 'snow'
         });
         </script>
   </body>

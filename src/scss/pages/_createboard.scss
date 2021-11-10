@@ -1,8 +1,8 @@
 @import '../utils/';
 
 .createboard-container {
-  background-color: yellowgreen;
   .form {
+    margin-top: rem(45);
     &__row {
       width: 100%;
       &--title {
@@ -20,7 +20,8 @@
       }
       &--editor {
         background-color: aquamarine;
-        min-width: rem(351);
+        min-height: rem(351);
+        margin-bottom: rem(26);
       }
       &--buttons {
         display: flex;
@@ -38,7 +39,9 @@
     width: 100%;
     height: 100%;
     &__label {
+      cursor: pointer;
       display: inline-block;
+      margin-right: rem(25);
     }
     &__radio {
     }
@@ -49,20 +52,28 @@
       margin-top: rem(4);
     }
     &__label {
+      &:hover {
+        cursor: pointer;
+      }
       margin-right: rem(18);
       width: rem(51);
       height: rem(51);
+      display: inline-block;
+      background-repeat: no-repeat;
       &--top {
-        // background-image: url(./../../images/icon_top.svg);
-        background-repeat: no-repeat;
+        background-image: url(../images/icon-top.png);
       }
       &--jungle {
+        background-image: url(../images/icon-jungle.png);
       }
       &--mid {
+        background-image: url(../images/icon-mid.png);
       }
-      &--onedeal {
+      &--adc {
+        background-image: url(../images/icon-adc.png);
       }
       &--support {
+        background-image: url(../images/icon-support.png);
       }
     }
     &__checkbox {
