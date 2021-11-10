@@ -2,7 +2,8 @@
 
 .createboard-container {
   min-width: rem(365);
-
+  max-width: rem(1040);
+  @include autoMargin;
   .form {
     margin-top: rem(45);
     &__row {
@@ -101,6 +102,8 @@
   }
 
   @include mobile {
+    padding: 0 rem(20);
+
     .form-radio {
       display: inline-flex;
       flex-wrap: wrap;
@@ -112,7 +115,16 @@
     }
   }
 
-  // @include mobile {
-  //   background-color: pink;
-  // }
+  // FOR FILTER ====================================
+  .position-wrapper {
+    max-width: 500px;
+    @include mobile {
+      max-width: 300px;
+    }
+  }
+
+  .main__filter-position-list button {
+    border: 4px solid $main;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
 }

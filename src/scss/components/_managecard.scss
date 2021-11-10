@@ -1,0 +1,81 @@
+@import '../utils/';
+
+.participant-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  @include mobile {
+    justify-content: center;
+  }
+}
+
+.participant {
+  display: flex;
+  align-items: center;
+  background-color: $white;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+  width: 380px;
+  height: 180px;
+  margin-top: 40px;
+
+  &__main-wrapper {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    width: 40%;
+  }
+
+  &-tear {
+    height: 110px;
+    margin-bottom: 10px;
+  }
+
+  &__check-wrapper {
+    display: flex;
+    justify-content: space-between;
+    width: 58%;
+
+    & > button {
+      padding: 6px;
+      margin: 0;
+      line-height: 0;
+      border-radius: 50%;
+      background-color: $white;
+      box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15);
+    }
+    .approve-participant:hover {
+      background-color: rgba($color: $main, $alpha: 0.2);
+    }
+    .refuse-participant:hover {
+      background-color: rgba($color: $red, $alpha: 0.2);
+    }
+  }
+
+  &__info {
+    margin-left: 20px;
+
+    &-list li {
+      margin-bottom: 10px;
+    }
+    &-summoner-name {
+      margin-top: 30px;
+    }
+
+    &-title {
+      display: inline-block;
+      font-weight: 900;
+      min-width: 80px;
+    }
+
+    &-summoner-champ-list {
+      display: flex;
+      margin-top: 10px;
+    }
+
+    &-summoner-champ img {
+      width: 40px;
+      margin-right: 6px;
+    }
+  }
+}
