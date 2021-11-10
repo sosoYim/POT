@@ -1,27 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-
-<body>
-  <!-- 헤더 -->
-  <header class="header">
-    <div class="header__wrapper">
-      <h1>
-        <a class="header__logo-link" href="javascript:void(0);">
-          <img class="header__logo" src="./images/logo.png" alt="logo">
-        </a>
-      </h1>
-      <nav class="header__nav">
-        <a class="header__nav-link" href="/src/create"><span class="header__nav-create-pot">POT 생성</span></a>
-        <a class="header__nav-link login-info" href="javascript:void(0);">
-          <span class="header__nav-login">로그인</span>
-          <!-- <span class="header__nav-username">왕치</span>
+  <body>
+    <!-- 헤더 -->
+    <header class="header">
+      <div class="header__wrapper">
+        <h1>
+          <a class="header__logo-link" href="javascript:void(0);">
+            <img class="header__logo" src="./images/logo.png" alt="logo" />
+          </a>
+        </h1>
+        <nav class="header__nav">
+          <a class="header__nav-link" href="/src/create"><span class="header__nav-create-pot">POT 생성</span></a>
+          <a class="header__nav-link login-info" href="javascript:void(0);">
+            <span class="header__nav-login">로그인</span>
+            <!-- <span class="header__nav-username">왕치</span>
           <span class="header__nav-userinfo">
             <a role="button" class="header__nav-user-img"></a>
             <box-icon type="solid" name="down-arrow" color="#4c4c4c" size="20px"></box-icon>
@@ -43,10 +42,35 @@
               <div class="logout">로그아웃</div>
             </a>
           </div> -->
-        </a>
-      </nav>
-    </div>
-  </header>
-</body>
+          </a>
+        </nav>
+      </div>
+    </header>
 
+    <div class="setting-container">
+      <main class="main">
+        <h2 class="main__title">내 정보 수정</h2>
+        <div class="main__container">
+          <div class="main__wrapper">
+            <form class="form">
+              <div class="form__row form__row--img">
+                <img src="./../images/defaultUser.png" alt="profil image" />
+                <button type="button">이미지 선택</button>
+              </div>
+              <div class="form__row form__row--sommener">
+                <label for="sommener">소환사명</label>
+                <input type="text" id="sommener" class="form-text" value="|푸른피|" />
+                <button type="button" class="button">이름 확인</button>
+                <div class="msg">올바른 소환사 명입니다.</div>
+              </div>
+              <div class="form__row form__row--buttons">
+                <button class="button">완료</button>
+                <button type="button" class="button button-warn">회원 탈퇴</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
 </html>
