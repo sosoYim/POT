@@ -9,7 +9,7 @@
     font-weight: bold;
 
     @include desktop {
-      font-size: rem(30px);
+      font-size: rem(26px);
       padding: 5% 0;
     }
 
@@ -21,6 +21,7 @@
 
   &__input {
     display: inline-block;
+    position: relative;
     width: 100%;
     min-width: rem(200px);
     min-height: rem(40px);
@@ -35,15 +36,22 @@
     }
 
     &:focus {
-      border: 2px solid black;
       background-color: $white;
+
+      @include desktop {
+        outline: 3px solid black;
+      }
+
+      @include mobile {
+        outline: 1px solid black;
+      }
     }
 
     @include desktop {
       text-indent: 1.5rem;
       font-size: rem(15px);
-      margin-top: rem(15px);
-      margin-bottom: rem(15px);
+      //   margin-top: rem(15px);
+      //     margin-bottom: rem(15px);
       padding: rem(20px) 0;
       padding-right: 0;
     }
@@ -51,30 +59,42 @@
     @include mobile {
       text-indent: 1rem;
       font-size: rem(12px);
-      margin-top: rem(10px);
-      margin-bottom: rem(10px);
+      //   margin-top: rem(10px);
+      //   margin-bottom: rem(10px);
       padding: rem(10px) 0;
       padding-right: 0;
     }
   }
 
-  &__success-message,
-  &__warning-message {
+  &__message {
+    position: relative;
     padding-left: rem(1px);
+    margin: rem(10px) 0;
+    min-height: rem(20px);
+    @include flexbox(row, $justify-content: flex-start, $align-items: flex-start);
 
-    @include desktop {
+    @include mobile {
+      min-height: rem(15px);
     }
+
+    &-img {
+      display: inline-block;
+
+      @include desktop {
+        margin-top: rem(2px);
+      }
+    }
+  }
+
+  &__text {
+    display: block;
+    margin-left: rem(5px);
+    word-break: keep-all;
+
     @include mobile {
       font-size: rem(12px);
     }
   }
-
-  //   &__warning-message {
-  //     padding-left: rem(5px);
-  //     @include mobile {
-  //       font-size: rem(12px);
-  //     }
-  //   }
 
   &__summonername-check {
     display: flex;
@@ -86,8 +106,6 @@
 
   &__check-name {
     width: 20%;
-    // height: 20%;
-    // height: rem(40px);
     border-radius: rem(5px);
     background-color: $main;
     color: $white;
@@ -97,16 +115,17 @@
       border: 2px solid #dadada;
       color: #dadada;
       background-color: $white;
+      cursor: not-allowed;
     }
 
     @include desktop {
-      font-size: rem(16px);
+      font-size: rem(14px);
       padding: 4%;
     }
 
     @include mobile {
-      padding: 4%;
-      font-size: rem(12px);
+      padding: 3% 4%;
+      font-size: rem(8px);
     }
   }
 
@@ -131,6 +150,7 @@
       color: #dadada;
       background-color: $white;
       box-shadow: none;
+      cursor: not-allowed;
     }
   }
 

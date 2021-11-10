@@ -9,35 +9,26 @@
 }
 
 .membership-header {
+  padding-top: rem(40px);
+  padding-bottom: rem(40px);
+
+  h1 {
+    @include autoMargin;
+    width: rem(90px);
+    height: rem(90px);
+  }
+
   img {
     display: block;
-    @include autoMargin;
-  }
-  @include desktop {
-    padding-top: rem(40px);
-    padding-bottom: rem(40px);
-
-    img {
-      width: rem(120px);
-      height: rem(120px);
-    }
-  }
-
-  @include mobile {
-    margin-top: rem(60px);
-    margin-bottom: rem(40px);
-  }
-
-  img {
-    width: rem(100px);
-    height: rem(100px);
+    width: rem(90px);
+    height: rem(90px);
   }
 }
 
 .membership-main {
   position: relative;
   background-color: white;
-  border-radius: 2%;
+  border-radius: 1%;
   @include autoMargin;
   min-height: rem(400px);
   @include desktop {
@@ -58,7 +49,7 @@
     font-weight: bold;
 
     @include desktop {
-      font-size: rem(30px);
+      font-size: rem(26px);
       padding: 5% 0;
     }
 
@@ -105,8 +96,14 @@
     }
 
     &:focus {
-      border: 1.5px solid black;
       background-color: $white;
+      @include desktop {
+        outline: 3px solid black;
+      }
+
+      @include mobile {
+        outline: 1px solid black;
+      }
     }
 
     @include desktop {
@@ -128,11 +125,22 @@
     }
   }
 
-  // &__password-icon {
-  //   position: absolute;
-  //   right: 0;
-  //   top: 1;
-  // }
+  &__password-icon {
+    position: absolute;
+    cursor: pointer;
+
+    @include desktop {
+      width: rem(24px);
+      height: rem(24px);
+      left: rem(305px);
+      top: rem(235px);
+    }
+
+    @include mobile {
+      right: 13%;
+      top: 42%;
+    }
+  }
 
   &__checkbox {
     display: block;
@@ -153,10 +161,15 @@
       padding-left: rem(24px);
     }
 
+    input:checked ~ &--checkmark {
+      background-color: $main;
+    }
+
     &--checkmark {
       position: absolute;
       top: 0;
       left: 0;
+      cursor: pointer;
 
       @include desktop {
         height: rem(20px);
@@ -175,13 +188,27 @@
         transition: 0.1s;
       }
 
-      &:checked {
-        background-color: blue;
+      &:after {
+        content: '';
+        position: absolute;
+        display: none;
       }
     }
 
-    input:checked + .checkmark {
-      background-color: blue;
+    input:checked ~ &--checkmark:after {
+      display: block;
+    }
+
+    .login-form__checkbox--checkmark:after {
+      left: 6px;
+      top: 1px;
+      width: 7px;
+      height: 15px;
+      border: solid white;
+      border-width: 0 3px 3px 0;
+      -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      transform: rotate(45deg);
     }
   }
 
@@ -205,6 +232,7 @@
       color: #dadada;
       background-color: $white;
       box-shadow: none;
+      cursor: not-allowed;
     }
   }
 
@@ -223,7 +251,15 @@
   }
 }
 
-// @keyframes text-field-animate-in {
-// }
+.error-input {
+  background-color: $inputError;
+  border: 3px solid $inputErrorBorder;
 
-// animation: 0.55s text-field-animate-in cubic-bezier(0.22, 0.68, 0, 1) backwards;
+  &:hover {
+    background-color: $inputErrorHover;
+  }
+
+  &::placeholder {
+    color: $inputErrorPlaceholder;
+  }
+}
