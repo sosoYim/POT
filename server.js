@@ -1,10 +1,13 @@
-// const express = require('express');
+const express = require('express');
+const path = require('path');
 
-// const app = express();
+const app = express();
+const PORT = 3000;
 
-// const PORT = 3000;
+app.use(express.static('public'));
 
-// // Mock data
-// const store = [];
+app.get('/*', (req, res) => {
+  res.sendFile(path.join(__dirname, '/public/index.html'));
+});
 
-// app.listen(PORT, () => console.log(`Server listening at http://localhost:${PORT}`)); // port, callback
+app.listen(PORT, () => console.log(`Server listening at http://localhost:${PORT}`)); // port, callback

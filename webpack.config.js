@@ -7,76 +7,18 @@ module.exports = {
   // 번들 설정 진입점
   entry: {
     // 프로퍼티 키가 output의 [name]에 매칭
-    app: './src/js/app.js',
-    main: './src/js/main.js',
-    appliedpot: './src/js/appliedpot.js',
-    createboard: './src/js/createboard.js',
-    createdpot: './src/js/createdpot.js',
-    detailboard: './src/js/detailboard.js',
-    manage: './src/js/manage.js',
-    participantedpot: './src/js/participantedpot.js',
-    setting: './src/js/setting.js',
-    signin: './src/js/signin.js',
-    signup: './src/js/signup.js',
+    index: './src/js/index.js',
   },
   // 번들링된 js 파일의 이름(filename)과 저장될 경로(path)를 지정
   output: {
     path: path.resolve(__dirname, 'public'),
     filename: 'js/[name].bundle.js',
   },
-  optimization: {
-    runtimeChunk: 'single',
-  },
   plugins: [
     // 번들링된 JS 파일을 html 파일에 자동 추가해주는 플러그인
     new HtmlWebpackPlugin({
-      template: 'src/template/index.html',
-      chunks: ['app', 'main'],
-    }),
-    new HtmlWebpackPlugin({
-      filename: 'appliedpot.html',
-      template: 'src/template/appliedpot.html',
-      chunks: ['app', 'appliedpot'],
-    }),
-    new HtmlWebpackPlugin({
-      filename: 'createboard.html',
-      template: 'src/template/createboard.html',
-      chunks: ['app', 'createboard'],
-    }),
-    new HtmlWebpackPlugin({
-      filename: 'createdpot.html',
-      template: 'src/template/createdpot.html',
-      chunks: ['app', 'createdpot'],
-    }),
-    new HtmlWebpackPlugin({
-      filename: 'detailboard.html',
-      template: 'src/template/detailboard.html',
-      chunks: ['app', 'detailboard'],
-    }),
-    new HtmlWebpackPlugin({
-      filename: 'manage.html',
-      template: 'src/template/manage.html',
-      chunks: ['app', 'manage'],
-    }),
-    new HtmlWebpackPlugin({
-      filename: 'participantedpot.html',
-      template: 'src/template/participantedpot.html',
-      chunks: ['app', 'participantedpot'],
-    }),
-    new HtmlWebpackPlugin({
-      filename: 'setting.html',
-      template: 'src/template/setting.html',
-      chunks: ['app', 'setting'],
-    }),
-    new HtmlWebpackPlugin({
-      filename: 'signin.html',
-      template: 'src/template/signin.html',
-      chunks: ['app', 'signin'],
-    }),
-    new HtmlWebpackPlugin({
-      filename: 'signup.html',
-      template: 'src/template/signup.html',
-      chunks: ['app', 'signup'],
+      template: 'src/index.html',
+      chunks: ['index'],
     }),
     // css 결과물을 내보내기 위한 플러그인. 컴파일 + 번들링 CSS 파일이 저장될 경로와 이름 지정
     new MiniCssExtractPlugin({ filename: 'css/style.css' }),
