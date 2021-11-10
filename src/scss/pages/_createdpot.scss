@@ -1,0 +1,8 @@
+@import '../utils/';
+
+.header__wrapper.long {
+  padding-bottom: 40px;
+  @include mobile {
+    padding-bottom: 20px;
+  }
+}

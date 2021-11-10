@@ -6,12 +6,15 @@
   padding: 0 20px;
 
   &__wrapper {
-    max-width: 1040px;
+    max-width: 1000px;
     margin: 0 auto;
-    padding: 42px 0 0;
+    padding-top: 40px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    @include mobile {
+      padding-top: 20px;
+    }
   }
 
   & > h1 {
@@ -68,6 +71,7 @@
 
     &-setting-list {
       position: absolute;
+      z-index: 100;
       background-color: $white;
       top: 130%;
       right: 0;
