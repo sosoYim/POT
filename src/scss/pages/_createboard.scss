@@ -50,6 +50,20 @@
     }
     &__label {
       margin-right: rem(18);
+      width: rem(51);
+      height: rem(51);
+      &--top {
+        // background-image: url(./../../images/icon_top.svg);
+        background-repeat: no-repeat;
+      }
+      &--jungle {
+      }
+      &--mid {
+      }
+      &--onedeal {
+      }
+      &--support {
+      }
     }
     &__checkbox {
     }

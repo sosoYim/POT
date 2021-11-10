@@ -1,13 +1,22 @@
 @import '../utils/';
 
 .header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin: 0 auto;
-  max-width: 1040px;
-  padding: 42px 20px 0;
+  width: 100vw;
   color: $black;
+  background-color: $white;
+
+  &__wrapper {
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: 42px 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  & > h1 {
+    margin: 0;
+  }
 
   @include mobile {
     padding: 24px;
@@ -63,6 +72,7 @@
 
     &-setting-list {
       position: absolute;
+      background-color: $white;
       top: 130%;
       right: 0;
       padding: 14px 20px;
