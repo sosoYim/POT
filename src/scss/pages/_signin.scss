@@ -9,35 +9,26 @@
 }
 
 .membership-header {
+  padding-top: rem(40px);
+  padding-bottom: rem(40px);
+
+  h1 {
+    @include autoMargin;
+    width: rem(90px);
+    height: rem(90px);
+  }
+
   img {
     display: block;
-    @include autoMargin;
-  }
-  @include desktop {
-    padding-top: rem(40px);
-    padding-bottom: rem(40px);
-
-    img {
-      width: rem(120px);
-      height: rem(120px);
-    }
-  }
-
-  @include mobile {
-    margin-top: rem(60px);
-    margin-bottom: rem(40px);
-  }
-
-  img {
-    width: rem(100px);
-    height: rem(100px);
+    width: rem(90px);
+    height: rem(90px);
   }
 }
 
 .membership-main {
   position: relative;
   background-color: white;
-  border-radius: 2%;
+  border-radius: 1%;
   @include autoMargin;
   min-height: rem(400px);
   @include desktop {
@@ -49,17 +40,6 @@
   }
 }
 
-// @keyframes text-field-animate-in {
-//   0% {
-//     opacity: 0;
-//   }
-
-//   100% {
-//     top: 0;
-//     left: 0;
-//   }
-// }
-
 .login-form {
   padding: 0 10%;
   padding-top: rem(20px);
@@ -69,7 +49,7 @@
     font-weight: bold;
 
     @include desktop {
-      font-size: rem(30px);
+      font-size: rem(26px);
       padding: 5% 0;
     }
 
@@ -189,6 +169,7 @@
       position: absolute;
       top: 0;
       left: 0;
+      cursor: pointer;
 
       @include desktop {
         height: rem(20px);
