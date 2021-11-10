@@ -11,14 +11,17 @@
 <body>
   <!-- 헤더 -->
   <header class="header">
-    <a class="header__logo-link" href="javascript:void(0);">
-      <img class="header__logo" src="./images/logo.png" alt="logo"></img>
-    </a>
-    <nav class="header__nav">
-      <a class="header__nav-link" href="/src/create"><span class="header__nav-create-pot">POT 생성</span></a>
-      <a class="header__nav-link login-info" href="javascript:void(0);">
-        <span class="header__nav-login">로그인</span>
-        <!-- <span class="header__nav-username">왕치</span>
+    <div class="header__wrapper">
+      <h1>
+        <a class="header__logo-link" href="javascript:void(0);">
+          <img class="header__logo" src="./images/logo.png" alt="logo">
+        </a>
+      </h1>
+      <nav class="header__nav">
+        <a class="header__nav-link" href="/src/create"><span class="header__nav-create-pot">POT 생성</span></a>
+        <a class="header__nav-link login-info" href="javascript:void(0);">
+          <span class="header__nav-login">로그인</span>
+          <!-- <span class="header__nav-username">왕치</span>
           <span class="header__nav-userinfo">
             <a role="button" class="header__nav-user-img"></a>
             <box-icon type="solid" name="down-arrow" color="#4c4c4c" size="20px"></box-icon>
@@ -40,20 +43,10 @@
               <div class="logout">로그아웃</div>
             </a>
           </div> -->
-      </a>
-    </nav>
-  </header>
-
-  <h1 class="board__title">게시글 타이틀</h1>
-  <main class="main__container">
-    <div class="main__filter-wrapper">
-      <h2 class="main__filter-title">남은 포지션</h2>
-      <div class="main__filter">
-        <button></button>
-      </div>
+        </a>
+      </nav>
     </div>
-    <div class="main__wrapper"></div>
-  </main>
+  </header>
 </body>
 
 </html>
