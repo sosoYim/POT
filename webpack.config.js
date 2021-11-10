@@ -24,6 +24,9 @@ module.exports = {
     path: path.resolve(__dirname, 'public'),
     filename: 'js/[name].bundle.js',
   },
+  optimization: {
+    runtimeChunk: 'single',
+  },
   plugins: [
     // 번들링된 JS 파일을 html 파일에 자동 추가해주는 플러그인
     new HtmlWebpackPlugin({

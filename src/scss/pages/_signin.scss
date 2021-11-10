@@ -1,11 +1,28 @@
 .body {
-  background-image: url('../images/background.png');
+  background-image: url('../images/signin-background.png');
   background-repeat: no-repeat;
   background-size: cover;
+  height: 100vh;
+  overflow: hidden;
 }
 
-.signin-header {
-  background-color: lime;
-  width: 100%;
-  height: 50px;
-}
+// .signin-header {
+//   background-color: lime;
+//   width: 100%;
+//   height: 50px;
+// }
+
+// h1 {
+//   color: red;
+//   background-color: lime;
+// }
+
+// h2 {
+//   color: blue;
+// }
+
+// .background {
+//   position: absolute;
+//   width: 100%;
+//   //   height: 100%;
+// }
