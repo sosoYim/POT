@@ -35,8 +35,14 @@
     }
 
     &:focus {
-      outline: 3px solid black;
       background-color: $white;
+      @include desktop {
+        outline: 3px solid black;
+      }
+
+      @include mobile {
+        outline: 1px solid black;
+      }
     }
 
     @include desktop {
@@ -69,13 +75,6 @@
     }
   }
 
-  //   &__warning-message {
-  //     padding-left: rem(5px);
-  //     @include mobile {
-  //       font-size: rem(12px);
-  //     }
-  //   }
-
   &__summonername-check {
     display: flex;
     min-height: rem(40px);
@@ -86,8 +85,6 @@
 
   &__check-name {
     width: 20%;
-    // height: 20%;
-    // height: rem(40px);
     border-radius: rem(5px);
     background-color: $main;
     color: $white;
@@ -97,6 +94,7 @@
       border: 2px solid #dadada;
       color: #dadada;
       background-color: $white;
+      cursor: not-allowed;
     }
 
     @include desktop {
@@ -131,6 +129,7 @@
       color: #dadada;
       background-color: $white;
       box-shadow: none;
+      cursor: not-allowed;
     }
   }
 

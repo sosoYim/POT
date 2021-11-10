@@ -116,10 +116,14 @@
     }
 
     &:focus {
-      outline: 3px solid black;
       background-color: $white;
-      // color: white;
-      // animation: 0.55s text-field-animate-in cubic-bezier(0.22, 0.68, 0, 1) backwards;
+      @include desktop {
+        outline: 3px solid black;
+      }
+
+      @include mobile {
+        outline: 1px solid black;
+      }
     }
 
     @include desktop {
@@ -247,6 +251,7 @@
       color: #dadada;
       background-color: $white;
       box-shadow: none;
+      cursor: not-allowed;
     }
   }
 
