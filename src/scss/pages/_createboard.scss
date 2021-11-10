@@ -1,21 +1,22 @@
 @import '../utils/';
 
 .createboard-container {
+  min-width: rem(365);
+
   .form {
     margin-top: rem(45);
     &__row {
       width: 100%;
       &--title {
+        font-size: rem(36);
         height: rem(52);
         margin-bottom: rem(45);
         border-bottom: 1px solid $black;
       }
       &--type {
-        background-color: antiquewhite;
         margin-bottom: rem(28);
       }
       &--position {
-        background-color: bisque;
         margin-bottom: rem(14);
       }
       &--editor {
@@ -25,7 +26,25 @@
       }
       &--buttons {
         display: flex;
+        // display: inline-flex;
+        // flex-wrap: wrap;
+        // gap: rem(346);
         justify-content: space-between;
+      }
+    }
+  }
+
+  .editor {
+    // scrolling editor
+    height: 100%;
+    overflow-y: auto;
+    &__api {
+      height: auto;
+      min-height: 100%;
+      padding: rem(50);
+
+      .ql-editor {
+        overflow-y: visible;
       }
     }
   }
@@ -48,6 +67,7 @@
   }
 
   .form-checkbox {
+    font-weight: 700;
     &__icons {
       margin-top: rem(4);
     }
@@ -77,6 +97,18 @@
       }
     }
     &__checkbox {
+    }
+  }
+
+  @include mobile {
+    .form-radio {
+      display: inline-flex;
+      flex-wrap: wrap;
+      gap: rem(10);
+      // justify-content: space-between;
+      &__label {
+        margin: 0;
+      }
     }
   }
 
