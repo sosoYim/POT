@@ -1,7 +1,7 @@
 @use 'sass:math';
 
 // 미디어 쿼리 중단점 (Breakpoints) --------------------------------------------------------------- /
-$break: 768px;
+$break: 500px;
 
 @mixin mobile {
   @media (max-width: #{$break - 1}) {
