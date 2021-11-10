@@ -97,6 +97,7 @@
     background-color: $input;
     outline: none;
     font-weight: bold;
+    box-sizing: border-box;
 
     &:hover {
       background-color: #e5e5e5;
