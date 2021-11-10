@@ -34,15 +34,16 @@ $rootUnit: 16px !default;
 }
 
 // 플렉스 박스 믹스인 ---------------------------------------------------------------- /
-@mixin flexbox(
-  $direction: row,
-  $justify-content: flex-start,
-  $align-items: stretch,
-  $flex-wrap: nowrap
-) {
+@mixin flexbox($direction: row, $justify-content: flex-start, $align-items: stretch, $flex-wrap: nowrap) {
   display: flex;
   flex-direction: $direction;
   justify-content: $justify-content;
   align-items: $align-items;
   flex-wrap: $flex-wrap;
+}
+
+// Auto Margin을 활용한 박스 가운데 정렬 ------------------------------------------------ /
+@mixin autoMargin($marginX: auto) {
+  margin-left: $marginX;
+  margin-right: $marginX;
 }
