@@ -5,19 +5,17 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 50%;
-  height: 100vh;
-  overflow: hidden;
+  min-height: 100vh;
 }
 
 .membership-header {
-  @include autoMargin;
-
+  img {
+    display: block;
+    @include autoMargin;
+  }
   @include desktop {
-    width: rem(120px);
-    height: rem(120px);
-
-    margin-top: rem(40px);
-    margin-bottom: rem(40px);
+    padding-top: rem(40px);
+    padding-bottom: rem(40px);
 
     img {
       width: rem(120px);
@@ -26,11 +24,13 @@
   }
 
   @include mobile {
-    width: rem(100px);
-    height: rem(100px);
-
     margin-top: rem(60px);
     margin-bottom: rem(40px);
+  }
+
+  img {
+    width: rem(100px);
+    height: rem(100px);
   }
 }
 
