@@ -1,0 +1,116 @@
+@import '../utils';
+
+.card__wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  margin: rem(40) auto;
+  gap: rem(40);
+}
+
+.card {
+  background-color: $white;
+  display: inline-block;
+  width: rem(220);
+  height: rem(220);
+  padding: rem(20);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: rem(10);
+
+  @include mobile {
+    width: 100%;
+  }
+
+  &__type {
+    font-size: rem(12);
+    font-weight: 700;
+    color: $purple;
+    padding: rem(3);
+    border: 1px solid $purple;
+    border-radius: rem(5);
+  }
+
+  &__title {
+    margin-top: rem(10);
+    font-size: rem(18);
+    font-weight: 700;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  &__detail {
+    display: flex;
+    justify-content: space-between;
+
+    .user {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: rem(5);
+
+      &__tier {
+        width: rem(25);
+      }
+
+      &__name {
+        display: inline-block;
+        max-width: rem(80);
+        font-size: rem(14);
+        font-weight: 700;
+        color: $gray05;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+      }
+    }
+
+    .regDate {
+      font-size: rem(13);
+      font-weight: 300;
+      display: flex;
+      align-items: center;
+      color: $gray05;
+    }
+  }
+}
+
+.position {
+  margin: rem(30) 0 rem(45);
+  display: flex;
+  justify-content: space-between;
+  width: 70%;
+
+  &__item {
+    padding: rem(3);
+
+    &:after {
+      content: '';
+    }
+
+    &--completed {
+      opacity: 0.5;
+      position: relative;
+    }
+
+    &--completed:after {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: rem(30);
+      height: rem(17);
+      content: '마감';
+      position: absolute;
+      font-size: rem(12);
+      line-height: 1;
+      top: rem(35);
+      left: rem(3);
+      border: 1px solid $purple;
+      border-radius: rem(5);
+      color: $purple;
+    }
+  }
+
+  &__img {
+    width: rem(30);
+  }
+}
