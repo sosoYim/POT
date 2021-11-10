@@ -1,0 +1,61 @@
+@import '../utils/';
+
+.createboard-container {
+  background-color: yellowgreen;
+  .form {
+    &__row {
+      width: 100%;
+      &--title {
+        height: rem(52);
+        margin-bottom: rem(45);
+        border-bottom: 1px solid $black;
+      }
+      &--type {
+        background-color: antiquewhite;
+        margin-bottom: rem(28);
+      }
+      &--position {
+        background-color: bisque;
+        margin-bottom: rem(14);
+      }
+      &--editor {
+        background-color: aquamarine;
+        min-width: rem(351);
+      }
+      &--buttons {
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+  }
+
+  .form-text {
+    width: 100%;
+    height: 100%;
+  }
+
+  .form-radio {
+    width: 100%;
+    height: 100%;
+    &__label {
+      display: inline-block;
+    }
+    &__radio {
+    }
+  }
+
+  .form-checkbox {
+    &__icons {
+      margin-top: rem(4);
+    }
+    &__label {
+      margin-right: rem(18);
+    }
+    &__checkbox {
+    }
+  }
+
+  // @include mobile {
+  //   background-color: pink;
+  // }
+}
