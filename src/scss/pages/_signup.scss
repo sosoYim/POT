@@ -50,8 +50,6 @@
     @include desktop {
       text-indent: 1.5rem;
       font-size: rem(15px);
-      //   margin-top: rem(15px);
-      //     margin-bottom: rem(15px);
       padding: rem(20px) 0;
       padding-right: 0;
     }
@@ -59,8 +57,6 @@
     @include mobile {
       text-indent: 1rem;
       font-size: rem(12px);
-      //   margin-top: rem(10px);
-      //   margin-bottom: rem(10px);
       padding: rem(10px) 0;
       padding-right: 0;
     }
