@@ -19,6 +19,14 @@
   .main__container {
     background-color: #ffffff;
   }
+  .button {
+    font-weight: 300;
+    font-size: 16px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+    &:hover {
+      background-color: rgba($color: $main, $alpha: 0.5);
+    }
+  }
   // flex: 1;
   // .main,
   // .main__container,
@@ -45,7 +53,7 @@
         width: rem(487);
       }
       &--buttons {
-        font-size: 16px;
+        // font-size: 16px;
         // display: flex;
         // gap: rem(5);
         // font-weight: 300;
@@ -73,7 +81,7 @@
       padding: rem(10) rem(15);
       text-align: center;
       margin: rem(17) 0;
-      font-size: 16px;
+      // font-size: 16px;
     }
   }
 
@@ -102,7 +110,7 @@
       flex: 1;
     }
     &__button {
-      font-size: 16px;
+      // font-size: 16px;
       padding: rem(10) rem(15);
     }
   }
