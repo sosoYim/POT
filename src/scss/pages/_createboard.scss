@@ -1,9 +1,21 @@
 @import '../utils/';
 
 .createboard-container {
+  padding: 0 20px 20px;
   min-width: rem(365);
   max-width: rem(1040);
   @include autoMargin;
+
+  .button {
+    width: rem(88);
+    height: rem(35);
+    line-height: rem(35);
+    text-align: center;
+    padding: 0;
+    font-weight: 500;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  }
+
   .form {
     margin-top: rem(45);
     &__row {
@@ -61,7 +73,7 @@
     &__label {
       cursor: pointer;
       display: inline-block;
-      margin-right: rem(25);
+      margin-right: rem(8);
     }
     &__radio {
     }
@@ -70,31 +82,49 @@
   .form-checkbox {
     font-weight: 700;
     &__icons {
-      margin-top: rem(4);
+      margin-top: rem(16);
+      @include mobile {
+        display: flex;
+        justify-content: space-between;
+      }
     }
     &__label {
-      &:hover {
-        cursor: pointer;
-      }
-      margin-right: rem(18);
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+      padding: 8px;
+      border-radius: 10px;
+      margin: 0;
+      line-height: 0;
+      // background-color: transparent;
       width: rem(51);
       height: rem(51);
       display: inline-block;
       background-repeat: no-repeat;
+      background-size: contain;
       &--top {
-        background-image: url(../images/icon-top.png);
+        background-image: url(../images/position/top.png);
       }
       &--jungle {
-        background-image: url(../images/icon-jungle.png);
+        background-image: url(../images/position/jungle.png);
       }
       &--mid {
-        background-image: url(../images/icon-mid.png);
+        background-image: url(../images/position/mid.png);
       }
       &--adc {
-        background-image: url(../images/icon-adc.png);
+        background-image: url(../images/position/bottom.png);
       }
       &--support {
-        background-image: url(../images/icon-support.png);
+        background-image: url(../images/position/support.png);
+      }
+      &:hover {
+        cursor: pointer;
+        outline: 4px solid $main;
+        // box-shadow: 0 0 0 4px $main inset, 0px 4px 4px rgba(0, 0, 0, 0.15);
+        background-color: rgba($color: $main, $alpha: 0.2);
+      }
+      &.select {
+        // box-shadow: 0 0 0 4px $main inset;
+        outline: 4px solid $main;
+        background-color: rgba($color: $main, $alpha: 0.2);
       }
     }
     &__checkbox {
@@ -114,17 +144,18 @@
       }
     }
   }
-
-  // FOR FILTER ====================================
-  .position-wrapper {
-    max-width: 500px;
-    @include mobile {
-      max-width: 300px;
-    }
-  }
-
-  .main__filter-position-list button {
-    border: 4px solid $main;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  }
 }
+
+// FOR FILTER ====================================
+//   .position-wrapper {
+//     max-width: 500px;
+//     @include mobile {
+//       max-width: 300px;
+//     }
+//   }
+
+//   .main__filter-position-list button {
+//     border: 4px solid $main;
+//     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+//   }
+// }
