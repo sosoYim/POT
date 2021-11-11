@@ -40,6 +40,19 @@
   }
 }
 
+// @keyframes labelAnimation {
+//   50% {
+//     opacity: 0;
+//   }
+//   75% {
+//     transform: scale(0.5);
+//     opacity: 0.5;
+//   }
+//   100% {
+//     opacity: 1;
+//   }
+// }
+
 .login-form {
   padding: 0 10%;
   padding-top: rem(20px);
@@ -60,10 +73,12 @@
   }
 
   &__error-message {
-    display: none;
+    display: block;
     text-align: center;
     font-weight: bold;
     font-size: rem(10px);
+    text-align: center;
+    min-height: rem(20px);
 
     color: $inputErrorPlaceholder;
 
@@ -79,6 +94,10 @@
     }
   }
 
+  &__input-container {
+    position: relative;
+  }
+
   &__input {
     display: block;
     width: 100%;
@@ -89,6 +108,24 @@
     outline: none;
     font-weight: bold;
     box-sizing: border-box;
+
+    & + label {
+      position: absolute;
+      font-weight: bold;
+      color: $inputPlaceholder;
+      top: -0.5rem;
+      left: 1rem;
+      line-height: 60px;
+      transition: 0.3s ease;
+
+      @include desktop {
+        font-size: 1rem;
+      }
+
+      @include mobile {
+        font-size: 0.7rem;
+      }
+    }
 
     &:hover {
       background-color: #e5e5e5;
@@ -104,23 +141,54 @@
       @include mobile {
         outline: 1px solid black;
       }
+
+      + label {
+        @include desktop {
+          top: -40%;
+          left: 0.5rem;
+          font-size: 0.8rem;
+        }
+
+        @include mobile {
+          top: -50%;
+          left: 0.5rem;
+          font-size: 0.6rem;
+        }
+        // animation: 0.5s labelAnimation cubic-bezier(0.22, 0.68, 0, 1) backwards;
+      }
+    }
+
+    &:valid {
+      + label {
+        @include desktop {
+          top: -40%;
+          left: 0.5rem;
+          font-size: 0.8rem;
+        }
+
+        @include mobile {
+          top: -50%;
+          left: 0.5rem;
+          font-size: 0.6rem;
+        }
+      }
     }
 
     @include desktop {
-      text-indent: 1.5rem;
+      text-indent: 0.5rem;
       font-size: rem(15px);
       margin-top: rem(15px);
       margin-bottom: rem(15px);
-      padding: rem(20px) 0;
+      padding: rem(20px) 0 rem(10px);
       padding-right: 0;
     }
 
     @include mobile {
-      text-indent: 1rem;
+      text-indent: 0.5rem;
       font-size: rem(12px);
       margin-top: rem(10px);
       margin-bottom: rem(10px);
-      padding: rem(10px) 0;
+      padding: rem(15px) 0 rem(5px);
       padding-right: 0;
     }
   }
@@ -200,15 +268,25 @@
     }
 
     .login-form__checkbox--checkmark:after {
-      left: 6px;
-      top: 1px;
-      width: 7px;
-      height: 15px;
       border: solid white;
-      border-width: 0 3px 3px 0;
       -webkit-transform: rotate(45deg);
       -ms-transform: rotate(45deg);
       transform: rotate(45deg);
+      @include desktop {
+        left: 6px;
+        top: 1px;
+        width: 7px;
+        height: 15px;
+        border-width: 0 3px 3px 0;
+      }
+
+      @include mobile {
+        left: 5px;
+        top: 0.8px;
+        width: 6px;
+        height: 11px;
+        border-width: 0 2.5px 2.5px 0;
+      }
     }
   }
 
