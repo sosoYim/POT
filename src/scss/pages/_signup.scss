@@ -78,6 +78,8 @@
 
       @include desktop {
         margin-top: rem(2px);
+        width: rem(12px);
+        height: rem(12px);
       }
     }
   }
@@ -92,36 +94,36 @@
     }
   }
 
-  &__summonername-check {
+  &__check {
     display: flex;
     min-height: rem(40px);
     justify-content: space-between;
     margin-top: rem(10px);
     margin-bottom: rem(10px);
-  }
 
-  &__check-name {
-    width: 20%;
-    border-radius: rem(5px);
-    background-color: $main;
-    color: $white;
-    font-weight: bold;
+    &-duplication {
+      width: 20%;
+      border-radius: rem(5px);
+      background-color: $main;
+      color: $white;
+      font-weight: bold;
 
-    &:disabled {
-      border: 2px solid #dadada;
-      color: #dadada;
-      background-color: $white;
-      cursor: not-allowed;
-    }
+      &:disabled {
+        border: 2px solid #dadada;
+        color: #dadada;
+        background-color: $white;
+        cursor: not-allowed;
+      }
 
-    @include desktop {
-      font-size: rem(14px);
-      padding: 4%;
-    }
+      @include desktop {
+        font-size: rem(14px);
+        padding: 4%;
+      }
 
-    @include mobile {
-      padding: 3% 4%;
-      font-size: rem(8px);
+      @include mobile {
+        padding: 3% 4%;
+        font-size: rem(8px);
+      }
     }
   }
 
@@ -165,7 +167,7 @@
   }
 }
 
-.signup-form__input.summoner-input {
+.signup-form__input.check-input {
   min-width: rem(130px);
   margin: 0;
   width: 70%;
