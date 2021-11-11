@@ -1,29 +1,35 @@
 @import '../utils/';
 @import '../components/';
 
-html,
-body {
-  height: 100%;
-}
+// html,
+// body {
+//   height: 100%;
+// }
 
-.container {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
+// .container {
+//   display: flex;
+//   flex-direction: column;
+//   height: 100%;
+// }
 
 .setting-container {
-  flex: 1;
-  .main,
-  .main__container,
-  .main__wrapper {
-    height: 100%;
+  .main {
+    @include autoMargin;
   }
+  .main__container {
+    background-color: #ffffff;
+  }
+  // flex: 1;
+  // .main,
+  // .main__container,
+  // .main__wrapper {
+  //   height: 100%;
+  // }
   &__title {
     font-size: 28px;
     font-weight: 700;
-    padding-top: rem(70);
-    margin-bottom: rem(59);
+    padding-top: rem(30px);
+    margin-bottom: rem(30px);
   }
   .form {
     &__row {
@@ -31,6 +37,7 @@ body {
         display: flex;
         flex-direction: column;
         width: rem(160);
+        // width: 50%;
       }
       &--sommener {
         margin-top: rem(20);
@@ -39,8 +46,9 @@ body {
       }
       &--buttons {
         font-size: 16px;
-        display: flex;
-        gap: rem(5);
+        // display: flex;
+        // gap: rem(5);
+        // font-weight: 300;
         height: rem(48);
         .button {
           padding: rem(10) rem(15);
@@ -91,6 +99,7 @@ body {
       border-radius: rem(5);
       padding: rem(14);
       flex-basis: 70%;
+      flex: 1;
     }
     &__button {
       font-size: 16px;
@@ -98,15 +107,18 @@ body {
     }
   }
   @include mobile {
+    .main {
+      width: 100%;
+    }
     .form {
       &__row {
         &--sommener {
           width: 100%;
         }
-        &--buttons {
-          display: flex;
-          gap: rem(5);
-        }
+        // &--buttons {
+        //   display: flex;
+        //   gap: rem(5);
+        // }
       }
     }
     .form-text {
