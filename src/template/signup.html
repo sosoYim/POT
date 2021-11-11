@@ -13,27 +13,61 @@
       </h1>
     </header>
     <main class="membership-main">
-      <form action="" class="signup-form">
+      <form class="signup-form">
         <fieldset>
           <legend class="signup-form__title"><h2>회원가입</h2></legend>
-          <input type="text" name="id" placeholder="아이디" class="signup-form__input" />
+          <div class="signup-form__check">
+            <input
+              type="text"
+              class="signup-form__input check-input"
+              id="signup-userId"
+              name="userId"
+              required
+              autocomplete="off"
+            />
+            <label for="signup-userId">아이디</label>
+            <button class="signup-form__check-duplication" disabled>중복확인</button>
+          </div>
+          <!-- <input type="text" name="id" placeholder="아이디" class="signup-form__input" /> -->
           <!-- <div class="signup-form__message">
             <img src="./images/success.svg" alt="성공" class="signup-form__message-img" />
             <span class="signup-form__text">올바른 아이디입니다.</span>
           </div> -->
           <div class="signup-form__message">
             <!-- <img src="./images/warning.svg" alt="경고" class="signup-form__message-img" />
-            <span class="signup-form__text">4~20자의 영문+숫자로 입력해주세요.</span> -->
+            <span class="signup-form__text">4~12자의 영문+숫자로 입력해주세요.</span> -->
           </div>
-          <div class="signup-form__summonername-check">
-            <input type="text" name="summoner-name" placeholder="소환사 명" class="signup-form__input summoner-input" />
-            <button class="signup-form__check-name" disabled>이름확인</button>
+          <div class="signup-form__check">
+            <!-- <div class="signup-form__input-container"> -->
+            <input
+              type="text"
+              class="signup-form__input check-input"
+              id="signup-summoner-name"
+              name="summoner-name"
+              required
+              autocomplete="off"
+            />
+            <label for="signup-summoner-name">소환사 명</label>
+            <!-- </div> -->
+            <!-- <input type="text" name="summoner-name" placeholder="소환사 명" class="signup-form__input check-input" /> -->
+            <button class="signup-form__check-duplication" disabled>이름확인</button>
           </div>
           <div class="signup-form__message">
             <!-- <img src="./images/success.svg" alt="성공" class="signup-form__message-img" />
             <span class="signup-form__text">올바른 소환사 명입니다.</span> -->
           </div>
-          <input type="password" name="password" placeholder="비밀번호" class="signup-form__input" />
+          <div class="signup-form__input-container">
+            <input
+              type="password"
+              class="signup-form__input"
+              id="signup-password"
+              name="password"
+              required
+              autocomplete="off"
+            />
+            <label for="signup-password">비밀번호</label>
+          </div>
+          <!-- <input type="password" name="password" placeholder="비밀번호" class="signup-form__input" /> -->
           <!-- <div class="signup-form__message">
             <img src="./images/success.svg" alt="성공" class="signup-form__message-img" />
             <span class="signup-form__text">올바른 비밀번호입니다.</span>
@@ -42,7 +76,17 @@
             <!-- <img src="./images/warning.svg" alt="경고" class="signup-form__message-img" />
             <span class="signup-form__text">8자리 이상의 영문, 숫자조합을 입력하세요.</span> -->
           </div>
-          <input type="password" name="confirm-password" placeholder="비밀번호 확인" class="signup-form__input" />
+          <div class="signup-form__input-container">
+            <input
+              type="password"
+              class="signup-form__input"
+              id="signup-confirm-password"
+              name="confirm-password"
+              required
+              autocomplete="off"
+            />
+            <label for="signin-confirm-password">비밀번호 확인</label>
+          </div>
           <div class="signup-form__message">
             <!-- <img src="./images/success.svg" alt="성공" class="signup-form__message-img" />
             <span class="signup-form__text">비밀번호가 일치합니다.</span> -->
