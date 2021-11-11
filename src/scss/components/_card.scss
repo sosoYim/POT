@@ -1,12 +1,5 @@
 @import '../utils';
 
-.card__wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  margin: rem(40) auto;
-  gap: rem(40);
-}
-
 .card {
   background-color: $white;
   display: inline-block;
@@ -36,6 +29,13 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    gap: rem(40);
   }
 
   &__detail {

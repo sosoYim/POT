@@ -38,6 +38,23 @@
         background-color: rgba($color: $main, $alpha: 0.2);
       }
 
+      &.open {
+        box-shadow: 0 0 0 4px $main inset, 0px 4px 4px rgba(0, 0, 0, 0.15);
+        &:hover {
+          box-shadow: 0 0 0 4px $main inset, 0px 4px 4px rgba(0, 0, 0, 0.15);
+          background-color: rgba($color: $main, $alpha: 0.2);
+        }
+      }
+
+      &.close {
+        box-shadow: 0 0 0 4px $gray04 inset;
+        opacity: 0.4;
+        &:hover {
+          box-shadow: 0 0 0 4px $gray04 inset;
+          cursor: default;
+        }
+      }
+
       &:hover {
         box-shadow: 0 0 0 4px $main inset;
       }
