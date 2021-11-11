@@ -1,0 +1,48 @@
+@import '../utils/';
+
+.detailboard-main__container {
+  .position-wrapper {
+    margin-top: 80px;
+    width: 50%;
+    @include mobile {
+      margin-top: 40px;
+      width: 100%;
+    }
+  }
+  .main__filter-position {
+    &-list img {
+      @include mobile {
+        width: 40px;
+      }
+    }
+    &-item {
+      @include mobile {
+        margin-right: 6px;
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}
+
+.main__board-content {
+  margin-top: 40px;
+  font-size: 20px;
+  line-height: 2;
+  padding: 0;
+}
+
+.detailboard-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  font-size: 24px;
+  font-weight: 700;
+  padding: 24px 120px;
+  @include mobile {
+    position: fixed;
+    width: calc(100% - 40px);
+    padding: 24px 0;
+  }
+}
