@@ -1,52 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
+  <body>
+    <div class="container">
+      <!-- 헤더 -->
+      <header class="header">
+        <div class="header__wrapper">
+          <h1>
+            <a class="header__logo-link" href="javascript:void(0);">
+              <img class="header__logo" src="./images/logo.png" alt="logo" />
+            </a>
+          </h1>
+          <nav class="header__nav">
+            <a class="header__nav-link" href="/src/create"><span class="header__nav-create-pot">POT 생성</span></a>
+            <a class="header__nav-link login-info" href="javascript:void(0);">
+              <span class="header__nav-login">로그인</span>
+              <!-- <span class="header__nav-username">왕치</span>
+            <span class="header__nav-userinfo">
+              <a role="button" class="header__nav-user-img"></a>
+              <box-icon type="solid" name="down-arrow" color="#4c4c4c" size="20px"></box-icon>
+            </span>
+            <div class="header__nav-setting-list">
+              <a href="javascript:void(0);">
+                <div class="created-pot">작성한 POT</div>
+              </a>
+              <a href="javascript:void(0);">
+                <div class="applied-pot">신청한 POT</div>
+              </a>
+              <a href="javascript:void(0);">
+                <div class="participanted-pot">참여한 POT</div>
+              </a>
+              <a href="javascript:void(0);">
+                <div class="set-user">설정</div>
+              </a>
+              <a href="javascript:void(0);">
+                <div class="logout">로그아웃</div>
+              </a>
+            </div> -->
+            </a>
+          </nav>
+        </div>
+      </header>
 
-<body>
-  <!-- 헤더 -->
-  <header class="header">
-    <div class="header__wrapper">
-      <h1>
-        <a class="header__logo-link" href="javascript:void(0);">
-          <img class="header__logo" src="./images/logo.png" alt="logo">
-        </a>
-      </h1>
-      <nav class="header__nav">
-        <a class="header__nav-link" href="/src/create"><span class="header__nav-create-pot">POT 생성</span></a>
-        <a class="header__nav-link login-info" href="javascript:void(0);">
-          <span class="header__nav-login">로그인</span>
-          <!-- <span class="header__nav-username">왕치</span>
-          <span class="header__nav-userinfo">
-            <a role="button" class="header__nav-user-img"></a>
-            <box-icon type="solid" name="down-arrow" color="#4c4c4c" size="20px"></box-icon>
-          </span>
-          <div class="header__nav-setting-list">
-            <a href="javascript:void(0);">
-              <div class="created-pot">작성한 POT</div>
-            </a>
-            <a href="javascript:void(0);">
-              <div class="applied-pot">신청한 POT</div>
-            </a>
-            <a href="javascript:void(0);">
-              <div class="participanted-pot">참여한 POT</div>
-            </a>
-            <a href="javascript:void(0);">
-              <div class="set-user">설정</div>
-            </a>
-            <a href="javascript:void(0);">
-              <div class="logout">로그아웃</div>
-            </a>
-          </div> -->
-        </a>
-      </nav>
+      <div class="setting-container">
+        <main class="main">
+          <!-- <h2 class="main__title a11y-hidden">내 정보 수정</h2> -->
+          <div class="main__container">
+            <div class="main__wrapper">
+              <h2 class="setting-container__title">내 정보 수정</h2>
+              <form class="form">
+                <div class="form__row form__row--img">
+                  <img src="./../images/defaultUser.png" alt="profil image" class="form-file__image" />
+                  <label for="profil" class="button form-file__label">
+                    이미지 선택
+                    <input type="file" id="profil" class="form-file__file" />
+                  </label>
+                </div>
+                <div class="form__row form__row--sommener">
+                  <label for="sommener" class="form-text__label">소환사명</label>
+                  <div class="form-text__input-container">
+                    <input type="text" id="sommener" class="form-text__input" value="|푸른피|" />
+                    <button type="button" class="button form-text__button">이름 확인</button>
+                    <div class="form-text__input-container--msg">올바른 소환사 명입니다.</div>
+                  </div>
+                </div>
+                <div class="form__row form__row--buttons">
+                  <button class="button submit">완료</button>
+                  <button type="button" class="button button-warn">회원 탈퇴</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </main>
+      </div>
     </div>
-  </header>
-</body>
-
+  </body>
 </html>
