@@ -19,9 +19,12 @@
     }
   }
 
-  &__input {
-    display: inline-block;
+  &__input-container {
     position: relative;
+  }
+
+  &__input {
+    display: block;
     width: 100%;
     min-width: rem(200px);
     min-height: rem(40px);
@@ -29,6 +32,24 @@
     background-color: $input;
     outline: none;
     font-weight: bold;
+
+    & + label {
+      position: absolute;
+      font-weight: bold;
+      color: $inputPlaceholder;
+      top: -0.5rem;
+      left: 1rem;
+      line-height: 60px;
+      transition: 0.3s ease;
+
+      @include desktop {
+        font-size: 1rem;
+      }
+
+      @include mobile {
+        font-size: 0.7rem;
+      }
+    }
 
     &:hover {
       background-color: #e5e5e5;
@@ -45,19 +66,54 @@
       @include mobile {
         outline: 1px solid black;
       }
+
+      + label {
+        @include desktop {
+          top: -40%;
+          left: 0.5rem;
+          font-size: 0.8rem;
+        }
+
+        @include mobile {
+          top: -50%;
+          left: 0.5rem;
+          font-size: 0.6rem;
+        }
+        // animation: 0.5s labelAnimation cubic-bezier(0.22, 0.68, 0, 1) backwards;
+      }
+    }
+
+    &:valid {
+      + label {
+        @include desktop {
+          top: -40%;
+          left: 0.5rem;
+          font-size: 0.8rem;
+        }
+
+        @include mobile {
+          top: -50%;
+          left: 0.5rem;
+          font-size: 0.6rem;
+        }
+      }
     }
 
     @include desktop {
-      text-indent: 1.5rem;
+      text-indent: 0.5rem;
       font-size: rem(15px);
-      padding: rem(20px) 0;
+      margin-top: rem(15px);
+      margin-bottom: rem(15px);
+      padding: rem(20px) 0 rem(10px);
       padding-right: 0;
     }
 
     @include mobile {
-      text-indent: 1rem;
+      text-indent: 0.5rem;
       font-size: rem(12px);
-      padding: rem(10px) 0;
+      margin-top: rem(10px);
+      margin-bottom: rem(10px);
+      padding: rem(15px) 0 rem(5px);
       padding-right: 0;
     }
   }
