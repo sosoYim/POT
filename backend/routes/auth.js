@@ -1,11 +1,21 @@
-const fs = require('fs');
 const router = require('express').Router();
 const jwt = require('jsonwebtoken');
-const { registerUser, findUser } = require('../utils/userQuery');
+const { findUserByAccount, findUser, registerUser, getUsers } = require('../query/userQuery');
+const { registerValidation, loginValidation } = require('../utils/validation');
+
+// Checking if the user is already in the database
+router.post('/checkid', (req, res) => {
+  console.log(findUserByAccount(req.body.account));
+});
 
 router.post('/register', (req, res) => {
+  // Lets validate the data before we a user
+  const { error } = registerValidation(req.body);
+  if (error) return res.status(400).send(error.details[0].message);
+
+  // Create a new user
   const user = {
-    userid: req.body.name,
+    account: req.body.account,
     password: req.body.password,
     summoner: req.body.summoner,
     imageUrl: req.body.imageUrl,
@@ -14,9 +24,7 @@ router.post('/register', (req, res) => {
 
   try {
     registerUser(user);
-
-    const data = JSON.parse(fs.readFileSync('./backend/db/users.json'));
-    res.send(data);
+    res.send(user.userid);
   } catch (err) {
     res.status(400).send(err);
   }

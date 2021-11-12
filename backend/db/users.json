@@ -1,20 +1,23 @@
 [
   {
-    "userid": "jeongmin",
+    "userId": 3,
+    "account": "jeongmin",
     "password": "111111",
     "summoner": "l푸른피l",
     "imageUrl": "./images/defaultUser.png",
     "encryptedId": "WGsLd_yKgzkPcTnp3XC2HbJ_6Z0-o6jrd7Be15vDN4Ct6kw"
   },
   {
-    "userid": "wonjae",
+    "userId": 2,
+    "account": "wonjae",
     "password": "123456",
     "summoner": "파기로",
     "imageUrl": "./images/defaultUser.png",
     "encryptedId": "lZzLQ5FxuQuciOUasTzMSGJRu7she-Y129X8EHdd3QIp4hE"
   },
   {
-    "userid": "chaeyoung",
+    "userId": 1,
+    "account": "chaeyoung",
     "password": "123456",
     "summoner": "바케모노채영",
     "imageUrl": "./images/defaultUser.png",
