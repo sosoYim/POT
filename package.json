@@ -5,7 +5,7 @@
     "start": "run-p start:backend start:frontend",
     "build": "webpack -w",
     "start:frontend": "webpack serve",
-    "start:backend": "nodemon server"
+    "start:backend": "nodemon ./backend/server"
   },
   "dependencies": {
     "@babel/runtime-corejs3": "^7.16.0",
