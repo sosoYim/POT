@@ -10,8 +10,7 @@ const findUser = (account, password) =>
 
 const registerUser = newUser => {
   const users = JSON.parse(fs.readFileSync('./backend/db/users.json'));
-  const newUsers = [{ userId: users[0].userId + 1, ...newUser }, ...users];
-
+  const newUsers = [{ userId: users.length === 0 ? 1 : users[0].userId + 1, ...newUser }, ...users];
   fs.writeFileSync('./backend/db/users.json', JSON.stringify(newUsers));
 };
 
