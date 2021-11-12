@@ -1,7 +1,5 @@
 import { request } from '../controller/createboard';
 
-const $boardForm = document.querySelector('.createboard-form');
-
 const quill = new Quill('#editor__api', {
   modules: {
     toolbar: [['bold', 'italic'], ['blockquote'], [{ list: 'ordered' }, { list: 'bullet' }]],
@@ -11,7 +9,9 @@ const quill = new Quill('#editor__api', {
   theme: 'snow',
 });
 
-$boardForm.onsubmit = e => {
+console.log(quill);
+
+document.querySelector('.createboard-form').onsubmit = e => {
   e.preventDefault();
   request(e.target);
   // request(e.target);
