@@ -14,7 +14,7 @@ router.post('/register', (req, res) => {
   try {
     registerUser(user);
 
-    const data = JSON.parse(fs.readFileSync('./db/users.json'));
+    const data = JSON.parse(fs.readFileSync('./backend/db/users.json'));
     res.send(data);
   } catch (err) {
     res.status(400).send(err);
