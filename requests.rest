@@ -1,7 +1,15 @@
-POST http://localhost:3000/user/signin
+POST http://localhost:3000/user/register
 Content-Type: application/json
 
 {
-    "userid": "jeongmin",
-    "password": "111111"
+    "userid": "hihihi",
+    "password": "123456",
+    "summoner": "혼모노",
+    "imageUrl": "./images/defaultUser.png",
+    "encryptedId": "g8_gAvyoh-x35TeclWkFXJP5abc9XKJW5JcBQIHg4avMsSEA"
 }
+
+
+###
+
+GET http://localhost:3000/
