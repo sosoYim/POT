@@ -54,19 +54,27 @@
     <main>
       <h2 class="a11y-hidden">팟 생성하기</h2>
       <div class="createboard-container">
-        <form class="form">
+        <form class="form createboard-form" method="post">
           <div class="form__row form__row--title">
             <label for="title"></label>
-            <input type="text" name="title" id="title" class="form-text" placeholder="제목을 입력하세요" required />
+            <input
+              type="text"
+              name="title"
+              id="title"
+              class="form-text"
+              placeholder="제목을 입력하세요"
+              required
+              value="테스트중"
+            />
           </div>
 
           <div class="form__row form__row--type">
             <fieldset class="form-radio">
               <legend class="a11y-hidden">게임 타입을 선택해주세요.</legend>
-              <label for="2pot" class="button form-radio__label">2POT</label>
-              <input type="radio" name="type" id="2pot" class="form-radio__radio" required />
-              <input type="radio" name="type" id="5pot" class="form-radio__radio" required />
-              <label for="5pot" class="button button-deactive form-radio__label">5POT</label>
+              <input type="radio" name="type" id="2POT" value="2POT" class="form-radio__radio" checked />
+              <label for="2POT" class="button button-deactive form-radio__label">2POT</label>
+              <input type="radio" name="type" id="5POT" value="5POT" class="form-radio__radio" />
+              <label for="5POT" class="button button-deactive form-radio__label">5POT</label>
             </fieldset>
           </div>
 
@@ -74,20 +82,16 @@
             <fieldset class="form-checkbox">
               <legend>필요한 포지션을 선택해주세요.</legend>
               <div class="form-checkbox__icons">
-                <label for="top" class="form-checkbox__label form-checkbox__label--top select" aria-label="탑"></label>
-                <input type="checkbox" name="position" id="top" class="form-checkbox__checkbox" />
-                <label for="jungle" class="form-checkbox__label form-checkbox__label--jungle" aria-label="정글"></label>
-                <input type="checkbox" name="position" id="jungle" class="form-checkbox__checkbox" />
+                <input type="checkbox" name="position" id="top" class="form-checkbox__checkbox" value="top" checked />
+                <label for="top" class="form-checkbox__label form-checkbox__label--top" aria-label="탑"></label>
+                <input type="checkbox" name="position" id="jug" class="form-checkbox__checkbox" value="jug" />
+                <label for="jug" class="form-checkbox__label form-checkbox__label--jug" aria-label="정글"></label>
+                <input type="checkbox" name="position" id="mid" class="form-checkbox__checkbox" value="mid" />
                 <label for="mid" class="form-checkbox__label form-checkbox__label--mid" aria-label="미드"></label>
-                <input type="checkbox" name="position" id="mid" class="form-checkbox__checkbox" />
-                <label for="onedeal" class="form-checkbox__label form-checkbox__label--adc" aria-label="ADC"></label>
-                <input type="checkbox" name="position" id="onedeal" class="form-checkbox__checkbox" />
-                <label
-                  for="support"
-                  class="form-checkbox__label form-checkbox__label--support"
-                  aria-label="서포트"
-                ></label>
-                <input type="checkbox" name="position" id="support" class="form-checkbox__checkbox" />
+                <input type="checkbox" name="position" id="adc" class="form-checkbox__checkbox" value="adc" />
+                <label for="adc" class="form-checkbox__label form-checkbox__label--adc" aria-label="ADC"></label>
+                <input type="checkbox" name="position" id="sup" class="form-checkbox__checkbox" value="sup" />
+                <label for="sup" class="form-checkbox__label form-checkbox__label--sup" aria-label="서포트"></label>
               </div>
             </fieldset>
           </div>
@@ -98,7 +102,7 @@
 
           <div class="form__row form__row--buttons">
             <a href="#" class="button closed">뒤로가기</a>
-            <button class="button">글쓰기</button>
+            <button class="button" type="submit">글쓰기</button>
           </div>
         </form>
       </div>
@@ -106,16 +110,6 @@
     <!-- Include the Quill library -->
     <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
     <!-- Initialize Quill editor -->
-    <script>
-      const quill = new Quill('#editor__api', {
-        modules: {
-          toolbar: [['bold', 'italic'], ['blockquote'], [{ list: 'ordered' }, { list: 'bullet' }]],
-        },
-        placeholder: '모집 내용을 입력해 주세요.',
-        scrollingContainer: '.editor',
-        theme: 'snow',
-      });
-    </script>
   </body>
 </html>
 <!-- 

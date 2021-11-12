@@ -9,16 +9,16 @@ Content-Type: application/json
     "encryptedId": "g8_gAvyoh-x35TeclWkFXJP5abc9XKJW5JcBQIHg4avMsSEA"
 }
 
-###
-POST http://localhost:3000/api/user/checkid
-Content-Type: application/json
+# ###
+# POST http://localhost:3000/api/user/checkid
+# Content-Type: application/json
 
-{
-    "account": "won"
-}
+# {
+#     "account": "won"
+# }
 
 
-###
+# ###
 
-GET http://localhost:3000/
+# GET http://localhost:3000/
 
