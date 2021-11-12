@@ -1,7 +1,10 @@
 const Joi = require('joi');
 
-// Reigster Validation
-
+/**
+ * Simple check register validation using Joi.
+ * @param {object} data - register form data
+ * @returns {boolean}
+ */
 const registerValidation = data => {
   const schema = Joi.object({
     account: Joi.string().min(4).required(),
@@ -14,6 +17,11 @@ const registerValidation = data => {
   return schema.validate(data);
 };
 
+/**
+ * Simpple check login validation using Joi.
+ * @param {object} data - login form data
+ * @returns {boolean}
+ */
 const loginValidation = data => {
   const schema = Joi.object({
     account: Joi.string().min(4).required(),
