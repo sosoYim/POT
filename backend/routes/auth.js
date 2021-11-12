@@ -30,8 +30,6 @@ router.post('/register', (req, res) => {
   }
 });
 
-module.exports = router;
-
 // const fs = require('fs');
 
 // fs.readFileSync('users.json', (err, data) => {
@@ -75,3 +73,5 @@ router.post('/signin', (req, res) => {
   // 로그인 성공
   res.send({ userid, encryptedId: user.encryptedId });
 });
+
+module.exports = router;
