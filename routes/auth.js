@@ -1,13 +1,39 @@
+const fs = require('fs');
 const router = require('express').Router();
+const { registerUser } = require('../utils/helper');
 
 router.post('/register', (req, res) => {
-  res.send('Register');
+  const user = {
+    userid: req.body.name,
+    password: req.body.password,
+    summoner: req.body.summoner,
+    imageUrl: req.body.imageUrl,
+    encryptedId: req.body.encryptedId,
+  };
+
+  try {
+    registerUser(user);
+
+    const data = JSON.parse(fs.readFileSync('./db/users.json'));
+    res.send(data);
+  } catch (err) {
+    res.status(400).send(err);
+  }
 });
 
 module.exports = router;
 
+// const fs = require('fs');
+
+// fs.readFileSync('users.json', (err, data) => {
+//   if (err) throw err;
+//   const users = JSON.parse(data);
+//   console.log(users);
+//   console.log('hi');
+// });
+
+// console.log('hi');
 // const jwt = require('jsonwebtoken');
-// const users = require('../model/users');
 
 // router.post('/register', (req, res) => {});
 

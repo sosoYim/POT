@@ -1,18 +1,26 @@
 const express = require('express');
-// const path = require('path');
-const cookieParser = require('cookie-parser');
-// const jwt = require('jsonwebtoken');
+
+const app = express();
 const authRoutes = require('./routes/auth');
 
 require('dotenv').config();
 
-const app = express();
 const PORT = process.env.PORT || 3001;
 
 app.use(express.static('public'));
 app.use(express.json());
-app.use(cookieParser());
 app.use('/user', authRoutes);
+
+app.get('/*', (req, res) => {
+  res.send('hi');
+});
+
+app.listen(PORT, () => console.log(`Server listening at http://localhost:${PORT}`)); // port, callback
+
+// const cookieParser = require('cookie-parser');
+// app.use(cookieParser());
+// const path = require('path');
+// const jwt = require('jsonwebtoken');
 
 // const auth = (req, res, next) => {
 //   // 토큰이 리퀘스트의 Authorization 헤더를 통해 전달되면 req.headers.authorization으로 전달받고
@@ -31,10 +39,3 @@ app.use('/user', authRoutes);
 //     return res.redirect('/signin');
 //   }
 // };
-
-app.get('/*', (req, res) => {
-  res.send('hi');
-  // res.sendFile(path.join(__dirname, '/public/index.html'));
-});
-
-app.listen(PORT, () => console.log(`Server listening at http://localhost:${PORT}`)); // port, callback
