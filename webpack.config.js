@@ -8,16 +8,16 @@ module.exports = {
   entry: {
     // 프로퍼티 키가 output의 [name]에 매칭
     app: './frontend/src/js/app.js',
-    main: './frontend/src/js/main.js',
-    appliedpot: './frontend/src/js/appliedpot.js',
-    createboard: './frontend/src/js/createboard.js',
-    createdpot: './frontend/src/js/createdpot.js',
-    detailboard: './frontend/src/js/detailboard.js',
-    manage: './frontend/src/js/manage.js',
-    participantedpot: './frontend/src/js/participantedpot.js',
-    setting: './frontend/src/js/setting.js',
-    signin: './frontend/src/js/signin.js',
-    signup: './frontend/src/js/signup.js',
+    main: './frontend/src/js/event/main.js',
+    appliedpot: './frontend/src/js/event/appliedpot.js',
+    createboard: './frontend/src/js/event/createboard.js',
+    createdpot: './frontend/src/js/event/createdpot.js',
+    detailboard: './frontend/src/js/event/detailboard.js',
+    manage: './frontend/src/js/event/manage.js',
+    participantedpot: './frontend/src/js/event/participantedpot.js',
+    setting: './frontend/src/js/event/setting.js',
+    signin: './frontend/src/js/event/signin.js',
+    signup: './frontend/src/js/event/signup.js',
   },
   // 번들링된 js 파일의 이름(filename)과 저장될 경로(path)를 지정
   output: {

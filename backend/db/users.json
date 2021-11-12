@@ -1,21 +1,24 @@
 [
   {
-    "userid": "jeongmin",
-    "password": "111111",
+    "userId": 3,
+    "account": "jeongmin",
+    "password": "$2a$10$6dWrohg2ebOsxUVzVe7SZu4vks5gtjqYh7TCXZF8lFc1U4EOaIJkS",
     "summoner": "l푸른피l",
     "imageUrl": "./images/defaultUser.png",
     "encryptedId": "WGsLd_yKgzkPcTnp3XC2HbJ_6Z0-o6jrd7Be15vDN4Ct6kw"
   },
   {
-    "userid": "wonjae",
-    "password": "123456",
+    "userId": 2,
+    "account": "wonjae",
+    "password": "$2a$10$rW34l3nubB6LxTlM9pn6BePvSMe3gM4B49/qqS4JbVBWWE8lKsOem",
     "summoner": "파기로",
     "imageUrl": "./images/defaultUser.png",
     "encryptedId": "lZzLQ5FxuQuciOUasTzMSGJRu7she-Y129X8EHdd3QIp4hE"
   },
   {
-    "userid": "chaeyoung",
-    "password": "123456",
+    "userId": 1,
+    "account": "chaeyoung",
+    "password": "$2a$10$Xukb8vY042Pxt7kK4Sz53.RdeRBrEtYFW.rK4sM9zzSPUpdVeef5m",
     "summoner": "바케모노채영",
     "imageUrl": "./images/defaultUser.png",
     "encryptedId": "f5_gAvyoh-x35TeclWkFXJP5C9XKJW5JcBQIHg4avMsSEA"

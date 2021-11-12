@@ -7,6 +7,13 @@ const init = async () => {
       password: '111111',
     });
     console.log(data);
+    const res = await axios.get(`/api/boards/list`, {
+      params: {
+        currentPageNo: 1,
+        recordsPerPage: 8,
+      },
+    });
+    console.log(res);
   } catch (error) {
     console.log(error);
   }
