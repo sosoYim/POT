@@ -125,11 +125,11 @@ module.exports = {
     },
     open: true,
     port: 5500,
-    // proxy: {
-    //   '/api': {
-    //     target: 'http://localhost:3000 ',
-    //   },
-    // },
+    proxy: {
+      '/api': {
+        target: 'http://localhost:3000',
+      },
+    },
     onListening(devServer) {
       if (!devServer) {
         throw new Error('webpack-dev-server is not defined');
