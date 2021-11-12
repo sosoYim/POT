@@ -7,7 +7,7 @@ module.exports = {
   // 번들 설정 진입점
   entry: {
     // 프로퍼티 키가 output의 [name]에 매칭
-    app: '/frontend/src/js/app.js',
+    app: './frontend/src/js/app.js',
     main: './frontend/src/js/main.js',
     appliedpot: './frontend/src/js/appliedpot.js',
     createboard: './frontend/src/js/createboard.js',
