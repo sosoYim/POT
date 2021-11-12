@@ -1,6 +1,6 @@
 const fs = require('fs');
 const router = require('express').Router();
-const { registerUser } = require('../utils/helper');
+const { registerUser } = require('../utils/userQuery');
 
 router.post('/register', (req, res) => {
   const user = {

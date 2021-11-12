@@ -19,11 +19,5 @@
     "summoner": "바케모노채영",
     "imageUrl": "./images/defaultUser.png",
     "encryptedId": "f5_gAvyoh-x35TeclWkFXJP5C9XKJW5JcBQIHg4avMsSEA"
-  },
-  {
-    "password": "123456",
-    "summoner": "혼모노",
-    "imageUrl": "./images/defaultUser.png",
-    "encryptedId": "g8_gAvyoh-x35TeclWkFXJP5abc9XKJW5JcBQIHg4avMsSEA"
   }
 ]
