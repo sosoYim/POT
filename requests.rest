@@ -3,7 +3,7 @@ Content-Type: application/json
 
 {
     "account": "hihihi",
-    "password": "123456",
+    "password": "123456fds",
     "summoner": "혼모노",
     "imageUrl": "./images/defaultUser.png",
     "encryptedId": "g8_gAvyoh-x35TeclWkFXJP5abc9XKJW5JcBQIHg4avMsSEA"
@@ -14,7 +14,7 @@ POST http://localhost:3000/api/user/checkid
 Content-Type: application/json
 
 {
-    "account": "won"
+    "account": "wonjae"
 }
 
 
@@ -22,3 +22,12 @@ Content-Type: application/json
 
 GET http://localhost:3000/
 
+###
+
+POST http://localhost:3000/api/user/login
+Content-Type: application/json
+
+{
+    "account": "jeongmin",
+    "password": "11111111"
+}
