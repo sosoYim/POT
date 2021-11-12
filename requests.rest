@@ -2,14 +2,23 @@ POST http://localhost:3000/user/register
 Content-Type: application/json
 
 {
-    "userid": "hihihi",
+    "account": "hihihi",
     "password": "123456",
     "summoner": "혼모노",
     "imageUrl": "./images/defaultUser.png",
     "encryptedId": "g8_gAvyoh-x35TeclWkFXJP5abc9XKJW5JcBQIHg4avMsSEA"
 }
 
+###
+POST http://localhost:3000/user/checkid
+Content-Type: application/json
+
+{
+    "account": "won"
+}
+
 
 ###
 
 GET http://localhost:3000/
+
