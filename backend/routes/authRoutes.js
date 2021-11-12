@@ -5,7 +5,6 @@ const { findUserByAccount, findUser, registerUser, getUsers } = require('../quer
 const { registerValidation, loginValidation } = require('../utils/validation');
 
 router.post('/register', async (req, res) => {
-  // Lets validate the data before we a user
   const { error } = registerValidation(req.body);
   if (error) return res.status(400).send(error.details[0].message);
 
@@ -30,8 +29,8 @@ router.post('/register', async (req, res) => {
   }
 });
 
-// Checking if the account is already in the database
 router.post('/checkid', (req, res) => {
+  // Checking if the account is already in the database
   const accountExist = findUserByAccount(req.body.account);
   // 계정 존재 시 false반환(이미 존재하고 있으므로)
   if (accountExist) return res.send(false);
@@ -40,7 +39,6 @@ router.post('/checkid', (req, res) => {
 });
 
 router.post('/login', async (req, res) => {
-  // Lets validate the data before we a user
   const { error } = loginValidation(req.body);
   if (error) return res.status(400).send(error.details[0].message);
 
