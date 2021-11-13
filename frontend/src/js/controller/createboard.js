@@ -4,13 +4,13 @@ import axios from 'axios';
  *
  * @param {form DOM} $boardForm
  */
-const request = async $boardForm => {
+const request = async ($boardForm, quill) => {
   try {
     const formData = new FormData($boardForm);
     // TODO: id 받아오기
-    formData.append('userId', 'jeongmin');
-    // TODO: api로 받기
-    formData.append('content', 'api 로 보내야 함');
+    formData.append('userId', 1);
+
+    formData.append('content', quill.getText());
     formData.append('regDate', new Date());
 
     const board = {};
@@ -19,7 +19,11 @@ const request = async $boardForm => {
     });
 
     const { data: res } = await axios.post('/api/boards', board);
-    console.log('res', res);
+    console.log('컨트롤러 : ', res);
+
+    // TODO: 읽기 페이지로 전송
+    // window.location.href = `/boards/${res}`;
+    // await axios.get(`/api/boards?boardId=${res}`);
   } catch (e) {
     console.error(e);
   }

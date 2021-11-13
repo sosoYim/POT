@@ -9,10 +9,7 @@ const quill = new Quill('#editor__api', {
   theme: 'snow',
 });
 
-console.log(quill);
-
 document.querySelector('.createboard-form').onsubmit = e => {
   e.preventDefault();
-  request(e.target);
-  // request(e.target);
+  request(e.target, quill);
 };
