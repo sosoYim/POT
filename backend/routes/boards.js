@@ -10,13 +10,20 @@ router.get('/list', (req, res) => {
 });
 
 router.post('/', (req, res) => {
+  // TODO: 포지션 이름 상수로 빼기
+  const position = { top: false, jug: false, mid: false, adc: false, sup: false };
+  const checkedPosition = [...req.body.position];
+  for (const name of Object.keys(position)) {
+    position[name] = checkedPosition.includes(name);
+  }
+
   // TODO: id받기
   const board = {
     userId: 1,
     type: req.body.type,
     title: req.body.title,
     content: req.body.content,
-    position: [...req.body.position],
+    position,
   };
   try {
     const boardId = setBoard(board);
@@ -28,7 +35,7 @@ router.post('/', (req, res) => {
   }
 });
 
-router.get('/', (req, res) => {
+router.get('/detail/:id([0-9]+)', (req, res) => {
   console.log(req.query);
   res.send('hoho');
 });

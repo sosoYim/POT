@@ -63,8 +63,8 @@
               id="title"
               class="form-text"
               placeholder="제목을 입력하세요"
+              maxlength="40"
               required
-              value="테스트중"
             />
           </div>
 
@@ -82,7 +82,7 @@
             <fieldset class="form-checkbox">
               <legend>필요한 포지션을 선택해주세요.</legend>
               <div class="form-checkbox__icons">
-                <input type="checkbox" name="position" id="top" class="form-checkbox__checkbox" value="top" checked />
+                <input type="checkbox" name="position" id="top" class="form-checkbox__checkbox" value="top" />
                 <label for="top" class="form-checkbox__label form-checkbox__label--top" aria-label="탑"></label>
                 <input type="checkbox" name="position" id="jug" class="form-checkbox__checkbox" value="jug" />
                 <label for="jug" class="form-checkbox__label form-checkbox__label--jug" aria-label="정글"></label>
@@ -107,38 +107,7 @@
         </form>
       </div>
     </main>
-    <!-- Include the Quill library -->
+
     <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
-    <!-- Initialize Quill editor -->
   </body>
 </html>
-<!-- 
-    <div class="position-wrapper">
-      <ul class="main__filter-position-list">
-        <li class="main__filter-position-item top">
-          <button>
-            <img src="./images/position/top.png" alt="top">
-          </button>
-        </li>
-        <li class="main__filter-position-item jungle">
-          <button>
-            <img src="./images/position/jungle.png" alt="jungle">
-          </button>
-        </li>
-        <li class="main__filter-position-item mid">
-          <button>
-            <img src="./images/position/mid.png" alt="mid">
-          </button>
-        </li>
-        <li class="main__filter-position-item bottom">
-          <button>
-            <img src="./images/position/bottom.png" alt="bottom">
-          </button>
-        </li>
-        <li class="main__filter-position-item support">
-          <button>
-            <img src="./images/position/support.png" alt="support">
-          </button>
-        </li>
-      </ul>
-    </div> -->

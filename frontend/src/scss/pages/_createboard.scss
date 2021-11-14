@@ -22,7 +22,7 @@
       width: 100%;
       &--title {
         font-size: rem(36);
-        height: rem(52);
+        height: rem(70);
         margin-bottom: rem(45);
         border-bottom: 1px solid $black;
       }
@@ -33,7 +33,6 @@
         margin-bottom: rem(14);
       }
       &--editor {
-        background-color: aquamarine;
         min-height: rem(351);
         margin-bottom: rem(26);
       }
@@ -53,18 +52,18 @@
     overflow-y: auto;
     &__api {
       height: auto;
-      min-height: 100%;
       padding: rem(50);
-
-      .ql-editor {
-        overflow-y: visible;
-      }
+    }
+    .ql-editor {
+      overflow-y: visible;
+      min-height: 350px;
     }
   }
 
   .form-text {
     width: 100%;
     height: 100%;
+    padding: rem(10);
   }
 
   .form-radio {
@@ -88,8 +87,10 @@
         background-color: rgba($color: $main, $alpha: 0.2);
       }
     }
-    &__radio {
-    }
+    // &__radio:focus ~ label {
+    //   border: 2px solid $inputBorder;
+    //   border-spacing: 5px;
+    // }
   }
 
   .form-checkbox {
@@ -101,6 +102,13 @@
         justify-content: space-between;
       }
     }
+    // &__label {
+    //   border: none;
+    // }
+    // &__checkbox:focus ~ label {
+    //   border: 2px solid $inputBorder;
+    //   border-spacing: 5px;
+    // }
     &__label {
       box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
       padding: 8px;

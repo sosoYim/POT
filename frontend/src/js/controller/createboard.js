@@ -1,10 +1,10 @@
 import axios from 'axios';
 
 /**
- *
+ * Insert board data
  * @param {form DOM} $boardForm
  */
-const request = async ($boardForm, quill) => {
+const createBoard = async ($boardForm, quill) => {
   try {
     const formData = new FormData($boardForm);
     // TODO: id 받아오기
@@ -29,4 +29,20 @@ const request = async ($boardForm, quill) => {
   }
 };
 
-export { request };
+/**
+ * Is there at least one position checked
+ * @param {boolean} $boardForm
+ */
+const isPositionChecked = $boardForm => [...$boardForm.position].some(position => position.checked);
+
+const focusLegend = $legend => {
+  // TODO: 라벨, 라디오 탭 포코스시 보더 만들기
+  // $label.focus();
+  $legend.style.color = '#b037c5';
+  // 에러 메세지 삽입
+};
+
+// TODO: 유효성 검사, 포커싱 모두 되도록하기
+// const validatePosition()
+
+export { createBoard, isPositionChecked, focusLegend };
