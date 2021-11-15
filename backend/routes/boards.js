@@ -29,6 +29,7 @@ router.post('/', (req, res) => {
     const boardId = setBoard(board);
     // window.location.assign(window.location.host + `/boards/${boardId}`);
     // window.location.assign('www.naver.com');
+    // res.status(200).redirect(`/api/detail/${boardId}`);
     res.status(200).send(boardId + '');
   } catch (err) {
     res.status(400).send(err);

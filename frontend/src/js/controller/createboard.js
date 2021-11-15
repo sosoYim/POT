@@ -21,9 +21,9 @@ const createBoard = async ($boardForm, quill) => {
     const { data: res } = await axios.post('/api/boards', board);
     console.log('컨트롤러 : ', res);
 
-    // TODO: 읽기 페이지로 전송
-    // window.location.href = `/boards/${res}`;
-    // await axios.get(`/api/boards?boardId=${res}`);
+    // TODO: 읽기 페이지로 전송 : routes/boards.js에서 리다이렉션 하는 중
+    // window.location.href = `/boards/${res}`; // 안됨
+    // await axios.get(`/api/boards?boardId=${res}`); // 안됨
   } catch (e) {
     console.error(e);
   }
