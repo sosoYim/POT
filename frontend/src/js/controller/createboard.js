@@ -18,6 +18,7 @@ const createBoard = async ($boardForm, quill) => {
       board[key] = key === 'position' ? (board[key] = [...(board[key] || []), val]) : (board[key] = val);
     });
 
+    // await axios.post('/api/boards', board);
     const { data: res } = await axios.post('/api/boards', board);
     console.log('컨트롤러 : ', res);
 

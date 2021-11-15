@@ -1,12 +1,16 @@
-// const fs = require('fs');
 const router = require('express').Router();
-const { setBoard } = require('../query/boardQuery');
-// const { auth } = require('../utils/verifyToken');
+const { getBoardList, setBoard } = require('../query/boardQuery');
 
 router.get('/list', (req, res) => {
+  const { currentPageNo, recordsPerPage } = req.query;
+  const boards = getBoardList(+currentPageNo, +recordsPerPage);
+
+  res.send(boards);
+});
+
+router.get('/detail/:id', (req, res) => {
+  console.log('hi detail');
   console.log(req.query);
-  res.send('hi');
-  // const { getBoards } = require('../utils/userQuery');
 });
 
 router.post('/', (req, res) => {
@@ -34,11 +38,6 @@ router.post('/', (req, res) => {
   } catch (err) {
     res.status(400).send(err);
   }
-});
-
-router.get('/detail/:id([0-9]+)', (req, res) => {
-  console.log(req.query);
-  res.send('hoho');
 });
 
 module.exports = router;
