@@ -5,7 +5,6 @@ const getBoardData = boardId => {
   return boards.find(board => board.boardId === +boardId);
 };
 
-// 수정
 const patchCompletedBoardData = (boardId, userId, completed) => {
   const requests = JSON.parse(fs.readFileSync('./backend/db/requests.json'));
   const newRequests = requests.map(request =>
@@ -15,4 +14,33 @@ const patchCompletedBoardData = (boardId, userId, completed) => {
   fs.writeFileSync('./backend/db/requests.json', JSON.stringify(newRequests));
 };
 
-module.exports = { getBoardData, patchCompletedBoardData };
+const getBoardList = (currentPageNo, recordsPerPage) => {
+  const boards = JSON.parse(fs.readFileSync('./backend/db/boards.json'));
+  const startIndex = (currentPageNo - 1) * recordsPerPage;
+
+  return boards.filter((board, index) => index >= startIndex && index < startIndex + recordsPerPage);
+};
+
+/**
+ *
+ * @param {string} boardId
+ * @returns
+ */
+const getBoardById = boardId => JSON.parse(fs.readFileSync('./backend/db/boards.json')).find({ boardId });
+
+/**
+ * Add board in BOARD dataset
+ * @param {object} newBoard
+ */
+const setBoard = newBoard => {
+  const boards = JSON.parse(fs.readFileSync('./backend/db/boards.json'));
+  const newBoardId = boards.length === 0 ? 1 : boards[0].boardId + 1;
+  const regDate = new Date(+new Date() + 3240 * 10000).toISOString().replace('T', ' ').replace(/\..*/, '');
+
+  const newBoards = [{ boardId: newBoardId, ...newBoard, regDate }, ...boards];
+  fs.writeFileSync('./backend/db/boards.json', JSON.stringify(newBoards));
+
+  return newBoardId;
+};
+
+module.exports = { getBoardData, patchCompletedBoardData, getBoardList, getBoardById, setBoard };
