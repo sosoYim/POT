@@ -5,6 +5,7 @@
   flex-wrap: wrap;
   justify-content: space-between;
   background-color: transparent;
+
   @include mobile {
     justify-content: center;
   }

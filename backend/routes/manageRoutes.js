@@ -3,7 +3,7 @@ const router = require('express').Router();
 const {
   getUserEncIdList,
   getSummonerNameList,
-  getPositionList,
+  getRequestUserList,
   getParticipants,
   filterSoloRankTier,
   filterThreeMainChamp,
@@ -17,15 +17,18 @@ router.get('/:ids', async (req, res) => {
   const userIdList = req.path.replace(/.+(=)/g, '').split(',');
   const encIdList = getUserEncIdList(userIdList);
   const summonerNameList = getSummonerNameList(encIdList);
-  const positionList = getPositionList(boardId, userIdList);
+  const requestUserList = getRequestUserList(boardId, userIdList);
   const participantList = await Promise.all(getParticipants(encIdList, summonerURL)).then(filterSoloRankTier);
   const mainChampList = await Promise.all(getParticipants(encIdList, championMasteriesURL)).then(filterThreeMainChamp);
 
   res.send(
     participantList.map((participant, i) => ({
+      userId: userIdList[i],
       summoner: summonerNameList[i],
       mainChamp: mainChampList[i],
-      position: positionList[i],
+      order: requestUserList[i].requestId,
+      position: requestUserList[i].position,
+      completed: requestUserList[i].completed,
       ...participant,
     }))
   );
