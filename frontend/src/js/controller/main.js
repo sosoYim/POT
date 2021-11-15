@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from '../utils/axiosConfig';
 import { setBoards } from '../store/main';
 
 const fetchBoards = async () => {
