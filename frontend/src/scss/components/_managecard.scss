@@ -11,6 +11,7 @@
 }
 
 .participant {
+  position: relative;
   display: flex;
   align-items: center;
   background-color: $white;
@@ -19,8 +20,6 @@
   width: 380px;
   height: 180px;
   margin-top: 40px;
-  margin-left: auto;
-  margin-right: auto;
 
   &__main-wrapper {
     display: flex;
@@ -29,7 +28,14 @@
     width: 40%;
   }
 
-  &-tear {
+  &__position {
+    position: absolute;
+    bottom: 14px;
+    right: 14px;
+    width: 40px;
+  }
+
+  &-tier {
     height: 110px;
     margin-bottom: 10px;
   }
@@ -56,19 +62,28 @@
   }
 
   &__info {
-    margin-left: 20px;
+    margin-left: 10px;
 
-    &-list li {
+    &-list > li {
       margin-bottom: 10px;
     }
     &-summoner-name {
-      margin-top: 30px;
+      margin-top: 20px;
     }
 
     &-title {
       display: inline-block;
       font-weight: 900;
       min-width: 80px;
+      overflow-x: hidden;
+    }
+
+    &-description {
+      display: inline-block;
+      width: 6rem;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow-x: hidden;
     }
 
     &-summoner-champ-list {
@@ -79,6 +94,7 @@
     &-summoner-champ img {
       width: 40px;
       margin-right: 6px;
+      border-radius: 50%;
     }
   }
 }
