@@ -5,7 +5,8 @@
     "password": "123456",
     "summoner": "은가뉴",
     "imageUrl": "./images/defaultUser.png",
-    "encryptedId": "ilHWal8p9anIVkLIyLjV6VLU6k7lvfaAo5DO1YbYoeWKfps"
+    "encryptedId": "ilHWal8p9anIVkLIyLjV6VLU6k7lvfaAo5DO1YbYoeWKfps",
+    "alertList": []
   },
   {
     "userId": 9,
@@ -13,7 +14,8 @@
     "password": "123456",
     "summoner": "Pnpm",
     "imageUrl": "./images/defaultUser.png",
-    "encryptedId": "u9iZNv5Csr2M7V1hzKjNfxiwaQJ8fl5sb1NeyE23OktgFBY"
+    "encryptedId": "u9iZNv5Csr2M7V1hzKjNfxiwaQJ8fl5sb1NeyE23OktgFBY",
+    "alertList": []
   },
   {
     "userId": 8,
@@ -21,7 +23,8 @@
     "password": "123456",
     "summoner": "Kingen",
     "imageUrl": "./images/defaultUser.png",
-    "encryptedId": "g_qXDoCGg_PvpPDgPhmBQzLnI9tNVM7RBUHvLAXMasu6EPE"
+    "encryptedId": "g_qXDoCGg_PvpPDgPhmBQzLnI9tNVM7RBUHvLAXMasu6EPE",
+    "alertList": []
   },
   {
     "userId": 7,
@@ -29,7 +32,8 @@
     "password": "123456",
     "summoner": "아이러니2",
     "imageUrl": "./images/defaultUser.png",
-    "encryptedId": "3Rnavxu7ImlXXH5gThyRArd-49N0nUeeHtJvj5gHb7IlUuk"
+    "encryptedId": "3Rnavxu7ImlXXH5gThyRArd-49N0nUeeHtJvj5gHb7IlUuk",
+    "alertList": []
   },
   {
     "userId": 6,
@@ -37,7 +41,8 @@
     "password": "123456",
     "summoner": "GGGori",
     "imageUrl": "./images/defaultUser.png",
-    "encryptedId": "c4PiFUuE5HRcmGcrGj2j1Qsj5UqiPA70Xr19eEmNM04-_eA"
+    "encryptedId": "c4PiFUuE5HRcmGcrGj2j1Qsj5UqiPA70Xr19eEmNM04-_eA",
+    "alertList": []
   },
   {
     "userId": 5,
@@ -45,7 +50,8 @@
     "password": "123456",
     "summoner": "유미홀애비",
     "imageUrl": "./images/defaultUser.png",
-    "encryptedId": "zB38ItxJLkOsKvnFABkXqrEV8FUpa09-G0squ8xOnmezroE"
+    "encryptedId": "zB38ItxJLkOsKvnFABkXqrEV8FUpa09-G0squ8xOnmezroE",
+    "alertList": []
   },
   {
     "userId": 4,
@@ -53,7 +59,8 @@
     "password": "123456",
     "summoner": "살살해주까요",
     "imageUrl": "./images/defaultUser.png",
-    "encryptedId": "FDYjQGH7gH2RL58VjhYD1Ap3C735y5TOv20VdJm8O7yP0-A"
+    "encryptedId": "FDYjQGH7gH2RL58VjhYD1Ap3C735y5TOv20VdJm8O7yP0-A",
+    "alertList": []
   },
   {
     "userId": 3,
@@ -61,7 +68,8 @@
     "password": "$2a$10$6dWrohg2ebOsxUVzVe7SZu4vks5gtjqYh7TCXZF8lFc1U4EOaIJkS",
     "summoner": "l푸른피l",
     "imageUrl": "./images/defaultUser.png",
-    "encryptedId": "-qOQrMXXa0qtQB47CGQtHpPDYRnQJo22DgCMjRIV2wZCF28"
+    "encryptedId": "-qOQrMXXa0qtQB47CGQtHpPDYRnQJo22DgCMjRIV2wZCF28",
+    "alertList": []
   },
   {
     "userId": 2,
@@ -69,7 +77,8 @@
     "password": "$2a$10$rW34l3nubB6LxTlM9pn6BePvSMe3gM4B49/qqS4JbVBWWE8lKsOem",
     "summoner": "파기로",
     "imageUrl": "./images/defaultUser.png",
-    "encryptedId": "1Z-NILX0mcIXvTiS3xHPzKqQX3jvwS9ZvPVzYzddyuvmWyw"
+    "encryptedId": "1Z-NILX0mcIXvTiS3xHPzKqQX3jvwS9ZvPVzYzddyuvmWyw",
+    "alertList": []
   },
   {
     "userId": 1,
@@ -77,6 +86,7 @@
     "password": "$2a$10$Xukb8vY042Pxt7kK4Sz53.RdeRBrEtYFW.rK4sM9zzSPUpdVeef5m",
     "summoner": "바케모노채영",
     "imageUrl": "./images/defaultUser.png",
-    "encryptedId": "f5_gAvyoh-x35TeclWkFXJP5C9XKJW5JcBQIHg4avMsSEA"
+    "encryptedId": "f5_gAvyoh-x35TeclWkFXJP5C9XKJW5JcBQIHg4avMsSEA",
+    "alertList": []
   }
 ]
