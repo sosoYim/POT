@@ -1,20 +1,7 @@
 [
-  {
-    "requestId": 3,
-    "boardId": 2,
-    "userId": 2,
-    "position": "top"
-  },
-  {
-    "requestId": 2,
-    "boardId": 2,
-    "userId": 3,
-    "position": "top"
-  },
-  {
-    "requestId": 1,
-    "boardId": 2,
-    "userId": 4,
-    "position": "top"
-  }
+  { "requestId": 5, "boardId": 2, "userId": 6, "position": "top", "completed": true },
+  { "requestId": 4, "boardId": 2, "userId": 10, "position": "top", "completed": true },
+  { "requestId": 3, "boardId": 2, "userId": 2, "position": "top", "completed": false },
+  { "requestId": 2, "boardId": 2, "userId": 3, "position": "top", "completed": false },
+  { "requestId": 1, "boardId": 2, "userId": 4, "position": "top", "completed": false }
 ]

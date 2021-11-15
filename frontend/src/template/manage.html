@@ -29,21 +29,11 @@
             <box-icon type="solid" name="down-arrow" color="#4c4c4c" size="20px"></box-icon>
           </span>
           <div class="header__nav-setting-list">
-            <a href="javascript:void(0);">
-              <div class="created-pot">작성한 POT</div>
-            </a>
-            <a href="javascript:void(0);">
-              <div class="applied-pot">신청한 POT</div>
-            </a>
-            <a href="javascript:void(0);">
-              <div class="participanted-pot">참여한 POT</div>
-            </a>
-            <a href="javascript:void(0);">
-              <div class="set-user">설정</div>
-            </a>
-            <a href="javascript:void(0);">
-              <div class="logout">로그아웃</div>
-            </a>
+            <a href="javascript:void(0);" class="created-pot">작성한 POT</a>
+            <a href="javascript:void(0);" class="applied-pot">신청한 POT</a>
+            <a href="javascript:void(0);" class="participanted-pot">참여한 POT</a>
+            <a href="javascript:void(0);" class="set-user">설정</a>
+            <a href="javascript:void(0);" class="logout">로그아웃</a>
           </div> -->
         </a>
       </nav>
@@ -92,17 +82,31 @@
               </ul>
             </div>
             <button class="main__filter-button">
-              <span class="main__filter-button-title" data-filter="rank">랭킹 순</span>
+              <span class="main__filter-button-title" data-filter="rank">티어 순</span>
               <box-icon name='chevron-down'></box-icon>
             </button>
+            <div class="main__filter-list hidden">
+              <a href="javascript:void(0);" data-filter="rank">티어 순</a>
+              <a href="javascript:void(0);" data-filter="order">등록일 순</a>
+              <a href="javascript:void(0);" data-filter="summoner">소환사명 순</a>
+            </div>
           </div>
         </div>
         <div class="main__wrapper">
-          <ul class="participant-list">
-          </ul>
+          <ul class="participant-list"></ul>
         </div>
       </div>
     </main>
+    <!-- 모달 -->
+    <div class="modal-outer hidden">
+      <div class="modal">
+        <button class="modal__close">
+          <box-icon name='x' color="#4c4c4c"></box-icon>
+        </button>
+        <div class="modal__title">정훈님과 POT 하시겠습니까?</div>
+        <button class="modal__button button">POT!</button>
+      </div>
+    </div>
   </div>
 </body>
 

@@ -1,5 +1,45 @@
 [
   {
+    "userId": 10,
+    "account": "은가뉴",
+    "password": "123456",
+    "summoner": "은가뉴",
+    "imageUrl": "./images/defaultUser.png",
+    "encryptedId": "ilHWal8p9anIVkLIyLjV6VLU6k7lvfaAo5DO1YbYoeWKfps"
+  },
+  {
+    "userId": 9,
+    "account": "Pnpm",
+    "password": "123456",
+    "summoner": "Pnpm",
+    "imageUrl": "./images/defaultUser.png",
+    "encryptedId": "u9iZNv5Csr2M7V1hzKjNfxiwaQJ8fl5sb1NeyE23OktgFBY"
+  },
+  {
+    "userId": 8,
+    "account": "Kingen",
+    "password": "123456",
+    "summoner": "Kingen",
+    "imageUrl": "./images/defaultUser.png",
+    "encryptedId": "g_qXDoCGg_PvpPDgPhmBQzLnI9tNVM7RBUHvLAXMasu6EPE"
+  },
+  {
+    "userId": 7,
+    "account": "아이러니2",
+    "password": "123456",
+    "summoner": "아이러니2",
+    "imageUrl": "./images/defaultUser.png",
+    "encryptedId": "3Rnavxu7ImlXXH5gThyRArd-49N0nUeeHtJvj5gHb7IlUuk"
+  },
+  {
+    "userId": 6,
+    "account": "GGGori",
+    "password": "123456",
+    "summoner": "GGGori",
+    "imageUrl": "./images/defaultUser.png",
+    "encryptedId": "c4PiFUuE5HRcmGcrGj2j1Qsj5UqiPA70Xr19eEmNM04-_eA"
+  },
+  {
     "userId": 5,
     "account": "jungryul",
     "password": "123456",
