@@ -1,8 +1,6 @@
 import axios from '../utils/axiosConfig';
 import { setBoards } from '../store/main';
 
-axios.defaults.baseURL = 'http://localhost:3000';
-
 const fetchBoards = async () => {
   try {
     const { data } = await axios.get(`/api/boards/list`, {
