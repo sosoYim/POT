@@ -1,16 +1,5 @@
-// const fs = require('fs');
-const express = require('express');
-
-const router = express.Router();
-const path = require('path');
-const { getBoardData, getBoardList, setBoard } = require('../query/boardsQuery');
-
-// 원재님***
-// router.get('/:id', (req, res) => {
-//   const boardId = req.path.replace('/', '');
-//   const { title, position } = getBoardData(boardId);
-//   res.send({ title, position });
-// });
+const router = require('express').Router();
+const { getBoardData, patchCompletedBoardData, getBoardList, setBoard } = require('../query/boardsQuery');
 
 router.get('/list', (req, res) => {
   const { currentPageNo, recordsPerPage } = req.query;
@@ -49,9 +38,19 @@ router.post('/', (req, res) => {
   }
 });
 
-// router.get('/:id', (req, res) => {
-//   console.log(req.query);
-//   res.send(findChampByChampId(1));
-// });
+router.get('/manage/:id', (req, res) => {
+  const boardId = req.path.replace('/manage/', '');
+  const { title, position } = getBoardData(boardId);
+  res.send({ title, position });
+});
 
+router.patch('/participant/:id', (req, res) => {
+  const {
+    body: { completed },
+    path,
+  } = req;
+  const [boardId, userId] = path.replace('/participant/', '').split('=');
+  patchCompletedBoardData(boardId, userId, completed);
+  res.send();
+});
 module.exports = router;
