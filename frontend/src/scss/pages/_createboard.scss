@@ -1,16 +1,28 @@
 @import '../utils/';
 
 .createboard-container {
+  padding: 0 20px 20px;
   min-width: rem(365);
   max-width: rem(1040);
   @include autoMargin;
+
+  .button {
+    width: rem(88);
+    height: rem(35);
+    line-height: rem(35);
+    text-align: center;
+    padding: 0;
+    font-weight: 500;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  }
+
   .form {
     margin-top: rem(45);
     &__row {
       width: 100%;
       &--title {
         font-size: rem(36);
-        height: rem(52);
+        height: rem(70);
         margin-bottom: rem(45);
         border-bottom: 1px solid $black;
       }
@@ -21,7 +33,6 @@
         margin-bottom: rem(14);
       }
       &--editor {
-        background-color: aquamarine;
         min-height: rem(351);
         margin-bottom: rem(26);
       }
@@ -41,64 +52,107 @@
     overflow-y: auto;
     &__api {
       height: auto;
-      min-height: 100%;
       padding: rem(50);
-
-      .ql-editor {
-        overflow-y: visible;
-      }
+    }
+    .ql-editor {
+      overflow-y: visible;
+      min-height: 350px;
     }
   }
 
   .form-text {
     width: 100%;
     height: 100%;
+    padding: rem(10);
   }
 
   .form-radio {
     width: 100%;
     height: 100%;
+    .button {
+      box-sizing: border-box;
+      border-radius: 4px;
+      font-size: 20px;
+      font-weight: 700;
+      background-color: $white;
+      box-shadow: 0 0 0 4px $main inset;
+      color: $main;
+    }
     &__label {
       cursor: pointer;
       display: inline-block;
-      margin-right: rem(25);
+      margin-right: rem(8);
+      &:hover {
+        box-shadow: 0 0 0 4px $main inset;
+        background-color: rgba($color: $main, $alpha: 0.2);
+      }
     }
-    &__radio {
-    }
+    // &__radio:focus ~ label {
+    //   border: 2px solid $inputBorder;
+    //   border-spacing: 5px;
+    // }
   }
 
   .form-checkbox {
     font-weight: 700;
     &__icons {
-      margin-top: rem(4);
-    }
-    &__label {
-      &:hover {
-        cursor: pointer;
+      margin-top: rem(16);
+      @include mobile {
+        display: flex;
+        justify-content: space-between;
       }
-      margin-right: rem(18);
+    }
+    // &__label {
+    //   border: none;
+    // }
+    // &__checkbox:focus ~ label {
+    //   border: 2px solid $inputBorder;
+    //   border-spacing: 5px;
+    // }
+    &__label {
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+      padding: 8px;
+      border-radius: 10px;
+      margin: 0;
+      line-height: 0;
+      // background-color: transparent;
       width: rem(51);
       height: rem(51);
       display: inline-block;
       background-repeat: no-repeat;
+      background-size: contain;
       &--top {
-        background-image: url(../images/icon-top.png);
+        background-image: url(../images/position/top.png);
       }
-      &--jungle {
-        background-image: url(../images/icon-jungle.png);
+      &--jug {
+        background-image: url(../images/position/jungle.png);
       }
       &--mid {
-        background-image: url(../images/icon-mid.png);
+        background-image: url(../images/position/mid.png);
       }
       &--adc {
-        background-image: url(../images/icon-adc.png);
+        background-image: url(../images/position/bottom.png);
       }
-      &--support {
-        background-image: url(../images/icon-support.png);
+      &--sup {
+        background-image: url(../images/position/support.png);
+      }
+      &:hover {
+        cursor: pointer;
+        outline: 4px solid $main;
+        // box-shadow: 0 0 0 4px $main inset, 0px 4px 4px rgba(0, 0, 0, 0.15);
+        background-color: rgba($color: $main, $alpha: 0.2);
       }
     }
-    &__checkbox {
-    }
+  }
+
+  input[type='checkbox']:checked + label {
+    outline: 4px solid $main;
+    background-color: rgba($color: $main, $alpha: 0.2);
+  }
+
+  input[type='radio']:checked + label {
+    background-color: $main;
+    color: $white;
   }
 
   @include mobile {
@@ -108,23 +162,9 @@
       display: inline-flex;
       flex-wrap: wrap;
       gap: rem(10);
-      // justify-content: space-between;
       &__label {
         margin: 0;
       }
     }
-  }
-
-  // FOR FILTER ====================================
-  .position-wrapper {
-    max-width: 500px;
-    @include mobile {
-      max-width: 300px;
-    }
-  }
-
-  .main__filter-position-list button {
-    border: 4px solid $main;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   }
 }
