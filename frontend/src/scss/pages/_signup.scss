@@ -129,13 +129,14 @@
       min-height: rem(15px);
     }
 
-    &-img {
+    & img {
       display: inline-block;
+      opacity: 0;
 
       @include desktop {
-        margin-top: rem(2px);
-        width: rem(12px);
-        height: rem(12px);
+        // margin-top: rem(2px);
+        width: rem(15px);
+        height: rem(15px);
       }
     }
   }
@@ -165,6 +166,7 @@
       background-color: $main;
       color: $white;
       font-weight: bold;
+      transition-duration: 0.3s;
 
       &:disabled {
         border: 2px solid #dadada;
