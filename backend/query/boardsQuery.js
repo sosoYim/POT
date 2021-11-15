@@ -1,6 +1,9 @@
 const fs = require('fs');
 
-const boards = JSON.parse(fs.readFileSync('./backend/db/boards.json'));
+const getBoardData = boardId => {
+  const boards = JSON.parse(fs.readFileSync('./backend/db/boards.json'));
+  return boards.find(board => board.boardId === +boardId);
+};
 
 const getBoardList = (currentPageNo, recordsPerPage) => {
   const boards = JSON.parse(fs.readFileSync('./backend/db/boards.json'));
@@ -14,7 +17,7 @@ const getBoardList = (currentPageNo, recordsPerPage) => {
  * @param {string} boardId
  * @returns
  */
-const getBoardById = boardId => boards.find({ boardId });
+const getBoardById = boardId => JSON.parse(fs.readFileSync('./backend/db/boards.json')).find({ boardId });
 
 /**
  * Add board in BOARD dataset
@@ -22,7 +25,6 @@ const getBoardById = boardId => boards.find({ boardId });
  */
 const setBoard = newBoard => {
   const boards = JSON.parse(fs.readFileSync('./backend/db/boards.json'));
-
   const newBoardId = boards.length === 0 ? 1 : boards[0].boardId + 1;
   const regDate = new Date(+new Date() + 3240 * 10000).toISOString().replace('T', ' ').replace(/\..*/, '');
 
@@ -32,4 +34,4 @@ const setBoard = newBoard => {
   return newBoardId;
 };
 
-module.exports = { getBoardList, getBoardById, setBoard };
+module.exports = { getBoardData, getBoardList, getBoardById, setBoard };

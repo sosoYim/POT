@@ -1,27 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-
-<body>
-  <!-- 헤더 -->
-  <header class="header">
-    <div class="header__wrapper long">
-      <h1>
-        <a class="header__logo-link" href="javascript:void(0);">
-          <img class="header__logo" src="./images/logo.png" alt="logo">
-        </a>
-      </h1>
-      <nav class="header__nav">
-        <a class="header__nav-link" href="/src/create"><span class="header__nav-create-pot">POT 생성</span></a>
-        <a class="header__nav-link login-info" href="javascript:void(0);">
-          <span class="header__nav-login">로그인</span>
-          <!-- <span class="header__nav-username">왕치</span>
+  <body>
+    <!-- 헤더 -->
+    <header class="header">
+      <div class="header__wrapper long">
+        <h1>
+          <a class="header__logo-link" href="javascript:void(0);">
+            <img class="header__logo" src="/images/logo.png" alt="logo" />
+          </a>
+        </h1>
+        <nav class="header__nav">
+          <a class="header__nav-link" href="/src/create"><span class="header__nav-create-pot">POT 생성</span></a>
+          <a class="header__nav-link login-info" href="javascript:void(0);">
+            <span class="header__nav-login">로그인</span>
+            <!-- <span class="header__nav-username">왕치</span>
           <span class="header__nav-userinfo">
             <a role="button" class="header__nav-user-img"></a>
             <box-icon type="solid" name="down-arrow" color="#4c4c4c" size="20px"></box-icon>
@@ -43,68 +42,67 @@
               <div class="logout">로그아웃</div>
             </a>
           </div> -->
-        </a>
-      </nav>
-    </div>
-  </header>
-
-  <div class="detailboard-main__container">
-    <main class="main">
-      <div class="main__container">
-        <div class="main__board-title">
-          <div class="main__board-title-wrapper">
-            <div class="pot-tag-wrapper">
-              <span class="pot-tag">5 POT</span>
-            </div>
-            <h2 class="pot-title">피시방 리그 준비합니다. 원딜 급구</h2>
-            <div class="pot-info">
-              <div class="pot-info-user">
-                <img class="pot-info-user-emblem" src="./images/emblem/gold.png" alt="user-emblem">
-                <span class="pot-info-user-summoner-name">|푸른피|</span>
-              </div>
-              <time datetime="2021-11-10">2021-11-10</time>
-            </div>
-          </div>
-        </div>
-        <div class="main__wrapper">
-          <div class="position-wrapper">
-            <ul class="main__filter-position-list">
-              <li class="main__filter-position-item top">
-                <button class="open">
-                  <img src="./images/position/top.png" alt="top">
-                </button>
-              </li>
-              <li class="main__filter-position-item jungle">
-                <button class="open">
-                  <img src="./images/position/jungle.png" alt="jungle">
-                </button>
-              </li>
-              <li class="main__filter-position-item mid">
-                <button class="open">
-                  <img src="./images/position/mid.png" alt="mid">
-                </button>
-              </li>
-              <li class="main__filter-position-item bottom">
-                <button class="close" disabled>
-                  <img src="./images/position/bottom.png" alt="bottom">
-                </button>
-              </li>
-              <li class="main__filter-position-item support">
-                <button class="open">
-                  <img src="./images/position/support.png" alt="support">
-                </button>
-              </li>
-            </ul>
-          </div>
-          <p class="main__board-content">
-            제대로 준비해보실 분들로 모집합니다.<br>
-            월~금 19~21시 필참
-          </p>
-          <button class="detailboard-button button" disabled>신청하기</button>
-        </div>
+          </a>
+        </nav>
       </div>
-    </main>
-  </div>
-</body>
+    </header>
 
+    <div class="detailboard-main__container">
+      <main class="main">
+        <div class="main__container">
+          <div class="main__board-title">
+            <div class="main__board-title-wrapper">
+              <div class="pot-tag-wrapper">
+                <span class="pot-tag">5 POT</span>
+              </div>
+              <h2 class="pot-title">피시방 리그 준비합니다. 원딜 급구</h2>
+              <div class="pot-info">
+                <div class="pot-info-user">
+                  <img class="pot-info-user-emblem" src="/images/emblem/gold.png" alt="user-emblem" />
+                  <span class="pot-info-user-summoner-name">|푸른피|</span>
+                </div>
+                <time datetime="2021-11-10">2021-11-10</time>
+              </div>
+            </div>
+          </div>
+          <div class="main__wrapper">
+            <div class="position-wrapper">
+              <ul class="main__filter-position-list">
+                <li class="main__filter-position-item top">
+                  <button class="open">
+                    <img src="/images/position/top.png" alt="top" />
+                  </button>
+                </li>
+                <li class="main__filter-position-item jungle">
+                  <button class="open">
+                    <img src="/images/position/jungle.png" alt="jungle" />
+                  </button>
+                </li>
+                <li class="main__filter-position-item mid">
+                  <button class="open">
+                    <img src="/images/position/mid.png" alt="mid" />
+                  </button>
+                </li>
+                <li class="main__filter-position-item bottom">
+                  <button class="close" disabled>
+                    <img src="/images/position/bottom.png" alt="bottom" />
+                  </button>
+                </li>
+                <li class="main__filter-position-item support">
+                  <button class="open">
+                    <img src="/images/position/support.png" alt="support" />
+                  </button>
+                </li>
+              </ul>
+            </div>
+            <p class="main__board-content">
+              제대로 준비해보실 분들로 모집합니다.<br />
+              월~금 19~21시 필참
+            </p>
+            <button class="detailboard-button button" disabled>신청하기</button>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
 </html>

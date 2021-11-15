@@ -1,5 +1,16 @@
-const router = require('express').Router();
-const { getBoardList, setBoard } = require('../query/boardQuery');
+// const fs = require('fs');
+const express = require('express');
+
+const router = express.Router();
+const path = require('path');
+const { getBoardData, getBoardList, setBoard } = require('../query/boardsQuery');
+
+// 원재님***
+// router.get('/:id', (req, res) => {
+//   const boardId = req.path.replace('/', '');
+//   const { title, position } = getBoardData(boardId);
+//   res.send({ title, position });
+// });
 
 router.get('/list', (req, res) => {
   const { currentPageNo, recordsPerPage } = req.query;
@@ -8,9 +19,9 @@ router.get('/list', (req, res) => {
   res.send(boards);
 });
 
-router.get('/detail/:id', (req, res) => {
-  console.log('hi detail');
-  console.log(req.query);
+router.get('/detail', (req, res) => {
+  console.log('/detail/:id 통신 성공 보드 정보 넘겨주겠다');
+  res.send('send');
 });
 
 router.post('/', (req, res) => {
@@ -29,15 +40,18 @@ router.post('/', (req, res) => {
     content: req.body.content,
     position,
   };
+
   try {
     const boardId = setBoard(board);
-    // window.location.assign(window.location.host + `/boards/${boardId}`);
-    // window.location.assign('www.naver.com');
-    // res.status(200).redirect(`/api/detail/${boardId}`);
     res.status(200).send(boardId + '');
   } catch (err) {
     res.status(400).send(err);
   }
 });
+
+// router.get('/:id', (req, res) => {
+//   console.log(req.query);
+//   res.send(findChampByChampId(1));
+// });
 
 module.exports = router;
