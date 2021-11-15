@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from '../utils/axiosConfig';
 
 /**
  * Insert board data
@@ -8,22 +8,25 @@ const createBoard = async ($boardForm, quill) => {
   try {
     const formData = new FormData($boardForm);
     // TODO: id 받아오기
-    formData.append('userId', 1);
-
-    formData.append('content', quill.getText());
-    formData.append('regDate', new Date());
+    const loginUserId = 1;
 
     const board = {};
+    const position = {};
+    formData.append('userId', loginUserId);
+    formData.append('content', JSON.stringify(quill.getContents()));
+    document.querySelectorAll('input[name="position"]').forEach(checkbox => {
+      position[checkbox.value] = checkbox.checked;
+    });
+    formData.set('position', JSON.stringify(position));
+
     formData.forEach((val, key) => {
-      board[key] = key === 'position' ? (board[key] = [...(board[key] || []), val]) : (board[key] = val);
+      board[key] = val;
     });
 
-    const { data: res } = await axios.post('/api/boards', board);
-    sessionStorage.setItem('boardId', res);
+    const { data } = await axios.post('/api/boards', board);
+    sessionStorage.setItem('boardId', data);
 
-    // window.location.href = '/boards/detail';
-    // window.location.href = `/api/boards/detail?boardId=${res}`; // 안됨
-    window.location.href = `/detailboard.html`;
+    // window.location.href = '/detailboard.html';
   } catch (e) {
     console.error(e);
   }

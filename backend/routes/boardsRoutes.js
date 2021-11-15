@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { getBoardData, patchCompletedBoardData, getBoardList, setBoard } = require('../query/boardsQuery');
+const { isRequested } = require('../query/requestsQuery');
 
 router.get('/list', (req, res) => {
   const { currentPageNo, recordsPerPage } = req.query;
@@ -9,26 +10,20 @@ router.get('/list', (req, res) => {
 });
 
 router.get('/detail', (req, res) => {
-  console.log('/detail/:id 통신 성공 보드 정보 넘겨주겠다');
-  res.send('send');
+  const { boardId } = req.query;
+  const board = getBoardData(boardId);
+  const myRequest = isRequested(boardId);
+  res.send({ board, myRequest });
+});
+
+router.post('/detail', (req, res) => {
+  const { boardId } = req.body;
 });
 
 router.post('/', (req, res) => {
-  // TODO: 포지션 이름 상수로 빼기
-  const position = { top: false, jug: false, mid: false, adc: false, sup: false };
-  const checkedPosition = [...req.body.position];
-  for (const name of Object.keys(position)) {
-    position[name] = checkedPosition.includes(name);
-  }
+  const { userId, type, title, content, position } = req.body;
 
-  // TODO: id받기
-  const board = {
-    userId: 1,
-    type: req.body.type,
-    title: req.body.title,
-    content: req.body.content,
-    position,
-  };
+  const board = { userId, type, title, content, position };
 
   try {
     const boardId = setBoard(board);
