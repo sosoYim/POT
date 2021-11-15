@@ -1,5 +1,13 @@
+// const fs = require('fs');
 const router = require('express').Router();
-const { getBoardList, setBoard } = require('../query/boardQuery');
+const { getBoardData, getBoardList, setBoard } = require('../query/boardsQuery');
+
+// 원재님***
+// router.get('/:id', (req, res) => {
+//   const boardId = req.path.replace('/', '');
+//   const { title, position } = getBoardData(boardId);
+//   res.send({ title, position });
+// });
 
 router.get('/list', (req, res) => {
   const { currentPageNo, recordsPerPage } = req.query;
@@ -39,5 +47,10 @@ router.post('/', (req, res) => {
     res.status(400).send(err);
   }
 });
+
+// router.get('/:id', (req, res) => {
+//   console.log(req.query);
+//   res.send(findChampByChampId(1));
+// });
 
 module.exports = router;
