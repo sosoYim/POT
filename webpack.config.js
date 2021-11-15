@@ -16,8 +16,8 @@ module.exports = {
     manage: './frontend/src/js/event/manage.js',
     participantedpot: './frontend/src/js/event/participantedpot.js',
     setting: './frontend/src/js/event/setting.js',
-    signin: './frontend/src/js/event/signin.js',
-    signup: './frontend/src/js/event/signup.js',
+    login: './frontend/src/js/event/login.js',
+    register: './frontend/src/js/event/register.js',
   },
   // 번들링된 js 파일의 이름(filename)과 저장될 경로(path)를 지정
   output: {
@@ -69,14 +69,14 @@ module.exports = {
       chunks: ['app', 'setting'],
     }),
     new HtmlWebpackPlugin({
-      filename: 'signin.html',
-      template: './frontend/src/template/signin.html',
-      chunks: ['app', 'signin'],
+      filename: 'login.html',
+      template: './frontend/src/template/login.html',
+      chunks: ['app', 'login'],
     }),
     new HtmlWebpackPlugin({
-      filename: 'signup.html',
-      template: './frontend/src/template/signup.html',
-      chunks: ['app', 'signup'],
+      filename: 'register.html',
+      template: './frontend/src/template/register.html',
+      chunks: ['app', 'register'],
     }),
     // css 결과물을 내보내기 위한 플러그인. 컴파일 + 번들링 CSS 파일이 저장될 경로와 이름 지정
     new MiniCssExtractPlugin({ filename: 'css/style.css' }),
