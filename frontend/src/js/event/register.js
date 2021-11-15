@@ -1,3 +1,4 @@
+// import maxios from 'axios';
 import axios from '../utils/axiosConfig';
 
 // const $main = document.querySelector('.membership-main');
@@ -5,6 +6,9 @@ import axios from '../utils/axiosConfig';
 // $main.onkeyup = e => {
 //   console.log('hi');
 // };
+
+const URL = 'https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/';
+const apiKey = 'RGAPI-cc16b565-dbbf-4686-93e1-43f4e7f6ecb2';
 
 const [$idInput, $summonerInput, $passwordInput, $confirmPasswordInput] =
   document.querySelectorAll('.signup-form__input');
@@ -63,9 +67,15 @@ const checkIdDuplicate = async id => {
 
 const checkSummonerNameExists = async summonerName => {
   try {
-    const { data } = await axios.get('');
+    const { data } = await axios.get(URL + summonerName + '?api_key=' + apiKey);
+    // form
+    console.log(data);
+    formData.summonerName.validate = true;
+    // console.log(data);
   } catch (err) {
-    throw err;
+    // console.log('hi');
+    formData.summonerName.validate = false;
+    // return false;
   }
 };
 
@@ -128,11 +138,15 @@ $summonerDuplicationButton.onclick = async () => {
   // riot API를 사용하여 소환사 명 유효성 검사
   const [$img, $span] = $summonerMessage.children;
 
-  await checkSummonerNameExists($summonerMessage.value);
+  await checkSummonerNameExists($summonerInput.value);
 
   if (!checkSummonerNameValidate()) {
     $img.src = './images/warning.svg';
     $img.alt = '경고';
-    $span.textContent = formData.userId.errorMessage;
+    $span.textContent = formData.summonerName.errorMessage;
+  } else {
+    $img.src = './images/success.svg';
+    $img.alt = '성공';
+    $span.textContent = formData.summonerName.successMessage;
   }
 };
