@@ -1,23 +1,12 @@
 @import '../utils/';
 @import '../components/';
 
-// html,
-// body {
-//   height: 100%;
-// }
-
-// .container {
-//   display: flex;
-//   flex-direction: column;
-//   height: 100%;
-// }
-
 .setting-container {
   .main {
     @include autoMargin;
   }
   .main__container {
-    background-color: #ffffff;
+    // background-color: #ffffff;
   }
   .button {
     font-weight: 300;
