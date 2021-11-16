@@ -1,7 +1,7 @@
 const express = require('express');
-const path = require('path');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
+const path = require('path');
 const routes = require('./routes');
 require('dotenv').config();
 
@@ -20,11 +20,11 @@ app.use(cookieParser());
 app.use('/api', routes);
 
 app.get('/register', (req, res) => {
-  res.sendFile(path.join(__dirname, '../public/signup.html'));
+  res.sendFile(path.join(__dirname, '../public/register.html'));
 });
 
 app.get('/login', (req, res) => {
-  res.sendFile(path.join(__dirname, '../public/signin.html'));
+  res.sendFile(path.join(__dirname, '../public/login.html'));
 });
 
 app.listen(PORT, () => console.log(`Server listening at http://localhost:${PORT}`)); // port, callback

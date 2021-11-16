@@ -1,5 +1,29 @@
 [
   {
+    "userId": 7,
+    "email": "kanghee@naver.com",
+    "password": "$2a$10$oKmSR4vQfN9JCUq.bFr6/eryybJIOzG1MQhvZG98xZ8kah7DS1snu",
+    "summoner": "바케모노채영",
+    "imageUrl": "./images/defaultUser.png",
+    "encryptedId": "RtbocuEr2y_3JZZSfBG2Lnt5YwXazV8B8Gyejx1-tJXUiQ"
+  },
+  {
+    "userId": 6,
+    "email": "hi@naver.com",
+    "password": "$2a$10$q0td8UsGKkUQc6Uk18tys.UxwFidP3DzspLE06Z8Yl508G1eO2ZC6",
+    "summoner": "l푸른피l",
+    "imageUrl": "./images/defaultUser.png",
+    "encryptedId": "-qOQrMXXa0qtQB47CGQtHpPDYRnQJo22DgCMjRIV2wZCF28"
+  },
+  {
+    "userId": 5,
+    "email": "jm1234@naver.com",
+    "password": "$2a$10$WFbc4X7.OAl8tPawpvcGwuMuwsRjsGD6ZzTaiNdGc8x5qJhuQLife",
+    "summoner": "l푸른피l",
+    "imageUrl": "./images/defaultUser.png",
+    "encryptedId": "-qOQrMXXa0qtQB47CGQtHpPDYRnQJo22DgCMjRIV2wZCF28"
+  },
+  {
     "userId": 4,
     "email": "dlwo@naver.com",
     "password": "$2a$10$y0QeRBUuk.arEXviP2jdp.QjwzEZOk.O89xbMS0AI316sxQEMjgQy",

@@ -25,6 +25,7 @@ router.post('/register', async (req, res) => {
   try {
     registerUser(user);
     res.send({ user: user.email });
+    return res.redirect('/login');
   } catch (err) {
     res.status(400).send(err);
   }
@@ -32,7 +33,6 @@ router.post('/register', async (req, res) => {
 
 router.post('/checkid', (req, res) => {
   // Checking if the email is already in the database
-  console.log(req.body.email);
   const emailExist = findUserByEmail(req.body.email);
   // 계정 존재 시 false반환(이미 존재하고 있으므로)
   if (emailExist) return res.send(false);
@@ -61,8 +61,23 @@ router.post('/login', async (req, res) => {
     maxAge: 1000 * 60 * 60 * 24, // 1d
     httpOnly: true,
   });
+  res.cookie('summoner', user.summoner, {
+    maxAge: 1000 * 60 * 60 * 24, // 1d
+    httpOnly: true,
+  });
+  res.cookie('encryptedId', user.encryptedId, {
+    maxAge: 1000 * 60 * 60 * 24, // 1d
+    httpOnly: true,
+  });
+
+  console.log('hi');
+
+  return res.redirect('/');
+
+  // return req.query.path ? res.redirect(req.query.path) : res.redirect('/');
   // res.send({ email, encryptedId: user.encryptedId });
-  return req.query.path ? res.redirect(req.query.path) : res.redirect('/');
+  // res.redirect('/');
+  // return req.query.path ? res.redirect(req.query.path) : res.redirect('/');
 });
 
 module.exports = router;

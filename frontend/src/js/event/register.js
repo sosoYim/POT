@@ -136,6 +136,7 @@ const sendUserInfo = () => {
     imageUrl: './images/defaultUser.png',
     encryptedId: formData.summonerName.encryptedId,
   });
+  window.location.href = '/login';
 };
 
 $main.onkeyup = ({ target }) => {
@@ -157,14 +158,6 @@ $idDuplicationButton.onclick = async ({ target }) => {
   setImgAttribute($img, checkIdValidate());
 
   $span.textContent = checkIdValidate() ? '올바른 아이디입니다.' : '이메일이 이미 존재합니다.';
-  //   if (!checkIdValidate()) {
-  //     $img.src = './images/warning.svg';
-  //     $img.alt = '경고';
-  //     $span.textContent = formData.userId.duplicationMessage;
-  //   } else {
-
-  //     $span.textContent = '올바른 아이디입니다';
-  //   }
 
   $registerButton.disabled = !allValidate();
 };
@@ -179,21 +172,10 @@ $summonerDuplicationButton.onclick = async ({ target }) => {
 
   $span.textContent = checkSummonerNameValidate() ? '올바른 소환사 명입니다.' : '존재하지 않는 소환사 명입니다.';
 
-  //   if (!checkSummonerNameValidate()) {
-  //     $img.src = './images/warning.svg';
-  //     $img.alt = '경고';
-  //     $span.textContent = formData.summonerName.warningMessage;
-  //   } else {
-  //     $img.src = './images/success.svg';
-  //     $img.alt = '성공';
-  //     $span.textContent = '올바른 소환사 명입니다.';
-  //   }
-
   $registerButton.disabled = !allValidate();
 };
 
 $registerButton.onclick = e => {
   e.preventDefault();
   sendUserInfo();
-  window.location.href = '/login.html';
 };
