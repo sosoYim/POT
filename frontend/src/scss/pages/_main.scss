@@ -74,8 +74,14 @@
       }
     }
 
+    &__filter-position-item--selected {
+      box-shadow: 0 0 0 4px $main inset;
+      background-color: rgba($color: $main, $alpha: 0.2);
+      border-radius: 10px;
+    }
+
     &__wrapper {
-      margin: rem(40) auto;
+      margin: rem(40) auto rem(10);
     }
 
     &__filter {
@@ -99,6 +105,11 @@
         justify-content: space-evenly;
       }
     }
+  }
+
+  .more {
+    text-align: center;
+    padding: rem(40) 0;
   }
 }
 
