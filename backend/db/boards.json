@@ -1,98 +1,17 @@
 [
   {
-    "boardId": 11,
-    "userId": 1,
-    "type": "5 POT",
-    "title": "fdsfds",
-    "content": { "ops": [{ "insert": "fds\n" }] },
-    "position": { "top": true, "jug": true, "mid": true, "adc": false, "sup": false },
-    "regDate": "2021-11-16 14:20:25"
-  },
-  {
-    "boardId": 10,
-    "userId": "1",
-    "type": "5 POT",
-    "title": "fdsf",
-    "content": { "ops": [{ "insert": "fds\n" }] },
-    "position": { "top": true, "jug": true, "mid": false, "adc": false, "sup": false },
-    "regDate": "2021-11-16 13:09:41"
-  },
-  {
-    "boardId": 9,
-    "userId": 3,
-    "type": "2 POT",
-    "title": "tretre",
-    "content": {
-      "ops": [
-        { "insert": "fdsfdsfds\n\nf" },
-        { "attributes": { "bold": true }, "insert": "dsdf" },
-        { "insert": "\n\nfdsfds\n" }
-      ]
-    },
-    "position": { "top": true, "jug": true, "mid": true, "adc": true, "sup": false },
-    "regDate": "2021-11-16 12:38:59"
-  },
-  {
-    "boardId": 8,
-    "userId": 3,
-    "type": "2 POT",
-    "title": "tretre",
-    "content": { "ops": [{ "insert": "gfdgfdgfdgdgfdgfd\n" }] },
-    "position": { "top": true, "jug": true, "mid": true, "adc": true, "sup": false },
-    "regDate": "2021-11-16 12:38:10"
-  },
-  {
-    "boardId": 7,
-    "userId": 3,
-    "type": "2 POT",
-    "title": "tretre",
-    "content": { "ops": [{ "insert": "tertre\n" }] },
-    "position": { "top": false, "jug": true, "mid": true, "adc": false, "sup": false },
-    "regDate": "2021-11-16 10:32:22"
-  },
-  {
-    "boardId": 6,
-    "userId": 3,
-    "type": "2 POT",
-    "title": "tretre",
-    "content": { "ops": [{ "insert": "tre\n" }] },
-    "position": { "top": false, "jug": true, "mid": true, "adc": false, "sup": false },
-    "regDate": "2021-11-16 10:31:47"
-  },
-  {
-    "boardId": 5,
-    "userId": "1",
-    "type": "2 POT",
-    "title": "fsdds",
-    "content": { "ops": [{ "insert": "ㄹㅇㄴㄹㅇㄴ\n" }] },
-    "position": { "top": false, "jug": true, "mid": false, "adc": true, "sup": false },
-    "regDate": "2021-11-16 10:05:19"
-  },
-  {
-    "boardId": 4,
-    "userId": "1",
-    "type": "2 POT",
-    "title": "fsdds",
-    "content": { "top": false, "jug": true, "mid": false, "adc": true, "sup": false },
-    "position": { "top": false, "jug": true, "mid": false, "adc": true, "sup": false },
-    "regDate": "2021-11-16 10:03:55"
-  },
-  {
-    "boardId": 3,
-    "userId": "1",
-    "type": "2 POT",
-    "title": "fsdds",
-    "content": "{\"ops\":[{\"insert\":\"아아아 \\n\"}]}",
-    "position": "{\"top\":false,\"jug\":true,\"mid\":false,\"adc\":true,\"sup\":false}",
-    "regDate": "2021-11-16 10:00:47"
-  },
-  {
     "boardId": 2,
     "userId": 1,
     "type": "5POT",
     "title": "자유랭크 하실 분 플레 이상만",
     "content": "매너 채팅 부탁드려요",
-    "position": { "top": true, "jug": true, "mid": false, "adc": false, "sup": true },
+    "position": {
+      "top": true,
+      "jug": true,
+      "mid": false,
+      "adc": false,
+      "sup": true
+    },
     "regDate": "2021-11-12 15:58"
   },
   {
@@ -101,7 +20,13 @@
     "type": "2POT",
     "title": "바텀 듀오 가실 서폿 구합니다.",
     "content": "오후 7시 부터 11시 사이에 게임 가능하신 분만 지원 부탁드려요",
-    "position": { "top": false, "jug": false, "mid": false, "adc": false, "sup": true },
+    "position": {
+      "top": false,
+      "jug": false,
+      "mid": false,
+      "adc": false,
+      "sup": true
+    },
     "regDate": "2021-11-12 15:53"
   }
 ]
