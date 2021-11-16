@@ -5,7 +5,7 @@ const $cardWrapper = document.querySelector('.card__wrapper');
 const render = boards => {
   $cardWrapper.innerHTML = boards
     .map(
-      ({ type, title, position, regDate }) =>
+      ({ type, title, position, regDate, summoner, tier }) =>
         `<a href="javascript:void(0);" class="card">
           <span class="card__type">${type}</span>
           <h2 class="card__title">${title}</h2>
@@ -28,8 +28,8 @@ const render = boards => {
           </ul>
           <div class="card__detail">
             <div class="user">
-              <img src="./images/emblem/gold.png" alt="티어" class="user__tier" />
-              <span class="user__name">|푸른피|</span>
+              <img src="./images/emblem/${tier}.png" alt="티어" class="user__tier" />
+              <span class="user__name">${summoner}</span>
             </div>
             <span class="regDate">${formatRegDate(regDate)}</span>
           </div>

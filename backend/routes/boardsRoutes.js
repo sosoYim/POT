@@ -1,12 +1,25 @@
 const router = require('express').Router();
 const { getBoardData, patchCompletedBoardData, getBoardList, setBoard } = require('../query/boardsQuery');
 const { isMyRequest, setRequest } = require('../query/requestsQuery');
+const { getUserEncIdList, getSummonerNameList, getParticipants, filterSoloRankTier } = require('../query/manageQuery');
 
-router.get('/list', (req, res) => {
+const summonerURL = 'https://kr.api.riotgames.com/lol/league/v4/entries/by-summoner/';
+
+router.get('/list', async (req, res) => {
   const { type, position, currentPageNo, recordsPerPage } = req.query;
   const boards = getBoardList(type, position, +currentPageNo, +recordsPerPage);
+  const userNoList = boards.map(board => board.userId);
+  const encIdList = getUserEncIdList(userNoList);
+  const summonerNameList = getSummonerNameList(encIdList);
+  const participantList = await Promise.all(getParticipants(encIdList, summonerURL)).then(filterSoloRankTier);
+  const response = boards.map((board, index) => ({
+    ...board,
+    summoner: summonerNameList[index],
+    tier: participantList[index].tier,
+  }));
+  console.log(response);
 
-  res.send(boards);
+  res.send(response);
 });
 
 router.post('/', (req, res) => {
