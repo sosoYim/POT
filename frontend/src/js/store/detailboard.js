@@ -1,12 +1,17 @@
-// boards.js 로 합치는건 어떤가
-import { render } from '../view/detailboard';
+import { render, renderMyRequest } from '../view/detailboard';
 
 let board = {};
+let state;
+// setState? (myRequest)
 
-const setBoard = newBoard => {
+const setBoard = (newBoard, myRequest) => {
   board = newBoard;
-
-  render(board);
+  state = myRequest;
+  render(board, state);
 };
 
-export { setBoard };
+const setState = isMyRequest => {
+  renderMyRequest(isMyRequest);
+};
+
+export { setBoard, setState };

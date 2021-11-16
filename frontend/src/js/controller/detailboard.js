@@ -1,5 +1,5 @@
 import axios from '../utils/axiosConfig';
-import { setBoard } from '../store/detailboard';
+import { setBoard, setState } from '../store/detailboard';
 
 const fetchBoard = async () => {
   try {
@@ -14,16 +14,16 @@ const fetchBoard = async () => {
 
 const createRequest = async () => {
   try {
-    // TODO: 로그인 유저 아이디
-    const loginUserId = 2;
+    // TODO: 쿠키 값으로 가져와야 함
+    const loginUserId = 3;
+    const userId = loginUserId;
 
     const boardId = sessionStorage.getItem('boardId');
-    const userId = loginUserId;
-    // position정보 가져오기
-
-    const { data } = await axios.post('/api/boards/detail', boardId);
+    const position = document.querySelector('input[name="position"]:checked').value;
+    const request = { userId, boardId, position };
+    const { data } = await axios.post('/api/boards/detail', request);
     console.log(data);
-    // setBoard ... setState?
+    setState(true);
   } catch (error) {
     console.log(error);
   }

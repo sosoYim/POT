@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { getBoardData, patchCompletedBoardData, getBoardList, setBoard } = require('../query/boardsQuery');
-const { isMyRequest } = require('../query/requestsQuery');
+const { isMyRequest, setRequest } = require('../query/requestsQuery');
 
 router.get('/list', (req, res) => {
   const { currentPageNo, recordsPerPage } = req.query;
@@ -9,8 +9,24 @@ router.get('/list', (req, res) => {
   res.send(boards);
 });
 
+router.post('/', (req, res) => {
+  const { type, title } = req.body;
+  let { userId, content, position } = req.body;
+  userId = +userId;
+  content = JSON.parse(content);
+  position = JSON.parse(position);
+  const board = { userId, type, title, content, position };
+
+  try {
+    const boardId = setBoard(board);
+    res.status(200).send(boardId + '');
+  } catch (err) {
+    res.status(400).send(err);
+  }
+});
+
 router.get('/detail', (req, res) => {
-  // TODO: 전역에서 불러온 현재 로그인 중인 정보
+  // TODO: 프론트에서 쿠키로 값을 찾아와야 함
   const userId = 3;
   const { boardId } = req.query;
   const board = getBoardData(boardId);
@@ -19,24 +35,12 @@ router.get('/detail', (req, res) => {
 });
 
 router.post('/detail', (req, res) => {
-  const { boardId } = req.body;
-});
-
-router.post('/', (req, res) => {
-  const loginUserId = 3; // TODO: 로그인 ID 받기
-
-  const { type, title } = req.body;
-  let { content, position } = req.body;
-  content = JSON.parse(content);
-  position = JSON.parse(position);
-  const board = { userId: loginUserId, type, title, content, position };
-
-  try {
-    const boardId = setBoard(board);
-    res.status(200).send(boardId + '');
-  } catch (err) {
-    res.status(400).send(err);
-  }
+  const { boardId, userId, position } = req.body;
+  const request = { boardId: +boardId, userId: +userId, position };
+  // 방어코드 : 이미 신청한 요청이면 저장하지 않는다.
+  // const requestId = isMyRequest(userId, boardId) ? -1 : setRequest(request);
+  const requestId = setRequest(request);
+  res.send(requestId + '');
 });
 
 router.get('/manage/:id', (req, res) => {
