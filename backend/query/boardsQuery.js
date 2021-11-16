@@ -14,11 +14,14 @@ const patchCompletedBoardData = (boardId, userId, completed) => {
   fs.writeFileSync('./backend/db/requests.json', JSON.stringify(newRequests));
 };
 
-const getBoardList = (currentPageNo, recordsPerPage) => {
+const getBoardList = (type, position, currentPageNo, recordsPerPage) => {
   const boards = JSON.parse(fs.readFileSync('./backend/db/boards.json'));
   const startIndex = (currentPageNo - 1) * recordsPerPage;
 
-  return boards.filter((board, index) => index >= startIndex && index < startIndex + recordsPerPage);
+  return boards
+    .filter(board => board.type === type)
+    .filter(board => (position === 'all' ? true : board.position[position]))
+    .filter((board, index) => index >= startIndex && index < startIndex + recordsPerPage);
 };
 
 /**

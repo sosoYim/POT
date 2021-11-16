@@ -3,8 +3,8 @@ const { getBoardData, patchCompletedBoardData, getBoardList, setBoard } = requir
 const { isMyRequest, setRequest } = require('../query/requestsQuery');
 
 router.get('/list', (req, res) => {
-  const { currentPageNo, recordsPerPage } = req.query;
-  const boards = getBoardList(+currentPageNo, +recordsPerPage);
+  const { type, position, currentPageNo, recordsPerPage } = req.query;
+  const boards = getBoardList(type, position, +currentPageNo, +recordsPerPage);
 
   res.send(boards);
 });
