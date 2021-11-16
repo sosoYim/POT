@@ -1,22 +1,22 @@
 const fs = require('fs');
 
 /**
- * Find user by account in user database and return user.
- * @param {string} account
+ * Find user by email in user database and return user.
+ * @param {string} email
  * @returns {object} - user data
  */
-const findUserByAccount = account =>
-  JSON.parse(fs.readFileSync('./backend/db/users.json')).find(user => user.account === account);
+const findUserByEmail = email =>
+  JSON.parse(fs.readFileSync('./backend/db/users.json')).find(user => user.email === email);
 
 /**
  * Find user in user database.
- * @param {string} account
+ * @param {string} email
  * @param {string} password
  * @returns {boolean}
  */
-const findUser = (account, password) =>
+const findUser = (email, password) =>
   JSON.parse(fs.readFileSync('./backend/db/users.json')).find(
-    user => user.account === account && user.password === password
+    user => user.email === email && user.password === password
   );
 
 /**
@@ -35,4 +35,4 @@ const registerUser = newUser => {
  */
 const getUsers = () => JSON.parse(fs.readFileSync('./backend/db/users.json'));
 
-module.exports = { findUserByAccount, findUser, registerUser, getUsers };
+module.exports = { findUserByEmail, findUser, registerUser, getUsers };

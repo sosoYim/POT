@@ -123,6 +123,7 @@
     padding-left: rem(1px);
     margin: rem(10px) 0;
     min-height: rem(20px);
+    // opacity: 0;
     @include flexbox(row, $justify-content: flex-start, $align-items: flex-start);
 
     @include mobile {
@@ -200,6 +201,7 @@
     color: $white;
     margin-top: rem(20px);
     margin-bottom: rem(30px);
+    transition-duration: 0.3s;
 
     box-shadow: 0 4px 4px 0px $gray04;
 

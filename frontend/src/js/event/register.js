@@ -1,61 +1,95 @@
 // import maxios from 'axios';
 import axios from '../utils/axiosConfig';
 
-// const $main = document.querySelector('.membership-main');
-
-// $main.onkeyup = e => {
-//   console.log('hi');
-// };
-
 const URL = 'https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/';
-const apiKey = 'RGAPI-cc16b565-dbbf-4686-93e1-43f4e7f6ecb2';
+const apiKey = 'RGAPI-1fb1cc41-0c61-48a4-adf2-51939ede42ca';
 
-const [$idInput, $summonerInput, $passwordInput, $confirmPasswordInput] =
-  document.querySelectorAll('.signup-form__input');
-
+const $main = document.querySelector('.membership-main');
 const [$idDuplicationButton, $summonerDuplicationButton] = document.querySelectorAll('.signup-form__check-duplication');
-const [$idMessage, $summonerMessage, $passwordMessage, $confirmPasswordMessage] =
-  document.querySelectorAll('.signup-form__message');
+const $registerButton = document.querySelector('.signup-form__button');
 
 const formData = {
   userId: {
     value: '',
-    successMessage: '올바른 아이디입니다.',
-    errorMessage: '4~12자의 영문+숫자로 입력해주세요',
-    duplicationMessage: '아이디가 이미 존재합니다.',
-    regExp: new RegExp(/^[a-zA-Z][a-zA-Z0-9]{3,11}$/),
+    // 올바른 아이디입니다.
+    successMessage: '중복확인 버튼을 눌러주세요.',
+    warningMessage: '이메일 형식에 맞게 입력해주세요',
+    duplicationMessage: '이메일이 이미 존재합니다.',
+    regExp: new RegExp(/^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/),
     validate: false,
   },
   summonerName: {
     value: '',
-    successMessage: '올바른 소환사 명입니다.',
-    errorMessage: '존재하지 않는 소환사 명입니디.',
-    regExp: new RegExp(/^..{1,14}$/),
+    // 올바른 소환사 명입니다.
+    successMessage: '소환사명 확인버튼을 눌러주세요.',
+    warningMessage: '존재하는 소환사 명을 적어주세요',
+    regExp: new RegExp(/^..{1,}$/),
     validate: false,
+    encryptedId: '',
   },
   password: {
     value: '',
     successMessage: '올바른 비밀번호 입니다.',
-    errorMessage: '8자리 이상의 영문, 숫자조합을 입력하세요.',
+    warningMessage: '8자리 이상의 영문, 숫자조합을 입력하세요.',
     regExp: new RegExp(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,20}$/),
     validate: false,
   },
   confirmPassword: {
     value: '',
     successMessage: '비밀번호가 일치합니다.',
-    errorMessage: '비밀번호가 일치하지 않습니다.',
+    warningMessage: '비밀번호가 일치하지 않습니다.',
     validate: false,
   },
 };
 
-const idValid = value => formData.userId.regExp.test(value);
+const setImgAttribute = (img, bool) => {
+  img.src = bool ? './images/success.svg' : './images/warning.svg';
+  img.alt = bool ? '성공' : '실패';
+};
 
-const summonerValid = value => formData.summonerName.regExp.test(value);
+const setSpanText = (span, inputName, bool) => {
+  span.textContent = bool ? formData[inputName].successMessage : formData[inputName].warningMessage;
+};
 
-const checkIdDuplicate = async id => {
+const inputValidate = input => {
+  const inputName = input.name;
+  const inputValue = input.value;
+  const [$img, $span] = input.parentNode.nextElementSibling.children;
+
+  formData[inputName].value = inputValue;
+
+  const isValid =
+    inputName === 'confirmPassword'
+      ? formData.password.value === formData.confirmPassword.value
+      : formData[inputName].regExp.test(inputValue);
+  formData[inputName].validate = isValid;
+
+  if (inputName === 'userId' || inputName === 'summonerName') {
+    // 중복확인 검사 버튼
+    input.nextElementSibling.nextElementSibling.disabled = !isValid;
+    formData[inputName].validate = false;
+  }
+
+  setImgAttribute($img, isValid);
+  setSpanText($span, inputName, isValid);
+
+  if (input.value.trim() === '') {
+    $img.src = '';
+    $img.alt = '';
+    $span.textContent = '';
+    $img.style.opacity = 0;
+    // console.log(input.parentNode.nextElementSibling);
+    // input.parentNode.nextElementSibling.style.setProperty('opacity', '0');
+    // input.parentNode.nextElementSibling.style.opacity = '0';
+  }
+  //   input.parentNode.nextElementSibling.style.setProperty('opacity', '1');
+  $img.style.opacity = 1;
+};
+
+const checkIdDuplicate = async () => {
   try {
     const { data } = await axios.post('/api/user/checkid', {
-      account: id,
+      email: formData.userId.value,
     });
     formData.userId.validate = data === true;
     console.log(formData.userId.validate);
@@ -65,15 +99,13 @@ const checkIdDuplicate = async id => {
   }
 };
 
-const checkSummonerNameExists = async summonerName => {
+const checkSummonerNameExists = async () => {
   try {
-    const { data } = await axios.get(URL + summonerName + '?api_key=' + apiKey);
+    const { data } = await axios.get(URL + formData.summonerName.value + '?api_key=' + apiKey);
     // form
-    console.log(data);
+    formData.summonerName.encryptedId = data.id;
     formData.summonerName.validate = true;
-    // console.log(data);
   } catch (err) {
-    // console.log('hi');
     formData.summonerName.validate = false;
     // return false;
   }
@@ -83,70 +115,85 @@ const checkIdValidate = () => formData.userId.validate;
 
 const checkSummonerNameValidate = () => formData.summonerName.validate;
 
-$idInput.onkeyup = e => {
-  const [$img, $span] = $idMessage.children;
-  if (idValid(e.target.value)) {
-    $idDuplicationButton.disabled = false;
-    $img.src = './images/success.svg';
-    $img.alt = '성공';
-    $span.textContent = '중복확인 버튼을 눌러주세요.';
-  } else {
-    $idDuplicationButton.disabled = true;
-    $img.src = './images/warning.svg';
-    $img.alt = '경고';
-    $span.textContent = formData.userId.errorMessage;
-  }
-  $img.style.opacity = 1;
-  //   $img.setProperty('opacity', '1', 'important');
+const initializeConfirmPassword = input => {
+  input.value = '';
+
+  formData.confirmPassword.value = '';
+  formData.confirmPassword.validate = false;
+
+  const [$img, $span] = input.parentNode.nextElementSibling.children;
+  $img.style.opacity = 0;
+  $span.textContent = '';
 };
 
-$summonerInput.onkeyup = e => {
-  const [$img, $span] = $summonerMessage.children;
-  if (summonerValid(e.target.value)) {
-    $summonerDuplicationButton.disabled = false;
-    $img.src = './images/success.svg';
-    $img.alt = '성공';
-    $span.textContent = '소환사명 확인버튼을 눌러주세요.';
-  } else {
-    $summonerDuplicationButton.disabled = true;
-    $img.src = './images/warning.svg';
-    $img.alt = '경고';
-    $span.textContent = formData.summonerName.errorMessage;
-  }
-  $img.style.opacity = 1;
-  //   $img.setProperty('opacity', 1);
+const allValidate = () => Object.keys(formData).every(data => formData[data].validate);
+
+const sendUserInfo = () => {
+  axios.post('/api/user/register', {
+    email: formData.userId.value,
+    password: formData.password.value,
+    summoner: formData.summonerName.value,
+    imageUrl: './images/defaultUser.png',
+    encryptedId: formData.summonerName.encryptedId,
+  });
 };
 
-$idDuplicationButton.onclick = async () => {
+$main.onkeyup = ({ target }) => {
+  if (target.name === 'password') {
+    initializeConfirmPassword(document.getElementById('signup-confirm-password'));
+  }
+
+  inputValidate(target);
+
+  $registerButton.disabled = !allValidate();
+};
+
+$idDuplicationButton.onclick = async ({ target }) => {
   // 눌렀을 때 서버에서 데이터 받고
-  const [$img, $span] = $idMessage.children;
+  const [$img, $span] = target.parentNode.nextElementSibling.children;
 
-  await checkIdDuplicate($idInput.value);
+  await checkIdDuplicate();
 
-  if (!checkIdValidate()) {
-    $img.src = './images/warning.svg';
-    $img.alt = '경고';
-    $span.textContent = formData.userId.duplicationMessage;
-  } else {
-    $img.src = './images/success.svg';
-    $img.alt = '성공';
-    $span.textContent = formData.userId.successMessage;
-  }
+  setImgAttribute($img, checkIdValidate());
+
+  $span.textContent = checkIdValidate() ? '올바른 아이디입니다.' : '이메일이 이미 존재합니다.';
+  //   if (!checkIdValidate()) {
+  //     $img.src = './images/warning.svg';
+  //     $img.alt = '경고';
+  //     $span.textContent = formData.userId.duplicationMessage;
+  //   } else {
+
+  //     $span.textContent = '올바른 아이디입니다';
+  //   }
+
+  $registerButton.disabled = !allValidate();
 };
 
-$summonerDuplicationButton.onclick = async () => {
+$summonerDuplicationButton.onclick = async ({ target }) => {
   // riot API를 사용하여 소환사 명 유효성 검사
-  const [$img, $span] = $summonerMessage.children;
+  const [$img, $span] = target.parentNode.nextElementSibling.children;
 
-  await checkSummonerNameExists($summonerInput.value);
+  await checkSummonerNameExists();
 
-  if (!checkSummonerNameValidate()) {
-    $img.src = './images/warning.svg';
-    $img.alt = '경고';
-    $span.textContent = formData.summonerName.errorMessage;
-  } else {
-    $img.src = './images/success.svg';
-    $img.alt = '성공';
-    $span.textContent = formData.summonerName.successMessage;
-  }
+  setImgAttribute($img, checkSummonerNameValidate());
+
+  $span.textContent = checkSummonerNameValidate() ? '올바른 소환사 명입니다.' : '존재하지 않는 소환사 명입니다.';
+
+  //   if (!checkSummonerNameValidate()) {
+  //     $img.src = './images/warning.svg';
+  //     $img.alt = '경고';
+  //     $span.textContent = formData.summonerName.warningMessage;
+  //   } else {
+  //     $img.src = './images/success.svg';
+  //     $img.alt = '성공';
+  //     $span.textContent = '올바른 소환사 명입니다.';
+  //   }
+
+  $registerButton.disabled = !allValidate();
+};
+
+$registerButton.onclick = e => {
+  e.preventDefault();
+  sendUserInfo();
+  window.location.href = '/login.html';
 };
