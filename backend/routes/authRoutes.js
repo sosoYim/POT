@@ -74,7 +74,7 @@ router.post('/login', async (req, res) => {
 
   return res.redirect('/');
 
-  return req.query.path ? res.redirect(req.query.path) : res.redirect('/');
+  // return req.query.path ? res.redirect(req.query.path) : res.redirect('/');
   // res.send({ email, encryptedId: user.encryptedId });
   // res.redirect('/');
   // return req.query.path ? res.redirect(req.query.path) : res.redirect('/');
