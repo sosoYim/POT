@@ -65,9 +65,24 @@
               </div>
             </div>
           </div>
-          <div class="main__wrapper">
-            <div class="position-wrapper">
-              <ul class="main__filter-position-list">
+          <div class="main__wrapper form">
+            <div class="form__position">
+              <div class="form-radio">
+                <h2 class="a11y-hidden">필요한 포지션을 선택해주세요.</h2>
+                <div class="form-radio__icons">
+                  <input type="radio" name="position" id="top" class="form-radio__checkbox top" value="top" />
+                  <label for="top" class="form-radio__label form-radio__label--top" aria-label="탑"></label>
+                  <input type="radio" name="position" id="jug" class="form-radio__checkbox jug" value="jug" />
+                  <label for="jug" class="form-radio__label form-radio__label--jug" aria-label="정글"></label>
+                  <input type="radio" name="position" id="mid" class="form-radio__checkbox mid" value="mid" />
+                  <label for="mid" class="form-radio__label form-radio__label--mid" aria-label="미드"></label>
+                  <input type="radio" name="position" id="adc" class="form-radio__checkbox adc" value="adc" />
+                  <label for="adc" class="form-radio__label form-radio__label--adc" aria-label="ADC"></label>
+                  <input type="radio" name="position" id="sup" class="form-radio__checkbox sup" value="sup" />
+                  <label for="sup" class="form-radio__label form-radio__label--sup" aria-label="서포트"></label>
+                </div>
+              </div>
+              <!-- <ul class="main__filter-position-list">
                 <li class="main__filter-position-item top">
                   <button class="open">
                     <img src="/images/position/top.png" alt="top" />
@@ -93,14 +108,16 @@
                     <img src="/images/position/sup.png" alt="sup" />
                   </button>
                 </li>
-              </ul>
+              </ul> -->
             </div>
-            <p class="main__board-content">
+            <div class="form__content">
               제대로 준비해보실 분들로 모집합니다.<br />
               월~금 19~21시 필참
-            </p>
-            <input type="hidden" name="boardId" />
-            <a class="detailboard-button button" disabled>신청하기</a>
+              <input type="hidden" name="boardId" />
+            </div>
+            <div class="form__button">
+              <a class="detailboard-button button" disabled>신청하기</a>
+            </div>
           </div>
         </div>
       </main>
