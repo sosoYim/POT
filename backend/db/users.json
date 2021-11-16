@@ -1,5 +1,13 @@
 [
   {
+    "userId": 7,
+    "email": "kanghee@naver.com",
+    "password": "$2a$10$oKmSR4vQfN9JCUq.bFr6/eryybJIOzG1MQhvZG98xZ8kah7DS1snu",
+    "summoner": "바케모노채영",
+    "imageUrl": "./images/defaultUser.png",
+    "encryptedId": "RtbocuEr2y_3JZZSfBG2Lnt5YwXazV8B8Gyejx1-tJXUiQ"
+  },
+  {
     "userId": 6,
     "email": "hi@naver.com",
     "password": "$2a$10$q0td8UsGKkUQc6Uk18tys.UxwFidP3DzspLE06Z8Yl508G1eO2ZC6",

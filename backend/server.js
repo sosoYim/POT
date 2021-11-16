@@ -1,6 +1,7 @@
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
+const path = require('path');
 const routes = require('./routes');
 const auth = require('./utils/verifyToken');
 require('dotenv').config();
@@ -16,7 +17,16 @@ const PORT = process.env.PORT || 3001;
 app.use(cors(corsOptions));
 app.use(express.json());
 app.use(cookieParser());
-app.use(express.static('../public'));
+app.use(express.static(path.join(__dirname, '/public')));
 app.use('/api', routes);
+
+// app.get('/', (req, res) => {
+//   res.sendFile('index.html');
+// });
+
+// app.get('/login', (req, res) => {
+//   console.log('hi');
+//   res.sendFile(__dirname + '/public/login.html');
+// });
 
 app.listen(PORT, () => console.log(`Server listening at http://localhost:${PORT}`)); // port, callback

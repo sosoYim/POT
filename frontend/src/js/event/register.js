@@ -136,6 +136,7 @@ const sendUserInfo = () => {
     imageUrl: './images/defaultUser.png',
     encryptedId: formData.summonerName.encryptedId,
   });
+  // window.location.href = '/login';
 };
 
 $main.onkeyup = ({ target }) => {
@@ -177,5 +178,4 @@ $summonerDuplicationButton.onclick = async ({ target }) => {
 $registerButton.onclick = e => {
   e.preventDefault();
   sendUserInfo();
-  window.location.href = '/login';
 };
