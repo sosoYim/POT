@@ -140,7 +140,13 @@
     "type": "5 POT",
     "title": "자유랭크 하실 분 플레 이상만",
     "content": "매너 채팅 부탁드려요",
-    "position": { "top": true, "jug": true, "mid": false, "adc": false, "sup": true },
+    "position": {
+      "top": true,
+      "jug": true,
+      "mid": false,
+      "adc": false,
+      "sup": true
+    },
     "regDate": "2021-11-12 15:58"
   },
   {
@@ -149,7 +155,13 @@
     "type": "2 POT",
     "title": "바텀 듀오 가실 서폿 구합니다.",
     "content": "오후 7시 부터 11시 사이에 게임 가능하신 분만 지원 부탁드려요",
-    "position": { "top": false, "jug": false, "mid": false, "adc": false, "sup": true },
+    "position": {
+      "top": false,
+      "jug": false,
+      "mid": false,
+      "adc": false,
+      "sup": true
+    },
     "regDate": "2021-11-12 15:53"
   }
 ]
