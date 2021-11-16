@@ -22,13 +22,6 @@ const getBoardList = (currentPageNo, recordsPerPage) => {
 };
 
 /**
- *
- * @param {string} boardId
- * @returns
- */
-const getBoardById = boardId => JSON.parse(fs.readFileSync('./backend/db/boards.json')).find({ boardId });
-
-/**
  * Add board in BOARD dataset
  * @param {object} newBoard
  */
@@ -43,4 +36,4 @@ const setBoard = newBoard => {
   return newBoardId;
 };
 
-module.exports = { getBoardData, patchCompletedBoardData, getBoardList, getBoardById, setBoard };
+module.exports = { getBoardData, patchCompletedBoardData, getBoardList, setBoard };

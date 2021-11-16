@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { getBoardData, patchCompletedBoardData, getBoardList, setBoard } = require('../query/boardsQuery');
+const { isMyRequest, setRequest } = require('../query/requestsQuery');
 
 router.get('/list', (req, res) => {
   const { currentPageNo, recordsPerPage } = req.query;
@@ -8,36 +9,38 @@ router.get('/list', (req, res) => {
   res.send(boards);
 });
 
-router.get('/detail/:id', (req, res) => {
-  console.log('hi detail');
-  console.log(req.query);
-});
-
 router.post('/', (req, res) => {
-  // TODO: 포지션 이름 상수로 빼기
-  const position = { top: false, jug: false, mid: false, adc: false, sup: false };
-  const checkedPosition = [...req.body.position];
-  for (const name of Object.keys(position)) {
-    position[name] = checkedPosition.includes(name);
-  }
+  const { type, title } = req.body;
+  let { userId, content, position } = req.body;
+  userId = +userId;
+  content = JSON.parse(content);
+  position = JSON.parse(position);
+  const board = { userId, type, title, content, position };
 
-  // TODO: id받기
-  const board = {
-    userId: 1,
-    type: req.body.type,
-    title: req.body.title,
-    content: req.body.content,
-    position,
-  };
   try {
     const boardId = setBoard(board);
-    // window.location.assign(window.location.host + `/boards/${boardId}`);
-    // window.location.assign('www.naver.com');
-    // res.status(200).redirect(`/api/detail/${boardId}`);
     res.status(200).send(boardId + '');
   } catch (err) {
     res.status(400).send(err);
   }
+});
+
+router.get('/detail', (req, res) => {
+  // TODO: 프론트에서 쿠키로 값을 찾아와야 함
+  const userId = 3;
+  const { boardId } = req.query;
+  const board = getBoardData(boardId);
+  const myRequest = isMyRequest(userId, boardId);
+  res.send({ board, myRequest });
+});
+
+router.post('/detail', (req, res) => {
+  const { boardId, userId, position } = req.body;
+  const request = { boardId: +boardId, userId: +userId, position };
+  // 방어코드 : 이미 신청한 요청이면 저장하지 않는다.
+  // const requestId = isMyRequest(userId, boardId) ? -1 : setRequest(request);
+  const requestId = setRequest(request);
+  res.send(requestId + '');
 });
 
 router.get('/manage/:id', (req, res) => {

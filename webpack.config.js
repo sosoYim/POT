@@ -22,6 +22,7 @@ module.exports = {
   // 번들링된 js 파일의 이름(filename)과 저장될 경로(path)를 지정
   output: {
     path: path.resolve(__dirname, 'public'),
+    publicPath: '/',
     filename: 'js/[name].bundle.js',
   },
   optimization: {
@@ -84,7 +85,7 @@ module.exports = {
       patterns: [
         {
           from: path.join(__dirname, './frontend/src/images'),
-          to: path.join(__dirname, 'public/images'),
+          to: path.join(__dirname, './public/images'),
         },
       ],
     }),

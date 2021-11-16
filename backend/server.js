@@ -2,7 +2,6 @@ const express = require('express');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
 const routes = require('./routes');
-const auth = require('./utils/verifyToken');
 require('dotenv').config();
 
 const corsOptions = {
