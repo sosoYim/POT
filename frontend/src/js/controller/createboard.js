@@ -7,12 +7,12 @@ import axios from '../utils/axiosConfig';
 const createBoard = async ($boardForm, quill) => {
   try {
     const formData = new FormData($boardForm);
-    // TODO: id 받아오기
-    const loginUserId = 1;
+    // TODO: 로그인 ID : 서버에서 받는 중
+    // const loginUserId = 1;
 
     const board = {};
     const position = {};
-    formData.append('userId', loginUserId);
+    // formData.append('userId', loginUserId);
     formData.append('content', JSON.stringify(quill.getContents()));
     document.querySelectorAll('input[name="position"]').forEach(checkbox => {
       position[checkbox.value] = checkbox.checked;
@@ -26,7 +26,7 @@ const createBoard = async ($boardForm, quill) => {
     const { data } = await axios.post('/api/boards', board);
     sessionStorage.setItem('boardId', data);
 
-    // window.location.href = '/detailboard.html';
+    window.location.href = '/detailboard.html';
   } catch (e) {
     console.error(e);
   }

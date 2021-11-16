@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { getBoardData, patchCompletedBoardData, getBoardList, setBoard } = require('../query/boardsQuery');
-const { isRequested } = require('../query/requestsQuery');
+const { isMyRequest } = require('../query/requestsQuery');
 
 router.get('/list', (req, res) => {
   const { currentPageNo, recordsPerPage } = req.query;
@@ -10,9 +10,11 @@ router.get('/list', (req, res) => {
 });
 
 router.get('/detail', (req, res) => {
+  // TODO: 전역에서 불러온 현재 로그인 중인 정보
+  const userId = 3;
   const { boardId } = req.query;
   const board = getBoardData(boardId);
-  const myRequest = isRequested(boardId);
+  const myRequest = isMyRequest(userId, boardId);
   res.send({ board, myRequest });
 });
 
@@ -21,9 +23,13 @@ router.post('/detail', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-  const { userId, type, title, content, position } = req.body;
+  const loginUserId = 3; // TODO: 로그인 ID 받기
 
-  const board = { userId, type, title, content, position };
+  const { type, title } = req.body;
+  let { content, position } = req.body;
+  content = JSON.parse(content);
+  position = JSON.parse(position);
+  const board = { userId: loginUserId, type, title, content, position };
 
   try {
     const boardId = setBoard(board);

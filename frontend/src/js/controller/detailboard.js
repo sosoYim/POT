@@ -1,15 +1,32 @@
-import axios from 'axios';
+import axios from '../utils/axiosConfig';
 import { setBoard } from '../store/detailboard';
 
 const fetchBoard = async () => {
   try {
-    console.log('fetchBoard', sessionStorage.getItem('boardId'));
-    const { data } = await axios.get(`/api/boards/detail?boardId=${sessionStorage.getItem('boardId')}`);
-    console.log(data);
-    // setBoard(data);
+    const boardId = sessionStorage.getItem('boardId');
+    const { data } = await axios.get(`/api/boards/detail?boardId=${boardId}`);
+    // console.log('detailboard controller', data.board, data.myRequest);
+    setBoard(data.board, data.myRequest);
   } catch (error) {
     console.log(error);
   }
 };
 
-export { fetchBoard };
+const createRequest = async () => {
+  try {
+    // TODO: 로그인 유저 아이디
+    const loginUserId = 2;
+
+    const boardId = sessionStorage.getItem('boardId');
+    const userId = loginUserId;
+    // position정보 가져오기
+
+    const { data } = await axios.post('/api/boards/detail', boardId);
+    console.log(data);
+    // setBoard ... setState?
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export { fetchBoard, createRequest };
