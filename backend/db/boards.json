@@ -1,167 +1,68 @@
 [
   {
-    "boardId": 11,
-    "userId": 1,
-    "type": "5 POT",
-    "title": "자유랭크 하실 분 플레 이상만",
-    "content": "매너 채팅 부탁드려요",
-    "position": {
-      "top": true,
-      "jug": true,
-      "mid": false,
-      "adc": false,
-      "sup": true
-    },
-    "regDate": "2021-11-15 15:58"
-  },
-  {
-    "boardId": 10,
-    "userId": 1,
-    "type": "5 POT",
-    "title": "자유랭크 하실 분 플레 이상만",
-    "content": "매너 채팅 부탁드려요",
-    "position": {
-      "top": true,
-      "jug": true,
-      "mid": false,
-      "adc": false,
-      "sup": true
-    },
-    "regDate": "2021-11-12 15:58"
-  },
-  {
-    "boardId": 9,
-    "userId": 1,
-    "type": "5 POT",
-    "title": "자유랭크 하실 분 플레 이상만",
-    "content": "매너 채팅 부탁드려요",
-    "position": {
-      "top": true,
-      "jug": true,
-      "mid": false,
-      "adc": false,
-      "sup": true
-    },
-    "regDate": "2021-11-12 15:58"
-  },
-  {
-    "boardId": 8,
-    "userId": 1,
-    "type": "5 POT",
-    "title": "자유랭크 하실 분 플레 이상만",
-    "content": "매너 채팅 부탁드려요",
-    "position": {
-      "top": true,
-      "jug": true,
-      "mid": false,
-      "adc": false,
-      "sup": true
-    },
-    "regDate": "2021-11-12 15:58"
-  },
-  {
-    "boardId": 7,
-    "userId": 1,
-    "type": "5 POT",
-    "title": "자유랭크 하실 분 플레 이상만",
-    "content": "매너 채팅 부탁드려요",
-    "position": {
-      "top": true,
-      "jug": true,
-      "mid": false,
-      "adc": false,
-      "sup": true
-    },
-    "regDate": "2021-11-12 15:58"
-  },
-  {
     "boardId": 6,
     "userId": 1,
-    "type": "5 POT",
-    "title": "자유랭크 하실 분 플레 이상만",
-    "content": "매너 채팅 부탁드려요",
-    "position": {
-      "top": true,
-      "jug": true,
-      "mid": false,
-      "adc": false,
-      "sup": true
-    },
-    "regDate": "2021-11-12 15:58"
+    "type": "2 POT",
+    "title": "ㅇㄴㄹㄴㅇ",
+    "content": { "ops": [{ "insert": "ㅅㅀㅇㅎㅇㅀㄹㅇ\n" }] },
+    "position": { "top": false, "jug": true, "mid": true, "adc": false, "sup": true },
+    "regDate": "2021-11-16 16:53:17"
   },
   {
     "boardId": 5,
     "userId": 1,
-    "type": "5 POT",
-    "title": "자유랭크 하실 분 플레 이상만",
-    "content": "매너 채팅 부탁드려요",
-    "position": {
-      "top": true,
-      "jug": true,
-      "mid": false,
-      "adc": false,
-      "sup": true
-    },
-    "regDate": "2021-11-12 15:58"
+    "type": "2 POT",
+    "title": "ㅇㄴㄹㄴㅇ",
+    "content": { "ops": [{ "insert": "ㅛㅎㅅ굣굣굣ㄱ\n" }] },
+    "position": { "top": false, "jug": true, "mid": true, "adc": false, "sup": false },
+    "regDate": "2021-11-16 16:53:08"
   },
   {
     "boardId": 4,
     "userId": 1,
-    "type": "5 POT",
-    "title": "자유랭크 하실 분 플레 이상만",
-    "content": "매너 채팅 부탁드려요",
-    "position": {
-      "top": true,
-      "jug": true,
-      "mid": false,
-      "adc": false,
-      "sup": true
-    },
-    "regDate": "2021-11-12 15:58"
+    "type": "2 POT",
+    "title": "ㅇㄴㄹㄴㅇ",
+    "content": { "ops": [{ "insert": "ㄹㅇㄴㄹㅇㄴ\n" }] },
+    "position": { "top": false, "jug": true, "mid": true, "adc": false, "sup": false },
+    "regDate": "2021-11-16 16:49:26"
   },
   {
     "boardId": 3,
     "userId": 1,
     "type": "5 POT",
-    "title": "자유랭크 하실 분 플레 이상만",
-    "content": "매너 채팅 부탁드려요",
-    "position": {
-      "top": true,
-      "jug": true,
-      "mid": false,
-      "adc": false,
-      "sup": true
-    },
-    "regDate": "2021-11-12 15:58"
+    "title": "팟팟모여라팟",
+    "content": { "ops": [{ "insert": "오세요~~~~~\n\n오라고!\n" }] },
+    "position": { "top": true, "jug": true, "mid": true, "adc": false, "sup": true },
+    "regDate": "2021-11-16 16:39"
   },
   {
     "boardId": 2,
-    "userId": 1,
-    "type": "5 POT",
-    "title": "자유랭크 하실 분 플레 이상만",
-    "content": "매너 채팅 부탁드려요",
-    "position": {
-      "top": true,
-      "jug": true,
-      "mid": false,
-      "adc": false,
-      "sup": true
+    "userId": 2,
+    "type": "2 POT",
+    "title": "노력파만 오세요",
+    "content": {
+      "ops": [
+        { "insert": "2팟 모집중" },
+        { "attributes": { "blockquote": true }, "insert": "\n" },
+        { "insert": "\n오후 19 이후로\n" }
+      ]
     },
-    "regDate": "2021-11-12 15:58"
+    "position": { "top": false, "jug": true, "mid": false, "adc": false, "sup": false },
+    "regDate": "2021-11-16 16:39"
   },
   {
     "boardId": 1,
     "userId": 1,
-    "type": "2 POT",
-    "title": "바텀 듀오 가실 서폿 구합니다.",
-    "content": "오후 7시 부터 11시 사이에 게임 가능하신 분만 지원 부탁드려요",
-    "position": {
-      "top": false,
-      "jug": false,
-      "mid": false,
-      "adc": false,
-      "sup": true
+    "type": "5 POT",
+    "title": "모집중",
+    "content": {
+      "ops": [
+        { "insert": "피방 리그 모집합니다.\n" },
+        { "attributes": { "bold": true }, "insert": "열심히 합시다." },
+        { "insert": "\n\n아자!\n" }
+      ]
     },
-    "regDate": "2021-11-12 15:53"
+    "position": { "top": false, "jug": true, "mid": true, "adc": false, "sup": true },
+    "regDate": "2021-11-16 16:37"
   }
 ]
