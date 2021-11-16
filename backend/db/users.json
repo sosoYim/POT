@@ -13,7 +13,8 @@
     "password": "$2a$10$dbVDP064zI/0SuvAc/ME1e3tJXx0qbTF2Yw8omD5GgXRMJV96La8S",
     "summoner": "l푸른피l",
     "imageUrl": "./images/defaultUser.png",
-    "encryptedId": "-qOQrMXXa0qtQB47CGQtHpPDYRnQJo22DgCMjRIV2wZCF28"
+    "encryptedId": "-qOQrMXXa0qtQB47CGQtHpPDYRnQJo22DgCMjRIV2wZCF28",
+    "alertList": []
   },
   {
     "userId": 2,
@@ -21,7 +22,8 @@
     "password": "$2a$10$yB2H0U1QmNw1k7bPNb1Rp.84PleG6gsDXikY3eSL24L76gcqPRWny",
     "summoner": "파기로",
     "imageUrl": "./images/defaultUser.png",
-    "encryptedId": "1Z-NILX0mcIXvTiS3xHPzKqQX3jvwS9ZvPVzYzddyuvmWyw"
+    "encryptedId": "1Z-NILX0mcIXvTiS3xHPzKqQX3jvwS9ZvPVzYzddyuvmWyw",
+    "alertList": []
   },
   {
     "userId": 1,
