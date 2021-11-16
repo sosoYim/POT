@@ -11,19 +11,19 @@ const render = boards => {
           <h2 class="card__title">${title}</h2>
           <ul class="position">
             <li class="position__item ${position.top ? '' : 'position__item--completed'}">
-              <img src="./images/position/top.png" alt="top" class="position__img" />
+              <img src="/images/position/top.png" alt="top" class="position__img" />
             </li>
             <li class="position__item ${position.jug ? '' : 'position__item--completed'}">
-              <img src="./images/position/jungle.png" alt="jungle" class="position__img" />
+              <img src="/images/position/jug.png" alt="jungle" class="position__img" />
             </li>
             <li class="position__item ${position.mid ? '' : 'position__item--completed'}">
-              <img src="./images/position/mid.png" alt="mid" class="position__img" />
+              <img src="/images/position/mid.png" alt="mid" class="position__img" />
             </li>
             <li class="position__item ${position.adc ? '' : 'position__item--completed'}">
-              <img src="./images/position/bottom.png" alt="adc" class="position__img" />
+              <img src="/images/position/adc.png" alt="adc" class="position__img" />
             </li>
             <li class="position__item ${position.sup ? '' : 'position__item--completed'}">
-              <img src="./images/position/support.png" alt="support" class="position__img" />
+              <img src="/images/position/sup.png" alt="support" class="position__img" />
             </li>
           </ul>
           <div class="card__detail">
