@@ -72,6 +72,7 @@ router.post('/login', async (req, res) => {
 
   console.log('hi');
 
+  res.redirect('/');
   return res.redirect('/');
 
   // return req.query.path ? res.redirect(req.query.path) : res.redirect('/');
