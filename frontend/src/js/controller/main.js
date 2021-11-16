@@ -1,4 +1,3 @@
-import { debounce } from 'lodash';
 import axios from '../utils/axiosConfig';
 import {
   setCurrentPageNo,
@@ -31,7 +30,7 @@ const fetchBoards = async () => {
   }
 };
 
-const fetchMoreBoards = debounce(async () => {
+const fetchMoreBoards = async () => {
   try {
     setCurrentPageNo(getCurrentPageNo() + 1);
 
@@ -50,7 +49,7 @@ const fetchMoreBoards = debounce(async () => {
   } catch (error) {
     console.error(error);
   }
-}, 500);
+};
 
 const changeTypeFilter = type => {
   setTypeFilter(type);
