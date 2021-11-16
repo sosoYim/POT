@@ -79,7 +79,6 @@
           left: 0.5rem;
           font-size: 0.6rem;
         }
-        // animation: 0.5s labelAnimation cubic-bezier(0.22, 0.68, 0, 1) backwards;
       }
     }
 
@@ -123,7 +122,6 @@
     padding-left: rem(1px);
     margin: rem(10px) 0;
     min-height: rem(20px);
-    // opacity: 0;
     @include flexbox(row, $justify-content: flex-start, $align-items: flex-start);
 
     @include mobile {
@@ -135,7 +133,6 @@
       opacity: 0;
 
       @include desktop {
-        // margin-top: rem(2px);
         width: rem(15px);
         height: rem(15px);
       }
@@ -206,11 +203,11 @@
     box-shadow: 0 4px 4px 0px $gray04;
 
     &:disabled {
-      border: 3px solid #dadada;
       color: #dadada;
       background-color: $white;
       box-shadow: none;
       cursor: not-allowed;
+      box-shadow: 0px 0px 0px 2px $gray04;
     }
   }
 

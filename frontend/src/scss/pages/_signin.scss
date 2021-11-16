@@ -30,7 +30,6 @@
   background-color: white;
   border-radius: 1%;
   @include autoMargin;
-  min-height: rem(400px);
   @include desktop {
     width: rem(380px);
   }
@@ -39,19 +38,6 @@
     width: 80%;
   }
 }
-
-// @keyframes labelAnimation {
-//   50% {
-//     opacity: 0;
-//   }
-//   75% {
-//     transform: scale(0.5);
-//     opacity: 0.5;
-//   }
-//   100% {
-//     opacity: 1;
-//   }
-// }
 
 .login-form {
   padding: 0 10%;
@@ -154,7 +140,6 @@
           left: 0.5rem;
           font-size: 0.6rem;
         }
-        // animation: 0.5s labelAnimation cubic-bezier(0.22, 0.68, 0, 1) backwards;
       }
     }
 
@@ -194,8 +179,13 @@
   }
 
   &__password-icon {
+    display: block;
     position: absolute;
     cursor: pointer;
+    background-image: url('../images/hidden.svg');
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-size: contain;
 
     @include desktop {
       width: rem(20px);
@@ -205,6 +195,8 @@
     }
 
     @include mobile {
+      width: rem(15px);
+      height: rem(15px);
       right: 5%;
       top: 30%;
     }
@@ -302,15 +294,16 @@
     border: none;
     color: $white;
     margin-bottom: rem(30px);
+    transition: 0.3s;
 
     box-shadow: 0 4px 4px 0px $gray04;
 
     &:disabled {
-      border: 3px solid #dadada;
       color: #dadada;
       background-color: $white;
       box-shadow: none;
       cursor: not-allowed;
+      box-shadow: 0px 0px 0px 2px $gray04;
     }
   }
 
@@ -340,4 +333,9 @@
   &::placeholder {
     color: $inputErrorPlaceholder;
   }
+}
+
+.show {
+  background-image: url('../images/show.svg');
+  transform: translateY(15%);
 }

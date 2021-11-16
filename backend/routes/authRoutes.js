@@ -50,6 +50,8 @@ router.post('/login', async (req, res) => {
   const user = findUserByEmail(email);
   if (!user) return res.status(401).send('Email is not found');
 
+  console.log(user);
+
   // Password is correct
   const validPass = await bcrypt.compare(password, user.password);
   if (!validPass) return res.status(401).send('Invalid password');
@@ -58,6 +60,14 @@ router.post('/login', async (req, res) => {
   const token = jwt.sign({ email }, process.env.JWT_SECRET_KEY, { expiresIn: '1d' });
   // 쿠키에 토큰 설정(http://expressjs.com/ko/api.html#res.cookie)
   res.cookie('jwtToken', token, {
+    maxAge: 1000 * 60 * 60 * 24, // 1d
+    httpOnly: true,
+  });
+  res.cookie('summoner', user.summoner, {
+    maxAge: 1000 * 60 * 60 * 24, // 1d
+    httpOnly: true,
+  });
+  res.cookie('encryptedId', user.encryptedId, {
     maxAge: 1000 * 60 * 60 * 24, // 1d
     httpOnly: true,
   });
