@@ -17,7 +17,7 @@ const $modalButton = document.querySelector('.modal__button');
 
 // state
 const boardId = 2;
-const userIdList = [2, 3, 4, 10, 6];
+const userIdList = [1, 3, 4, 5, 6];
 let manageData = {};
 
 // helper

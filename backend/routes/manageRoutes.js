@@ -1,7 +1,6 @@
 // const fs = require('fs');
 const router = require('express').Router();
 const nodemailer = require('nodemailer');
-const smtpPool = require('nodemailer-smtp-pool');
 // const run = require('../utils/nodemailer');
 const dotenv = require('dotenv');
 const {
