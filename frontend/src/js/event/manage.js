@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from '../utils/axiosConfig';
 import render from '../view/manage';
 import { rankNum } from '../store/manage';
 
@@ -17,7 +17,7 @@ const $modalButton = document.querySelector('.modal__button');
 
 // state
 const boardId = 2;
-const userIdList = [2, 3, 4, 10, 6];
+const userIdList = [1, 3, 4, 5, 6];
 let manageData = {};
 
 // helper
@@ -98,7 +98,7 @@ $participantList.onclick = e => {
   };
 });
 
-$modalButton.onclick = e => {
+$modalButton.onclick = async e => {
   const { boardId, userId } = e.target.dataset;
 
   $modalOuter.classList.toggle('hidden', true);
@@ -108,6 +108,12 @@ $modalButton.onclick = e => {
   manageData.participantList = manageData.participantList.map(participant =>
     +participant.userId === +userId ? { ...participant, completed: true } : participant
   );
+
+  // const mail = await axios.post('/api/manage/mail', {
+  //   to: 'sonwj0915@naver.com',
+  //   subject: 'Hello',
+  //   text: 'Hello world?',
+  // });
 
   $participantList.innerHTML = render(manageData);
 };
