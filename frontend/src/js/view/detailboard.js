@@ -1,5 +1,10 @@
 const $detailboardButton = document.querySelector('.detailboard-button');
 
+const { QuillDeltaToHtmlConverter } = require('quill-delta-to-html');
+
+// TypeScript / ES6:
+// import { QuillDeltaToHtmlConverter } from 'quill-delta-to-html';
+
 const renderMyRequest = isMyRequest => {
   $detailboardButton.innerText = isMyRequest ? '이미 신청한 POT' : '신청하기';
   isMyRequest
@@ -37,11 +42,10 @@ const render = (board, isMyRequest = false) => {
       : document.querySelector(`.${positionClass}`).setAttribute('disabled', 'disabled');
   });
 
-  // TODO: setContents 불러오기
-  // https://github.com/nozer/quill-delta-to-html
   // npm install quill-delta-to-html
-  // console.log(content);
-  // document.querySelector('.main__board-content').innerHTML = JSON.parse(content).getContent();
+  const qdc = new QuillDeltaToHtmlConverter(content.ops, {});
+  const html = qdc.convert();
+  document.querySelector('.form__content').innerHTML = html;
 };
 
 export { render, renderMyRequest };
