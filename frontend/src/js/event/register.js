@@ -136,7 +136,7 @@ const sendUserInfo = () => {
     imageUrl: './images/defaultUser.png',
     encryptedId: formData.summonerName.encryptedId,
   });
-  // window.location.href = '/login';
+  window.location.href = '/login';
 };
 
 $main.onkeyup = ({ target }) => {

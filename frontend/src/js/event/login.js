@@ -37,7 +37,7 @@ const login = async () => {
       email: formData.email.value,
       password: formData.password.value,
     });
-    // window.location.href = '/';
+    window.location.href = '/';
   } catch (err) {
     $loginFormErrorMessage.textContent = '계정이름과 비밀번호가 일치하지 않습니다.';
     initializeFormData();
