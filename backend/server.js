@@ -1,9 +1,8 @@
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
-// const mailer = require('express-mailer');
+const path = require('path');
 const routes = require('./routes');
-const auth = require('./utils/verifyToken');
 require('dotenv').config();
 
 const corsOptions = {
@@ -14,25 +13,18 @@ const corsOptions = {
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-app.get('/', (req, res) => {
-  res.send('hihi');
-});
-
-app.use(cors(corsOptions));
 app.use(express.json());
+app.use(express.static('public'));
+app.use(cors(corsOptions));
 app.use(cookieParser());
 app.use('/api', routes);
 
-// mailer.extend(app, {
-//   from: 'no-reply@example.com',
-//   host: 'smtp.gmail.com', // hostname
-//   secureConnection: true, // use SSL
-//   port: 465, // port for secure SMTP
-//   transportMethod: 'SMTP', // default is SMTP. Accepts anything that nodemailer accepts
-//   auth: {
-//     user: 'sonwj091552@gmail.com',
-//     pass: 'SONwj*963.',
-//   },
-// });
+app.get('/register', (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/register.html'));
+});
+
+app.get('/login', (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/login.html'));
+});
 
 app.listen(PORT, () => console.log(`Server listening at http://localhost:${PORT}`)); // port, callback

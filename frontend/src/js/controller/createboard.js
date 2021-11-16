@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from '../utils/axiosConfig';
 
 /**
  * Insert board data
@@ -6,25 +6,30 @@ import axios from 'axios';
  */
 const createBoard = async ($boardForm, quill) => {
   try {
+    // TODO: 로그인한 상태인지 확인 후 아니면 리턴
+    // TODO: 로그인 id 받기
+    const loginUserId = 1;
+
     const formData = new FormData($boardForm);
-    // TODO: id 받아오기
-    formData.append('userId', 1);
-
-    formData.append('content', quill.getText());
-    formData.append('regDate', new Date());
-
     const board = {};
+    const position = {};
+    formData.append('userId', loginUserId);
+    // formData.append('content', quill.getText());
+    // formData.append('content', JSON.stringify(quill.getContents()));
+    formData.append('content', JSON.stringify(quill.getContents()));
+    document.querySelectorAll('input[name="position"]').forEach(checkbox => {
+      position[checkbox.value] = checkbox.checked;
+    });
+    formData.set('position', JSON.stringify(position));
+
     formData.forEach((val, key) => {
-      board[key] = key === 'position' ? (board[key] = [...(board[key] || []), val]) : (board[key] = val);
+      board[key] = val;
     });
 
-    // await axios.post('/api/boards', board);
-    const { data: res } = await axios.post('/api/boards', board);
-    console.log('컨트롤러 : ', res);
+    const { data } = await axios.post('/api/boards', board);
+    sessionStorage.setItem('boardId', data);
 
-    // TODO: 읽기 페이지로 전송 : routes/boards.js에서 리다이렉션 하는 중
-    // window.location.href = `/boards/${res}`; // 안됨
-    // await axios.get(`/api/boards?boardId=${res}`); // 안됨
+    window.location.href = '/detailboard.html';
   } catch (e) {
     console.error(e);
   }
