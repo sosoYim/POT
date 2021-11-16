@@ -6,9 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>내 정보 수정</title>
   </head>
-
   <body>
-    <!-- 헤더 -->
     <header class="header">
       <div class="header__wrapper">
         <h1>
@@ -46,27 +44,29 @@
         </nav>
       </div>
     </header>
-
     <div class="setting-container">
       <main class="main">
-        <!-- <h2 class="main__title a11y-hidden">내 정보 수정</h2> -->
         <div class="main__container">
           <div class="main__wrapper">
             <h2 class="setting-container__title">내 정보 수정</h2>
             <form class="form">
               <div class="form__row form__row--img">
-                <img src="./../images/defaultUser.png" alt="profil image" class="form-file__image" />
+                <img src="./../images/defaultUser.png" alt="프로필이미지" class="form-file__image" />
                 <label for="profil" class="button form-file__label">
                   이미지 선택
                   <input type="file" id="profil" class="form-file__file" />
                 </label>
               </div>
-              <div class="form__row form__row--sommener">
-                <label for="sommener" class="form-text__label">소환사명</label>
+              <div class="form__row form__row--summoner">
+                <label for="summoner" class="form-text__label">소환사명</label>
                 <div class="form-text__input-container">
-                  <input type="text" id="sommener" class="form-text__input" value="|푸른피|" />
+                  <input type="text" id="summoner" class="form-text__input" value="|푸른피|" />
                   <button type="button" class="button form-text__button">이름 확인</button>
-                  <div class="form-text__input-container--msg">올바른 소환사 명입니다.</div>
+                  <div class="form-text__input-container--msg">
+                    <!-- 이부분 동적 처리 -->
+                    <img src="../images/success.svg" alt="성공" />
+                    <span>올바른 소환사 명입니다.</span>
+                  </div>
                 </div>
               </div>
               <div class="form__row form__row--buttons">
