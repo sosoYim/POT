@@ -198,15 +198,15 @@
     cursor: pointer;
 
     @include desktop {
-      width: rem(24px);
-      height: rem(24px);
-      left: rem(305px);
-      top: rem(235px);
+      width: rem(20px);
+      height: rem(20px);
+      left: rem(270px);
+      top: rem(14px);
     }
 
     @include mobile {
-      right: 13%;
-      top: 42%;
+      right: 5%;
+      top: 30%;
     }
   }
 
