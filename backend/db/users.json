@@ -1,71 +1,16 @@
 [
   {
-    "userId": 10,
-    "account": "은가뉴",
-    "password": "123456",
-    "summoner": "은가뉴",
-    "imageUrl": "./images/defaultUser.png",
-    "encryptedId": "ilHWal8p9anIVkLIyLjV6VLU6k7lvfaAo5DO1YbYoeWKfps",
-    "alertList": []
-  },
-  {
-    "userId": 9,
-    "account": "Pnpm",
-    "password": "123456",
-    "summoner": "Pnpm",
-    "imageUrl": "./images/defaultUser.png",
-    "encryptedId": "u9iZNv5Csr2M7V1hzKjNfxiwaQJ8fl5sb1NeyE23OktgFBY",
-    "alertList": []
-  },
-  {
-    "userId": 8,
-    "account": "Kingen",
-    "password": "123456",
-    "summoner": "Kingen",
-    "imageUrl": "./images/defaultUser.png",
-    "encryptedId": "g_qXDoCGg_PvpPDgPhmBQzLnI9tNVM7RBUHvLAXMasu6EPE",
-    "alertList": []
-  },
-  {
-    "userId": 7,
-    "account": "아이러니2",
-    "password": "123456",
-    "summoner": "아이러니2",
-    "imageUrl": "./images/defaultUser.png",
-    "encryptedId": "3Rnavxu7ImlXXH5gThyRArd-49N0nUeeHtJvj5gHb7IlUuk",
-    "alertList": []
-  },
-  {
-    "userId": 6,
-    "account": "GGGori",
-    "password": "123456",
-    "summoner": "GGGori",
-    "imageUrl": "./images/defaultUser.png",
-    "encryptedId": "c4PiFUuE5HRcmGcrGj2j1Qsj5UqiPA70Xr19eEmNM04-_eA",
-    "alertList": []
-  },
-  {
-    "userId": 5,
-    "account": "jungryul",
-    "password": "123456",
-    "summoner": "유미홀애비",
-    "imageUrl": "./images/defaultUser.png",
-    "encryptedId": "zB38ItxJLkOsKvnFABkXqrEV8FUpa09-G0squ8xOnmezroE",
-    "alertList": []
-  },
-  {
     "userId": 4,
-    "account": "jinwoong",
-    "password": "123456",
-    "summoner": "살살해주까요",
+    "email": "dlwo@naver.com",
+    "password": "$2a$10$y0QeRBUuk.arEXviP2jdp.QjwzEZOk.O89xbMS0AI316sxQEMjgQy",
+    "summoner": "asdf",
     "imageUrl": "./images/defaultUser.png",
-    "encryptedId": "FDYjQGH7gH2RL58VjhYD1Ap3C735y5TOv20VdJm8O7yP0-A",
-    "alertList": []
+    "encryptedId": "ceUn2eDsOu8b4h7r_uNFCHiDq3Ewu5wyO1IwQY_P1ti3ioI"
   },
   {
     "userId": 3,
-    "account": "jeongmin",
-    "password": "$2a$10$6dWrohg2ebOsxUVzVe7SZu4vks5gtjqYh7TCXZF8lFc1U4EOaIJkS",
+    "email": "jeongmin@naver.com",
+    "password": "$2a$10$dbVDP064zI/0SuvAc/ME1e3tJXx0qbTF2Yw8omD5GgXRMJV96La8S",
     "summoner": "l푸른피l",
     "imageUrl": "./images/defaultUser.png",
     "encryptedId": "-qOQrMXXa0qtQB47CGQtHpPDYRnQJo22DgCMjRIV2wZCF28",
@@ -73,8 +18,8 @@
   },
   {
     "userId": 2,
-    "account": "wonjae",
-    "password": "$2a$10$rW34l3nubB6LxTlM9pn6BePvSMe3gM4B49/qqS4JbVBWWE8lKsOem",
+    "email": "wonjae@gmail.com",
+    "password": "$2a$10$yB2H0U1QmNw1k7bPNb1Rp.84PleG6gsDXikY3eSL24L76gcqPRWny",
     "summoner": "파기로",
     "imageUrl": "./images/defaultUser.png",
     "encryptedId": "1Z-NILX0mcIXvTiS3xHPzKqQX3jvwS9ZvPVzYzddyuvmWyw",
@@ -82,11 +27,10 @@
   },
   {
     "userId": 1,
-    "account": "chaeyoung",
-    "password": "$2a$10$Xukb8vY042Pxt7kK4Sz53.RdeRBrEtYFW.rK4sM9zzSPUpdVeef5m",
+    "email": "chaeyoung@naver.com",
+    "password": "$2a$10$yhy4m4BpwqH26oJrDofWDe47nat05Jnkb/UKLDH/4mo6bcFPf1FY.",
     "summoner": "바케모노채영",
     "imageUrl": "./images/defaultUser.png",
-    "encryptedId": "f5_gAvyoh-x35TeclWkFXJP5C9XKJW5JcBQIHg4avMsSEA",
-    "alertList": []
+    "encryptedId": "RtbocuEr2y_3JZZSfBG2Lnt5YwXazV8B8Gyejx1-tJXUiQ"
   }
 ]

@@ -123,19 +123,21 @@
     padding-left: rem(1px);
     margin: rem(10px) 0;
     min-height: rem(20px);
+    // opacity: 0;
     @include flexbox(row, $justify-content: flex-start, $align-items: flex-start);
 
     @include mobile {
       min-height: rem(15px);
     }
 
-    &-img {
+    & img {
       display: inline-block;
+      opacity: 0;
 
       @include desktop {
-        margin-top: rem(2px);
-        width: rem(12px);
-        height: rem(12px);
+        // margin-top: rem(2px);
+        width: rem(15px);
+        height: rem(15px);
       }
     }
   }
@@ -165,6 +167,7 @@
       background-color: $main;
       color: $white;
       font-weight: bold;
+      transition-duration: 0.3s;
 
       &:disabled {
         border: 2px solid #dadada;
@@ -198,6 +201,7 @@
     color: $white;
     margin-top: rem(20px);
     margin-bottom: rem(30px);
+    transition-duration: 0.3s;
 
     box-shadow: 0 4px 4px 0px $gray04;
 
