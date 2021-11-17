@@ -1,0 +1,41 @@
+@import '../utils/';
+
+.mail-toast {
+  position: fixed;
+  top: -200px;
+  right: 20px;
+  z-index: 10000;
+  width: 420px;
+  padding: 40px 20px;
+  text-align: center;
+  background-color: $main;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  color: $white;
+  font-size: 20px;
+  font-weight: 700;
+  animation: slides 3s cubic-bezier(0.27, 1.27, 0.29, 1.01) alternate-reverse;
+
+  @include mobile {
+    width: 90%;
+  }
+
+  &.fail {
+    background-color: $red;
+  }
+}
+
+@keyframes slides {
+  0% {
+    transform: translateY(0%);
+  }
+  20% {
+    transform: translateY(220%);
+  }
+  80% {
+    transform: translateY(220%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
