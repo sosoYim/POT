@@ -3,9 +3,7 @@ const axios = require('axios');
 
 // state
 const soloRank = 'RANKED_SOLO_5x5';
-const apiKey = 'RGAPI-1fb1cc41-0c61-48a4-adf2-51939ede42ca';
-// const apiKey = process.env.APIKEY;
-
+const apiKey = 'RGAPI-f21ef8b0-0022-4fe3-85b7-a86dbdf4890d';
 const defaultInfo = { tier: 'UNRANK', rank: '' };
 
 // helper
