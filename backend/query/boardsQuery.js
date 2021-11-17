@@ -5,6 +5,11 @@ const getBoardData = boardId => {
   return boards.find(board => board.boardId === +boardId);
 };
 
+const getUserIdList = boardId => {
+  const requests = JSON.parse(fs.readFileSync('./backend/db/requests.json'));
+  return requests.filter(request => request.boardId === +boardId).map(({ userId }) => userId);
+};
+
 const patchCompletedBoardData = (boardId, userId, completed) => {
   const requests = JSON.parse(fs.readFileSync('./backend/db/requests.json'));
   const newRequests = requests.map(request =>
@@ -12,6 +17,16 @@ const patchCompletedBoardData = (boardId, userId, completed) => {
   );
 
   fs.writeFileSync('./backend/db/requests.json', JSON.stringify(newRequests));
+};
+
+const patchParticipantPosition = (boardId, userId, position) => {
+  const boards = JSON.parse(fs.readFileSync('./backend/db/boards.json'));
+  const newBoards = boards.map(board =>
+    board.boardId === boardId && board.userId === userId
+      ? { ...board, position: { ...position, [position]: false } }
+      : board
+  );
+  fs.writeFileSync('./backend/db/boards.json', JSON.stringify(newBoards));
 };
 
 const getBoardList = (type, position, currentPageNo, recordsPerPage) => {
@@ -39,4 +54,11 @@ const setBoard = newBoard => {
   return newBoardId;
 };
 
-module.exports = { getBoardData, patchCompletedBoardData, getBoardList, setBoard };
+module.exports = {
+  getBoardData,
+  getUserIdList,
+  patchCompletedBoardData,
+  patchParticipantPosition,
+  getBoardList,
+  setBoard,
+};

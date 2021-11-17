@@ -1,20 +1,23 @@
 const fs = require('fs');
 const axios = require('axios');
+require('dotenv').config();
 
 // state
 const soloRank = 'RANKED_SOLO_5x5';
-const apiKey = 'RGAPI-f21ef8b0-0022-4fe3-85b7-a86dbdf4890d';
 const defaultInfo = { tier: 'UNRANK', rank: '' };
 
 // helper
-const getUserEncIdList = userIdList => {
+const getUserInfoList = userIdList => {
   const userData = JSON.parse(fs.readFileSync('./backend/db/users.json'));
-  return userIdList.map(id => userData.find(({ userId }) => userId === +id).encryptedId);
+  return userIdList.map(id => userData.find(({ userId }) => userId === +id));
 };
-
 const getSummonerNameList = encIdList => {
   const userData = JSON.parse(fs.readFileSync('./backend/db/users.json'));
   return encIdList.map(encId => userData.find(({ encryptedId }) => encryptedId === encId).summoner);
+};
+const getUserEncIdList = userIdList => {
+  const userData = JSON.parse(fs.readFileSync('./backend/db/users.json'));
+  return userIdList.map(id => userData.find(({ userId }) => userId === +id).encryptedId);
 };
 
 const getPositionList = (targetBoardId, userIdList) => {
@@ -41,7 +44,8 @@ const getRequestUserList = (targetBoardId, userIdList) => {
   });
 };
 
-const getParticipants = (encIdList, URL) => encIdList.map(encId => axios(URL + encId + '?api_key=' + apiKey));
+const getParticipants = (encIdList, URL) =>
+  encIdList.map(encId => axios(URL + encId + '?api_key=' + process.env.API_KET));
 
 const filterSoloRankTier = res =>
   res.map(({ data }) => {
@@ -60,8 +64,9 @@ const filterThreeMainChamp = res => {
 };
 
 module.exports = {
-  getUserEncIdList,
+  getUserInfoList,
   getSummonerNameList,
+  getUserEncIdList,
   getPositionList,
   getRequestOrderList,
   getRequestUserList,
