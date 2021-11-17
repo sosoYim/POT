@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { getBoardData, patchCompletedBoardData, getBoardList, setBoard } = require('../query/boardsQuery');
 const { isMyRequest, setRequest } = require('../query/requestsQuery');
 const { getUserEncIdList, getSummonerNameList, getParticipants, filterSoloRankTier } = require('../query/manageQuery');
+const { auth } = require('../utils/verifyToken');
 
 const summonerURL = 'https://kr.api.riotgames.com/lol/league/v4/entries/by-summoner/';
 
@@ -39,6 +40,9 @@ router.post('/', (req, res) => {
 });
 
 router.get('/detail/:id', (req, res) => {
+  // const testNext = console.log('hey next');
+  // const testAuth = auth(req, res);
+  // console.log(testAuth);
   const userId = 3;
   const boardId = req.path.replace('/detail/', '');
   const board = getBoardData(boardId);
