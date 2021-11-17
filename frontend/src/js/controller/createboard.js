@@ -14,8 +14,6 @@ const createBoard = async ($boardForm, quill) => {
     const board = {};
     const position = {};
     formData.append('userId', loginUserId);
-    // formData.append('content', quill.getText());
-    // formData.append('content', JSON.stringify(quill.getContents()));
     formData.append('content', JSON.stringify(quill.getContents()));
     document.querySelectorAll('input[name="position"]').forEach(checkbox => {
       position[checkbox.value] = checkbox.checked;
@@ -27,9 +25,8 @@ const createBoard = async ($boardForm, quill) => {
     });
 
     const { data } = await axios.post('/api/boards', board);
-    sessionStorage.setItem('boardId', data);
 
-    window.location.href = '/detailboard.html';
+    window.location.href = `/board/${data}`;
   } catch (e) {
     console.error(e);
   }

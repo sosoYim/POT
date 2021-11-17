@@ -1,1 +1,8 @@
-[{"requestId":5,"boardId":2,"userId":6,"position":"top","completed":true},{"requestId":4,"boardId":2,"userId":5,"position":"top","completed":true},{"requestId":3,"boardId":2,"userId":1,"position":"top","completed":false},{"requestId":2,"boardId":2,"userId":3,"position":"top","completed":false},{"requestId":1,"boardId":2,"userId":4,"position":"top","completed":true}]
+[
+  { "requestId": 6, "boardId": 17, "userId": 3, "position": "mid", "completed": false },
+  { "requestId": 5, "boardId": 2, "userId": 6, "position": "top", "completed": true },
+  { "requestId": 4, "boardId": 2, "userId": 5, "position": "top", "completed": true },
+  { "requestId": 3, "boardId": 2, "userId": 1, "position": "top", "completed": false },
+  { "requestId": 2, "boardId": 2, "userId": 3, "position": "top", "completed": false },
+  { "requestId": 1, "boardId": 2, "userId": 4, "position": "top", "completed": true }
+]

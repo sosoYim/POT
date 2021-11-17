@@ -1,11 +1,11 @@
 // const fs = require('fs');
 const router = require('express').Router();
-const nodemailer = require('nodemailer');
-// const run = require('../utils/nodemailer');
 const dotenv = require('dotenv');
+const sendmail = require('../utils/sendmail');
+const auth = require('../utils/verifyToken');
 const {
+  getUserInfoList,
   getUserEncIdList,
-  getSummonerNameList,
   getRequestUserList,
   getParticipants,
   filterSoloRankTier,
@@ -16,39 +16,27 @@ dotenv.config();
 
 const summonerURL = 'https://kr.api.riotgames.com/lol/league/v4/entries/by-summoner/';
 const championMasteriesURL = 'https://kr.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-summoner/';
-const main = async ({ to, subject, text }) => {
-  const transporter = nodemailer.createTransport({
-    service: 'naver',
-    host: 'smtp.naver.com',
-    port: 587,
-    secure: false,
-    auth: {
-      user: process.env.MAIL_USERNAME,
-      pass: process.env.MAIL_PASSWORD,
-    },
-  });
 
-  const info = await transporter.sendMail({
-    from: process.env.MAIL_USERNAME,
-    to,
-    subject,
-    text,
-  });
-
-  console.log('Message sent: %s', info.messageId);
-};
+router.get('/check', (req, res) => {
+  console.log(req.body);
+});
 
 router.post('/mail', async (req, res) => {
   const { body } = req;
-  await main(body).catch(console.error);
-  res.send('Success');
+
+  try {
+    await sendmail(body);
+    res.send({ sendMail: true, content: '메일을 성공적으로 전송했습니다.' });
+  } catch (err) {
+    res.send({ sendMail: false, content: '메일전송에 실패했습니다.' });
+  }
 });
 
-router.get('/:ids', async (req, res) => {
-  const boardId = req.path.replace(/[/]|=.+/g, '');
+router.get('/participants/:ids', async (req, res) => {
+  const boardId = req.path.replace(/[/participants/]|=.+/g, '');
   const userIdList = req.path.replace(/.+(=)/g, '').split(',');
+  const userInfoList = getUserInfoList(userIdList);
   const encIdList = getUserEncIdList(userIdList);
-  const summonerNameList = getSummonerNameList(encIdList);
   const requestUserList = getRequestUserList(boardId, userIdList);
 
   const participantList = await Promise.all(getParticipants(encIdList, summonerURL)).then(filterSoloRankTier);
@@ -56,8 +44,9 @@ router.get('/:ids', async (req, res) => {
 
   res.send(
     participantList.map((participant, i) => ({
-      userId: userIdList[i],
-      summoner: summonerNameList[i],
+      userId: userInfoList[i].userId,
+      email: userInfoList[i].email,
+      summoner: userInfoList[i].summoner,
       mainChamp: mainChampList[i],
       order: requestUserList[i].requestId,
       position: requestUserList[i].position,

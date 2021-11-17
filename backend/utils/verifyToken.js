@@ -1,13 +1,13 @@
 const jwt = require('jsonwebtoken');
 
 /**
- * @description Restrict login and register when jwt token validate.
+ * @description Restrict login page and register page when jwt token validate.
  * @param {request} req
  * @param {response} res
  * @param {next} next
- * @returns {redirect} or @returns
+ * @returns {redirect} ('/')
  */
-const authToLogin = (req, res, next) => {
+const blockUserAuth = (req, res, next) => {
   // Token set using headers or cookies
   const jwtToken = req.headers.authorization || req.cookies.jwtToken;
 
@@ -21,26 +21,45 @@ const authToLogin = (req, res, next) => {
 };
 
 /**
- * @description Verify jwt token validation.
+ * @description Redirect ('/') when jwt token expired.
  * @param {request} req
  * @param {response} res
  * @param {next} next
- * @returns
+ * @returns {redirect} ('/login')
  */
-const auth = (req, res, next) => {
+const blockGuestAuth = (req, res, next) => {
+  // Token set using headers or cookies
+  const jwtToken = req.headers.authorization || req.cookies.jwtToken;
+
+  try {
+    const verified = jwt.verify(jwtToken, process.env.JWT_SECRET_KEY);
+    req.userId = verified.userId;
+    next();
+  } catch (e) {
+    return res.redirect('/login');
+  }
+};
+
+/**
+ * @description Return false for modal when jwt token expired.
+ * @param {request} req
+ * @param {response} res
+ * @param {next} next
+ * @returns {boolean}
+ */
+const checkUserAuth = (req, res, next) => {
   // Token set using headers or cookies
   const jwtToken = req.headers.authorization || req.cookies.jwtToken;
 
   try {
     const verified = jwt.verify(jwtToken, process.env.JWT_SECRET_KEY);
     console.log(`😀 사용자 인증 성공`, verified);
-    req.userId = verified.userId;
+    req.id = verified.userId;
     next();
   } catch (e) {
     console.error('😱 사용자 인증 실패..', e);
-    // Not token or not valid
-    return res.redirect('/login');
+    return false;
   }
 };
 
-module.exports = { authToLogin, auth };
+module.exports = { blockUserAuth, blockGuestAuth, checkUserAuth };
