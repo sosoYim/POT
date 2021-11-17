@@ -1,11 +1,12 @@
 import axios from '../utils/axiosConfig';
 import { setBoard, setState } from '../store/detailboard';
+import { getLastPath } from '../utils/helper';
 
 const fetchBoard = async () => {
   try {
-    const boardId = sessionStorage.getItem('boardId');
-    const { data } = await axios.get(`/api/boards/detail?boardId=${boardId}`);
-    // console.log('detailboard controller', data.board, data.myRequest);
+    // TODO: UTILS 공통 함수
+    const boardId = getLastPath(window.location.href);
+    const { data } = await axios.get(`/api/boards/detail/${boardId}`);
     setBoard(data.board, data.myRequest);
   } catch (error) {
     console.log(error);
@@ -18,7 +19,7 @@ const createRequest = async () => {
     const loginUserId = 3;
     const userId = loginUserId;
 
-    const boardId = sessionStorage.getItem('boardId');
+    const boardId = getLastPath(window.location.href);
     const position = document.querySelector('input[name="position"]:checked').value;
     const request = { userId, boardId, position };
     const { data } = await axios.post('/api/boards/detail', request);
