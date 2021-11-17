@@ -1,8 +1,13 @@
 import { fetchBoard, createRequest } from '../controller/detailboard';
+import { getLastPath } from '../utils/helper';
 
 document.addEventListener('DOMContentLoaded', fetchBoard);
 
 document.querySelector('.detailboard-button').onclick = e => {
-  // TODO: 적어도 하나 이상의 라디오 선택
-  e.target.matches('myBoard') ? console.log('참여자관리로') : createRequest();
+  const boardId = getLastPath(window.location.href);
+  // TODO: 유효성 체크
+  // TODO: 클래스 말고 로그인 체크 해서 보내기
+  e.target.matches('.myBoard')
+    ? (window.location.href = `${window.location.origin}/manage/${boardId}`)
+    : createRequest();
 };

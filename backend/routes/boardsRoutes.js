@@ -38,10 +38,9 @@ router.post('/', (req, res) => {
   }
 });
 
-router.get('/detail', (req, res) => {
-  // TODO: 프론트에서 쿠키로 값을 찾아와야 함
+router.get('/detail/:id', (req, res) => {
   const userId = 3;
-  const { boardId } = req.query;
+  const boardId = req.path.replace('/detail/', '');
   const board = getBoardData(boardId);
   const myRequest = isMyRequest(userId, boardId);
   res.send({ board, myRequest });
