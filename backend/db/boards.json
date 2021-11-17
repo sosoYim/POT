@@ -6,11 +6,11 @@
     "title": "자유랭크 하실 분 플레 이상만",
     "content": "매너 채팅 부탁드려요",
     "position": {
-      "top": true,
-      "jug": true,
+      "top": false,
+      "jug": false,
       "mid": false,
       "adc": false,
-      "sup": true
+      "sup": false
     },
     "regDate": "2021-11-16 15:58"
   },
