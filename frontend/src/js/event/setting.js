@@ -35,7 +35,6 @@ const checkSummonerNameExists = async () => {
 };
 
 const setImgAttribute = img => {
-  console.log(formData.summonerName.validate);
   img.src = formData.summonerName.validate ? '../images/success.svg' : '../images/warning.svg';
   img.alt = formData.summonerName.validate ? '성공' : '경고';
 };
@@ -57,6 +56,7 @@ $summonerInput.onkeyup = ({ target }) => {
 
   if ($summonerInput.value.trim() === '') {
     $messageContainer.style.opacity = 0;
+    $completeButton.disabled = true;
   }
 };
 
