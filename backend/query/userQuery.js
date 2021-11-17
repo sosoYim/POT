@@ -1,7 +1,7 @@
 const fs = require('fs');
 
 /**
- * Find user by email in user database and return user.
+ * @description Find user by email in user database and return user.
  * @param {string} email
  * @returns {object} - user data
  */
@@ -9,7 +9,7 @@ const findUserByEmail = email =>
   JSON.parse(fs.readFileSync('./backend/db/users.json')).find(user => user.email === email);
 
 /**
- * Find user in user database.
+ * @description Find user in user database.
  * @param {string} email
  * @param {string} password
  * @returns {boolean}
@@ -20,7 +20,7 @@ const findUser = (email, password) =>
   );
 
 /**
- * Register user in user database.
+ * @description Register user in user database.
  * @param {object} newUser
  */
 const registerUser = newUser => {
@@ -30,7 +30,7 @@ const registerUser = newUser => {
 };
 
 /**
- * Get all users in user database.
+ * @description Get all users in user database.
  * @returns {array} - users array
  */
 const getUsers = () => JSON.parse(fs.readFileSync('./backend/db/users.json'));
