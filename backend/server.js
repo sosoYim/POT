@@ -2,7 +2,7 @@ const express = require('express');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
 const path = require('path');
-const { auth } = require('./utils/verifyToken');
+const { auth, authToLogin } = require('./utils/verifyToken');
 const routes = require('./routes');
 require('dotenv').config();
 
@@ -20,11 +20,11 @@ app.use(cors(corsOptions));
 app.use(cookieParser());
 app.use('/api', routes);
 
-app.get('/register', (req, res) => {
+app.get('/register', authToLogin, (req, res) => {
   res.sendFile(path.join(__dirname, '../public/register.html'));
 });
 
-app.get('/login', (req, res) => {
+app.get('/login', authToLogin, (req, res) => {
   res.sendFile(path.join(__dirname, '../public/login.html'));
 });
 

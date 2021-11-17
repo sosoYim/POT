@@ -1,6 +1,26 @@
 const jwt = require('jsonwebtoken');
 
 /**
+ * @description Restrict login and register when jwt token validate.
+ * @param {request} req
+ * @param {response} res
+ * @param {next} next
+ * @returns {redirect} or @returns
+ */
+const authToLogin = (req, res, next) => {
+  // Token set using headers or cookies
+  const jwtToken = req.headers.authorization || req.cookies.jwtToken;
+
+  try {
+    const verified = jwt.verify(jwtToken, process.env.JWT_SECRET_KEY);
+    req.userId = verified.userId;
+    return res.redirect('/');
+  } catch (e) {
+    next();
+  }
+};
+
+/**
  * @description Verify jwt token validation.
  * @param {request} req
  * @param {response} res
@@ -10,7 +30,6 @@ const jwt = require('jsonwebtoken');
 const auth = (req, res, next) => {
   // Token set using headers or cookies
   const jwtToken = req.headers.authorization || req.cookies.jwtToken;
-  console.log(jwtToken);
 
   try {
     const verified = jwt.verify(jwtToken, process.env.JWT_SECRET_KEY);
@@ -24,4 +43,4 @@ const auth = (req, res, next) => {
   }
 };
 
-module.exports.auth = auth;
+module.exports = { authToLogin, auth };
