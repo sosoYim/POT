@@ -62,8 +62,8 @@ router.post('/login', async (req, res) => {
     maxAge: 1000 * 60 * 60 * 24, // 1d
     httpOnly: true,
   });
-  console.log(user.summoner);
-  console.log(user.encryptedId);
+  // console.log(user.summoner);
+  // console.log(user.encryptedId);
   res.cookie('userId', user.userId, {
     maxAge: 1000 * 60 * 60 * 24, // 1d
     httpOnly: true,

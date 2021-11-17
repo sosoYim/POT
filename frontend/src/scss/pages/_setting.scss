@@ -18,12 +18,12 @@
     font-weight: 700;
     @include desktop {
       padding-top: rem(60px);
-      padding-bottom: rem(60px);
+      padding-bottom: rem(30px);
     }
 
     @include mobile {
       padding-top: rem(40px);
-      padding-bottom: rem(40px);
+      padding-bottom: rem(20px);
     }
   }
   .form {
@@ -105,6 +105,7 @@
         position: absolute;
         font-size: rem(12px);
         bottom: 0;
+        opacity: 0;
         img {
           transform: translateY(-15%);
         }
