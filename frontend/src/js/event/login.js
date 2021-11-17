@@ -38,7 +38,7 @@ const login = async () => {
       password: formData.password.value,
     });
     // console.log(data.userId);
-    if (data) window.location.href = '/setting';
+    if (data) window.location.href = '/';
     // window.location.href = '/';
   } catch (err) {
     $loginFormErrorMessage.textContent = '계정이름과 비밀번호가 일치하지 않습니다.';

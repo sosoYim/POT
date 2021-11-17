@@ -1,11 +1,12 @@
 import axios from '../utils/axiosConfig';
 import render from '../view/manage';
 import { rankNum } from '../store/manage';
+import { getLastPath } from '../utils/helper';
 
 // DOM Nodes
 const $mainTitle = document.querySelector('.main__title');
 const $mainFilterPositionList = document.querySelector('.main__filter-position-list');
-const $mainFilterPositionItems = document.querySelectorAll('.main__filter-position-item > button');
+const $mainFilterPositionButtons = document.querySelectorAll('.main__filter-position-item > button');
 const $participantList = document.querySelector('.participant-list');
 const $mainFilterButton = document.querySelector('.main__filter-button');
 const $mainFilterButtonTitle = document.querySelector('.main__filter-button-title');
@@ -16,11 +17,25 @@ const $modalTitle = document.querySelector('.modal__title');
 const $modalButton = document.querySelector('.modal__button');
 
 // state
-const boardId = 2;
-const userIdList = [1, 3, 4, 5, 6];
+let boardId;
 let manageData = {};
+const champ = {
+  top: '탑',
+  mid: '미드',
+  jug: '정글',
+  adc: '원딜',
+  sup: '서폿',
+};
 
 // helper
+const changePositionAbleState = () => {
+  $mainFilterPositionButtons.forEach(positionButton => {
+    const { position } = positionButton.dataset;
+
+    if (!(manageData.position[position] === undefined))
+      positionButton.toggleAttribute('disabled', !manageData.position[position]);
+  });
+};
 const filterParticipantList = (participantList, filter, targetPosition = 'all') =>
   participantList
     .filter(({ position }) => targetPosition === 'all' || targetPosition === position)
@@ -30,10 +45,78 @@ const filterParticipantList = (participantList, filter, targetPosition = 'all') 
       return newA > newB ? 1 : newA < newB ? -1 : 0;
     });
 
+const createToast = ({ sendMail, content }) => {
+  const toastContainer = document.createElement('div');
+  toastContainer.classList.add('mail-toast');
+  toastContainer.classList.toggle('success', sendMail);
+
+  toastContainer.textContent = content;
+
+  document.body.insertAdjacentElement('afterbegin', toastContainer);
+  setTimeout(() => {
+    document.body.removeChild(toastContainer);
+  }, 3000);
+};
+
+const guideLogin = () => {
+  console.log('hi');
+  const $guideLoginmodalOuter = document.createElement('div');
+  $guideLoginmodalOuter.className = 'modal-outer guide-login';
+  $guideLoginmodalOuter.innerHTML = `
+  <div class="modal">
+    <button class="modal__close">
+      <box-icon name='x' color="#4c4c4c"></box-icon>
+    </button>
+    <div class="modal__title">로그인이 필요한 서비스입니다.</div>
+    <div class="modal__description">로그인 하시겠습니까?</div>
+    <button class="guide-login__button button">로그인</button>
+  </div>`;
+  document.body.appendChild($guideLoginmodalOuter);
+
+  $guideLoginmodalOuter.querySelector('.guide-login__button').onclick = () => {
+    window.location.href = '/login';
+  };
+  $guideLoginmodalOuter.onclick = e => {
+    if (e.target !== e.currentTarget) return;
+    window.location.href = '/';
+  };
+  $guideLoginmodalOuter.querySelector('.modal__close').onclick = () => {
+    window.location.href = '/';
+  };
+};
+
+const renderLoginInfo = summoner =>
+  summoner
+    ? `
+    <a class="header__nav-username" href="javascript:void(0);">${summoner}</a>
+    <a class="header__nav-userinfo" href="javascript:void(0);">
+      <box-icon type="solid" name="down-arrow" color="#4c4c4c" size="20px"></box-icon>
+    </a>
+    <div class="header__nav-setting-list">
+      <a href="/createdpot.html" class="created-pot">작성한 POT</a>
+      <a href="/appliedpot.html" class="applied-pot">신청한 POT</a>
+      <a href="/participantedpot.html" class="participanted-pot">참여한 POT</a>
+      <a href="/setting.html" class="set-user">설정</a>
+      <a href="javascript:void(0);" class="logout">로그아웃</a>
+    </div>
+      `
+    : '<a class="header__nav-login" href="/login">로그인</a>';
+
 // event Listener
 window.addEventListener('DOMContentLoaded', async () => {
+  const {
+    data: { isValidateLogin },
+  } = await axios.get('/api/validate');
+
+  if (!isValidateLogin) guideLogin();
+  const summoner = document.cookie.includes('summoner') ? document.cookie.replace('summoner=', '') : null;
+  console.log(summoner);
+  renderLoginInfo(summoner);
+
+  boardId = +getLastPath(window.location.href);
   const { data: boardData } = await axios.get(`/api/boards/manage/${boardId}`);
-  const { data: participantList } = await axios.get(`/api/manage/${boardId}=${userIdList.join()}`);
+  const { userIdList } = boardData;
+  const { data: participantList } = await axios.get(`/api/manage/participants/${boardId}=${userIdList.join()}`);
 
   const { position: targetPosition } = document.querySelector('button.select').dataset;
   const { filter } = document.querySelector('.main__filter-button-title').dataset;
@@ -41,16 +124,23 @@ window.addEventListener('DOMContentLoaded', async () => {
   manageData = { ...boardData, participantList: filterParticipantList(participantList, filter, targetPosition) };
 
   $mainTitle.textContent = manageData.title;
+  changePositionAbleState();
   $participantList.innerHTML = render(manageData);
+  document.body.removeChild(document.querySelector('.loading__container'));
 });
 
 $mainFilterPositionList.onclick = e => {
-  if (!e.target.closest('.main__filter-position-item > button')) return;
+  if (
+    !e.target.closest('.main__filter-position-item > button') ||
+    e.target.closest('.main__filter-position-item > button:disabled')
+  ) {
+    return;
+  }
 
   const { position: targetPosition } = e.target.closest('.main__filter-position-item > button').dataset;
   const { filter } = document.querySelector('.main__filter-button-title').dataset;
 
-  $mainFilterPositionItems.forEach($positionItem =>
+  $mainFilterPositionButtons.forEach($positionItem =>
     $positionItem.classList.toggle('select', targetPosition === $positionItem.dataset.position)
   );
   $participantList.innerHTML = render({
@@ -100,6 +190,8 @@ $participantList.onclick = e => {
 
 $modalButton.onclick = async e => {
   const { boardId, userId } = e.target.dataset;
+  const { title } = manageData;
+  const { email, summoner, position } = manageData.participantList.find(participant => +participant.userId === +userId);
 
   $modalOuter.classList.toggle('hidden', true);
 
@@ -109,11 +201,24 @@ $modalButton.onclick = async e => {
     +participant.userId === +userId ? { ...participant, completed: true } : participant
   );
 
-  // const mail = await axios.post('/api/manage/mail', {
-  //   to: 'sonwj0915@naver.com',
-  //   subject: 'Hello',
-  //   text: 'Hello world?',
-  // });
+  if (e.target.matches('.button-warn')) return;
+
+  await axios.patch(`/api/boards/position/${boardId}=${userId}`, { position });
+
+  manageData.participantList = manageData.participantList.map(board =>
+    +board.userId === +userId ? { ...board, position: { ...position, [position]: false } } : board
+  );
+  console.log(manageData.position);
+  changePositionAbleState();
+
+  const { data } = await axios.post('/api/manage/mail', {
+    to: email,
+    subject: `${title} 게시글의 팀과 POT! 되셨습니다.`,
+    text: `"${summoner}"님 축하드립니다.
+            신청하신 "${title}" 게시글에 ${champ[position]} 포지션으로 참여 접수되었습니다.`,
+  });
+
+  createToast(data);
 
   $participantList.innerHTML = render(manageData);
 };

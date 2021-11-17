@@ -28,7 +28,7 @@ app.get('/login', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/login.html'));
 });
 
-app.get('/manage', (req, res) => {
+app.get('/manage/:boardId', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/manage.html'));
 });
 

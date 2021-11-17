@@ -7,36 +7,44 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <style>
+  </style>
   <title>참여자 관리 페이지</title>
 </head>
 
 <body class="background-gray">
+  <div class="loading__container">
+    <div class="loading"></div>
+  </div>
+
   <!-- 헤더 -->
   <header class="header">
     <div class="header__wrapper">
       <h1>
-        <a class="header__logo-link" href="javascript:void(0);">
-          <img class="header__logo" src="./images/logo.png" alt="logo">
+        <a class="header__logo-link" href="/">
+          <img class="header__logo" src="/images/logo.png" alt="logo">
         </a>
       </h1>
       <nav class="header__nav">
-        <a class="header__nav-link" href="/src/create"><span class="header__nav-create-pot">POT 생성</span></a>
-        <a class="header__nav-link login-info" href="javascript:void(0);">
-          <!-- <span class="header__nav-login">로그인</span> -->
-          <span class="header__nav-username">왕치</span>
-          <div class="header__nav-userinfo">
-            <span role="button" class="header__nav-user-img"></span>
+        <a class="header__nav-link" href="/createboard"><span class="header__nav-create-pot">POT 생성</span></a>
+        <span class="header__nav-link login-info">
+          <a class="header__nav-login" href="/login">로그인</a>
+          <a class="header__nav-username" href="javascript:void(0);">왕치</a>
+          <a class="header__nav-userinfo" href="javascript:void(0);">
             <box-icon type="solid" name="down-arrow" color="#4c4c4c" size="20px"></box-icon>
-          </div>
+          </a>
           <div class="header__nav-setting-list">
-            <a href="javascript:void(0);" class="created-pot">작성한 POT</a>
-            <a href="javascript:void(0);" class="applied-pot">신청한 POT</a>
-            <a href="javascript:void(0);" class="participanted-pot">참여한 POT</a>
-            <a href="javascript:void(0);" class="set-user">설정</a>
+            <a href="/createdpot.html" class="created-pot">작성한 POT</a>
+            <a href="/appliedpot.html" class="applied-pot">신청한 POT</a>
+            <a href="/participantedpot.html" class="participanted-pot">참여한 POT</a>
+            <a href="/setting.html" class="set-user">설정</a>
             <a href="javascript:void(0);" class="logout">로그아웃</a>
           </div>
-        </a>
-      </nav>
+        </span>
+    </div>
+
+    </span>
+    </nav>
     </div>
   </header>
   <div class="manage-main__container">
@@ -51,32 +59,32 @@
               <ul class="main__filter-position-list">
                 <li class="main__filter-position-item all">
                   <button class="select" data-position="all">
-                    <img src="./images/position/all.png" alt="all">
+                    <img src="/images/position/all.png" alt="all">
                   </button>
                 </li>
                 <li class="main__filter-position-item top">
                   <button data-position="top">
-                    <img src="./images/position/top.png" alt="top">
+                    <img src="/images/position/top.png" alt="top">
                   </button>
                 </li>
                 <li class="main__filter-position-item jug">
                   <button data-position="jug">
-                    <img src="./images/position/jug.png" alt="jug">
+                    <img src="/images/position/jug.png" alt="jug">
                   </button>
                 </li>
                 <li class="main__filter-position-item mid">
                   <button data-position="mid">
-                    <img src="./images/position/mid.png" alt="mid">
+                    <img src="/images/position/mid.png" alt="mid">
                   </button>
                 </li>
                 <li class="main__filter-position-item adc">
                   <button data-position="adc">
-                    <img src="./images/position/adc.png" alt="adc">
+                    <img src="/images/position/adc.png" alt="adc">
                   </button>
                 </li>
                 <li class="main__filter-position-item sup">
                   <button data-position="sup">
-                    <img src="./images/position/sup.png" alt="sup">
+                    <img src="/images/position/sup.png" alt="sup">
                   </button>
                 </li>
               </ul>
