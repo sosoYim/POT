@@ -24,10 +24,4 @@ Content-Type: application/json
 
 ###
 
-POST http://localhost:3000/api/user/login
-Content-Type: application/json
-
-{
-    "account": "jeongmin",
-    "password": "11111111"
-}
+GET http://localhost:3000/

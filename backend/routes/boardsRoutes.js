@@ -17,7 +17,6 @@ router.get('/list', async (req, res) => {
     summoner: summonerNameList[index],
     tier: participantList[index].tier,
   }));
-  console.log(response);
 
   res.send(response);
 });

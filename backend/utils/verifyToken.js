@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
 
 /**
- * Verify jwt token validation.
+ * @description Verify jwt token validation.
  * @param {request} req
  * @param {response} res
  * @param {next} next
@@ -9,16 +9,18 @@ const jwt = require('jsonwebtoken');
  */
 const auth = (req, res, next) => {
   // Token set using headers or cookies
-  const accessToken = req.headers.jwtToken || req.cookies.jwtToken;
+  const jwtToken = req.headers.authorization || req.cookies.jwtToken;
+  console.log(jwtToken);
 
   try {
-    const verified = jwt.verify(accessToken, process.env.JWT_SECRET_KEY);
+    const verified = jwt.verify(jwtToken, process.env.JWT_SECRET_KEY);
     console.log(`😀 사용자 인증 성공`, verified);
+    req.userId = verified.userId;
     next();
   } catch (e) {
     console.error('😱 사용자 인증 실패..', e);
     // Not token or not valid
-    return res.send(false);
+    return res.redirect('/login');
   }
 };
 

@@ -1,7 +1,7 @@
 const Joi = require('joi');
 
 /**
- * Simple check register validation using Joi.
+ * @description Simple check register validation using Joi.
  * @param {object} data - register form data
  * @returns {boolean}
  */
@@ -18,7 +18,7 @@ const registerValidation = data => {
 };
 
 /**
- * Simpple check login validation using Joi.
+ * @description Simpple check login validation using Joi.
  * @param {object} data - login form data
  * @returns {boolean}
  */

@@ -2,6 +2,7 @@ const express = require('express');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
 const path = require('path');
+const { auth } = require('./utils/verifyToken');
 const routes = require('./routes');
 require('dotenv').config();
 
@@ -39,8 +40,12 @@ app.get('/board/write', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/createboard.html'));
 });
 
-app.get('/setting', (req, res) => {
+app.get('/setting', auth, (req, res) => {
   res.sendFile(path.join(__dirname, '../public/setting.html'));
+});
+
+app.get('/', auth, (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/index.html'));
 });
 
 app.listen(PORT, () => console.log(`Server listening at http://localhost:${PORT}`)); // port, callback
