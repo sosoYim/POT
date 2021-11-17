@@ -72,6 +72,29 @@
       color: $gray05;
     }
   }
+
+  &--done {
+    position: relative;
+    opacity: 0.7;
+    background-color: rgba(227, 227, 227);
+    cursor: default;
+  }
+
+  &--done:after {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    content: '모집 완료';
+    position: absolute;
+    top: 40%;
+    left: 25%;
+    width: 50%;
+    height: 25%;
+    background-color: $gray05;
+    color: $gray03;
+    border-radius: rem(4);
+    font-size: rem(20);
+  }
 }
 
 .position {
