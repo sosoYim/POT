@@ -40,9 +40,7 @@ router.post('/', (req, res) => {
 });
 
 router.get('/detail/:id', (req, res) => {
-  // const testNext = console.log('hey next');
-  // const testAuth = auth(req, res);
-  // console.log(testAuth);
+  // console.log(req.userId);
   const userId = 3;
   const boardId = req.path.replace('/detail/', '');
   const board = getBoardData(boardId);

@@ -7,7 +7,6 @@ import axios from '../utils/axiosConfig';
 const createBoard = async ($boardForm, quill) => {
   try {
     // TODO: 로그인한 상태인지 확인 후 아니면 리턴
-    // TODO: 로그인 id 받기
     const loginUserId = 1;
 
     const formData = new FormData($boardForm);

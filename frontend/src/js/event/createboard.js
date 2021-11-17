@@ -2,7 +2,7 @@ import { createBoard, isPositionChecked, focusLegend } from '../controller/creat
 
 const quill = new Quill('#editor__api', {
   modules: {
-    toolbar: [['bold', 'italic', 'size'], ['blockquote'], [{ list: 'ordered' }, { list: 'bullet' }]],
+    toolbar: [['bold', 'italic'], ['blockquote'], [{ list: 'ordered' }, { list: 'bullet' }]],
   },
   placeholder: '모집 내용을 입력해 주세요.',
   scrollingContainer: '.editor',
