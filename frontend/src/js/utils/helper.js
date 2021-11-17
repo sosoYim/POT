@@ -6,4 +6,6 @@ const formatRegDate = regDate => {
   return today.getFullYear() === +year && today.getMonth() + 1 === +month && today.getDate() === +day ? time : date;
 };
 
-export { formatRegDate };
+const getLastPath = url => url.substring(url.lastIndexOf('/') + 1);
+
+export { formatRegDate, getLastPath };

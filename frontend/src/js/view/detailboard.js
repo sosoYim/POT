@@ -13,15 +13,17 @@ const renderMyRequest = isMyRequest => {
 };
 
 const render = (board, isMyRequest = false) => {
-  const { boardId, userId, type, title, content, position, regDate } = board;
+  const { userId, type, title, content, position, regDate } = board;
 
   // TODO: 로그인 아이디...
   const loginUserId = 3;
 
+  // const myBoard = true;
   const myBoard = +userId === +loginUserId;
   if (myBoard) {
     $detailboardButton.innerText = '참여자 관리';
-    $detailboardButton.classList.classList.add('myBoard');
+    $detailboardButton.classList.add('myBoard');
+    $detailboardButton.removeAttribute('disabled');
   } else {
     renderMyRequest(isMyRequest);
   }
