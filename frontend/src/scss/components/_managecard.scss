@@ -5,10 +5,6 @@
   flex-wrap: wrap;
   justify-content: space-between;
   background-color: transparent;
-
-  @include mobile {
-    justify-content: center;
-  }
 }
 
 .participant {
@@ -18,9 +14,13 @@
   background-color: $white;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 15px;
-  width: 380px;
+  width: 100%;
   height: 180px;
   margin-top: 40px;
+
+  @media (min-width: 820px) {
+    width: 380px;
+  }
 
   &__main-wrapper {
     display: flex;
@@ -54,10 +54,10 @@
       background-color: $white;
       box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15);
     }
-    .approve-participant:hover {
+    .participant__check.approve:hover {
       background-color: rgba($color: $main, $alpha: 0.2);
     }
-    .refuse-participant:hover {
+    .participant__check:hover {
       background-color: rgba($color: $red, $alpha: 0.2);
     }
   }

@@ -45,6 +45,9 @@ const setSpanText = span => {
     ? formData.summonerName.successMessage
     : formData.summonerName.warningMessage;
 };
+window.addEventListener('DOMContentLoaded', () => {
+  console.log(document.cookie);
+});
 
 $summonerInput.onkeyup = ({ target }) => {
   formData.summonerName.value = target.value;
