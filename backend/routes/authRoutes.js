@@ -53,11 +53,18 @@ router.post('/login', async (req, res) => {
   // Password is correct
   const validPass = await bcrypt.compare(password, user.password);
   if (!validPass) return res.status(401).send('Invalid password');
+  console.log(user);
 
   // Create and assign a token
   const token = jwt.sign({ email }, process.env.JWT_SECRET_KEY, { expiresIn: '1d' });
   // 쿠키에 토큰 설정(http://expressjs.com/ko/api.html#res.cookie)
   res.cookie('jwtToken', token, {
+    maxAge: 1000 * 60 * 60 * 24, // 1d
+    httpOnly: true,
+  });
+  // console.log(user.summoner);
+  // console.log(user.encryptedId);
+  res.cookie('userId', user.userId, {
     maxAge: 1000 * 60 * 60 * 24, // 1d
     httpOnly: true,
   });
@@ -70,10 +77,11 @@ router.post('/login', async (req, res) => {
     httpOnly: true,
   });
 
-  console.log('hi');
-
-  res.redirect('/');
   return res.redirect('/');
+
+  // console.log('hi');
+
+  // res.redirect('/');
 
   // return req.query.path ? res.redirect(req.query.path) : res.redirect('/');
   // res.send({ email, encryptedId: user.encryptedId });
