@@ -4,7 +4,6 @@ import { getLastPath } from '../utils/helper';
 
 const fetchBoard = async () => {
   try {
-    // TODO: UTILS 공통 함수
     const boardId = getLastPath(window.location.href);
     const { data } = await axios.get(`/api/boards/detail/${boardId}`);
     setBoard(data.board, data.myRequest);
