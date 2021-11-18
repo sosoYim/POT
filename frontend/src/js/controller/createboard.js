@@ -31,8 +31,15 @@ const createBoard = async ($boardForm, quill) => {
   }
 };
 
+const setCheckboxByType = (gameType, $positionInputs) => {
+  const positionType = gameType === '2 POT' ? 'radio' : 'checkbox';
+  $positionInputs.forEach($input => {
+    $input.type = positionType;
+  });
+};
+
 // TODO: 유효성 검사, 포커싱 모두 되도록하기
 // const validatePosition()
 
 // export { createBoard, isPositionChecked, focusLegend };
-export { createBoard };
+export { createBoard, setCheckboxByType };

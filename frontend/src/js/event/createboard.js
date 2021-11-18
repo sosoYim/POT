@@ -1,22 +1,17 @@
-import { createBoard } from '../controller/createboard';
+import { createBoard, setCheckboxByType } from '../controller/createboard';
 
 // TODO: 유효성 체크 메서드 후에 분리하기=====================================
-
-const isPositionChecked = $boardForm => {
-  console.log($boardForm.type.checked);
-  [...$boardForm.position].some(position => position.checked);
-};
-
-const isValidCreation = $boardForm => {
-  isPositionChecked($boardForm);
-};
+// checkValidation : 유효성 체크 -> 에러 위치 반환 -> 에러 메세지
+const isPositionChecked = $boardForm => [...$boardForm.position].some(position => position.checked);
 
 const focusLegend = $legend => {
-  // TODO: 라벨, 라디오 탭 포코스시 보더 만들기
   // $label.focus();
   $legend.style.color = '#b037c5';
   // 에러 메세지 삽입
 };
+
+// const checkValidation = $boardForm => {};
+// ====================================================================
 
 const quill = new Quill('#editor__api', {
   modules: {
@@ -32,4 +27,10 @@ document.querySelector('.createboard-form').onsubmit = e => {
   isPositionChecked(e.target)
     ? createBoard(e.target, quill)
     : focusLegend(document.querySelector('.form-checkbox legend'));
+};
+
+document.querySelector('.form-radio-type').onchange = e => {
+  const type = e.target.value;
+  const $positionInputs = document.querySelectorAll('input[name="position"]');
+  setCheckboxByType(type, $positionInputs);
 };
