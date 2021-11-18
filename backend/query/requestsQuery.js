@@ -13,4 +13,10 @@ const setRequest = newRequest => {
   return newRequestId;
 };
 
-module.exports = { isMyRequest, setRequest };
+const getApply = userId => {
+  const requests = JSON.parse(fs.readFileSync('./backend/db/requests.json'));
+
+  return requests.filter(request => request.userId === userId);
+};
+
+module.exports = { isMyRequest, setRequest, getApply };

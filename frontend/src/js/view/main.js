@@ -8,7 +8,7 @@ const render = boards => {
       const isRecruitmentCompleted = [...Object.keys(position)].every(pos => !position[pos]);
 
       // eslint-disable-next-line no-script-url
-      return `<a href="${isRecruitmentCompleted ? 'javascript:void(0);' : 'board/' + boardId}" class="card${
+      return `<a href="${isRecruitmentCompleted ? 'javascript:void(0);' : '/board/' + boardId}" class="card${
         isRecruitmentCompleted ? ' card--done' : ''
       }">
           <span class="card__type">${type}</span>
@@ -32,7 +32,7 @@ const render = boards => {
           </ul>
           <div class="card__detail">
             <div class="user">
-              <img src="./images/emblem/${tier}.png" alt="티어" class="user__tier" />
+              <img src="/images/emblem/${tier}.png" alt="티어" class="user__tier" />
               <span class="user__name">${summoner}</span>
             </div>
             <span class="regDate">${formatRegDate(regDate)}</span>

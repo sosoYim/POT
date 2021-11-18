@@ -1,3 +1,3 @@
-import setHeader from '../utils/header';
+import { fetchBoards } from '../controller/createdpot';
 
-window.addEventListener('DOMContentLoaded', setHeader);
+window.addEventListener('DOMContentLoaded', fetchBoards);
