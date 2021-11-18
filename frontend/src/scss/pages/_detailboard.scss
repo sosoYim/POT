@@ -5,10 +5,14 @@
     width: 100%;
     padding-bottom: rem(30);
     &__position {
-      width: 50%;
+      // width: 50%;
       margin: rem(42) 0;
-      @include mobile {
-        width: 100%;
+      // @include mobile {
+      //   width: 100%;
+      // }
+      @media (min-width: 820px) {
+        width: 100% !important;
+        min-width: 380px;
       }
     }
     &__content {
@@ -62,13 +66,13 @@
     }
   }
 
-  input[type='radio']:checked + label {
+  input[type='radio']:checked.request + label {
     outline: 4px solid $main;
     background-color: rgba($color: $main, $alpha: 0.2);
   }
 
   input[type='radio']:disabled + label,
-  input[type='radio']:disabled:hover + label {
+  input[type='radio']:disabled:hover.request + label {
     cursor: default;
     opacity: 0.2;
     background-color: rgba($color: $main, $alpha: 0.2);
