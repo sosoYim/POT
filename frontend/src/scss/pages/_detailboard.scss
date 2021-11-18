@@ -7,8 +7,11 @@
     &__position {
       width: 50%;
       margin: rem(42) 0;
-      @include mobile {
-        width: 100%;
+      // @include mobile {
+      //   width: 100%;
+      // }
+      @media (min-width: 820px) {
+        width: 380px;
       }
     }
     &__content {

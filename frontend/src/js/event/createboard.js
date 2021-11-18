@@ -14,13 +14,22 @@ window.addEventListener('DOMContentLoaded', setHeader);
 
 document.querySelector('.createboard-form').onsubmit = e => {
   e.preventDefault();
-  isPositionChecked(e.target)
-    ? createBoard(e.target, quill)
-    : focusLegend(document.querySelector('.form-checkbox legend'));
+  createBoard(e.target, quill);
+  // isPositionChecked(e.target)
+  //   ? createBoard(e.target, quill)
+  //   : focusLegend(document.querySelector('.form-checkbox legend'));
 };
 
 document.querySelector('.form-radio-type').onchange = e => {
   const type = e.target.value;
   const $positionInputs = document.querySelectorAll('input[name="position"]');
   setCheckboxByType(type, $positionInputs);
+};
+
+document.querySelector('.form-checkbox').onchange = () => {
+  const $createButton = document.querySelector('.create-button');
+
+  isPositionChecked(document.querySelector('.createboard-form'))
+    ? $createButton.removeAttribute('disabled')
+    : $createButton.setAttribute('disabled', true);
 };
