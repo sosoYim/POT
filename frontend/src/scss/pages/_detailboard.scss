@@ -66,13 +66,13 @@
     }
   }
 
-  input[type='radio']:checked.request + label {
+  input[type='radio']:checked + label {
     outline: 4px solid $main;
     background-color: rgba($color: $main, $alpha: 0.2);
   }
 
   input[type='radio']:disabled + label,
-  input[type='radio']:disabled:hover.request + label {
+  input[type='radio']:disabled:hover + label {
     cursor: default;
     opacity: 0.2;
     background-color: rgba($color: $main, $alpha: 0.2);

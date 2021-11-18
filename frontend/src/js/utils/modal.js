@@ -30,20 +30,20 @@ const guideLogin = () => {
 
 const requestModal = () => {
   const $requestModalOuter = document.createElement('div');
-  $requestModalOuter.className = 'modal-outer guide-login';
+  $requestModalOuter.className = 'modal-outer request-modal';
   $requestModalOuter.innerHTML = `
   <div class="modal">
     <button class="modal__close">
       <box-icon name='x' color="#4c4c4c"></box-icon>
     </button>
     <div class="modal__title">신청되었습니다..</div>
-    <button class="guide-login__button button">신청목록 이동</button>
+    <button class="request-modal__button button">신청목록 이동</button>
   </div>`;
   document.body.appendChild($requestModalOuter);
 
-  $requestModalOuter.querySelector('.guide-login__button').onclick = () => {
+  $requestModalOuter.querySelector('.request-modal__button').onclick = () => {
     // 추후 경로 수정
-    // window.location.href = '';
+    window.location.href = '/board/list/applied';
   };
   $requestModalOuter.onclick = e => {
     if (e.target !== e.currentTarget) return;
@@ -62,16 +62,12 @@ const setHeaderRequest = async () => {
 
     renderLoginInfo(summoner);
 
-    document.querySelector('.detailboard-button').onclick = e => {
-      if (e.currentTarget.textContent === '참여자 관리') return;
-      if (summoner) {
-        // TODO: 신청에 실패했을 경우 안내창 다르게 띄우기
-        createRequest();
-        requestModal();
-      } else {
-        guideLogin();
-      }
-    };
+    if (summoner) {
+      createRequest();
+      requestModal();
+    } else {
+      guideLogin();
+    }
   } catch (error) {
     console.log(error);
   }
