@@ -16,7 +16,7 @@ const renderMyBoard = () => {
 };
 
 const render = (board, state) => {
-  const { type, title, content, position, regDate, summonerName } = board;
+  const { type, title, content, position, regDate, summonerName, tier } = board;
   // state
   state.myBoard ? renderMyBoard() : renderMyRequest(state.myRequest);
   document.querySelector('.pot-tag').textContent = type;
@@ -31,6 +31,8 @@ const render = (board, state) => {
       ? document.querySelector(`.${positionClass}`).removeAttribute('disabled')
       : document.querySelector(`.${positionClass}`).setAttribute('disabled', 'disabled');
   });
+
+  document.querySelector('.pot-info-user-emblem').setAttribute('src', `/images/emblem/${tier}.png`);
 
   const qdc = new QuillDeltaToHtmlConverter(content.ops, {});
   const html = qdc.convert();

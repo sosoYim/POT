@@ -32,8 +32,18 @@ const setCheckboxByType = (gameType, $positionInputs) => {
   });
 };
 
-// TODO: 유효성 검사, 포커싱 모두 되도록하기
-// const validatePosition()
+// TODO: 유효성 체크 메서드 후에 분리하기=====================================
+// checkValidation : 유효성 체크 -> 에러 위치 반환 -> 에러 메세지
+const isPositionChecked = $boardForm => [...$boardForm.position].some(position => position.checked);
+
+const focusLegend = $legend => {
+  // $label.focus();
+  $legend.style.color = '#b037c5';
+  // 에러 메세지 삽입
+};
+
+// const checkValidation = $boardForm => {};
+// ====================================================================
 
 // export { createBoard, isPositionChecked, focusLegend };
-export { createBoard, setCheckboxByType };
+export { createBoard, setCheckboxByType, isPositionChecked, focusLegend };
