@@ -1,4 +1,5 @@
 const jwt = require('jsonwebtoken');
+const { getUserId } = require('../query/boardsQuery');
 
 /**
  * @description Restrict login page and register page when jwt token validate.
@@ -50,16 +51,42 @@ const blockGuestAuth = (req, res, next) => {
 const checkUserAuth = (req, res, next) => {
   // Token set using headers or cookies
   const jwtToken = req.headers.authorization || req.cookies.jwtToken;
-
   try {
     const verified = jwt.verify(jwtToken, process.env.JWT_SECRET_KEY);
     console.log(`😀 사용자 인증 성공`, verified);
-    req.id = verified.userId;
+
+    req.isLogin = true;
+    req.userId = verified.userId;
     next();
   } catch (e) {
     console.error('😱 사용자 인증 실패..', e);
-    return false;
+    req.isLogin = false;
   }
 };
 
-module.exports = { blockUserAuth, blockGuestAuth, checkUserAuth };
+/**
+ * @description Redirect ('/') when jwt token expired & not writer.
+ * @param {request} req
+ * @param {response} res
+ * @param {next} next
+ * @returns {boolean}
+ */
+const accessWriterAuth = (req, res, next) => {
+  // Token set using headers or cookies
+  const jwtToken = req.headers.authorization || req.cookies.jwtToken;
+
+  try {
+    const verified = jwt.verify(jwtToken, process.env.JWT_SECRET_KEY);
+    const boardId = +req.path.substring(req.path.lastIndexOf('/') + 1);
+
+    // if (verified.userId !== getUserId(boardId)) res.redirect('/');
+
+    console.log(`😀 사용자 인증 성공`, verified);
+    next();
+  } catch (e) {
+    console.error('😱 사용자 인증 실패..', e);
+    return res.redirect('/');
+  }
+};
+
+module.exports = { blockUserAuth, blockGuestAuth, checkUserAuth, accessWriterAuth };

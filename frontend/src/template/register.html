@@ -1,91 +1,79 @@
 <!DOCTYPE html>
 <html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>회원가입</title>
-  </head>
-  <body class="membership-body">
-    <header class="membership-header">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>회원가입</title>
+</head>
+
+<body class="membership-body">
+  <!-- 헤더 -->
+  <header class="header">
+    <div class="header__wrapper">
       <h1>
-        <a href="/"><img src="./images/membership-logo.png" alt="팟" /></a>
+        <a class="header__logo-link" href="/">
+          <img class="header__logo" src="/images/logo.png" alt="logo">
+        </a>
       </h1>
-    </header>
-    <main class="membership-main">
-      <form class="signup-form">
-        <fieldset>
-          <legend class="signup-form__title"><h2>회원가입</h2></legend>
-          <div class="signup-form__check">
-            <input
-              type="text"
-              class="signup-form__input check-input"
-              id="signup-userId"
-              name="userId"
-              required
-              autocomplete="off"
-            />
-            <label for="signup-userId">이메일</label>
-            <button class="signup-form__check-duplication" disabled>중복확인</button>
-          </div>
-          <div class="signup-form__message">
-            <img />
-            <span class="signup-form__text"></span>
-            <!-- 4~12자의 영문+숫자로 입력해주세요. -->
-          </div>
-          <div class="signup-form__check">
-            <input
-              type="text"
-              class="signup-form__input check-input"
-              id="signup-summoner-name"
-              name="summonerName"
-              required
-              autocomplete="off"
-            />
-            <label for="signup-summoner-name">소환사 명</label>
-            <button class="signup-form__check-duplication" disabled>이름확인</button>
-          </div>
-          <div class="signup-form__message">
-            <img />
-            <span class="signup-form__text"></span>
-          </div>
-          <div class="signup-form__input-container">
-            <input
-              type="password"
-              class="signup-form__input"
-              id="signup-password"
-              name="password"
-              required
-              autocomplete="off"
-            />
-            <label for="signup-password">비밀번호</label>
-          </div>
-          </div>
-          <div class="signup-form__message">
-            <img />
-            <span class="signup-form__text"></span>
-          </div>
-          <div class="signup-form__input-container">
-            <input
-              type="password"
-              class="signup-form__input"
-              id="signup-confirm-password"
-              name="confirmPassword"
-              required
-              autocomplete="off"
-            />
-            <label for="signin-confirm-password">비밀번호 확인</label>
-          </div>
-          <div class="signup-form__message">
-            <img />
-            <span class="signup-form__text"></span>
-          </div>
-          <button class="signup-form__button" disabled>회원가입</button>
-          <a href="/login" class="signup-form__goto-login"
-            ><span class="signup-form__goto-login">로그인 하러가기</span></a
-          >
-        </fieldset>
-      </form>
-    </main>
-  </body>
+      <nav class="header__nav">
+        <a class="header__nav-link" href="javascript:void(0);"><span class="header__nav-create-pot">POT 생성</span></a>
+        <span class="header__nav-link login-info"></span>
+      </nav>
+    </div>
+  </header>
+  <main class="membership-main">
+    <form class="signup-form">
+      <fieldset>
+        <legend class="signup-form__title">
+          <h2>회원가입</h2>
+        </legend>
+        <div class="signup-form__check">
+          <input type="text" class="signup-form__input check-input" id="signup-userId" name="userId" required
+            autocomplete="off" />
+          <label for="signup-userId">이메일</label>
+          <button class="signup-form__check-duplication" disabled>중복확인</button>
+        </div>
+        <div class="signup-form__message">
+          <img />
+          <span class="signup-form__text"></span>
+          <!-- 4~12자의 영문+숫자로 입력해주세요. -->
+        </div>
+        <div class="signup-form__check">
+          <input type="text" class="signup-form__input check-input" id="signup-summoner-name" name="summonerName"
+            required autocomplete="off" />
+          <label for="signup-summoner-name">소환사 명</label>
+          <button class="signup-form__check-duplication" disabled>이름확인</button>
+        </div>
+        <div class="signup-form__message">
+          <img />
+          <span class="signup-form__text"></span>
+        </div>
+        <div class="signup-form__input-container">
+          <input type="password" class="signup-form__input" id="signup-password" name="password" required
+            autocomplete="off" />
+          <label for="signup-password">비밀번호</label>
+        </div>
+        </div>
+        <div class="signup-form__message">
+          <img />
+          <span class="signup-form__text"></span>
+        </div>
+        <div class="signup-form__input-container">
+          <input type="password" class="signup-form__input" id="signup-confirm-password" name="confirmPassword" required
+            autocomplete="off" />
+          <label for="signin-confirm-password">비밀번호 확인</label>
+        </div>
+        <div class="signup-form__message">
+          <img />
+          <span class="signup-form__text"></span>
+        </div>
+        <button class="signup-form__button" disabled>회원가입</button>
+        <a href="/login" class="signup-form__goto-login"><span class="signup-form__goto-login">로그인 하러가기</span></a>
+      </fieldset>
+    </form>
+  </main>
+</body>
+
 </html>

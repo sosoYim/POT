@@ -1,5 +1,5 @@
-const render = manageData => {
-  const participants = manageData.participantList
+const renderParticipantList = ($participantList, manageData) => {
+  $participantList.innerHTML = manageData.participantList
     .map(({ userId, tier, rank, summoner, mainChamp, position, completed }) =>
       completed
         ? ''
@@ -50,7 +50,6 @@ const render = manageData => {
   `
     )
     .join('');
-  return participants;
 };
 
-export default render;
+export default renderParticipantList;

@@ -63,10 +63,10 @@ router.post('/login', async (req, res) => {
     maxAge: 1000 * 60 * 60 * 24, // 1d
     httpOnly: true,
   });
-  res.cookie('summoner', user.summoner, {
-    maxAge: 1000 * 60 * 60 * 24, // 1d
-    // httpOnly: true,
-  });
+  // res.cookie('summoner', user.summoner, {
+  //   maxAge: 1000 * 60 * 60 * 24, // 1d
+  //   // httpOnly: true,
+  // });
 
   // res.send('hi');
 
