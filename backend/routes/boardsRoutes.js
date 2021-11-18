@@ -43,16 +43,13 @@ router.post('/', blockGuestAuth, (req, res) => {
 });
 
 router.get('/detail/:id', checkUserAuth, (req, res) => {
-  console.log('hi');
   const { userId } = req;
   const boardId = req.path.replace('/detail/', '');
   const board = getBoardData(boardId);
 
   const encId = getUserEncId(+board.userId); // 작성자
   const summonerName = getSummonerName(encId);
-  board.sommonerName = summonerName;
-
-  console.log(board.userId, encId, summonerName, board);
+  board.summonerName = summonerName;
 
   const myRequest = isMyRequest(userId, boardId);
   /**

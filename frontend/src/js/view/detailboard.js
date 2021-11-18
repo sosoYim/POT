@@ -16,13 +16,13 @@ const renderMyBoard = () => {
 };
 
 const render = (board, state) => {
-  const { type, title, content, position, regDate, sommonerName } = board;
+  const { type, title, content, position, regDate, summonerName } = board;
   // state
   state.myBoard ? renderMyBoard() : renderMyRequest(state.myRequest);
   document.querySelector('.pot-tag').textContent = type;
   document.querySelector('.pot-title').textContent = title;
   document.querySelector('time').dateTime = regDate;
-  document.querySelector('.pot-info-user-summoner-name').textContent = sommonerName;
+  document.querySelector('.pot-info-user-summoner-name').textContent = summonerName;
   // eslint-disable-next-line prefer-destructuring
   document.querySelector('time').textContent = regDate.split(' ')[0];
 
