@@ -32,7 +32,7 @@ const render = boards => {
           </ul>
           <div class="card__detail">
             <div class="user">
-              <img src="./images/emblem/${tier}.png" alt="티어" class="user__tier" />
+              <img src="/images/emblem/${tier}.png" alt="티어" class="user__tier" />
               <span class="user__name">${summoner}</span>
             </div>
             <span class="regDate">${formatRegDate(regDate)}</span>

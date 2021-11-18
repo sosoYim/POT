@@ -56,6 +56,6 @@ $completeButton.onclick = e => {
   $summonerDuplicationButton.disabled = true;
 };
 
-$deleteAccount.onclick = e => {
-  console.log(e.target);
-};
+// $deleteAccount.onclick = e => {
+//   console.log(e.target);
+// };
