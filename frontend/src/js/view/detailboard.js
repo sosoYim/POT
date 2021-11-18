@@ -4,9 +4,6 @@ const { QuillDeltaToHtmlConverter } = require('quill-delta-to-html');
 
 const renderMyRequest = isMyRequest => {
   $detailboardButton.innerText = isMyRequest ? '이미 신청한 POT' : '신청하기';
-  isMyRequest
-    ? $detailboardButton.setAttribute('disabled', 'disabled')
-    : $detailboardButton.removeAttribute('disabled');
 };
 
 const renderMyBoard = () => {

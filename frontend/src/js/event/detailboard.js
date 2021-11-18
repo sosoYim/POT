@@ -12,7 +12,13 @@ document.querySelector('.detailboard-button').onclick = e => {
 
   e.target.matches('.myBoard')
     ? (window.location.href = `${window.location.origin}/manage/${boardId}`)
-    : isPositionChecked(document.querySelectorAll('input[name="position"]'))
-    ? setHeaderRequest()
-    : (document.querySelector('.msg').innerText = '포지션을 선택해주세요');
+    : setHeaderRequest();
+};
+
+document.querySelector('.form-radio__icons').onchange = () => {
+  const $detailboardButton = document.querySelector('.detailboard-button');
+
+  isPositionChecked(document.querySelectorAll('input[name="position"]'))
+    ? $detailboardButton.removeAttribute('disabled')
+    : $detailboardButton.setAttribute('disabled', true);
 };
