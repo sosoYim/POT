@@ -6,7 +6,7 @@ const state = {
     position: 'all',
   },
   board: {
-    currentPageNo: 1,
+    currentPageNo: 0,
     recordsPerPage: 8,
     list: [],
   },
