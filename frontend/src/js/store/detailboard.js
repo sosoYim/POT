@@ -1,17 +1,19 @@
-import { render, renderMyRequest } from '../view/detailboard';
+import { render, renderMyBoard, renderMyRequest } from '../view/detailboard';
 
 let board = {};
-let state;
-// setState? (myRequest)
 
-const setBoard = (newBoard, myRequest) => {
+let state = {};
+// state = {myBoard: false, myRequest:true}
+
+const setBoard = (newBoard, newState = state) => {
   board = newBoard;
-  state = myRequest;
+  state = newState;
   render(board, state);
 };
 
-const setState = isMyRequest => {
-  renderMyRequest(isMyRequest);
+const setState = newState => {
+  state = newState;
+  state.myBoard ? renderMyBoard() : renderMyRequest(state.myRequest);
 };
 
 export { setBoard, setState };

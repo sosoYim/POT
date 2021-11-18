@@ -5,10 +5,11 @@ const {
   patchCompletedBoardData,
   patchParticipantPosition,
   getBoardList,
-  setBoard,
+  insertBoard,
 } = require('../query/boardsQuery');
 const { isMyRequest, setRequest } = require('../query/requestsQuery');
 const { getUserEncIdList, getSummonerNameList, getParticipants, filterSoloRankTier } = require('../query/manageQuery');
+const { blockGuestAuth, checkUserAuth } = require('../utils/verifyToken');
 
 const summonerURL = 'https://kr.api.riotgames.com/lol/league/v4/entries/by-summoner/';
 
@@ -28,32 +29,31 @@ router.get('/list', async (req, res) => {
   res.send(response);
 });
 
-router.post('/', (req, res) => {
+router.post('/', blockGuestAuth, (req, res) => {
   const { type, title } = req.body;
-  let { userId, content, position } = req.body;
-  userId = +userId;
+  let { content, position } = req.body;
+  const userId = +req.userId;
   content = JSON.parse(content);
   position = JSON.parse(position);
   const board = { userId, type, title, content, position };
 
-  const boardId = setBoard(board);
+  const boardId = insertBoard(board);
   res.status(200).send(boardId + '');
 });
 
-router.get('/detail/:id', (req, res) => {
-  // console.log(req.userId);
-  const userId = 3;
+router.get('/detail/:id', checkUserAuth, (req, res) => {
+  const { userId } = req;
   const boardId = req.path.replace('/detail/', '');
   const board = getBoardData(boardId);
   const myRequest = isMyRequest(userId, boardId);
-  res.send({ board, myRequest });
+  res.send({ board, myRequest, userId });
 });
 
-router.post('/detail', (req, res) => {
-  const { boardId, userId, position } = req.body;
+router.post('/detail', checkUserAuth, (req, res) => {
+  const userId = +req.userId;
+  // TODO: 로그인 안된 상태면 로그인 모달 필요
+  const { boardId, position } = req.body;
   const request = { boardId: +boardId, userId: +userId, position };
-  // 방어코드 : 이미 신청한 요청이면 저장하지 않는다.
-  // const requestId = isMyRequest(userId, boardId) ? -1 : setRequest(request);
   const requestId = setRequest(request);
   res.send(requestId + '');
 });

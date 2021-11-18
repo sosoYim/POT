@@ -1,4 +1,5 @@
 const fs = require('fs');
+const { lastIndexOf } = require('lodash');
 
 const getBoardData = boardId => {
   const boards = JSON.parse(fs.readFileSync('./backend/db/boards.json'));
@@ -8,7 +9,7 @@ const getBoardData = boardId => {
 const getUserId = boardId => {
   const requests = JSON.parse(fs.readFileSync('./backend/db/requests.json'));
   return requests.find(request => request.boardId === +boardId).userId;
-}
+};
 
 const getUserIdList = boardId => {
   const requests = JSON.parse(fs.readFileSync('./backend/db/requests.json'));
@@ -48,10 +49,11 @@ const getBoardList = (type, position, currentPageNo, recordsPerPage) => {
  * Add board in BOARD dataset
  * @param {object} newBoard
  */
-const setBoard = newBoard => {
+const insertBoard = newBoard => {
   const boards = JSON.parse(fs.readFileSync('./backend/db/boards.json'));
   const newBoardId = boards.length === 0 ? 1 : boards[0].boardId + 1;
-  const regDate = new Date(+new Date() + 3240 * 10000).toISOString().replace('T', ' ').replace(/\..*/, '');
+  let regDate = new Date(+new Date() + 3240 * 10000).toISOString().replace('T', ' ').replace(/\..*/, '');
+  regDate = regDate.substring(0, regDate.lastIndexOf(':'));
 
   const newBoards = [{ boardId: newBoardId, ...newBoard, regDate }, ...boards];
   fs.writeFileSync('./backend/db/boards.json', JSON.stringify(newBoards));
@@ -66,5 +68,5 @@ module.exports = {
   patchCompletedBoardData,
   patchParticipantPosition,
   getBoardList,
-  setBoard,
+  insertBoard,
 };
