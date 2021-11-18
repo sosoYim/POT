@@ -46,6 +46,7 @@ $summonerDuplicationButton.onclick = async () => {
 $completeButton.onclick = e => {
   e.preventDefault();
   changeName();
+  setHeader();
 
   launchToast();
   initializeFormData();

@@ -24,8 +24,9 @@ $main.onkeyup = ({ target }) => {
   $registerButton.disabled = !allValidate();
 };
 
-$idDuplicationButton.onclick = async ({ target }) => {
-  const [$img, $span] = target.parentNode.nextElementSibling.children;
+$idDuplicationButton.onclick = async e => {
+  e.preventDefault();
+  const [$img, $span] = e.target.parentNode.nextElementSibling.children;
 
   await checkIdDuplicate();
   setImgAttribute($img, checkIdValidate());
@@ -34,8 +35,9 @@ $idDuplicationButton.onclick = async ({ target }) => {
   $registerButton.disabled = !allValidate();
 };
 
-$summonerDuplicationButton.onclick = async ({ target }) => {
-  const [$img, $span] = target.parentNode.nextElementSibling.children;
+$summonerDuplicationButton.onclick = async e => {
+  e.preventDefault();
+  const [$img, $span] = e.target.parentNode.nextElementSibling.children;
 
   await checkSummonerNameExists();
   setImgAttribute($img, checkSummonerNameValidate());
