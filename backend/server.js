@@ -40,6 +40,10 @@ app.get('/board/write', blockGuestAuth, (req, res) => {
   res.sendFile(path.join(__dirname, '../public/createboard.html'));
 });
 
+app.get('/board/list/:type', (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/createdpot.html'));
+});
+
 app.get('/setting', blockGuestAuth, (req, res) => {
   res.sendFile(path.join(__dirname, '../public/setting.html'));
 });
