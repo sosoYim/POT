@@ -32,7 +32,6 @@ const setHeader = async () => {
     data: { summoner },
   } = await axios.get(`/api/validate`);
 
-  console.log(summoner);
   renderLoginInfo(summoner);
 
   if (summoner) {

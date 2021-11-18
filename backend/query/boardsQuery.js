@@ -61,6 +61,18 @@ const insertBoard = newBoard => {
   return newBoardId;
 };
 
+const getCreatedPot = userId => {
+  const boards = JSON.parse(fs.readFileSync('./backend/db/boards.json'));
+
+  return boards.filter(board => board.userId === userId);
+};
+
+const getAppliedPot = boardNoList => {
+  const boards = JSON.parse(fs.readFileSync('./backend/db/boards.json'));
+
+  return boardNoList.map(boardNo => boards.find(board => board.boardId === boardNo));
+};
+
 module.exports = {
   getBoardData,
   getUserId,
@@ -69,4 +81,6 @@ module.exports = {
   patchParticipantPosition,
   getBoardList,
   insertBoard,
+  getCreatedPot,
+  getAppliedPot,
 };

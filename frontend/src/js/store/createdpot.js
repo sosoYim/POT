@@ -1,3 +1,5 @@
+import { render } from '../view/main';
+
 const state = {
   board: {
     type: '',
@@ -11,6 +13,8 @@ const setBoardType = type => {
 
 const setBoards = boards => {
   state.board.list = boards;
+
+  render(boards);
 };
 
 export { setBoardType, setBoards };

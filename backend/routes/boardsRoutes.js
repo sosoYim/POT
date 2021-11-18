@@ -6,8 +6,10 @@ const {
   patchParticipantPosition,
   getBoardList,
   insertBoard,
+  getCreatedPot,
+  getAppliedPot,
 } = require('../query/boardsQuery');
-const { isMyRequest, setRequest } = require('../query/requestsQuery');
+const { isMyRequest, setRequest, getApply } = require('../query/requestsQuery');
 const { getUserEncIdList, getSummonerNameList, getParticipants, filterSoloRankTier } = require('../query/manageQuery');
 const { blockGuestAuth, checkUserAuth } = require('../utils/verifyToken');
 const { getUserEncId, getSummonerName } = require('../query/userQuery');
@@ -30,9 +32,36 @@ router.get('/list', async (req, res) => {
   res.send(response);
 });
 
-router.get('/list/createdpot', blockGuestAuth, (req, res) => {
-  console.log(req.userId);
-  res.send(true);
+router.get('/list/created', blockGuestAuth, async (req, res) => {
+  const createdPot = getCreatedPot(req.userId);
+  const userNoList = createdPot.map(board => board.userId);
+  const encIdList = getUserEncIdList(userNoList);
+  const summonerNameList = getSummonerNameList(encIdList);
+  const participantList = await Promise.all(getParticipants(encIdList, summonerURL)).then(filterSoloRankTier);
+  const response = createdPot.map((pot, index) => ({
+    ...pot,
+    summoner: summonerNameList[index],
+    tier: participantList[index].tier,
+  }));
+
+  res.send(response);
+});
+
+router.get('/list/applied', blockGuestAuth, async (req, res) => {
+  const apply = getApply(req.userId);
+  const boardNoList = apply.map(apply => apply.boardId);
+  const appliedPot = getAppliedPot(boardNoList);
+  const userNoList = appliedPot.map(board => board.userId);
+  const encIdList = getUserEncIdList(userNoList);
+  const summonerNameList = getSummonerNameList(encIdList);
+  const participantList = await Promise.all(getParticipants(encIdList, summonerURL)).then(filterSoloRankTier);
+  const response = appliedPot.map((pot, index) => ({
+    ...pot,
+    summoner: summonerNameList[index],
+    tier: participantList[index].tier,
+  }));
+
+  res.send(response);
 });
 
 router.post('/', blockGuestAuth, (req, res) => {
