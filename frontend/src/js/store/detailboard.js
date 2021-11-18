@@ -8,6 +8,7 @@ let state = {};
 const setBoard = (newBoard, newState = state) => {
   board = newBoard;
   state = newState;
+  // console.log(board, 'store');
   render(board, state);
 };
 
