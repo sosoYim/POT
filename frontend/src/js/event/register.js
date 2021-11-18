@@ -30,7 +30,7 @@ $idDuplicationButton.onclick = async ({ target }) => {
   await checkIdDuplicate();
   setImgAttribute($img, checkIdValidate());
 
-  $span.textContent = checkIdValidate() ? '올바른 아이디입니다.' : '이메일이 이미 존재합니다.';
+  $span.textContent = checkIdValidate() ? '사용할 수 있는 이메일입니다.' : '이메일이 이미 존재합니다.';
   $registerButton.disabled = !allValidate();
 };
 
