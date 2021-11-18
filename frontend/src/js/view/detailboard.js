@@ -3,6 +3,7 @@ const $detailboardButton = document.querySelector('.detailboard-button');
 const { QuillDeltaToHtmlConverter } = require('quill-delta-to-html');
 
 const renderMyRequest = isMyRequest => {
+  [...document.querySelectorAll('.form-radio__label')].forEach($input => $input.classList.add('request'));
   $detailboardButton.innerText = isMyRequest ? '이미 신청한 POT' : '신청하기';
 };
 
