@@ -6,7 +6,8 @@ const fetchBoard = async () => {
   try {
     const boardId = getLastPath(window.location.href);
     const { data } = await axios.get(`/api/boards/detail/${boardId}`);
-    setBoard(data.board, data.myRequest);
+    const state = { myBoard: data.userId === data.board.userId, myRequest: data.myRequest };
+    setBoard(data.board, state);
   } catch (error) {
     console.log(error);
   }

@@ -54,11 +54,12 @@ const checkUserAuth = (req, res, next) => {
   try {
     const verified = jwt.verify(jwtToken, process.env.JWT_SECRET_KEY);
     console.log(`😀 사용자 인증 성공`, verified);
-    req.id = verified.userId;
+    req.userId = verified.userId;
     next();
   } catch (e) {
     console.error('😱 사용자 인증 실패..', e);
-    return false;
+    req.userId = null;
+    // return false;
   }
 };
 

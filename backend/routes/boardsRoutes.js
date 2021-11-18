@@ -1,5 +1,4 @@
 const router = require('express').Router();
-const { auth } = require('../utils/verifyToken');
 const {
   getBoardData,
   getUserIdList,
@@ -10,7 +9,7 @@ const {
 } = require('../query/boardsQuery');
 const { isMyRequest, setRequest } = require('../query/requestsQuery');
 const { getUserEncIdList, getSummonerNameList, getParticipants, filterSoloRankTier } = require('../query/manageQuery');
-const { auth } = require('../utils/verifyToken');
+const { blockGuestAuth, checkUserAuth } = require('../utils/verifyToken');
 
 const summonerURL = 'https://kr.api.riotgames.com/lol/league/v4/entries/by-summoner/';
 
@@ -30,10 +29,10 @@ router.get('/list', async (req, res) => {
   res.send(response);
 });
 
-router.post('/', (req, res) => {
+router.post('/', blockGuestAuth, (req, res) => {
   const { type, title } = req.body;
-  let { userId, content, position } = req.body;
-  userId = +userId;
+  let { content, position } = req.body;
+  const userId = +req.userId;
   content = JSON.parse(content);
   position = JSON.parse(position);
   const board = { userId, type, title, content, position };
@@ -42,13 +41,12 @@ router.post('/', (req, res) => {
   res.status(200).send(boardId + '');
 });
 
-router.get('/detail/:id', (req, res) => {
-  // console.log(req.userId);
-  const userId = 3;
+router.get('/detail/:id', checkUserAuth, (req, res) => {
+  const { userId } = req;
   const boardId = req.path.replace('/detail/', '');
   const board = getBoardData(boardId);
   const myRequest = isMyRequest(userId, boardId);
-  res.send({ board, myRequest });
+  res.send({ board, myRequest, userId });
 });
 
 router.post('/detail', (req, res) => {

@@ -36,7 +36,7 @@ app.get('/board/:id([0-9]+)', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/detailboard.html'));
 });
 
-app.get('/board/write', (req, res) => {
+app.get('/board/write', blockGuestAuth, (req, res) => {
   res.sendFile(path.join(__dirname, '../public/createboard.html'));
 });
 
