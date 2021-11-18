@@ -5,7 +5,7 @@ const {
   patchCompletedBoardData,
   patchParticipantPosition,
   getBoardList,
-  setBoard,
+  insertBoard,
 } = require('../query/boardsQuery');
 const { isMyRequest, setRequest } = require('../query/requestsQuery');
 const { getUserEncIdList, getSummonerNameList, getParticipants, filterSoloRankTier } = require('../query/manageQuery');
@@ -37,7 +37,7 @@ router.post('/', blockGuestAuth, (req, res) => {
   position = JSON.parse(position);
   const board = { userId, type, title, content, position };
 
-  const boardId = setBoard(board);
+  const boardId = insertBoard(board);
   res.status(200).send(boardId + '');
 });
 
