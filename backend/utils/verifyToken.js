@@ -55,12 +55,13 @@ const checkUserAuth = (req, res, next) => {
     const verified = jwt.verify(jwtToken, process.env.JWT_SECRET_KEY);
     console.log(`😀 사용자 인증 성공`, verified);
 
-    req.isLogin = true;
     req.userId = verified.userId;
     next();
   } catch (e) {
-    console.error('😱 사용자 인증 실패..', e);
-    req.isLogin = false;
+    console.error('😱 사용자 인증 실패.22.', e);
+
+    req.userId = null;
+    next();
   }
 };
 
@@ -79,13 +80,13 @@ const accessWriterAuth = (req, res, next) => {
     const verified = jwt.verify(jwtToken, process.env.JWT_SECRET_KEY);
     const boardId = +req.path.substring(req.path.lastIndexOf('/') + 1);
 
-    // if (verified.userId !== getUserId(boardId)) res.redirect('/');
+    if (!getUserId(boardId) || +verified.userId !== +getUserId(boardId)) res.redirect('/');
 
     console.log(`😀 사용자 인증 성공`, verified);
     next();
   } catch (e) {
-    console.error('😱 사용자 인증 실패..', e);
-    return res.redirect('/');
+    console.error('😱 사용자 인증 실패.11.', e);
+    return res.redirect('/login');
   }
 };
 

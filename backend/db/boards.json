@@ -1,5 +1,23 @@
 [
   {
+    "boardId": 21,
+    "userId": 8,
+    "type": "2 POT",
+    "title": "하이",
+    "content": { "ops": [{ "insert": "하이\n" }] },
+    "position": { "top": false, "jug": false, "mid": true, "adc": false, "sup": false },
+    "regDate": "2021-11-18 15:40"
+  },
+  {
+    "boardId": 20,
+    "userId": 8,
+    "type": "2 POT",
+    "title": "안녕",
+    "content": { "ops": [{ "insert": "안녕\n" }] },
+    "position": { "top": false, "jug": false, "mid": true, "adc": false, "sup": false },
+    "regDate": "2021-11-18 15:17"
+  },
+  {
     "boardId": 19,
     "userId": 9,
     "type": "5 POT",
