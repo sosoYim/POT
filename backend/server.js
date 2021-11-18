@@ -44,8 +44,10 @@ app.get('/setting', blockGuestAuth, (req, res) => {
   res.sendFile(path.join(__dirname, '../public/setting.html'));
 });
 
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '../public/index.html'));
+app.get('/logout', (req, res) => {
+  res.clearCookie('jwtToken');
+  res.clearCookie('summoner');
+  res.redirect('/');
 });
 
 app.listen(PORT, () => console.log(`Server listening at http://localhost:${PORT}`)); // port, callback

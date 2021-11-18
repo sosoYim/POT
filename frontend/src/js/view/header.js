@@ -9,7 +9,7 @@ const renderLoginInfo = summoner => {
     <a href="/createdpot" class="created-pot">작성한 POT</a>
     <a href="/appliedpot" class="applied-pot">신청한 POT</a>
     <a href="/setting" class="set-user">설정</a>
-    <a href="javascript:void(0);" class="logout">로그아웃</a>
+    <a href="/logout" class="logout">로그아웃</a>
   </div>
     `
     : '<a class="header__nav-login" href="/login">로그인</a>';
