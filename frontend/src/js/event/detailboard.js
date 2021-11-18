@@ -1,6 +1,5 @@
 import { fetchBoard, createRequest } from '../controller/detailboard';
 import { getLastPath } from '../utils/helper';
-import setHeader from '../utils/header';
 
 document.addEventListener('DOMContentLoaded', fetchBoard);
 

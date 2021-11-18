@@ -1,5 +1,13 @@
 import axios from '../utils/axiosConfig';
-// import state from '../store/manage';
+import {
+  champ,
+  getBoardId,
+  setBoardId,
+  getManageData,
+  setManageData,
+  getParticipantList,
+  setParticipantList,
+} from '../store/manage';
 
 import renderParticipantList from '../view/manage';
 import { changePositionAbleState, filterParticipantList } from '../utils/manage';
@@ -8,8 +16,6 @@ import setHeader from '../utils/header';
 import launchToast from '../utils/toast';
 
 // DOM Nodes
-const $mainTitle = document.querySelector('.main__title');
-const $mainFilterPositionList = document.querySelector('.main__filter-position-list');
 const $mainFilterPositionButtons = document.querySelectorAll('.main__filter-position-item > button');
 const $participantList = document.querySelector('.participant-list');
 const $mainFilterButton = document.querySelector('.main__filter-button');
@@ -20,44 +26,33 @@ const $modalClose = document.querySelector('.modal__close');
 const $modalTitle = document.querySelector('.modal__title');
 const $modalButton = document.querySelector('.modal__button');
 
-// // state
-let boardId;
-let manageData = {};
-const champ = {
-  top: '탑',
-  mid: '미드',
-  jug: '정글',
-  adc: '원딜',
-  sup: '서폿',
-};
-
 // event Listener
 window.addEventListener('DOMContentLoaded', async () => {
   setHeader();
-  boardId = +getLastPath(window.location.href);
-  const { data: boardData } = await axios.get(`/api/boards/manage/${boardId}`);
+  setBoardId(+getLastPath(window.location.href));
+  const { data: boardData } = await axios.get(`/api/boards/manage/${getBoardId()}`);
   const { userIdList } = boardData;
 
-  $mainTitle.textContent = boardData.title;
+  document.querySelector('.main__title').textContent = boardData.title;
 
   if (userIdList.length === 0) {
     document.body.removeChild(document.querySelector('.loading__container'));
-    manageData = { ...boardData, participantList: [] };
+    setManageData({ ...boardData, participantList: [] });
   } else {
-    const { data: participantList } = await axios.get(`/api/manage/participants/${boardId}=${userIdList.join()}`);
+    const { data: participantList } = await axios.get(`/api/manage/participants/${getBoardId()}=${userIdList.join()}`);
     const { position: targetPosition } = document.querySelector('button.select').dataset;
     const { filter } = document.querySelector('.main__filter-button-title').dataset;
 
-    manageData = { ...boardData, participantList: filterParticipantList(participantList, filter, targetPosition) };
+    setManageData({ ...boardData, participantList: filterParticipantList(participantList, filter, targetPosition) });
 
-    changePositionAbleState($mainFilterPositionButtons, manageData);
-    renderParticipantList($participantList, manageData);
+    changePositionAbleState($mainFilterPositionButtons, getManageData());
+    renderParticipantList($participantList, getManageData());
 
     document.body.removeChild(document.querySelector('.loading__container'));
   }
 });
 
-$mainFilterPositionList.onclick = e => {
+document.querySelector('.main__filter-position-list').onclick = e => {
   if (
     !e.target.closest('.main__filter-position-item > button') ||
     e.target.closest('.main__filter-position-item > button:disabled')
@@ -71,8 +66,8 @@ $mainFilterPositionList.onclick = e => {
     $positionItem.classList.toggle('select', targetPosition === $positionItem.dataset.position)
   );
   renderParticipantList($participantList, {
-    ...manageData,
-    participantList: filterParticipantList(manageData.participantList, filter, targetPosition),
+    ...getManageData(),
+    participantList: filterParticipantList(getParticipantList(), filter, targetPosition),
   });
 };
 
@@ -86,8 +81,8 @@ $mainFilterList.onclick = e => {
   $mainFilterList.classList.toggle('hidden');
 
   renderParticipantList($participantList, {
-    ...manageData,
-    participantList: filterParticipantList(manageData.participantList, filter),
+    ...getManageData(),
+    participantList: filterParticipantList(getParticipantList(), filter),
   });
 };
 
@@ -103,7 +98,7 @@ $participantList.onclick = e => {
 
   $modalButton.classList.toggle('button-warn', !approve);
   $modalButton.textContent = approve ? 'POT!' : '거절';
-  $modalButton.dataset.boardId = boardId;
+  $modalButton.dataset.boardId = getBoardId();
   $modalButton.dataset.userId = userId;
 };
 
@@ -117,25 +112,29 @@ $participantList.onclick = e => {
 
 $modalButton.onclick = async e => {
   const { boardId, userId } = e.target.dataset;
-  const { title } = manageData;
-  const { email, summoner, position } = manageData.participantList.find(participant => +participant.userId === +userId);
+  const { title } = getManageData();
+  const { email, summoner, position } = getParticipantList().find(participant => +participant.userId === +userId);
 
   $modalOuter.classList.toggle('hidden', true);
 
   axios.patch(`/api/boards/participant/${boardId}=${userId}`, { completed: true });
 
-  manageData.participantList = manageData.participantList.map(participant =>
-    +participant.userId === +userId ? { ...participant, completed: true } : participant
+  setParticipantList(
+    getParticipantList().map(participant =>
+      +participant.userId === +userId ? { ...participant, completed: true } : participant
+    )
   );
 
   if (e.target.matches('.button-warn')) return;
 
-  await axios.patch(`/api/boards/position/${boardId}=${userId}`, { position });
+  await axios.patch(`/api/boards/position/${getBoardId()}=${userId}`, { position });
 
-  manageData.participantList = manageData.participantList.map(board =>
-    +board.userId === +userId ? { ...board, position: { ...position, [position]: false } } : board
+  setParticipantList(
+    getParticipantList().map(board =>
+      +board.userId === +userId ? { ...board, position: { ...position, [position]: false } } : board
+    )
   );
-  changePositionAbleState($mainFilterPositionButtons, manageData);
+  changePositionAbleState($mainFilterPositionButtons, getManageData());
 
   const { data } = await axios.post('/api/manage/mail', {
     to: email,
@@ -146,5 +145,5 @@ $modalButton.onclick = async e => {
 
   launchToast(data);
 
-  renderParticipantList($participantList, manageData);
+  renderParticipantList($participantList, getManageData());
 };
