@@ -1,7 +1,9 @@
 import { fetchBoard, createRequest } from '../controller/detailboard';
 import { getLastPath } from '../utils/helper';
+import setHeader from '../utils/header';
 
 document.addEventListener('DOMContentLoaded', fetchBoard);
+document.addEventListener('DOMContentLoaded', setHeader);
 
 document.querySelector('.detailboard-button').onclick = e => {
   const boardId = getLastPath(window.location.href);

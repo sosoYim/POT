@@ -1,5 +1,13 @@
 [
   {
+    "userId": 9,
+    "email": "cool@gmail.com",
+    "password": "$2a$10$J1Cm0zrzduvD76IXS/743OhKT9MaWXbGJNxgrX/laq0ZVvKMIyXBu",
+    "summoner": "l푸른피l",
+    "imageUrl": "./images/defaultUser.png",
+    "encryptedId": "-qOQrMXXa0qtQB47CGQtHpPDYRnQJo22DgCMjRIV2wZCF28"
+  },
+  {
     "userId": 8,
     "email": "sonwj0915@naver.com",
     "password": "$2a$10$VRm7oy8LS8f4VDXKt1p8Rutq/lxrMb3XWhgueUQUin4waIKkn/gMu",

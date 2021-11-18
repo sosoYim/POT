@@ -2,9 +2,6 @@ const $detailboardButton = document.querySelector('.detailboard-button');
 
 const { QuillDeltaToHtmlConverter } = require('quill-delta-to-html');
 
-// TypeScript / ES6:
-// import { QuillDeltaToHtmlConverter } from 'quill-delta-to-html';
-
 const renderMyRequest = isMyRequest => {
   $detailboardButton.innerText = isMyRequest ? '이미 신청한 POT' : '신청하기';
   isMyRequest
@@ -12,20 +9,16 @@ const renderMyRequest = isMyRequest => {
     : $detailboardButton.removeAttribute('disabled');
 };
 
-const render = (board, isMyRequest = false) => {
-  const { userId, type, title, content, position, regDate } = board;
+const renderMyBoard = () => {
+  $detailboardButton.innerText = '참여자 관리';
+  $detailboardButton.classList.add('myBoard');
+  $detailboardButton.removeAttribute('disabled');
+};
 
-  // TODO: 로그인 아이디 라우터에서 auth 로 확인 후 작성자인지 bool값 받기
-  // const myBoard = true || false; 와 같이 받을 예정
-  const loginUserId = 3;
-  const myBoard = +userId === +loginUserId;
-  if (myBoard) {
-    $detailboardButton.innerText = '참여자 관리';
-    $detailboardButton.classList.add('myBoard');
-    $detailboardButton.removeAttribute('disabled');
-  } else {
-    renderMyRequest(isMyRequest);
-  }
+const render = (board, state) => {
+  const { type, title, content, position, regDate } = board;
+  // state
+  state.myBoard ? renderMyBoard() : renderMyRequest(state.myRequest);
 
   document.querySelector('.pot-tag').textContent = type;
   document.querySelector('.pot-title').textContent = title;
@@ -44,4 +37,4 @@ const render = (board, isMyRequest = false) => {
   document.querySelector('.form__content').innerHTML = html;
 };
 
-export { render, renderMyRequest };
+export { render, renderMyBoard, renderMyRequest };
