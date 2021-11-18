@@ -47,7 +47,7 @@ router.post('/', blockGuestAuth, (req, res) => {
   res.status(200).send(boardId + '');
 });
 
-router.get('/detail/:id', checkUserAuth, (req, res) => {
+router.get('/detail/:id', checkUserAuth, async (req, res) => {
   const { userId } = req;
   const boardId = req.path.replace('/detail/', '');
   const board = getBoardData(boardId);
@@ -56,12 +56,12 @@ router.get('/detail/:id', checkUserAuth, (req, res) => {
   const summonerName = getSummonerName(encId);
   board.summonerName = summonerName;
 
+  const [{ tier }] = await Promise.all(getParticipants([encId], summonerURL)).then(filterSoloRankTier);
+  board.tier = tier;
+
   const myRequest = isMyRequest(userId, boardId);
-  /**
-  const encIdList = getUserEncIdList(userNoList);
-  const summonerNameList = getSummonerNameList(encIdList);
-  const participantList = await Promise.all(getParticipants(encIdList, summonerURL)).then(filterSoloRankTier);
- */
+
+  // const participantList = await Promise.all(getParticipants(encIdList, summonerURL)).then(filterSoloRankTier);
 
   res.send({ board, myRequest, userId });
 });
