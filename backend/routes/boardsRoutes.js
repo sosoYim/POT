@@ -30,6 +30,11 @@ router.get('/list', async (req, res) => {
   res.send(response);
 });
 
+router.get('/list/createdpot', blockGuestAuth, (req, res) => {
+  console.log(req.userId);
+  res.send(true);
+});
+
 router.post('/', blockGuestAuth, (req, res) => {
   const { type, title } = req.body;
   let { content, position } = req.body;
@@ -99,4 +104,5 @@ router.patch('/position/:id', (req, res) => {
   patchParticipantPosition(boardId, userId, position);
   res.send();
 });
+
 module.exports = router;

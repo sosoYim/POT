@@ -58,8 +58,7 @@ const checkUserAuth = (req, res, next) => {
     req.userId = verified.userId;
     next();
   } catch (e) {
-    console.error('😱 사용자 인증 실패.22.', e);
-
+    console.error('😱 사용자 인증 실패..', e);
     req.userId = null;
     next();
   }
@@ -85,7 +84,7 @@ const accessWriterAuth = (req, res, next) => {
     console.log(`😀 사용자 인증 성공`, verified);
     next();
   } catch (e) {
-    console.error('😱 사용자 인증 실패.11.', e);
+    console.error('😱 사용자 인증 실패..', e);
     return res.redirect('/login');
   }
 };

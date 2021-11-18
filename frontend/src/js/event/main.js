@@ -1,8 +1,11 @@
 import { fetchBoards, changeTypeFilter, changePositionFilter } from '../controller/main';
+import setHeader from '../utils/header';
 
 const $potButton = document.querySelector('.pot-button');
 const $mainFilterPositionList = document.querySelector('.main__filter-position-list');
 const $loading = document.querySelector('.loading');
+
+window.addEventListener('DOMContentLoaded', setHeader);
 
 $potButton.onclick = ({ target }) => {
   if (!target.classList.contains('button') || !target.classList.contains('button-deactive')) return;
