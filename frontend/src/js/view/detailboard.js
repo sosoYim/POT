@@ -15,10 +15,9 @@ const renderMyRequest = isMyRequest => {
 const render = (board, isMyRequest = false) => {
   const { userId, type, title, content, position, regDate } = board;
 
-  // TODO: 로그인 아이디...
+  // TODO: 로그인 아이디 라우터에서 auth 로 확인 후 작성자인지 bool값 받기
+  // const myBoard = true || false; 와 같이 받을 예정
   const loginUserId = 3;
-
-  // const myBoard = true;
   const myBoard = +userId === +loginUserId;
   if (myBoard) {
     $detailboardButton.innerText = '참여자 관리';

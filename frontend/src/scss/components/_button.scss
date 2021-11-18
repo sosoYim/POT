@@ -24,6 +24,7 @@
     background-color: $white;
     box-shadow: 0 0 0 4px $gray04 inset;
     color: $gray04;
+    cursor: default;
   }
 
   &.closed {
@@ -33,8 +34,4 @@
   @include mobile {
     font-size: 16px;
   }
-}
-
-.button:disabled {
-  cursor: default;
 }
