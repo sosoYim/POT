@@ -1,4 +1,5 @@
 import { createBoard, setCheckboxByType } from '../controller/createboard';
+import setHeader from '../utils/header';
 
 // TODO: 유효성 체크 메서드 후에 분리하기=====================================
 // checkValidation : 유효성 체크 -> 에러 위치 반환 -> 에러 메세지
@@ -21,6 +22,8 @@ const quill = new Quill('#editor__api', {
   scrollingContainer: '.editor',
   theme: 'snow',
 });
+
+window.addEventListener('DOMContentLoaded', setHeader);
 
 document.querySelector('.createboard-form').onsubmit = e => {
   e.preventDefault();

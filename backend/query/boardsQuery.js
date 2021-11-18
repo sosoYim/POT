@@ -5,6 +5,11 @@ const getBoardData = boardId => {
   return boards.find(board => board.boardId === +boardId);
 };
 
+const getUserId = boardId => {
+  const requests = JSON.parse(fs.readFileSync('./backend/db/requests.json'));
+  return requests.find(request => request.boardId === +boardId).userId;
+}
+
 const getUserIdList = boardId => {
   const requests = JSON.parse(fs.readFileSync('./backend/db/requests.json'));
   return requests.filter(request => request.boardId === +boardId).map(({ userId }) => userId);
@@ -56,6 +61,7 @@ const setBoard = newBoard => {
 
 module.exports = {
   getBoardData,
+  getUserId,
   getUserIdList,
   patchCompletedBoardData,
   patchParticipantPosition,

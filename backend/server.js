@@ -2,7 +2,7 @@ const express = require('express');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
 const path = require('path');
-const { blockUserAuth, blockGuestAuth, checkUserAuth } = require('./utils/verifyToken');
+const { blockUserAuth, blockGuestAuth, checkUserAuth, accessWriterAuth } = require('./utils/verifyToken');
 const routes = require('./routes');
 require('dotenv').config();
 
@@ -28,7 +28,7 @@ app.get('/login', blockUserAuth, (req, res) => {
   res.sendFile(path.join(__dirname, '../public/login.html'));
 });
 
-app.get('/manage/:boardId', (req, res) => {
+app.get('/manage/:boardId', accessWriterAuth, (req, res) => {
   res.sendFile(path.join(__dirname, '../public/manage.html'));
 });
 

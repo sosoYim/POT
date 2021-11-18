@@ -2,7 +2,7 @@
 import axios from '../utils/axiosConfig';
 
 const URL = 'https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/';
-const apiKey = 'RGAPI-f21ef8b0-0022-4fe3-85b7-a86dbdf4890d';
+const apiKey = 'RGAPI-076a331a-4064-4b3c-a386-20008930c5d8';
 
 const $main = document.querySelector('.membership-main');
 const [$idDuplicationButton, $summonerDuplicationButton] = document.querySelectorAll('.signup-form__check-duplication');
