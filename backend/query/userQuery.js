@@ -55,4 +55,31 @@ const updateUserSummoner = (userId, summoner, encryptedId) => {
   fs.writeFileSync('./backend/db/users.json', JSON.stringify(users));
 };
 
-module.exports = { findUserByEmail, findUser, registerUser, getUsers, updateUserSummoner };
+/**
+ * @description Find encryptedId by userId
+ * @param {number} userId
+ * @param {string} encryptedId
+ */
+const getUserEncId = findUserId => {
+  const userData = JSON.parse(fs.readFileSync('./backend/db/users.json'));
+  return userData.find(({ userId }) => userId === +findUserId).encryptedId;
+};
+/**
+ * @description Find sommenerName by encryptedId
+ * @param {number} envryptedId
+ * @param {string} summoner;
+ */
+const getSummonerName = encId => {
+  const userData = JSON.parse(fs.readFileSync('./backend/db/users.json'));
+  return userData.find(({ encryptedId }) => encryptedId === encId).summoner;
+};
+
+module.exports = {
+  findUserByEmail,
+  findUser,
+  registerUser,
+  getUsers,
+  updateUserSummoner,
+  getUserEncId,
+  getSummonerName,
+};

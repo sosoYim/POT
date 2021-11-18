@@ -10,6 +10,7 @@ const {
 const { isMyRequest, setRequest } = require('../query/requestsQuery');
 const { getUserEncIdList, getSummonerNameList, getParticipants, filterSoloRankTier } = require('../query/manageQuery');
 const { blockGuestAuth, checkUserAuth } = require('../utils/verifyToken');
+const { getUserEncId, getSummonerName } = require('../query/userQuery');
 
 const summonerURL = 'https://kr.api.riotgames.com/lol/league/v4/entries/by-summoner/';
 
@@ -46,11 +47,22 @@ router.post('/', blockGuestAuth, (req, res) => {
   res.status(200).send(boardId + '');
 });
 
-router.get('/detail/:id', checkUserAuth, (req, res) => {
+router.get('/detail/:id', checkUserAuth, async (req, res) => {
   const { userId } = req;
   const boardId = req.path.replace('/detail/', '');
   const board = getBoardData(boardId);
+
+  const encId = getUserEncId(+board.userId); // 작성자
+  const summonerName = getSummonerName(encId);
+  board.summonerName = summonerName;
+
+  const [{ tier }] = await Promise.all(getParticipants([encId], summonerURL)).then(filterSoloRankTier);
+  board.tier = tier;
+
   const myRequest = isMyRequest(userId, boardId);
+
+  // const participantList = await Promise.all(getParticipants(encIdList, summonerURL)).then(filterSoloRankTier);
+
   res.send({ board, myRequest, userId });
 });
 

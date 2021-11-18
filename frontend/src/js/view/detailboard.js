@@ -16,13 +16,13 @@ const renderMyBoard = () => {
 };
 
 const render = (board, state) => {
-  const { type, title, content, position, regDate } = board;
+  const { type, title, content, position, regDate, summonerName, tier } = board;
   // state
   state.myBoard ? renderMyBoard() : renderMyRequest(state.myRequest);
-
   document.querySelector('.pot-tag').textContent = type;
   document.querySelector('.pot-title').textContent = title;
   document.querySelector('time').dateTime = regDate;
+  document.querySelector('.pot-info-user-summoner-name').textContent = summonerName;
   // eslint-disable-next-line prefer-destructuring
   document.querySelector('time').textContent = regDate.split(' ')[0];
 
@@ -31,6 +31,8 @@ const render = (board, state) => {
       ? document.querySelector(`.${positionClass}`).removeAttribute('disabled')
       : document.querySelector(`.${positionClass}`).setAttribute('disabled', 'disabled');
   });
+
+  document.querySelector('.pot-info-user-emblem').setAttribute('src', `/images/emblem/${tier}.png`);
 
   const qdc = new QuillDeltaToHtmlConverter(content.ops, {});
   const html = qdc.convert();

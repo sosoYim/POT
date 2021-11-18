@@ -34,5 +34,35 @@ const rankNum = {
   IRONV: 33,
   UNRANK: 34,
 };
+const champ = {
+  top: '탑',
+  mid: '미드',
+  jug: '정글',
+  adc: '원딜',
+  sup: '서폿',
+};
 
-export { rankNum };
+const state = {
+  boardId: null,
+  manageData: {},
+};
+
+const getBoardId = () => state.boardId;
+
+const setBoardId = boardId => {
+  state.boardId = boardId;
+};
+
+const getManageData = () => state.manageData;
+
+const setManageData = manageData => {
+  state.manageData = manageData;
+};
+
+const getParticipantList = () => state.manageData.participantList;
+
+const setParticipantList = participantList => {
+  state.manageData.participantList = participantList;
+};
+
+export { rankNum, champ, getBoardId, setBoardId, getManageData, setManageData, getParticipantList, setParticipantList };
