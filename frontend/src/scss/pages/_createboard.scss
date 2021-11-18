@@ -38,10 +38,16 @@
       }
       &--buttons {
         display: flex;
-        // display: inline-flex;
-        // flex-wrap: wrap;
-        // gap: rem(346);
-        justify-content: space-between;
+        justify-content: end;
+        .create-button {
+          padding: 16px 48px;
+          width: 327px;
+          height: 79px;
+          font-size: 20px;
+          @include mobile {
+            width: 100%;
+          }
+        }
       }
     }
   }
