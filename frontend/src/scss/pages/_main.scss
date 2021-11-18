@@ -81,7 +81,7 @@
     }
 
     &__wrapper {
-      margin: rem(40) auto rem(10);
+      margin: rem(40) auto;
     }
 
     &__filter {
@@ -107,9 +107,8 @@
     }
   }
 
-  .more {
-    text-align: center;
-    padding: rem(40) 0;
+  .loading {
+    padding: rem(30) 0;
   }
 }
 

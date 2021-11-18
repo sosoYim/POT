@@ -9,28 +9,16 @@ import {
   getBoards,
 } from '../store/main';
 
-const fetchBoards = async () => {
+const resetBoard = () => {
   try {
-    setCurrentPageNo(1);
-
-    const { type, position } = getFilter();
-    const { currentPageNo, recordsPerPage } = getBoards();
-    const { data } = await axios.get(`/api/boards/list`, {
-      params: {
-        type,
-        position,
-        currentPageNo,
-        recordsPerPage,
-      },
-    });
-
-    setBoards(data);
+    setCurrentPageNo(0);
+    setBoards([]);
   } catch (error) {
     console.error(error);
   }
 };
 
-const fetchMoreBoards = async () => {
+const fetchBoards = async () => {
   try {
     setCurrentPageNo(getCurrentPageNo() + 1);
 
@@ -45,6 +33,8 @@ const fetchMoreBoards = async () => {
       },
     });
 
+    if (!data.length) document.querySelector('.loading').classList.add('hidden');
+
     setBoards([...list, ...data]);
   } catch (error) {
     console.error(error);
@@ -53,11 +43,12 @@ const fetchMoreBoards = async () => {
 
 const changeTypeFilter = type => {
   setTypeFilter(type);
-  fetchBoards();
-};
-const changePositionFilter = position => {
-  setPositionFilter(position);
-  fetchBoards();
+  resetBoard();
 };
 
-export { fetchBoards, fetchMoreBoards, changeTypeFilter, changePositionFilter };
+const changePositionFilter = position => {
+  setPositionFilter(position);
+  resetBoard();
+};
+
+export { resetBoard, fetchBoards, changeTypeFilter, changePositionFilter };
