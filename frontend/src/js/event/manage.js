@@ -2,11 +2,9 @@ import axios from '../utils/axiosConfig';
 // import state from '../store/manage';
 
 import renderParticipantList from '../view/manage';
-import renderLoginInfo from '../view/header';
 import { changePositionAbleState, filterParticipantList } from '../utils/manage';
 import { getLastPath } from '../utils/helper';
 import setHeader from '../utils/header';
-import { getSummoner } from '../utils/cookie';
 import launchToast from '../utils/toast';
 
 // DOM Nodes
@@ -39,29 +37,32 @@ window.addEventListener('DOMContentLoaded', async () => {
   boardId = +getLastPath(window.location.href);
   const { data: boardData } = await axios.get(`/api/boards/manage/${boardId}`);
   const { userIdList } = boardData;
-  const { data: participantList } = await axios.get(`/api/manage/participants/${boardId}=${userIdList.join()}`);
 
-  const { position: targetPosition } = document.querySelector('button.select').dataset;
-  const { filter } = document.querySelector('.main__filter-button-title').dataset;
+  $mainTitle.textContent = boardData.title;
 
-  manageData = { ...boardData, participantList: filterParticipantList(participantList, filter, targetPosition) };
+  if (userIdList.length === 0) {
+    document.body.removeChild(document.querySelector('.loading__container'));
+    manageData = { ...boardData, participantList: [] };
+  } else {
+    const { data: participantList } = await axios.get(`/api/manage/participants/${boardId}=${userIdList.join()}`);
+    const { position: targetPosition } = document.querySelector('button.select').dataset;
+    const { filter } = document.querySelector('.main__filter-button-title').dataset;
 
-  $mainTitle.textContent = manageData.title;
+    manageData = { ...boardData, participantList: filterParticipantList(participantList, filter, targetPosition) };
 
-  changePositionAbleState($mainFilterPositionButtons, manageData);
+    changePositionAbleState($mainFilterPositionButtons, manageData);
+    renderParticipantList($participantList, manageData);
 
-  document.body.removeChild(document.querySelector('.loading__container'));
-
-  renderParticipantList($participantList, manageData);
+    document.body.removeChild(document.querySelector('.loading__container'));
+  }
 });
 
 $mainFilterPositionList.onclick = e => {
   if (
     !e.target.closest('.main__filter-position-item > button') ||
     e.target.closest('.main__filter-position-item > button:disabled')
-  ) {
+  )
     return;
-  }
 
   const { position: targetPosition } = e.target.closest('.main__filter-position-item > button').dataset;
   const { filter } = document.querySelector('.main__filter-button-title').dataset;
@@ -143,7 +144,6 @@ $modalButton.onclick = async e => {
             신청하신 "${title}" 게시글에 ${champ[position]} 포지션으로 참여 접수되었습니다.`,
   });
 
-  // createToast(data);
   launchToast(data);
 
   renderParticipantList($participantList, manageData);

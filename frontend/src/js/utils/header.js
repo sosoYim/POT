@@ -18,29 +18,32 @@ const guideLogin = () => {
   $guideLoginmodalOuter.querySelector('.guide-login__button').onclick = () => {
     window.location.href = '/login';
   };
+  $guideLoginmodalOuter.onclick = e => {
+    if (e.target !== e.currentTarget) return;
+    document.body.removeChild($guideLoginmodalOuter);
+  };
   $guideLoginmodalOuter.querySelector('.modal__close').onclick = () => {
-    window.location.href = '/';
+    document.body.removeChild($guideLoginmodalOuter);
   };
 };
-// helper
+
 const setHeader = async () => {
   const {
     data: { summoner },
   } = await axios.get(`/api/validate`);
 
+  console.log(summoner);
   renderLoginInfo(summoner);
 
   if (summoner) {
     document.querySelector('.header__nav-userinfo').onclick = () => {
       document.querySelector('.header__nav-setting-list').classList.toggle('hidden');
     };
-
-    document.querySelector('.header__nav-link').onclick = () => {
-      window.location.href = '/board/write';
-    };
-  } else {
-    guideLogin();
   }
+
+  document.querySelector('.header__nav-link').onclick = () => {
+    summoner ? (window.location.href = '/board/write') : guideLogin();
+  };
 };
 
 export default setHeader;

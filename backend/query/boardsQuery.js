@@ -7,8 +7,8 @@ const getBoardData = boardId => {
 };
 
 const getUserId = boardId => {
-  const requests = JSON.parse(fs.readFileSync('./backend/db/requests.json'));
-  return requests.find(request => request.boardId === +boardId).userId;
+  const boards = JSON.parse(fs.readFileSync('./backend/db/boards.json'));
+  return boards.find(board => +board.boardId === +boardId).userId;
 };
 
 const getUserIdList = boardId => {
