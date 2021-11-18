@@ -35,7 +35,6 @@ const checkSummonerNameExists = async () => {
 };
 
 const setImgAttribute = img => {
-  console.log(formData.summonerName.validate);
   img.src = formData.summonerName.validate ? '../images/success.svg' : '../images/warning.svg';
   img.alt = formData.summonerName.validate ? '성공' : '경고';
 };
@@ -45,6 +44,9 @@ const setSpanText = span => {
     ? formData.summonerName.successMessage
     : formData.summonerName.warningMessage;
 };
+window.addEventListener('DOMContentLoaded', () => {
+  console.log(document.cookie);
+});
 
 $summonerInput.onkeyup = ({ target }) => {
   formData.summonerName.value = target.value;
@@ -54,6 +56,7 @@ $summonerInput.onkeyup = ({ target }) => {
 
   if ($summonerInput.value.trim() === '') {
     $messageContainer.style.opacity = 0;
+    $completeButton.disabled = true;
   }
 };
 

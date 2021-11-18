@@ -33,11 +33,13 @@ const allValidate = () => Object.keys(formData).every(data => formData[data].val
 
 const login = async () => {
   try {
-    await axios.post('/api/user/login', {
+    const { data } = await axios.post('/api/user/login', {
       email: formData.email.value,
       password: formData.password.value,
     });
-    window.location.href = '/';
+    // console.log(data.userId);
+    if (data) window.location.href = '/';
+    // window.location.href = '/';
   } catch (err) {
     $loginFormErrorMessage.textContent = '계정이름과 비밀번호가 일치하지 않습니다.';
     initializeFormData();

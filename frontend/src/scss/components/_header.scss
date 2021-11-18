@@ -38,13 +38,14 @@
       font-size: 20px;
       font-weight: 700;
 
-      &:hover {
+      & > a:hover {
         color: $main;
       }
 
       &.login-info {
         display: flex;
         justify-content: center;
+        align-items: center;
       }
     }
 
@@ -57,6 +58,7 @@
 
     &-username {
       margin-right: 12px;
+      display: inline;
     }
 
     &-user-img {

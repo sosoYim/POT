@@ -1,5 +1,13 @@
 const router = require('express').Router();
-const { getBoardData, patchCompletedBoardData, getBoardList, setBoard } = require('../query/boardsQuery');
+const { auth } = require('../utils/verifyToken');
+const {
+  getBoardData,
+  getUserIdList,
+  patchCompletedBoardData,
+  patchParticipantPosition,
+  getBoardList,
+  setBoard,
+} = require('../query/boardsQuery');
 const { isMyRequest, setRequest } = require('../query/requestsQuery');
 const { getUserEncIdList, getSummonerNameList, getParticipants, filterSoloRankTier } = require('../query/manageQuery');
 const { auth } = require('../utils/verifyToken');
@@ -18,7 +26,6 @@ router.get('/list', async (req, res) => {
     summoner: summonerNameList[index],
     tier: participantList[index].tier,
   }));
-  console.log(response);
 
   res.send(response);
 });
@@ -54,9 +61,12 @@ router.post('/detail', (req, res) => {
 });
 
 router.get('/manage/:id', (req, res) => {
+  console.log(req.userId);
   const boardId = req.path.replace('/manage/', '');
   const { title, position } = getBoardData(boardId);
-  res.send({ title, position });
+  const userIdList = getUserIdList(boardId);
+  console.log(userIdList);
+  res.send({ title, position, userIdList });
 });
 
 router.patch('/participant/:id', (req, res) => {
@@ -66,6 +76,17 @@ router.patch('/participant/:id', (req, res) => {
   } = req;
   const [boardId, userId] = path.replace('/participant/', '').split('=');
   patchCompletedBoardData(boardId, userId, completed);
+  res.send();
+});
+
+router.patch('/position/:id', (req, res) => {
+  const {
+    path,
+    body: { position },
+  } = req;
+  const [boardId, userId] = path.replace('/position/', '').split('=');
+  // patchCompletedBoardData(boardId, userId, completed);
+  patchParticipantPosition(boardId, userId, position);
   res.send();
 });
 module.exports = router;
