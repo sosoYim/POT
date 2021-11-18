@@ -1,8 +1,11 @@
 const router = require('express').Router();
-const { auth } = require('../utils/verifyToken');
+const { checkUserAuth } = require('../utils/verifyToken');
+const { getSummoner } = require('../query/validateQuery');
 
-router.get('/', (req, res) => {
-  res.send({ isValidateLogin: auth(req, res) });
+router.get('/', checkUserAuth, (req, res) => {
+  const { userId } = req;
+
+  res.send({ summoner: getSummoner(userId) });
 });
 
 module.exports = router;

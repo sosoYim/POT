@@ -44,8 +44,40 @@ const setSpanText = span => {
     ? formData.summonerName.successMessage
     : formData.summonerName.warningMessage;
 };
-window.addEventListener('DOMContentLoaded', () => {
-  console.log(document.cookie);
+
+const guideLogin = () => {
+  console.log('hi');
+  const $guideLoginmodalOuter = document.createElement('div');
+  $guideLoginmodalOuter.className = 'modal-outer guide-login';
+  $guideLoginmodalOuter.innerHTML = `
+  <div class="modal">
+    <button class="modal__close">
+      <box-icon name='x' color="#4c4c4c"></box-icon>
+    </button>
+    <div class="modal__title">로그인이 필요한 서비스입니다.</div>
+    <div class="modal__description">로그인 하시겠습니까?</div>
+    <button class="guide-login__button button">로그인</button>
+  </div>`;
+  document.body.appendChild($guideLoginmodalOuter);
+
+  $guideLoginmodalOuter.querySelector('.guide-login__button').onclick = () => {
+    window.location.href = '/login';
+  };
+  $guideLoginmodalOuter.onclick = e => {
+    if (e.target !== e.currentTarget) return;
+    window.location.href = '/';
+  };
+  $guideLoginmodalOuter.querySelector('.modal__close').onclick = () => {
+    window.location.href = '/';
+  };
+};
+
+window.addEventListener('DOMContentLoaded', async () => {
+  const {
+    data: { isValidateLogin },
+  } = await axios.get('/api/validate');
+
+  if (!isValidateLogin) guideLogin();
 });
 
 $summonerInput.onkeyup = ({ target }) => {
