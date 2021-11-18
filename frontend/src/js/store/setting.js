@@ -6,6 +6,9 @@ const formData = {
     regExp: new RegExp(/^..{1,}$/),
     validate: false,
   },
+  encryptedId: {
+    value: '',
+  },
 };
 
 export default formData;

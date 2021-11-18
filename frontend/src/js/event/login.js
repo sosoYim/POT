@@ -1,54 +1,10 @@
-import axios from '../utils/axiosConfig';
+import { setInputFormData, allValidate, login, launchToast } from '../controller/login';
 
 const $loginForm = document.querySelector('.login-form');
 const $loginFormErrorMessage = document.querySelector('.login-form__error-message');
 const [$emailInput, $passwordInput] = document.querySelectorAll('.login-form__input');
 const $passwordIconButton = document.querySelector('.login-form__password-icon');
 const $loginButton = document.querySelector('.login-form__button');
-
-const formData = {
-  email: {
-    value: '',
-    validate: false,
-  },
-  password: {
-    value: '',
-    validate: false,
-  },
-};
-
-const setInputFormData = input => {
-  formData[input.name].value = input.value;
-  formData[input.name].validate = input.value.trim() !== '';
-};
-
-const initializeFormData = () => {
-  formData.email.value = '';
-  formData.password.value = '';
-  formData.email.validate = false;
-  formData.password.validate = false;
-};
-
-const allValidate = () => Object.keys(formData).every(data => formData[data].validate);
-
-const login = async () => {
-  try {
-    const { data } = await axios.post('/api/user/login', {
-      email: formData.email.value,
-      password: formData.password.value,
-    });
-    // console.log(data.userId);
-    if (data) window.location.href = '/';
-    // window.location.href = '/';
-  } catch (err) {
-    $loginFormErrorMessage.textContent = '계정이름과 비밀번호가 일치하지 않습니다.';
-    initializeFormData();
-    $emailInput.focus();
-    $emailInput.value = '';
-    $passwordInput.value = '';
-    $loginButton.disabled = true;
-  }
-};
 
 $loginForm.onkeyup = ({ target }) => {
   setInputFormData(target);
@@ -62,7 +18,17 @@ $passwordIconButton.onclick = ({ target }) => {
   $passwordInput.type = target.classList.contains('show') ? 'text' : 'password';
 };
 
-$loginButton.onclick = e => {
+$loginButton.onclick = async e => {
   e.preventDefault();
-  login();
+
+  const result = await login();
+
+  if (!result) {
+    launchToast();
+    $loginFormErrorMessage.textContent = '계정이름과 비밀번호가 일치하지 않습니다.';
+    $emailInput.focus();
+    $emailInput.value = '';
+    $passwordInput.value = '';
+    $loginButton.disabled = true;
+  }
 };

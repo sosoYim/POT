@@ -41,12 +41,12 @@ router.post('/checkid', (req, res) => {
 
 router.post('/updateUserSummoner', (req, res) => {
   const { jwtToken } = req.cookies;
-  const { summoner } = req.body;
+  const { summoner, encryptedId } = req.body;
 
   const decoded = jwt.verify(jwtToken, process.env.JWT_SECRET_KEY);
   const { userId } = decoded;
 
-  updateUserSummoner(userId, summoner);
+  updateUserSummoner(userId, summoner, encryptedId);
 });
 
 router.post('/login', async (req, res) => {
@@ -72,27 +72,8 @@ router.post('/login', async (req, res) => {
     maxAge: 1000 * 60 * 60 * 24, // 1d
     httpOnly: true,
   });
-  // res.cookie('summoner', user.summoner, {
-  //   maxAge: 1000 * 60 * 60 * 24, // 1d
-  //   // httpOnly: true,
-  // });
-
-  // res.send('hi');
 
   res.send({ userId: user.userId });
-
-  // res.send({ userid, username: user.name });
-
-  // return res.redirect('/');
-
-  // console.log('hi');
-
-  // res.redirect('/');
-
-  // return req.query.path ? res.redirect(req.query.path) : res.redirect('/');
-  // res.send({ email, encryptedId: user.encryptedId });
-  // res.redirect('/');
-  // return req.query.path ? res.redirect(req.query.path) : res.redirect('/');
 });
 
 module.exports = router;

@@ -46,6 +46,7 @@ $summonerDuplicationButton.onclick = async () => {
 $completeButton.onclick = e => {
   e.preventDefault();
   changeName();
+  setHeader();
 
   launchToast();
   initializeFormData();
@@ -55,6 +56,6 @@ $completeButton.onclick = e => {
   $summonerDuplicationButton.disabled = true;
 };
 
-$deleteAccount.onclick = e => {
-  console.log(e.target);
-};
+// $deleteAccount.onclick = e => {
+//   console.log(e.target);
+// };

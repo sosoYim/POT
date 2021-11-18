@@ -43,14 +43,15 @@ const registerUser = newUser => {
 const getUsers = () => JSON.parse(fs.readFileSync('./backend/db/users.json'));
 
 /**
- * @description Update username and store in user database.
+ * @description Update username and encryptedId.
  * @param {number} userId
  * @param {string} summoner
  */
-const updateUserSummoner = (userId, summoner) => {
+const updateUserSummoner = (userId, summoner, encryptedId) => {
   const users = JSON.parse(fs.readFileSync('./backend/db/users.json'));
   const index = users.findIndex(user => user.userId === userId);
   users[index].summoner = summoner;
+  users[index].encryptedId = encryptedId;
   fs.writeFileSync('./backend/db/users.json', JSON.stringify(users));
 };
 

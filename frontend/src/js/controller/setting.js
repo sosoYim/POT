@@ -12,6 +12,7 @@ const checkSummonerNameExists = async $completeButton => {
     summoner: formData.summonerName.value,
   });
 
+  formData.encryptedId.value = data.id;
   formData.summonerName.validate = !!data;
   $completeButton.disabled = !data;
 };
@@ -30,6 +31,7 @@ const setSpanText = $span => {
 const changeName = () => {
   axios.post('/api/user/updateUserSummoner', {
     summoner: formData.summonerName.value,
+    encryptedId: formData.encryptedId.value,
   });
 };
 
@@ -44,6 +46,7 @@ const launchToast = () => {
 const initializeFormData = () => {
   formData.summonerName.value = '';
   formData.summonerName.validate = false;
+  formData.encryptedId.value = '';
 };
 
 export {
