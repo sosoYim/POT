@@ -1,11 +1,10 @@
 const router = require('express').Router();
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
-const { findUserByEmail, findUser, registerUser, getUsers } = require('../query/userQuery');
+const { findUserByEmail, findUser, registerUser, getUsers, updateUserSummoner } = require('../query/userQuery');
 const { registerValidation, loginValidation } = require('../utils/validation');
 
 router.post('/register', async (req, res) => {
-  console.log(req.body);
   const { error } = registerValidation(req.body);
   if (error) return res.status(400).send(error.details[0].message);
 
@@ -38,6 +37,16 @@ router.post('/checkid', (req, res) => {
   if (emailExist) return res.send(false);
 
   return res.send(true);
+});
+
+router.post('/updateUserSummoner', (req, res) => {
+  const { jwtToken } = req.cookies;
+  const { summoner } = req.body;
+
+  const decoded = jwt.verify(jwtToken, process.env.JWT_SECRET_KEY);
+  const { userId } = decoded;
+
+  updateUserSummoner(userId, summoner);
 });
 
 router.post('/login', async (req, res) => {

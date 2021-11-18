@@ -5,9 +5,7 @@ const [$summonerInput, $summonerDuplicationButton, $messageContainer] =
 const [$img, $span] = $messageContainer.children;
 
 const $completeButton = document.querySelector('.submit');
-
-const URL = 'https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/';
-const apiKey = 'RGAPI-f21ef8b0-0022-4fe3-85b7-a86dbdf4890d';
+const $deleteAccount = document.querySelector('.button-warn');
 
 const formData = {
   summonerName: {
@@ -20,18 +18,12 @@ const formData = {
 };
 
 const checkSummonerNameExists = async () => {
-  try {
-    const { data } = await axios.get(URL + formData.summonerName.value + '?api_key=' + apiKey);
-    // form
-    formData.summonerName.validate = true;
-    $completeButton.disabled = false;
-    // return true;
-  } catch (err) {
-    formData.summonerName.validate = false;
-    $completeButton.disabled = true;
-    // return false;
-    // return false;
-  }
+  const { data } = await axios.post('/api/riot/summoner', {
+    summoner: formData.summonerName.value,
+  });
+
+  formData.summonerName.validate = !!data;
+  $completeButton.disabled = !data;
 };
 
 const setImgAttribute = img => {
@@ -44,9 +36,25 @@ const setSpanText = span => {
     ? formData.summonerName.successMessage
     : formData.summonerName.warningMessage;
 };
-window.addEventListener('DOMContentLoaded', () => {
-  console.log(document.cookie);
-});
+
+const changeName = () => {
+  axios.post('/api/user/updateUserSummoner', {
+    summoner: formData.summonerName.value,
+  });
+};
+
+const launchToast = () => {
+  const toastID = document.getElementById('toast');
+  toastID.className = 'show';
+  setTimeout(() => {
+    toastID.className = toastID.className.replace('show', '');
+  }, 5000);
+};
+
+const initializeFormData = () => {
+  formData.summonerName.value = '';
+  formData.summonerName.validate = false;
+};
 
 $summonerInput.onkeyup = ({ target }) => {
   formData.summonerName.value = target.value;
@@ -67,4 +75,20 @@ $summonerDuplicationButton.onclick = async () => {
   setSpanText($span);
 
   $messageContainer.style.opacity = 1;
+};
+
+$completeButton.onclick = e => {
+  e.preventDefault();
+  changeName();
+
+  launchToast();
+  initializeFormData();
+  $summonerInput.value = '';
+  $messageContainer.style.opacity = 0;
+  $completeButton.disabled = true;
+  $summonerDuplicationButton.disabled = true;
+};
+
+$deleteAccount.onclick = e => {
+  console.log(e.target);
 };

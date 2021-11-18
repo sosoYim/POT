@@ -1,5 +1,4 @@
 const router = require('express').Router();
-const { auth } = require('../utils/verifyToken');
 const {
   getBoardData,
   getUserIdList,
@@ -10,7 +9,6 @@ const {
 } = require('../query/boardsQuery');
 const { isMyRequest, setRequest } = require('../query/requestsQuery');
 const { getUserEncIdList, getSummonerNameList, getParticipants, filterSoloRankTier } = require('../query/manageQuery');
-const { auth } = require('../utils/verifyToken');
 
 const summonerURL = 'https://kr.api.riotgames.com/lol/league/v4/entries/by-summoner/';
 

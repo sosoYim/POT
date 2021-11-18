@@ -1,8 +1,4 @@
-// import maxios from 'axios';
 import axios from '../utils/axiosConfig';
-
-const URL = 'https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/';
-const apiKey = 'RGAPI-f21ef8b0-0022-4fe3-85b7-a86dbdf4890d';
 
 const $main = document.querySelector('.membership-main');
 const [$idDuplicationButton, $summonerDuplicationButton] = document.querySelectorAll('.signup-form__check-duplication');
@@ -100,15 +96,12 @@ const checkIdDuplicate = async () => {
 };
 
 const checkSummonerNameExists = async () => {
-  try {
-    const { data } = await axios.get(URL + formData.summonerName.value + '?api_key=' + apiKey);
-    // form
-    formData.summonerName.encryptedId = data.id;
-    formData.summonerName.validate = true;
-  } catch (err) {
-    formData.summonerName.validate = false;
-    // return false;
-  }
+  const { data } = await axios.post('/api/riot/summoner', {
+    summoner: formData.summonerName.value,
+  });
+
+  formData.summonerName.validate = !!data;
+  formData.summonerName.encryptedId = data ? data.id : '';
 };
 
 const checkIdValidate = () => formData.userId.validate;

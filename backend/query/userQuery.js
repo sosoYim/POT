@@ -9,6 +9,13 @@ const findUserByEmail = email =>
   JSON.parse(fs.readFileSync('./backend/db/users.json')).find(user => user.email === email);
 
 /**
+ * @description Find user by id in user database and return user.
+ * @param {number} id
+ * @returns {object} - user data
+ */
+const findUserByID = id => JSON.parse(fs.readFileSync('./backend/db/users.json')).find(user => user.userId === id);
+
+/**
  * @description Find user in user database.
  * @param {string} email
  * @param {string} password
@@ -35,4 +42,16 @@ const registerUser = newUser => {
  */
 const getUsers = () => JSON.parse(fs.readFileSync('./backend/db/users.json'));
 
-module.exports = { findUserByEmail, findUser, registerUser, getUsers };
+/**
+ * @description Update username and store in user database.
+ * @param {number} userId
+ * @param {string} summoner
+ */
+const updateUserSummoner = (userId, summoner) => {
+  const users = JSON.parse(fs.readFileSync('./backend/db/users.json'));
+  const index = users.findIndex(user => user.userId === userId);
+  users[index].summoner = summoner;
+  fs.writeFileSync('./backend/db/users.json', JSON.stringify(users));
+};
+
+module.exports = { findUserByEmail, findUser, registerUser, getUsers, updateUserSummoner };
