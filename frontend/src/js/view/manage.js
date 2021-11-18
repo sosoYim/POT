@@ -1,4 +1,5 @@
 const renderParticipantList = ($participantList, manageData) => {
+  console.log(manageData);
   $participantList.innerHTML = manageData.participantList
     .map(({ userId, tier, rank, summoner, mainChamp, position, completed }) =>
       completed
