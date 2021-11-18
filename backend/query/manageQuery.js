@@ -45,7 +45,7 @@ const getRequestUserList = (targetBoardId, userIdList) => {
 };
 
 const getParticipants = (encIdList, URL) =>
-  encIdList.map(encId => axios(URL + encId + '?api_key=' + process.env.API_KET));
+  encIdList.map(encId => axios(URL + encId + '?api_key=' + process.env.API_KEY));
 
 const filterSoloRankTier = res =>
   res.map(({ data }) => {

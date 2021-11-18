@@ -1,4 +1,5 @@
 import axios from '../utils/axiosConfig';
+import setHeader from '../utils/header';
 
 const [$summonerInput, $summonerDuplicationButton, $messageContainer] =
   document.querySelector('.form-text__input-container').children;
@@ -67,6 +68,8 @@ $summonerInput.onkeyup = ({ target }) => {
     $completeButton.disabled = true;
   }
 };
+
+window.addEventListener('DOMContentLoaded', setHeader);
 
 $summonerDuplicationButton.onclick = async () => {
   await checkSummonerNameExists();

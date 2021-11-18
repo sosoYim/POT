@@ -26,25 +26,9 @@
         </a>
       </h1>
       <nav class="header__nav">
-        <a class="header__nav-link" href="/createboard"><span class="header__nav-create-pot">POT 생성</span></a>
-        <span class="header__nav-link login-info">
-          <a class="header__nav-login" href="/login">로그인</a>
-          <a class="header__nav-username" href="javascript:void(0);">왕치</a>
-          <a class="header__nav-userinfo" href="javascript:void(0);">
-            <box-icon type="solid" name="down-arrow" color="#4c4c4c" size="20px"></box-icon>
-          </a>
-          <div class="header__nav-setting-list">
-            <a href="/createdpot.html" class="created-pot">작성한 POT</a>
-            <a href="/appliedpot.html" class="applied-pot">신청한 POT</a>
-            <a href="/participantedpot.html" class="participanted-pot">참여한 POT</a>
-            <a href="/setting.html" class="set-user">설정</a>
-            <a href="javascript:void(0);" class="logout">로그아웃</a>
-          </div>
-        </span>
-    </div>
-
-    </span>
-    </nav>
+        <a class="header__nav-link" href="javascript:void(0);"><span class="header__nav-create-pot">POT 생성</span></a>
+        <span class="header__nav-link login-info"></span>
+      </nav>
     </div>
   </header>
   <div class="manage-main__container">
@@ -115,6 +99,12 @@
         <button class="modal__button button">POT!</button>
       </div>
     </div>
+  </div>
+
+  <!-- 토스트 -->
+  <div id="toast">
+    <div id="img">POT</div>
+    <div id="desc"></div>
   </div>
 </body>
 

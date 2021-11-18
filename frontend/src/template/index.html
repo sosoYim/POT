@@ -1,102 +1,82 @@
 <!DOCTYPE html>
 <html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700;900&display=swap" rel="stylesheet" />
-    <title>POT</title>
-  </head>
-  <body class="background-gray">
-    <header class="header">
-      <div class="header__wrapper">
-        <h1>
-          <a class="header__logo-link" href="javascript:void(0);">
-            <img class="header__logo" src="./images/logo.png" alt="logo" />
-          </a>
-        </h1>
-        <nav class="header__nav">
-          <a class="header__nav-link" href="./createboard.html"><span class="header__nav-create-pot">POT 생성</span></a>
-          <a class="header__nav-link login-info" href="/login">
-            <span class="header__nav-login">로그인</span>
-            <!-- <span class="header__nav-username">왕치</span>
-          <span class="header__nav-userinfo">
-            <a role="button" class="header__nav-user-img"></a>
-            <box-icon type="solid" name="down-arrow" color="#4c4c4c" size="20px"></box-icon>
-          </span>
-          <div class="header__nav-setting-list">
-            <a href="javascript:void(0);">
-              <div class="created-pot">작성한 POT</div>
-            </a>
-            <a href="javascript:void(0);">
-              <div class="applied-pot">신청한 POT</div>
-            </a>
-            <a href="javascript:void(0);">
-              <div class="participanted-pot">참여한 POT</div>
-            </a>
-            <a href="javascript:void(0);">
-              <div class="set-user">설정</div>
-            </a>
-            <a href="javascript:void(0);">
-              <div class="logout">로그아웃</div>
-            </a>
-          </div> -->
-          </a>
-        </nav>
-      </div>
-    </header>
-    <div class="main-container">
-      <main class="main">
-        <div class="main__container">
-          <div class="over-main__wrapper">
-            <div class="banner"></div>
-            <div class="pot-button">
-              <button class="button pot-button__btn" data-type="2 POT">2 POT</button>
-              <button class="button button-deactive pot-button__btn" data-type="5 POT">5 POT</button>
-            </div>
-          </div>
-          <div class="main__filter-container">
-            <div class="main__filter-wrapper">
-              <ul class="main__filter-position-list">
-                <li class="main__filter-position-item all main__filter-position-item--selected" data-position="all">
-                  <button>
-                    <img src="./images/position/all.png" alt="all" />
-                  </button>
-                </li>
-                <li class="main__filter-position-item top" data-position="top">
-                  <button>
-                    <img src="./images/position/top.png" alt="top" />
-                  </button>
-                </li>
-                <li class="main__filter-position-item jungle" data-position="jug">
-                  <button>
-                    <img src="./images/position/jug.png" alt="jungle" />
-                  </button>
-                </li>
-                <li class="main__filter-position-item mid" data-position="mid">
-                  <button>
-                    <img src="./images/position/mid.png" alt="mid" />
-                  </button>
-                </li>
-                <li class="main__filter-position-item bottom" data-position="adc">
-                  <button>
-                    <img src="./images/position/adc.png" alt="bottom" />
-                  </button>
-                </li>
-                <li class="main__filter-position-item support" data-position="sup">
-                  <button>
-                    <img src="./images/position/sup.png" alt="support" />
-                  </button>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="main__wrapper">
-            <div class="card__wrapper"></div>
-            <div class="more">더 보기</div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700;900&display=swap" rel="stylesheet" />
+  <title>POT</title>
+</head>
+
+<body class="background-gray">
+  <!-- 헤더 -->
+  <header class="header">
+    <div class="header__wrapper">
+      <h1>
+        <a class="header__logo-link" href="/">
+          <img class="header__logo" src="/images/logo.png" alt="logo">
+        </a>
+      </h1>
+      <nav class="header__nav">
+        <a class="header__nav-link" href="javascript:void(0);"><span class="header__nav-create-pot">POT 생성</span></a>
+        <span class="header__nav-link login-info"></span>
+      </nav>
+    </div>
+  </header>
+  <div class="main-container">
+    <main class="main">
+      <div class="main__container">
+        <div class="over-main__wrapper">
+          <div class="banner"></div>
+          <div class="pot-button">
+            <button class="button pot-button__btn" data-type="2 POT">2 POT</button>
+            <button class="button button-deactive pot-button__btn" data-type="5 POT">5 POT</button>
           </div>
         </div>
-      </main>
-    </div>
-  </body>
+        <div class="main__filter-container">
+          <div class="main__filter-wrapper">
+            <ul class="main__filter-position-list">
+              <li class="main__filter-position-item all main__filter-position-item--selected" data-position="all">
+                <button>
+                  <img src="./images/position/all.png" alt="all" />
+                </button>
+              </li>
+              <li class="main__filter-position-item top" data-position="top">
+                <button>
+                  <img src="./images/position/top.png" alt="top" />
+                </button>
+              </li>
+              <li class="main__filter-position-item jungle" data-position="jug">
+                <button>
+                  <img src="./images/position/jug.png" alt="jungle" />
+                </button>
+              </li>
+              <li class="main__filter-position-item mid" data-position="mid">
+                <button>
+                  <img src="./images/position/mid.png" alt="mid" />
+                </button>
+              </li>
+              <li class="main__filter-position-item bottom" data-position="adc">
+                <button>
+                  <img src="./images/position/adc.png" alt="bottom" />
+                </button>
+              </li>
+              <li class="main__filter-position-item support" data-position="sup">
+                <button>
+                  <img src="./images/position/sup.png" alt="support" />
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="main__wrapper">
+          <div class="card__wrapper"></div>
+        </div>
+        <div class="loading" hidden></div>
+      </div>
+    </main>
+  </div>
+</body>
+
 </html>
