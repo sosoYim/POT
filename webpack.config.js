@@ -60,11 +60,6 @@ module.exports = {
       chunks: ['app', 'manage'],
     }),
     new HtmlWebpackPlugin({
-      filename: 'participantedpot.html',
-      template: './frontend/src/template/participantedpot.html',
-      chunks: ['app', 'participantedpot'],
-    }),
-    new HtmlWebpackPlugin({
       filename: 'setting.html',
       template: './frontend/src/template/setting.html',
       chunks: ['app', 'setting'],

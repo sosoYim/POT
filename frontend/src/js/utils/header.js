@@ -22,7 +22,7 @@ const guideLogin = () => {
     window.location.href = '/';
   };
 };
-// helper
+
 const setHeader = async () => {
   const {
     data: { summoner },

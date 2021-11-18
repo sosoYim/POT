@@ -2,11 +2,9 @@ import axios from '../utils/axiosConfig';
 // import state from '../store/manage';
 
 import renderParticipantList from '../view/manage';
-import renderLoginInfo from '../view/header';
 import { changePositionAbleState, filterParticipantList } from '../utils/manage';
 import { getLastPath } from '../utils/helper';
 import setHeader from '../utils/header';
-import { getSummoner } from '../utils/cookie';
 import launchToast from '../utils/toast';
 
 // DOM Nodes
@@ -39,6 +37,12 @@ window.addEventListener('DOMContentLoaded', async () => {
   boardId = +getLastPath(window.location.href);
   const { data: boardData } = await axios.get(`/api/boards/manage/${boardId}`);
   const { userIdList } = boardData;
+
+  if (userIdList.length === 0) {
+    document.body.removeChild(document.querySelector('.loading__container'));
+    return;
+  }
+
   const { data: participantList } = await axios.get(`/api/manage/participants/${boardId}=${userIdList.join()}`);
 
   const { position: targetPosition } = document.querySelector('button.select').dataset;
