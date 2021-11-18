@@ -49,11 +49,11 @@ router.get('/detail/:id', checkUserAuth, (req, res) => {
   res.send({ board, myRequest, userId });
 });
 
-router.post('/detail', (req, res) => {
-  const { boardId, userId, position } = req.body;
+router.post('/detail', checkUserAuth, (req, res) => {
+  const userId = +req.userId;
+  // TODO: 로그인 안된 상태면 로그인 모달 필요
+  const { boardId, position } = req.body;
   const request = { boardId: +boardId, userId: +userId, position };
-  // 방어코드 : 이미 신청한 요청이면 저장하지 않는다.
-  // const requestId = isMyRequest(userId, boardId) ? -1 : setRequest(request);
   const requestId = setRequest(request);
   res.send(requestId + '');
 });
