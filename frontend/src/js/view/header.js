@@ -6,10 +6,10 @@ const renderLoginInfo = summoner => {
     <box-icon type="solid" name="down-arrow" color="#4c4c4c" size="20px"></box-icon>
   </a>
   <div class="header__nav-setting-list hidden">
-    <a href="/createdpot.html" class="created-pot">작성한 POT</a>
-    <a href="/appliedpot.html" class="applied-pot">신청한 POT</a>
-    <a href="/setting.html" class="set-user">설정</a>
-    <a href="javascript:void(0);" class="logout">로그아웃</a>
+    <a href="/createdpot" class="created-pot">작성한 POT</a>
+    <a href="/appliedpot" class="applied-pot">신청한 POT</a>
+    <a href="/setting" class="set-user">설정</a>
+    <a href="/logout" class="logout">로그아웃</a>
   </div>
     `
     : '<a class="header__nav-login" href="/login">로그인</a>';
