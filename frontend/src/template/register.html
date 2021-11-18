@@ -1,27 +1,16 @@
 <!DOCTYPE html>
 <html lang="ko">
-
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>회원가입</title>
 </head>
-
 <body class="membership-body">
-  <!-- 헤더 -->
-  <header class="header">
-    <div class="header__wrapper">
-      <h1>
-        <a class="header__logo-link" href="/">
-          <img class="header__logo" src="/images/logo.png" alt="logo">
-        </a>
-      </h1>
-      <nav class="header__nav">
-        <a class="header__nav-link" href="javascript:void(0);"><span class="header__nav-create-pot">POT 생성</span></a>
-        <span class="header__nav-link login-info"></span>
-      </nav>
-    </div>
+  <header class="membership-header">
+    <h1>
+      <a href="/"><img src="./images/membership-logo.png" alt="팟" /></a>
+    </h1>
   </header>
   <main class="membership-main">
     <form class="signup-form">
@@ -38,7 +27,6 @@
         <div class="signup-form__message">
           <img />
           <span class="signup-form__text"></span>
-          <!-- 4~12자의 영문+숫자로 입력해주세요. -->
         </div>
         <div class="signup-form__check">
           <input type="text" class="signup-form__input check-input" id="signup-summoner-name" name="summonerName"
@@ -75,5 +63,4 @@
     </form>
   </main>
 </body>
-
 </html>
