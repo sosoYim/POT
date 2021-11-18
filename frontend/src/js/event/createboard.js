@@ -3,7 +3,12 @@ import setHeader from '../utils/header';
 
 const quill = new Quill('#editor__api', {
   modules: {
-    toolbar: [['bold', 'italic'], ['blockquote'], [{ list: 'ordered' }, { list: 'bullet' }]],
+    toolbar: [
+      ['bold', 'italic'],
+      ['blockquote'],
+      [{ header: [1, 2, 3, 4, 5, 6, false] }],
+      [{ list: 'ordered' }, { list: 'bullet' }],
+    ],
   },
   placeholder: '모집 내용을 입력해 주세요.',
   scrollingContainer: '.editor',

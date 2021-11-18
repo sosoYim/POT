@@ -40,9 +40,15 @@ const render = (board, state) => {
 
   document.querySelector('.pot-info-user-emblem').setAttribute('src', `/images/emblem/${tier}.png`);
 
-  const qdc = new QuillDeltaToHtmlConverter(content.ops, {});
-  const html = qdc.convert();
-  document.querySelector('.form__content').innerHTML = html;
+  const $detailboard = document.querySelector('.form__content');
+
+  const $div = document.createElement('div');
+  const quill = new Quill($div).setContents(content);
+  // quill.enable(false);
+  // document.querySelector('.ql-editor').contenteditable = false;
+  $div.classList.add('ql-snow');
+  $div.style.border = 'none';
+  $detailboard.appendChild($div);
 };
 
 export { render, renderMyBoard, renderMyRequest };

@@ -5,6 +5,17 @@ import setHeaderRequest from '../utils/modal';
 
 const isPositionChecked = $positionInputs => [...$positionInputs].some(position => position.checked);
 
+// const quill = () =>
+//   new Quill('#editor__api', {
+//     modules: {
+//       toolbar: false,
+//     },
+//     theme: 'snow',
+//   });
+
+// const editor = quill();
+// editor.enable(false);
+
 document.addEventListener('DOMContentLoaded', fetchBoard);
 
 document.querySelector('.detailboard-button').onclick = e => {
