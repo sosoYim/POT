@@ -38,34 +38,31 @@ window.addEventListener('DOMContentLoaded', async () => {
   const { data: boardData } = await axios.get(`/api/boards/manage/${boardId}`);
   const { userIdList } = boardData;
 
+  $mainTitle.textContent = boardData.title;
+
   if (userIdList.length === 0) {
     document.body.removeChild(document.querySelector('.loading__container'));
-    return;
+    manageData = { ...boardData, participantList: [] };
+  } else {
+    const { data: participantList } = await axios.get(`/api/manage/participants/${boardId}=${userIdList.join()}`);
+    const { position: targetPosition } = document.querySelector('button.select').dataset;
+    const { filter } = document.querySelector('.main__filter-button-title').dataset;
+
+    manageData = { ...boardData, participantList: filterParticipantList(participantList, filter, targetPosition) };
+
+    changePositionAbleState($mainFilterPositionButtons, manageData);
+    renderParticipantList($participantList, manageData);
+
+    document.body.removeChild(document.querySelector('.loading__container'));
   }
-
-  const { data: participantList } = await axios.get(`/api/manage/participants/${boardId}=${userIdList.join()}`);
-
-  const { position: targetPosition } = document.querySelector('button.select').dataset;
-  const { filter } = document.querySelector('.main__filter-button-title').dataset;
-
-  manageData = { ...boardData, participantList: filterParticipantList(participantList, filter, targetPosition) };
-
-  $mainTitle.textContent = manageData.title;
-
-  changePositionAbleState($mainFilterPositionButtons, manageData);
-
-  document.body.removeChild(document.querySelector('.loading__container'));
-
-  renderParticipantList($participantList, manageData);
 });
 
 $mainFilterPositionList.onclick = e => {
   if (
     !e.target.closest('.main__filter-position-item > button') ||
     e.target.closest('.main__filter-position-item > button:disabled')
-  ) {
+  )
     return;
-  }
 
   const { position: targetPosition } = e.target.closest('.main__filter-position-item > button').dataset;
   const { filter } = document.querySelector('.main__filter-button-title').dataset;
@@ -147,7 +144,6 @@ $modalButton.onclick = async e => {
             신청하신 "${title}" 게시글에 ${champ[position]} 포지션으로 참여 접수되었습니다.`,
   });
 
-  // createToast(data);
   launchToast(data);
 
   renderParticipantList($participantList, manageData);

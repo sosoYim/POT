@@ -1,21 +1,5 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-[{"userId":8,"email":"sonwj0915@naver.com","password":"$2a$10$VRm7oy8LS8f4VDXKt1p8Rutq/lxrMb3XWhgueUQUin4waIKkn/gMu","summoner":"파기로","imageUrl":"./images/defaultUser.png","encryptedId":"1Z-NILX0mcIXvTiS3xHPzKqQX3jvwS9ZvPVzYzddyuvmWyw"},{"userId":7,"email":"kanghee@naver.com","password":"$2a$10$oKmSR4vQfN9JCUq.bFr6/eryybJIOzG1MQhvZG98xZ8kah7DS1snu","summoner":"fdsf","imageUrl":"./images/defaultUser.png","encryptedId":"RtbocuEr2y_3JZZSfBG2Lnt5YwXazV8B8Gyejx1-tJXUiQ"},{"userId":6,"email":"sonwj091552@gmail.com","password":"$2a$10$q0td8UsGKkUQc6Uk18tys.UxwFidP3DzspLE06Z8Yl508G1eO2ZC6","summoner":"l푸른피l","imageUrl":"./images/defaultUser.png","encryptedId":"-qOQrMXXa0qtQB47CGQtHpPDYRnQJo22DgCMjRIV2wZCF28"},{"userId":5,"email":"sonwj091552@gmail.com","password":"$2a$10$WFbc4X7.OAl8tPawpvcGwuMuwsRjsGD6ZzTaiNdGc8x5qJhuQLife","summoner":"l푸른피l","imageUrl":"./images/defaultUser.png","encryptedId":"-qOQrMXXa0qtQB47CGQtHpPDYRnQJo22DgCMjRIV2wZCF28"},{"userId":4,"email":"sonwj091552@gmail.com","password":"$2a$10$y0QeRBUuk.arEXviP2jdp.QjwzEZOk.O89xbMS0AI316sxQEMjgQy","summoner":"asdf","imageUrl":"./images/defaultUser.png","encryptedId":"ceUn2eDsOu8b4h7r_uNFCHiDq3Ewu5wyO1IwQY_P1ti3ioI"},{"userId":3,"email":"sonwj091552@gmail.com","password":"$2a$10$dbVDP064zI/0SuvAc/ME1e3tJXx0qbTF2Yw8omD5GgXRMJV96La8S","summoner":"l푸른피l","imageUrl":"./images/defaultUser.png","encryptedId":"-qOQrMXXa0qtQB47CGQtHpPDYRnQJo22DgCMjRIV2wZCF28","alertList":[]},{"userId":2,"email":"wonjae@gmail.com","password":"$2a$10$yB2H0U1QmNw1k7bPNb1Rp.84PleG6gsDXikY3eSL24L76gcqPRWny","summoner":"유죵훈","imageUrl":"./images/defaultUser.png","encryptedId":"zedv4TyOpCd2wuGqp_JIJZUT3geuvhx5n691_TAhXYPypu0","alertList":[]},{"userId":1,"email":"chaeyoung@naver.com","password":"$2a$10$yhy4m4BpwqH26oJrDofWDe47nat05Jnkb/UKLDH/4mo6bcFPf1FY.","summoner":"바케모노채영","imageUrl":"./images/defaultUser.png","encryptedId":"RtbocuEr2y_3JZZSfBG2Lnt5YwXazV8B8Gyejx1-tJXUiQ"}]
-=======
 [
   {
-    "userId": 9,
-    "email": "cool@gmail.com",
-    "password": "$2a$10$J1Cm0zrzduvD76IXS/743OhKT9MaWXbGJNxgrX/laq0ZVvKMIyXBu",
-    "summoner": "l푸른피l",
-    "imageUrl": "./images/defaultUser.png",
-    "encryptedId": "-qOQrMXXa0qtQB47CGQtHpPDYRnQJo22DgCMjRIV2wZCF28"
-  },
-  {
-=======
-[
-  {
->>>>>>> feature/clientRegisterRefactoring
     "userId": 8,
     "email": "sonwj0915@naver.com",
     "password": "$2a$10$VRm7oy8LS8f4VDXKt1p8Rutq/lxrMb3XWhgueUQUin4waIKkn/gMu",
@@ -27,11 +11,7 @@
     "userId": 7,
     "email": "kanghee@naver.com",
     "password": "$2a$10$oKmSR4vQfN9JCUq.bFr6/eryybJIOzG1MQhvZG98xZ8kah7DS1snu",
-<<<<<<< HEAD
-    "summoner": "바케모노채영",
-=======
     "summoner": "fdsf",
->>>>>>> feature/clientRegisterRefactoring
     "imageUrl": "./images/defaultUser.png",
     "encryptedId": "RtbocuEr2y_3JZZSfBG2Lnt5YwXazV8B8Gyejx1-tJXUiQ"
   },
@@ -86,7 +66,3 @@
     "encryptedId": "RtbocuEr2y_3JZZSfBG2Lnt5YwXazV8B8Gyejx1-tJXUiQ"
   }
 ]
-<<<<<<< HEAD
->>>>>>> 505ff04f2b7555db19b78895708485402e989dfc
-=======
->>>>>>> feature/clientRegisterRefactoring
