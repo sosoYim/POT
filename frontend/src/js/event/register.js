@@ -24,18 +24,20 @@ $main.onkeyup = ({ target }) => {
   $registerButton.disabled = !allValidate();
 };
 
-$idDuplicationButton.onclick = async ({ target }) => {
-  const [$img, $span] = target.parentNode.nextElementSibling.children;
+$idDuplicationButton.onclick = async e => {
+  e.preventDefault();
+  const [$img, $span] = e.target.parentNode.nextElementSibling.children;
 
   await checkIdDuplicate();
   setImgAttribute($img, checkIdValidate());
 
-  $span.textContent = checkIdValidate() ? '올바른 아이디입니다.' : '이메일이 이미 존재합니다.';
+  $span.textContent = checkIdValidate() ? '사용할 수 있는 이메일입니다.' : '이메일이 이미 존재합니다.';
   $registerButton.disabled = !allValidate();
 };
 
-$summonerDuplicationButton.onclick = async ({ target }) => {
-  const [$img, $span] = target.parentNode.nextElementSibling.children;
+$summonerDuplicationButton.onclick = async e => {
+  e.preventDefault();
+  const [$img, $span] = e.target.parentNode.nextElementSibling.children;
 
   await checkSummonerNameExists();
   setImgAttribute($img, checkSummonerNameValidate());

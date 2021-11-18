@@ -1,6 +1,6 @@
 /**
  * @description State for storing form data.
- * @type {object}
+ * @type {object} formData
  */
 const formData = {
   userId: {

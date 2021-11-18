@@ -44,6 +44,10 @@ app.get('/board/list/:type', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/createdpot.html'));
 });
 
+app.get('/appliedpot', blockGuestAuth, (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/appliedpot.html'));
+});
+
 app.get('/setting', blockGuestAuth, (req, res) => {
   res.sendFile(path.join(__dirname, '../public/setting.html'));
 });

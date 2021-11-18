@@ -16,9 +16,7 @@
       <form class="login-form">
         <fieldset>
           <legend class="login-form__title"><h2>로그인</h2></legend>
-          <span class="login-form__error-message">
-            <!-- 계정이름과 비밀번호가 일치하지 않습니다. -->
-          </span>
+          <span class="login-form__error-message"> </span>
           <div class="login-form__input-container">
             <input type="text" class="login-form__input" id="signin-userid" name="email" required autocomplete="off" />
             <label for="signin-userid">이메일</label>
@@ -27,8 +25,6 @@
             <input type="password" class="login-form__input" required autocomplete="off" name="password" />
             <label for="signin-userid">비밀번호</label>
             <button type="button" tabindex="-1" class="login-form__password-icon"></button>
-            <!-- <img src="./images/hidden.svg" alt="가려진 눈모양" class="login-form__password-icon hidden" />
-            <img src="./images/show.svg" alt="눈" class="login-form__password-icon hidden" /> -->
           </div>
           <label class="login-form__checkbox"
             >로그인 상태 유지
@@ -42,5 +38,9 @@
         </fieldset>
       </form>
     </main>
+    <div id="toast">
+      <div id="img">POT</div>
+      <div id="desc">로그인에 실패하였습니다.</div>
+    </div>
   </body>
 </html>
