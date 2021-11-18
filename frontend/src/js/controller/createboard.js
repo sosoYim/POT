@@ -7,7 +7,6 @@ import axios from '../utils/axiosConfig';
 const createBoard = async ($boardForm, quill) => {
   try {
     // TODO: 로그인한 상태인지 확인 후 아니면 리턴
-    // TODO: 로그인 id 받기
     const loginUserId = 1;
 
     const formData = new FormData($boardForm);
@@ -32,20 +31,15 @@ const createBoard = async ($boardForm, quill) => {
   }
 };
 
-/**
- * Is there at least one position checked
- * @param {boolean} $boardForm
- */
-const isPositionChecked = $boardForm => [...$boardForm.position].some(position => position.checked);
-
-const focusLegend = $legend => {
-  // TODO: 라벨, 라디오 탭 포코스시 보더 만들기
-  // $label.focus();
-  $legend.style.color = '#b037c5';
-  // 에러 메세지 삽입
+const setCheckboxByType = (gameType, $positionInputs) => {
+  const positionType = gameType === '2 POT' ? 'radio' : 'checkbox';
+  $positionInputs.forEach($input => {
+    $input.type = positionType;
+  });
 };
 
 // TODO: 유효성 검사, 포커싱 모두 되도록하기
 // const validatePosition()
 
-export { createBoard, isPositionChecked, focusLegend };
+// export { createBoard, isPositionChecked, focusLegend };
+export { createBoard, setCheckboxByType };
