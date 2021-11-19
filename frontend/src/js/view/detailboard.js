@@ -24,7 +24,6 @@ const renderMyBoard = () => {
 const render = (board, state) => {
   const { type, title, content, position, regDate, summonerName, tier } = board;
   // state
-  state.myBoard ? renderMyBoard() : renderMyRequest(state.myRequest);
   document.querySelector('.pot-tag').textContent = type;
   document.querySelector('.pot-title').textContent = title;
   document.querySelector('time').dateTime = regDate;
@@ -49,6 +48,7 @@ const render = (board, state) => {
   $div.style.border = 'none';
   $detailboard.appendChild($div);
   document.querySelector('.ql-editor').setAttribute('contenteditable', false);
+  state.myBoard ? renderMyBoard() : renderMyRequest(state.myRequest);
 };
 
 export { render, renderMyBoard, renderMyRequest };
