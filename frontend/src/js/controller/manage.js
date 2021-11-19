@@ -131,6 +131,8 @@ const sendMail = async e => {
 
   renderParticipantList($participantList, getManageData());
 
+  renderParticipantList($participantList, getManageData());
+
   if (e.target.matches('.button-warn')) return;
 
   await axios.patch(`/api/boards/position/${getBoardId()}=${userId}`, { position });
