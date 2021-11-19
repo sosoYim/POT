@@ -9,12 +9,10 @@ module.exports = {
     // 프로퍼티 키가 output의 [name]에 매칭
     app: './frontend/src/js/app.js',
     main: './frontend/src/js/event/main.js',
-    appliedpot: './frontend/src/js/event/appliedpot.js',
     createboard: './frontend/src/js/event/createboard.js',
-    createdpot: './frontend/src/js/event/createdpot.js',
+    pot: './frontend/src/js/event/pot.js',
     detailboard: './frontend/src/js/event/detailboard.js',
     manage: './frontend/src/js/event/manage.js',
-    participantedpot: './frontend/src/js/event/participantedpot.js',
     setting: './frontend/src/js/event/setting.js',
     login: './frontend/src/js/event/login.js',
     register: './frontend/src/js/event/register.js',
@@ -36,22 +34,31 @@ module.exports = {
       favicon: 'favicon.png',
     }),
     new HtmlWebpackPlugin({
+<<<<<<< HEAD
       filename: 'appliedpot.html',
       template: './frontend/src/template/appliedpot.html',
       chunks: ['app', 'appliedpot'],
       favicon: 'favicon.png',
     }),
     new HtmlWebpackPlugin({
+=======
+>>>>>>> 76a154f1f84b6d21b07e775297190c6ceeb083c5
       filename: 'createboard.html',
       template: './frontend/src/template/createboard.html',
       chunks: ['app', 'createboard'],
       favicon: 'favicon.png',
     }),
     new HtmlWebpackPlugin({
+<<<<<<< HEAD
       filename: 'createdpot.html',
       template: './frontend/src/template/createdpot.html',
       chunks: ['app', 'createdpot'],
       favicon: 'favicon.png',
+=======
+      filename: 'pot.html',
+      template: './frontend/src/template/pot.html',
+      chunks: ['app', 'pot'],
+>>>>>>> 76a154f1f84b6d21b07e775297190c6ceeb083c5
     }),
     new HtmlWebpackPlugin({
       filename: 'detailboard.html',
