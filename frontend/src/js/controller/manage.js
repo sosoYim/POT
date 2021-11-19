@@ -115,11 +115,19 @@ const sendMail = async e => {
 
   await axios.patch(`/api/boards/participant/${getBoardId()}=${position}`, { completed: true });
 
-  setParticipantList(
-    getParticipantList().map(participant =>
-      participant.position === position ? { ...participant, completed: true } : participant
-    )
-  );
+  if (e.target.matches('.button-warn')) {
+    setParticipantList(
+      getParticipantList().map(participant =>
+        participant.userId === userId ? { ...participant, completed: true } : participant
+      )
+    );
+  } else {
+    setParticipantList(
+      getParticipantList().map(participant =>
+        participant.position === position ? { ...participant, completed: true } : participant
+      )
+    );
+  }
 
   renderParticipantList($participantList, getManageData());
 
