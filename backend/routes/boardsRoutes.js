@@ -113,13 +113,13 @@ router.get('/manage/:id', (req, res) => {
   res.send({ title, position, userIdList });
 });
 
-router.patch('/participant/:id', (req, res) => {
+router.patch('/participant/:position', (req, res) => {
   const {
     body: { completed },
     path,
   } = req;
-  const [boardId, userId] = path.replace('/participant/', '').split('=');
-  patchCompletedBoardData(boardId, userId, completed);
+  const [boardId, position] = path.replace('/participant/', '').split('=');
+  patchCompletedBoardData(boardId, position, completed);
   res.send();
 });
 
@@ -129,6 +129,7 @@ router.patch('/position/:id', (req, res) => {
     body: { position },
   } = req;
   const [boardId, userId] = path.replace('/position/', '').split('=');
+  console.log(boardId, userId, position);
   // patchCompletedBoardData(boardId, userId, completed);
   patchParticipantPosition(boardId, userId, position);
   res.send();

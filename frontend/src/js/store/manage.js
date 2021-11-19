@@ -44,7 +44,7 @@ const champ = {
 
 const state = {
   boardId: null,
-  manageData: {},
+  manageData: { title: '', position: {}, participantList: [] },
 };
 
 const getBoardId = () => state.boardId;
@@ -59,10 +59,24 @@ const setManageData = manageData => {
   state.manageData = manageData;
 };
 
+const setPosition = position => {
+  state.manageData.position[position] = false;
+};
+
 const getParticipantList = () => state.manageData.participantList;
 
 const setParticipantList = participantList => {
   state.manageData.participantList = participantList;
 };
 
-export { rankNum, champ, getBoardId, setBoardId, getManageData, setManageData, getParticipantList, setParticipantList };
+export {
+  rankNum,
+  champ,
+  getBoardId,
+  setBoardId,
+  getManageData,
+  setManageData,
+  setPosition,
+  getParticipantList,
+  setParticipantList,
+};
