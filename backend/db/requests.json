@@ -1,9 +1,1 @@
-[
-  { "requestId": 7, "boardId": 61, "userId": 9, "position": "mid", "completed": true },
-  { "requestId": 6, "boardId": 61, "userId": 8, "position": "adc", "completed": false },
-  { "requestId": 5, "boardId": 61, "userId": 4, "position": "mid", "completed": true },
-  { "requestId": 4, "boardId": 61, "userId": 7, "position": "adc", "completed": false },
-  { "requestId": 3, "boardId": 61, "userId": 6, "position": "mid", "completed": false },
-  { "requestId": 2, "boardId": 61, "userId": 3, "position": "adc", "completed": false },
-  { "requestId": 1, "boardId": 61, "userId": 2, "position": "mid", "completed": false }
-]
+[{"requestId":7,"boardId":61,"userId":9,"position":"mid","completed":true},{"requestId":6,"boardId":61,"userId":8,"position":"adc","completed":false},{"requestId":5,"boardId":61,"userId":4,"position":"mid","completed":true},{"requestId":4,"boardId":61,"userId":7,"position":"adc","completed":false},{"requestId":3,"boardId":61,"userId":6,"position":"mid","completed":true},{"requestId":2,"boardId":61,"userId":3,"position":"adc","completed":false},{"requestId":1,"boardId":61,"userId":2,"position":"mid","completed":true}]

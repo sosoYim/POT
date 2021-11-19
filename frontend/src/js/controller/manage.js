@@ -112,20 +112,16 @@ const sendMail = async e => {
   const { email, summoner, position } = getParticipantList().find(participant => +participant.userId === +userId);
 
   $modalOuter.classList.toggle('hidden', true);
-  // console.log(getParticipantList());
 
   if (e.target.matches('.button-warn')) {
     await axios.patch(`/api/boards/participant/userid/${getBoardId()}=${userId}`, { completed: true });
-    console.log(getParticipantList());
     setParticipantList(
       getParticipantList().map(participant =>
         +participant.userId === +userId ? { ...participant, completed: true } : participant
       )
     );
-    console.log(getParticipantList());
   } else {
     await axios.patch(`/api/boards/participant/position/${getBoardId()}=${position}`, { completed: true });
-    console.log('성공');
     setParticipantList(
       getParticipantList().map(participant =>
         participant.position === position ? { ...participant, completed: true } : participant
@@ -135,9 +131,9 @@ const sendMail = async e => {
 
   // renderParticipantList($participantList, getManageData());
 
+  setPosition(position);
+  changePositionAbleState($mainFilterPositionButtons, getManageData());
   renderParticipantList($participantList, getManageData());
-
-  if (!e.target.dataset.approve) return;
 
   await axios.patch(`/api/boards/position/${getBoardId()}=${userId}`, { position });
 
