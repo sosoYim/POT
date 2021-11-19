@@ -34,31 +34,16 @@ module.exports = {
       favicon: 'favicon.png',
     }),
     new HtmlWebpackPlugin({
-<<<<<<< HEAD
-      filename: 'appliedpot.html',
-      template: './frontend/src/template/appliedpot.html',
-      chunks: ['app', 'appliedpot'],
-      favicon: 'favicon.png',
-    }),
-    new HtmlWebpackPlugin({
-=======
->>>>>>> 76a154f1f84b6d21b07e775297190c6ceeb083c5
       filename: 'createboard.html',
       template: './frontend/src/template/createboard.html',
       chunks: ['app', 'createboard'],
       favicon: 'favicon.png',
     }),
     new HtmlWebpackPlugin({
-<<<<<<< HEAD
-      filename: 'createdpot.html',
-      template: './frontend/src/template/createdpot.html',
-      chunks: ['app', 'createdpot'],
-      favicon: 'favicon.png',
-=======
       filename: 'pot.html',
       template: './frontend/src/template/pot.html',
       chunks: ['app', 'pot'],
->>>>>>> 76a154f1f84b6d21b07e775297190c6ceeb083c5
+      favicon: 'favicon.png',
     }),
     new HtmlWebpackPlugin({
       filename: 'detailboard.html',
