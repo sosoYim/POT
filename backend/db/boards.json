@@ -261,6 +261,384 @@
     "regDate": "2021-11-18 00:59"
   },
   {
+    "boardId": 40,
+    "userId": 2,
+    "type": "5 POT",
+    "title": "내전 참여 하실분",
+    "content": { "ops": [{ "insert": "편하게 연락주세요~\n" }] },
+    "position": { "top": false, "jug": true, "mid": false, "adc": false, "sup": true },
+    "regDate": "2021-11-18 00:59"
+  },
+  {
+    "boardId": 39,
+    "userId": 9,
+    "type": "5 POT",
+    "title": "겜할사람 구합니다",
+    "content": { "ops": [{ "insert": "편하게 연락주세요~\n" }] },
+    "position": { "top": false, "jug": false, "mid": true, "adc": true, "sup": true },
+    "regDate": "2021-11-18 00:59"
+  },
+  {
+    "boardId": 38,
+    "userId": 8,
+    "type": "5 POT",
+    "title": "리그 대회 같이 나가실분",
+    "content": { "ops": [{ "insert": "편하게 연락주세요~\n" }] },
+    "position": { "top": false, "jug": true, "mid": true, "adc": false, "sup": false },
+    "regDate": "2021-11-18 00:59"
+  },
+  {
+    "boardId": 37,
+    "userId": 7,
+    "type": "5 POT",
+    "title": "팀게임 관심있으신분",
+    "content": { "ops": [{ "insert": "편하게 연락주세요~\n" }] },
+    "position": { "top": true, "jug": false, "mid": false, "adc": true, "sup": true },
+    "regDate": "2021-11-18 00:59"
+  },
+  {
+    "boardId": 36,
+    "userId": 6,
+    "type": "5 POT",
+    "title": "즐겁게 자랭 하실분",
+    "content": { "ops": [{ "insert": "편하게 연락주세요~\n" }] },
+    "position": { "top": true, "jug": true, "mid": false, "adc": true, "sup": true },
+    "regDate": "2021-11-18 00:59"
+  },
+  {
+    "boardId": 35,
+    "userId": 5,
+    "type": "5 POT",
+    "title": "겜하실분겜하실분",
+    "content": { "ops": [{ "insert": "편하게 연락주세요~\n" }] },
+    "position": { "top": false, "jug": true, "mid": false, "adc": false, "sup": false },
+    "regDate": "2021-11-18 00:59"
+  },
+  {
+    "boardId": 34,
+    "userId": 4,
+    "type": "5 POT",
+    "title": "대리 기사 구함",
+    "content": { "ops": [{ "insert": "판당 5만원\n" }] },
+    "position": { "top": true, "jug": true, "mid": false, "adc": false, "sup": true },
+    "regDate": "2021-11-18 00:59"
+  },
+  {
+    "boardId": 40,
+    "userId": 2,
+    "type": "5 POT",
+    "title": "내전 참여 하실분",
+    "content": { "ops": [{ "insert": "편하게 연락주세요~\n" }] },
+    "position": { "top": false, "jug": true, "mid": false, "adc": false, "sup": true },
+    "regDate": "2021-11-18 00:59"
+  },
+  {
+    "boardId": 39,
+    "userId": 9,
+    "type": "5 POT",
+    "title": "겜할사람 구합니다",
+    "content": { "ops": [{ "insert": "편하게 연락주세요~\n" }] },
+    "position": { "top": false, "jug": false, "mid": true, "adc": true, "sup": true },
+    "regDate": "2021-11-18 00:59"
+  },
+  {
+    "boardId": 38,
+    "userId": 8,
+    "type": "5 POT",
+    "title": "리그 대회 같이 나가실분",
+    "content": { "ops": [{ "insert": "편하게 연락주세요~\n" }] },
+    "position": { "top": false, "jug": true, "mid": true, "adc": false, "sup": false },
+    "regDate": "2021-11-18 00:59"
+  },
+  {
+    "boardId": 37,
+    "userId": 7,
+    "type": "5 POT",
+    "title": "팀게임 관심있으신분",
+    "content": { "ops": [{ "insert": "편하게 연락주세요~\n" }] },
+    "position": { "top": true, "jug": false, "mid": false, "adc": true, "sup": true },
+    "regDate": "2021-11-18 00:59"
+  },
+  {
+    "boardId": 36,
+    "userId": 6,
+    "type": "5 POT",
+    "title": "즐겁게 자랭 하실분",
+    "content": { "ops": [{ "insert": "편하게 연락주세요~\n" }] },
+    "position": { "top": true, "jug": true, "mid": false, "adc": true, "sup": true },
+    "regDate": "2021-11-18 00:59"
+  },
+  {
+    "boardId": 35,
+    "userId": 5,
+    "type": "5 POT",
+    "title": "겜하실분겜하실분",
+    "content": { "ops": [{ "insert": "편하게 연락주세요~\n" }] },
+    "position": { "top": false, "jug": true, "mid": false, "adc": false, "sup": false },
+    "regDate": "2021-11-18 00:59"
+  },
+  {
+    "boardId": 34,
+    "userId": 4,
+    "type": "5 POT",
+    "title": "대리 기사 구함",
+    "content": { "ops": [{ "insert": "판당 5만원\n" }] },
+    "position": { "top": true, "jug": true, "mid": false, "adc": false, "sup": true },
+    "regDate": "2021-11-18 00:59"
+  },
+  {
+    "boardId": 40,
+    "userId": 2,
+    "type": "5 POT",
+    "title": "내전 참여 하실분",
+    "content": { "ops": [{ "insert": "편하게 연락주세요~\n" }] },
+    "position": { "top": false, "jug": true, "mid": false, "adc": false, "sup": true },
+    "regDate": "2021-11-18 00:59"
+  },
+  {
+    "boardId": 39,
+    "userId": 9,
+    "type": "5 POT",
+    "title": "겜할사람 구합니다",
+    "content": { "ops": [{ "insert": "편하게 연락주세요~\n" }] },
+    "position": { "top": false, "jug": false, "mid": true, "adc": true, "sup": true },
+    "regDate": "2021-11-18 00:59"
+  },
+  {
+    "boardId": 38,
+    "userId": 8,
+    "type": "5 POT",
+    "title": "리그 대회 같이 나가실분",
+    "content": { "ops": [{ "insert": "편하게 연락주세요~\n" }] },
+    "position": { "top": false, "jug": true, "mid": true, "adc": false, "sup": false },
+    "regDate": "2021-11-18 00:59"
+  },
+  {
+    "boardId": 37,
+    "userId": 7,
+    "type": "5 POT",
+    "title": "팀게임 관심있으신분",
+    "content": { "ops": [{ "insert": "편하게 연락주세요~\n" }] },
+    "position": { "top": true, "jug": false, "mid": false, "adc": true, "sup": true },
+    "regDate": "2021-11-18 00:59"
+  },
+  {
+    "boardId": 36,
+    "userId": 6,
+    "type": "5 POT",
+    "title": "즐겁게 자랭 하실분",
+    "content": { "ops": [{ "insert": "편하게 연락주세요~\n" }] },
+    "position": { "top": true, "jug": true, "mid": false, "adc": true, "sup": true },
+    "regDate": "2021-11-18 00:59"
+  },
+  {
+    "boardId": 35,
+    "userId": 5,
+    "type": "5 POT",
+    "title": "겜하실분겜하실분",
+    "content": { "ops": [{ "insert": "편하게 연락주세요~\n" }] },
+    "position": { "top": false, "jug": true, "mid": false, "adc": false, "sup": false },
+    "regDate": "2021-11-18 00:59"
+  },
+  {
+    "boardId": 34,
+    "userId": 4,
+    "type": "5 POT",
+    "title": "대리 기사 구함",
+    "content": { "ops": [{ "insert": "판당 5만원\n" }] },
+    "position": { "top": true, "jug": true, "mid": false, "adc": false, "sup": true },
+    "regDate": "2021-11-18 00:59"
+  },
+  {
+    "boardId": 40,
+    "userId": 2,
+    "type": "5 POT",
+    "title": "내전 참여 하실분",
+    "content": { "ops": [{ "insert": "편하게 연락주세요~\n" }] },
+    "position": { "top": false, "jug": true, "mid": false, "adc": false, "sup": true },
+    "regDate": "2021-11-18 00:59"
+  },
+  {
+    "boardId": 39,
+    "userId": 9,
+    "type": "5 POT",
+    "title": "겜할사람 구합니다",
+    "content": { "ops": [{ "insert": "편하게 연락주세요~\n" }] },
+    "position": { "top": false, "jug": false, "mid": true, "adc": true, "sup": true },
+    "regDate": "2021-11-18 00:59"
+  },
+  {
+    "boardId": 38,
+    "userId": 8,
+    "type": "5 POT",
+    "title": "리그 대회 같이 나가실분",
+    "content": { "ops": [{ "insert": "편하게 연락주세요~\n" }] },
+    "position": { "top": false, "jug": true, "mid": true, "adc": false, "sup": false },
+    "regDate": "2021-11-18 00:59"
+  },
+  {
+    "boardId": 37,
+    "userId": 7,
+    "type": "5 POT",
+    "title": "팀게임 관심있으신분",
+    "content": { "ops": [{ "insert": "편하게 연락주세요~\n" }] },
+    "position": { "top": true, "jug": false, "mid": false, "adc": true, "sup": true },
+    "regDate": "2021-11-18 00:59"
+  },
+  {
+    "boardId": 36,
+    "userId": 6,
+    "type": "5 POT",
+    "title": "즐겁게 자랭 하실분",
+    "content": { "ops": [{ "insert": "편하게 연락주세요~\n" }] },
+    "position": { "top": true, "jug": true, "mid": false, "adc": true, "sup": true },
+    "regDate": "2021-11-18 00:59"
+  },
+  {
+    "boardId": 35,
+    "userId": 5,
+    "type": "5 POT",
+    "title": "겜하실분겜하실분",
+    "content": { "ops": [{ "insert": "편하게 연락주세요~\n" }] },
+    "position": { "top": false, "jug": true, "mid": false, "adc": false, "sup": false },
+    "regDate": "2021-11-18 00:59"
+  },
+  {
+    "boardId": 34,
+    "userId": 4,
+    "type": "5 POT",
+    "title": "대리 기사 구함",
+    "content": { "ops": [{ "insert": "판당 5만원\n" }] },
+    "position": { "top": true, "jug": true, "mid": false, "adc": false, "sup": true },
+    "regDate": "2021-11-18 00:59"
+  },
+  {
+    "boardId": 40,
+    "userId": 2,
+    "type": "5 POT",
+    "title": "내전 참여 하실분",
+    "content": { "ops": [{ "insert": "편하게 연락주세요~\n" }] },
+    "position": { "top": false, "jug": true, "mid": false, "adc": false, "sup": true },
+    "regDate": "2021-11-18 00:59"
+  },
+  {
+    "boardId": 39,
+    "userId": 9,
+    "type": "5 POT",
+    "title": "겜할사람 구합니다",
+    "content": { "ops": [{ "insert": "편하게 연락주세요~\n" }] },
+    "position": { "top": false, "jug": false, "mid": true, "adc": true, "sup": true },
+    "regDate": "2021-11-18 00:59"
+  },
+  {
+    "boardId": 38,
+    "userId": 8,
+    "type": "5 POT",
+    "title": "리그 대회 같이 나가실분",
+    "content": { "ops": [{ "insert": "편하게 연락주세요~\n" }] },
+    "position": { "top": false, "jug": true, "mid": true, "adc": false, "sup": false },
+    "regDate": "2021-11-18 00:59"
+  },
+  {
+    "boardId": 37,
+    "userId": 7,
+    "type": "5 POT",
+    "title": "팀게임 관심있으신분",
+    "content": { "ops": [{ "insert": "편하게 연락주세요~\n" }] },
+    "position": { "top": true, "jug": false, "mid": false, "adc": true, "sup": true },
+    "regDate": "2021-11-18 00:59"
+  },
+  {
+    "boardId": 36,
+    "userId": 6,
+    "type": "5 POT",
+    "title": "즐겁게 자랭 하실분",
+    "content": { "ops": [{ "insert": "편하게 연락주세요~\n" }] },
+    "position": { "top": true, "jug": true, "mid": false, "adc": true, "sup": true },
+    "regDate": "2021-11-18 00:59"
+  },
+  {
+    "boardId": 35,
+    "userId": 5,
+    "type": "5 POT",
+    "title": "겜하실분겜하실분",
+    "content": { "ops": [{ "insert": "편하게 연락주세요~\n" }] },
+    "position": { "top": false, "jug": true, "mid": false, "adc": false, "sup": false },
+    "regDate": "2021-11-18 00:59"
+  },
+  {
+    "boardId": 34,
+    "userId": 4,
+    "type": "5 POT",
+    "title": "대리 기사 구함",
+    "content": { "ops": [{ "insert": "판당 5만원\n" }] },
+    "position": { "top": true, "jug": true, "mid": false, "adc": false, "sup": true },
+    "regDate": "2021-11-18 00:59"
+  },
+  {
+    "boardId": 40,
+    "userId": 2,
+    "type": "5 POT",
+    "title": "내전 참여 하실분",
+    "content": { "ops": [{ "insert": "편하게 연락주세요~\n" }] },
+    "position": { "top": false, "jug": true, "mid": false, "adc": false, "sup": true },
+    "regDate": "2021-11-18 00:59"
+  },
+  {
+    "boardId": 39,
+    "userId": 9,
+    "type": "5 POT",
+    "title": "겜할사람 구합니다",
+    "content": { "ops": [{ "insert": "편하게 연락주세요~\n" }] },
+    "position": { "top": false, "jug": false, "mid": true, "adc": true, "sup": true },
+    "regDate": "2021-11-18 00:59"
+  },
+  {
+    "boardId": 38,
+    "userId": 8,
+    "type": "5 POT",
+    "title": "리그 대회 같이 나가실분",
+    "content": { "ops": [{ "insert": "편하게 연락주세요~\n" }] },
+    "position": { "top": false, "jug": true, "mid": true, "adc": false, "sup": false },
+    "regDate": "2021-11-18 00:59"
+  },
+  {
+    "boardId": 37,
+    "userId": 7,
+    "type": "5 POT",
+    "title": "팀게임 관심있으신분",
+    "content": { "ops": [{ "insert": "편하게 연락주세요~\n" }] },
+    "position": { "top": true, "jug": false, "mid": false, "adc": true, "sup": true },
+    "regDate": "2021-11-18 00:59"
+  },
+  {
+    "boardId": 36,
+    "userId": 6,
+    "type": "5 POT",
+    "title": "즐겁게 자랭 하실분",
+    "content": { "ops": [{ "insert": "편하게 연락주세요~\n" }] },
+    "position": { "top": true, "jug": true, "mid": false, "adc": true, "sup": true },
+    "regDate": "2021-11-18 00:59"
+  },
+  {
+    "boardId": 35,
+    "userId": 5,
+    "type": "5 POT",
+    "title": "겜하실분겜하실분",
+    "content": { "ops": [{ "insert": "편하게 연락주세요~\n" }] },
+    "position": { "top": false, "jug": true, "mid": false, "adc": false, "sup": false },
+    "regDate": "2021-11-18 00:59"
+  },
+  {
+    "boardId": 34,
+    "userId": 4,
+    "type": "5 POT",
+    "title": "대리 기사 구함",
+    "content": { "ops": [{ "insert": "판당 5만원\n" }] },
+    "position": { "top": true, "jug": true, "mid": false, "adc": false, "sup": true },
+    "regDate": "2021-11-18 00:59"
+  },
+  {
     "boardId": 33,
     "userId": 3,
     "type": "5 POT",

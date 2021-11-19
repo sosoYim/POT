@@ -41,7 +41,7 @@ app.get('/board/write', blockGuestAuth, (req, res) => {
 });
 
 app.get('/board/list/:type', blockGuestAuth, (req, res) => {
-  res.sendFile(path.join(__dirname, '../public/createdpot.html'));
+  res.sendFile(path.join(__dirname, '../public/pot.html'));
 });
 
 app.get('/appliedpot', blockGuestAuth, (req, res) => {
