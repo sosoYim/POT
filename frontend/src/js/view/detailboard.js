@@ -44,7 +44,7 @@ const render = (board, state) => {
 
   const $div = document.createElement('div');
   const quill = new Quill($div).setContents(content);
-  console.log($div);
+
   $div.classList.add('ql-snow');
   $div.style.border = 'none';
   $detailboard.appendChild($div);
