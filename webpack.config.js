@@ -9,12 +9,10 @@ module.exports = {
     // 프로퍼티 키가 output의 [name]에 매칭
     app: './frontend/src/js/app.js',
     main: './frontend/src/js/event/main.js',
-    appliedpot: './frontend/src/js/event/appliedpot.js',
     createboard: './frontend/src/js/event/createboard.js',
-    createdpot: './frontend/src/js/event/createdpot.js',
+    pot: './frontend/src/js/event/pot.js',
     detailboard: './frontend/src/js/event/detailboard.js',
     manage: './frontend/src/js/event/manage.js',
-    participantedpot: './frontend/src/js/event/participantedpot.js',
     setting: './frontend/src/js/event/setting.js',
     login: './frontend/src/js/event/login.js',
     register: './frontend/src/js/event/register.js',
@@ -35,19 +33,14 @@ module.exports = {
       chunks: ['app', 'main'],
     }),
     new HtmlWebpackPlugin({
-      filename: 'appliedpot.html',
-      template: './frontend/src/template/appliedpot.html',
-      chunks: ['app', 'appliedpot'],
-    }),
-    new HtmlWebpackPlugin({
       filename: 'createboard.html',
       template: './frontend/src/template/createboard.html',
       chunks: ['app', 'createboard'],
     }),
     new HtmlWebpackPlugin({
-      filename: 'createdpot.html',
-      template: './frontend/src/template/createdpot.html',
-      chunks: ['app', 'createdpot'],
+      filename: 'pot.html',
+      template: './frontend/src/template/pot.html',
+      chunks: ['app', 'pot'],
     }),
     new HtmlWebpackPlugin({
       filename: 'detailboard.html',
