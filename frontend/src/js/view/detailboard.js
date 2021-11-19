@@ -44,11 +44,11 @@ const render = (board, state) => {
 
   const $div = document.createElement('div');
   const quill = new Quill($div).setContents(content);
-  // quill.enable(false);
-  // document.querySelector('.ql-editor').contenteditable = false;
+  console.log($div);
   $div.classList.add('ql-snow');
   $div.style.border = 'none';
   $detailboard.appendChild($div);
+  document.querySelector('.ql-editor').setAttribute('contenteditable', false);
 };
 
 export { render, renderMyBoard, renderMyRequest };
