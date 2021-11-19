@@ -24,6 +24,14 @@ const patchCompletedBoardData = (boardId, position, completed) => {
 
   fs.writeFileSync('./backend/db/requests.json', JSON.stringify(newRequests));
 };
+const patchCompletedBoardUser = (boardId, userId, completed) => {
+  const requests = JSON.parse(fs.readFileSync('./backend/db/requests.json'));
+  const newRequests = requests.map(request =>
+    +request.boardId === +boardId && +request.userId === +userId ? { ...request, completed } : request
+  );
+
+  fs.writeFileSync('./backend/db/requests.json', JSON.stringify(newRequests));
+};
 
 const patchParticipantPosition = (boardId, userId, position) => {
   const boards = JSON.parse(fs.readFileSync('./backend/db/boards.json'));
@@ -77,6 +85,7 @@ module.exports = {
   getBoardData,
   getUserId,
   getUserIdList,
+  patchCompletedBoardUser,
   patchCompletedBoardData,
   patchParticipantPosition,
   getBoardList,

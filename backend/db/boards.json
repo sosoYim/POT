@@ -165,17 +165,10 @@
     "boardId": 44,
     "userId": 8,
     "type": "5 POT",
-<<<<<<< Updated upstream
     "title": "즐겁게 자랭 하실분",
     "content": { "ops": [{ "insert": "편하게 연락주세요~\n" }] },
     "position": { "top": true, "jug": false, "mid": false, "adc": true, "sup": false },
     "regDate": "2021-11-19 00:59"
-=======
-    "title": "나는 문어",
-    "content": { "ops": [{ "insert": "문어 꿈을 꾸네~\n" }] },
-    "position": { "top": true, "jug": false, "mid": true, "adc": false, "sup": false },
-    "regDate": "2021-11-18 17:53"
->>>>>>> Stashed changes
   },
   {
     "boardId": 43,
@@ -226,7 +219,6 @@
     "boardId": 38,
     "userId": 8,
     "type": "5 POT",
-<<<<<<< Updated upstream
     "title": "리그 대회 같이 나가실분",
     "content": { "ops": [{ "insert": "편하게 연락주세요~\n" }] },
     "position": { "top": false, "jug": true, "mid": true, "adc": false, "sup": false },
@@ -330,12 +322,6 @@
     "content": { "ops": [{ "insert": "편하게 연락주세요~\n" }] },
     "position": { "top": false, "jug": false, "mid": true, "adc": false, "sup": false },
     "regDate": "2021-11-19 05:26"
-=======
-    "title": "하이",
-    "content": { "ops": [{ "insert": "하이\n" }] },
-    "position": { "top": false, "jug": true, "mid": true, "adc": false, "sup": false },
-    "regDate": "2021-11-18 15:40"
->>>>>>> Stashed changes
   },
   {
     "boardId": 26,

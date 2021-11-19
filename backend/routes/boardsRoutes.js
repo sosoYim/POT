@@ -2,6 +2,7 @@ const router = require('express').Router();
 const {
   getBoardData,
   getUserIdList,
+  patchCompletedBoardUser,
   patchCompletedBoardData,
   patchParticipantPosition,
   getBoardList,
@@ -113,12 +114,22 @@ router.get('/manage/:id', (req, res) => {
   res.send({ title, position, userIdList });
 });
 
-router.patch('/participant/:position', (req, res) => {
+router.patch('/participant/userid/:id', (req, res) => {
   const {
     body: { completed },
     path,
   } = req;
-  const [boardId, position] = path.replace('/participant/', '').split('=');
+  const [boardId, userId] = path.replace('/participant/userid/', '').split('=');
+  patchCompletedBoardUser(boardId, userId, completed);
+  res.send();
+});
+
+router.patch('/participant/position/:position', (req, res) => {
+  const {
+    body: { completed },
+    path,
+  } = req;
+  const [boardId, position] = path.replace('/participant/position/', '').split('=');
   patchCompletedBoardData(boardId, position, completed);
   res.send();
 });
