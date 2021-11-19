@@ -3,8 +3,16 @@ const $detailboardButton = document.querySelector('.detailboard-button');
 const { QuillDeltaToHtmlConverter } = require('quill-delta-to-html');
 
 const renderMyRequest = isMyRequest => {
-  [...document.querySelectorAll('.form-radio__label')].forEach($input => $input.classList.add('request'));
+  // [...document.querySelectorAll('.form-radio__label')].forEach($input => $input.classList.add('request'));
   $detailboardButton.innerText = isMyRequest ? '이미 신청한 POT' : '신청하기';
+
+  if (isMyRequest) {
+    document.querySelector('.detailboard-button').setAttribute('disabled', true);
+
+    [...document.querySelectorAll('input[name="position"]')].forEach($input => {
+      $input.setAttribute('disabled', true);
+    });
+  }
 };
 
 const renderMyBoard = () => {
@@ -32,9 +40,15 @@ const render = (board, state) => {
 
   document.querySelector('.pot-info-user-emblem').setAttribute('src', `/images/emblem/${tier}.png`);
 
-  const qdc = new QuillDeltaToHtmlConverter(content.ops, {});
-  const html = qdc.convert();
-  document.querySelector('.form__content').innerHTML = html;
+  const $detailboard = document.querySelector('.form__content');
+
+  const $div = document.createElement('div');
+  const quill = new Quill($div).setContents(content);
+
+  $div.classList.add('ql-snow');
+  $div.style.border = 'none';
+  $detailboard.appendChild($div);
+  document.querySelector('.ql-editor').setAttribute('contenteditable', false);
 };
 
 export { render, renderMyBoard, renderMyRequest };
