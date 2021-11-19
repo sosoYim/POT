@@ -32,15 +32,6 @@ module.exports = {
       template: './frontend/src/template/index.html',
       chunks: ['app', 'main'],
       favicon: 'favicon.png',
-<<<<<<< Updated upstream
-=======
-    }),
-    new HtmlWebpackPlugin({
-      filename: 'appliedpot.html',
-      template: './frontend/src/template/appliedpot.html',
-      chunks: ['app', 'appliedpot'],
-      favicon: 'favicon.png',
->>>>>>> Stashed changes
     }),
     new HtmlWebpackPlugin({
       filename: 'createboard.html',
@@ -49,15 +40,9 @@ module.exports = {
       favicon: 'favicon.png',
     }),
     new HtmlWebpackPlugin({
-<<<<<<< Updated upstream
       filename: 'pot.html',
       template: './frontend/src/template/pot.html',
       chunks: ['app', 'pot'],
-=======
-      filename: 'createdpot.html',
-      template: './frontend/src/template/createdpot.html',
-      chunks: ['app', 'createdpot'],
->>>>>>> Stashed changes
       favicon: 'favicon.png',
     }),
     new HtmlWebpackPlugin({
