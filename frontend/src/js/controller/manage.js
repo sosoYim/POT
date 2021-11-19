@@ -135,9 +135,9 @@ const sendMail = async e => {
 
   // renderParticipantList($participantList, getManageData());
 
+  setPosition(position);
+  changePositionAbleState($mainFilterPositionButtons, getManageData());
   renderParticipantList($participantList, getManageData());
-
-  if (!e.target.dataset.approve) return;
 
   await axios.patch(`/api/boards/position/${getBoardId()}=${userId}`, { position });
 
