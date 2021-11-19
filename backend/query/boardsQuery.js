@@ -16,10 +16,10 @@ const getUserIdList = boardId => {
   return requests.filter(request => request.boardId === +boardId).map(({ userId }) => userId);
 };
 
-const patchCompletedBoardData = (boardId, userId, completed) => {
+const patchCompletedBoardData = (boardId, position, completed) => {
   const requests = JSON.parse(fs.readFileSync('./backend/db/requests.json'));
   const newRequests = requests.map(request =>
-    +request.userId === +userId && +request.boardId === +boardId ? { ...request, completed } : request
+    +request.boardId === +boardId && request.position === position ? { ...request, completed } : request
   );
 
   fs.writeFileSync('./backend/db/requests.json', JSON.stringify(newRequests));
@@ -27,11 +27,11 @@ const patchCompletedBoardData = (boardId, userId, completed) => {
 
 const patchParticipantPosition = (boardId, userId, position) => {
   const boards = JSON.parse(fs.readFileSync('./backend/db/boards.json'));
-  const newBoards = boards.map(board =>
-    board.boardId === boardId && board.userId === userId
-      ? { ...board, position: { ...position, [position]: false } }
-      : board
-  );
+  const newBoards = boards.map(board => {
+    console.log({ ...board.position, [position]: false });
+    console.log(+board.boardId === +boardId);
+    return +board.boardId === +boardId ? { ...board, position: { ...board.position, [position]: false } } : board;
+  });
   fs.writeFileSync('./backend/db/boards.json', JSON.stringify(newBoards));
 };
 

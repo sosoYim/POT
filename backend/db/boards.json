@@ -1,21 +1,12 @@
 [
   {
     "boardId": 23,
-    "userId": 10,
-    "type": "5 POT",
-    "title": "안녕",
-    "content": {
-      "ops": [
-        { "insert": "구합ㄴ디" },
-        { "attributes": { "blockquote": true }, "insert": "\n\n" },
-        { "attributes": { "bold": true }, "insert": "하랑날ㅇㄴ" },
-        { "attributes": { "blockquote": true }, "insert": "\n" },
-        { "attributes": { "bold": true }, "insert": "ㄴ알ㅇㄴ" },
-        { "attributes": { "blockquote": true }, "insert": "\n" }
-      ]
-    },
-    "position": { "top": true, "jug": false, "mid": false, "adc": false, "sup": true },
-    "regDate": "2021-11-18 21:44"
+    "userId": 8,
+    "type": "2 POT",
+    "title": "하이",
+    "content": { "ops": [{ "insert": "안녕!\n" }] },
+    "position": { "top": false, "jug": false, "mid": true, "adc": false, "sup": false },
+    "regDate": "2021-11-19 01:00"
   },
   {
     "boardId": 22,
@@ -32,16 +23,16 @@
     "type": "5 POT",
     "title": "나는 문어",
     "content": { "ops": [{ "insert": "문어 꿈을 꾸네~\n" }] },
-    "position": { "top": true, "jug": false, "mid": false, "adc": false, "sup": false },
+    "position": { "top": true, "jug": false, "mid": true, "adc": false, "sup": false },
     "regDate": "2021-11-18 17:53"
   },
   {
     "boardId": 20,
     "userId": 8,
-    "type": "2 POT",
+    "type": "5 POT",
     "title": "하이",
     "content": { "ops": [{ "insert": "하이\n" }] },
-    "position": { "top": false, "jug": false, "mid": true, "adc": false, "sup": false },
+    "position": { "top": false, "jug": true, "mid": true, "adc": false, "sup": false },
     "regDate": "2021-11-18 15:40"
   },
   {

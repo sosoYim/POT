@@ -10,6 +10,7 @@ import {
   setBoardId,
   getManageData,
   setManageData,
+  setPosition,
   getParticipantList,
   setParticipantList,
 } from '../store/manage';
@@ -47,7 +48,7 @@ const fetchManage = async () => {
   }
 };
 
-const setPosition = e => {
+const setPositionList = e => {
   if (
     !e.target.closest('.main__filter-position-item > button') ||
     e.target.closest('.main__filter-position-item > button:disabled')
@@ -106,19 +107,21 @@ const closeModal = e => {
 };
 
 const sendMail = async e => {
-  const { boardId, userId } = e.target.dataset;
+  const { userId } = e.target.dataset;
   const { title } = getManageData();
   const { email, summoner, position } = getParticipantList().find(participant => +participant.userId === +userId);
 
   $modalOuter.classList.toggle('hidden', true);
 
-  axios.patch(`/api/boards/participant/${boardId}=${userId}`, { completed: true });
+  await axios.patch(`/api/boards/participant/${getBoardId()}=${position}`, { completed: true });
 
   setParticipantList(
     getParticipantList().map(participant =>
-      +participant.userId === +userId ? { ...participant, completed: true } : participant
+      participant.position === position ? { ...participant, completed: true } : participant
     )
   );
+
+  renderParticipantList($participantList, getManageData());
 
   if (e.target.matches('.button-warn')) return;
 
@@ -129,7 +132,6 @@ const sendMail = async e => {
       +board.userId === +userId ? { ...board, position: { ...position, [position]: false } } : board
     )
   );
-  changePositionAbleState($mainFilterPositionButtons, getManageData());
 
   const { data } = await axios.post('/api/manage/mail', {
     to: email,
@@ -140,7 +142,9 @@ const sendMail = async e => {
 
   launchToast(data);
 
+  setPosition(position);
+  changePositionAbleState($mainFilterPositionButtons, getManageData());
   renderParticipantList($participantList, getManageData());
 };
 
-export { fetchManage, setPosition, toggleMainFilter, setFilter, displayConfirmModal, closeModal, sendMail };
+export { fetchManage, setPositionList, toggleMainFilter, setFilter, displayConfirmModal, closeModal, sendMail };

@@ -17,6 +17,9 @@
   width: 100%;
   height: 180px;
   margin-top: 40px;
+  &:last-child {
+    margin-bottom: 40px;
+  }
 
   @media (min-width: 820px) {
     width: 380px;

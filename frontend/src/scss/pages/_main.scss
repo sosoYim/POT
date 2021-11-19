@@ -41,9 +41,15 @@
 
       &__btn {
         width: rem(90);
-        margin: 0 rem(12);
+        // margin: 0 rem(12);
         padding: rem(11);
         font-size: rem(12);
+        &:nth-child(1) {
+          margin-right: rem(12);
+        }
+        &:nth-child(2) {
+          margin-left: rem(12);
+        }
 
         @include mobile {
           width: 40%;
@@ -59,12 +65,13 @@
   .main {
     &__filter-position-list {
       width: 100%;
-      @include mobile {
+
+      @media (max-width: 620px) {
         & img {
           width: 32px;
         }
       }
-      @include mobile {
+      @media (max-width: 620px) {
         .main__filter-position-item {
           margin-right: rem(6);
           &:last-child {
@@ -72,6 +79,19 @@
           }
         }
       }
+      // @include mobile {
+      //   & img {
+      //     width: 32px;
+      //   }
+      // }
+      // @include mobile {
+      //   .main__filter-position-item {
+      //     margin-right: rem(6);
+      //     &:last-child {
+      //       margin-right: 0;
+      //     }
+      //   }
+      // }
     }
 
     &__filter-position-item--selected {

@@ -5,8 +5,8 @@ import setHeader from '../utils/header';
 // import setHeaderRequest from '../utils/modal';
 
 const fetchBoard = async () => {
+  setHeader();
   try {
-    setHeader();
     const boardId = getLastPath(window.location.href);
     const { data } = await axios.get(`/api/boards/detail/${boardId}`);
     const state = { myBoard: data.userId === data.board.userId, myRequest: data.myRequest };

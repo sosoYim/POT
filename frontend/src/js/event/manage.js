@@ -1,6 +1,6 @@
 import {
   fetchManage,
-  setPosition,
+  setPositionList,
   toggleMainFilter,
   setFilter,
   displayConfirmModal,
@@ -10,7 +10,7 @@ import {
 
 window.addEventListener('DOMContentLoaded', fetchManage);
 
-document.querySelector('.main__filter-position-list').onclick = setPosition;
+document.querySelector('.main__filter-position-list').onclick = setPositionList;
 
 document.querySelector('.main__filter-button').onclick = toggleMainFilter;
 

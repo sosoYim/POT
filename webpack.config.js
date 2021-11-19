@@ -33,46 +33,55 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './frontend/src/template/index.html',
       chunks: ['app', 'main'],
+      favicon: 'favicon.png',
     }),
     new HtmlWebpackPlugin({
       filename: 'appliedpot.html',
       template: './frontend/src/template/appliedpot.html',
       chunks: ['app', 'appliedpot'],
+      favicon: 'favicon.png',
     }),
     new HtmlWebpackPlugin({
       filename: 'createboard.html',
       template: './frontend/src/template/createboard.html',
       chunks: ['app', 'createboard'],
+      favicon: 'favicon.png',
     }),
     new HtmlWebpackPlugin({
       filename: 'createdpot.html',
       template: './frontend/src/template/createdpot.html',
       chunks: ['app', 'createdpot'],
+      favicon: 'favicon.png',
     }),
     new HtmlWebpackPlugin({
       filename: 'detailboard.html',
       template: './frontend/src/template/detailboard.html',
       chunks: ['app', 'detailboard'],
+      favicon: 'favicon.png',
     }),
     new HtmlWebpackPlugin({
       filename: 'manage.html',
       template: './frontend/src/template/manage.html',
       chunks: ['app', 'manage'],
+      favicon: 'favicon.png',
     }),
     new HtmlWebpackPlugin({
       filename: 'setting.html',
       template: './frontend/src/template/setting.html',
       chunks: ['app', 'setting'],
+      favicon: 'favicon.png',
     }),
     new HtmlWebpackPlugin({
       filename: 'login.html',
       template: './frontend/src/template/login.html',
       chunks: ['app', 'login'],
+      favicon: 'favicon.png',
     }),
     new HtmlWebpackPlugin({
       filename: 'register.html',
       template: './frontend/src/template/register.html',
       chunks: ['app', 'register'],
+      favicon: 'favicon.png',
     }),
     // css 결과물을 내보내기 위한 플러그인. 컴파일 + 번들링 CSS 파일이 저장될 경로와 이름 지정
     new MiniCssExtractPlugin({ filename: 'css/style.css' }),
