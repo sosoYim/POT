@@ -16,7 +16,7 @@ const renderMyRequest = isMyRequest => {
 };
 
 const renderMyBoard = () => {
-  $detailboardButton.innerText = '참여자 관리';
+  $detailboardButton.innerText = '신청자 관리';
   $detailboardButton.classList.add('myBoard');
   $detailboardButton.removeAttribute('disabled');
 };
