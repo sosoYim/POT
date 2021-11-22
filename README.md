@@ -43,7 +43,7 @@
 ## ✨ 주요 기능
 
 ### 1. 로그인
-<img src="https://user-images.githubusercontent.com/53992007/142788934-88b05a78-6e84-4b4d-96a4-bad075e6a407.gif" width="600">
+<img src="https://cdn.discordapp.com/attachments/906077713247404052/912315259644182568/ezgif-2-5acba3a5e4b7.gif" width="600">
 
 ### 2. 메인(무한 스크롤)
 <img src="https://images.velog.io/images/hustle-dev/post/86c6013e-402c-4098-abfa-afd50b5e1829/%E1%84%86%E1%85%AE%E1%84%92%E1%85%A1%E1%86%AB%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%A9%E1%86%AF.gif" width="600">
@@ -52,11 +52,15 @@
 <img src="https://user-images.githubusercontent.com/53992007/142788033-8d5e93eb-5cce-44bd-af92-ef1bc3cd9ce3.gif" width="600">
 
 ### 4. 신청자 관리
-<img src="https://user-images.githubusercontent.com/53992007/142788282-1501a8e8-f00e-4f0d-9567-e88cae243289.gif" width="600">
+<img src="https://cdn.discordapp.com/attachments/906077713247404052/912317219596300348/ezgif-2-031359f35c69.gif" width="600">
 
-
-### 5. 승인시 메일 전송
+### 5. 승인시 메일 전송(Nodemailer)
 <img src="https://images.velog.io/images/hustle-dev/post/ea4a3d46-7a55-417f-94ff-aeafe18b4947/%E1%84%86%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%85%E1%85%B5%E1%86%BC2.gif" width="600">
+
+### 6. 신청 후 신청한 게시글 보기
+<img src="https://user-images.githubusercontent.com/65655597/142860227-269d703e-8ac3-4e73-a5b3-a33e06f8035f.gif" width="600">
+
+
 
 <br>
 
