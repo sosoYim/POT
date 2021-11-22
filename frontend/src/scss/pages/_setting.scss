@@ -1,0 +1,171 @@
+@import '../utils/';
+@import '../components/';
+
+.setting-container {
+  .main {
+    @include autoMargin;
+  }
+  .button {
+    font-weight: 300;
+    font-size: 16px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+    // transition-duration: 0.3s;
+  }
+  &__title {
+    font-size: 28px;
+    font-weight: 700;
+    @include desktop {
+      padding-top: rem(60px);
+      padding-bottom: rem(30px);
+    }
+
+    @include mobile {
+      padding-top: rem(40px);
+      padding-bottom: rem(20px);
+    }
+  }
+  .form {
+    &__row {
+      &--img {
+        display: flex;
+        flex-direction: column;
+        @include desktop {
+          width: rem(160px);
+        }
+
+        @include mobile {
+          width: rem(120px);
+        }
+      }
+      &--summoner {
+        padding-top: rem(10px);
+        padding-bottom: rem(50px);
+
+        @include desktop {
+          width: 50%;
+        }
+      }
+      &--buttons {
+        height: rem(48px);
+        padding-top: rem(10px);
+        .button {
+          font-weight: bold;
+          padding: rem(10px) rem(25px);
+          margin-right: rem(10px);
+        }
+        .submit {
+          flex: 1;
+        }
+      }
+    }
+  }
+  .form-file {
+    &__image {
+      display: block;
+      border-radius: rem(10px);
+      box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
+      @include desktop {
+        width: rem(150px);
+      }
+    }
+    &__file {
+      display: none;
+    }
+    &__label {
+      cursor: pointer;
+      padding: rem(10px) rem(20px);
+      text-align: center;
+      font-weight: bold;
+      margin: rem(17px) 0;
+
+      @include desktop {
+        font-size: rem(16px);
+      }
+
+      @include mobile {
+        font-size: rem(14px);
+      }
+    }
+  }
+
+  .form-text {
+    &__label {
+      display: block;
+      font-weight: 700;
+      margin: rem(20px) 0;
+    }
+    &__input-container {
+      position: relative;
+      display: flex;
+      padding-bottom: rem(30px);
+      gap: rem(15px);
+      &--msg {
+        position: absolute;
+        font-size: rem(12px);
+        bottom: 0;
+        opacity: 0;
+        img {
+          transform: translateY(-15%);
+        }
+        @include desktop {
+          img {
+            width: rem(15px);
+          }
+          font-size: rem(16px);
+        }
+      }
+    }
+    &__input {
+      border: 1.5px solid black;
+      border-radius: rem(5px);
+      padding: rem(5px) rem(10px);
+      background-color: $white;
+      outline: none;
+      font-weight: bold;
+      flex-basis: 80%;
+      flex: 1;
+
+      @include mobile {
+        // font-size: rem(12px);
+      }
+    }
+    &__button {
+      font-weight: bold;
+      max-width: rem(80px);
+
+      @include desktop {
+        font-size: rem(18px);
+      }
+
+      @include mobile {
+        font-size: rem(12px);
+      }
+      padding: rem(15px) rem(15px);
+    }
+  }
+  @include mobile {
+    .main {
+      width: 100%;
+    }
+    .form {
+      &__row {
+        &--summoner {
+          width: 100%;
+        }
+      }
+    }
+    .form-text {
+      &__input-container {
+        justify-content: space-between;
+      }
+      &__input {
+        @include desktop {
+        }
+
+        @include mobile {
+          flex-basis: 150%;
+        }
+      }
+    }
+  }
+}

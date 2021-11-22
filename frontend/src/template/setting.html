@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>내 정보 수정</title>
+</head>
+
+<body>
+  <!-- 헤더 -->
+  <header class="header">
+    <div class="header__wrapper">
+      <h1>
+        <a class="header__logo-link" href="/">
+          <img class="header__logo" src="/images/logo.png" alt="logo">
+        </a>
+      </h1>
+      <nav class="header__nav">
+        <a class="header__nav-link" href="javascript:void(0);"><span class="header__nav-create-pot">POT 생성</span></a>
+        <span class="header__nav-link login-info"></span>
+      </nav>
+    </div>
+  </header>
+  <div class="setting-container">
+    <main class="main">
+      <div class="main__container">
+        <div class="main__wrapper">
+          <h2 class="setting-container__title">내 정보 수정</h2>
+          <form class="form">
+            <div class="form__row form__row--summoner">
+              <label for="summoner" class="form-text__label">소환사명</label>
+              <div class="form-text__input-container">
+                <input type="text" id="summoner" class="form-text__input" placeholder="여기에 소환사 명을 입력하세요." />
+                <button type="button" class="button form-text__button" disabled>이름 확인</button>
+                <div class="form-text__input-container--msg">
+                  <!-- 이부분 동적 처리 -->
+                  <img src="../images/success.svg" alt="성공" />
+                  <span></span>
+                </div>
+              </div>
+            </div>
+            <div class="form__row form__row--buttons">
+              <button class="button submit" disabled>완료</button>
+            </div>
+          </form>
+        </div>
+      </main>
+    </div>
+    <div id="toast">
+      <div id="img">POT</div>
+      <div id="desc">소환사 명이 변경되었습니다.</div>
+    </div>
+  </body>
+</html>

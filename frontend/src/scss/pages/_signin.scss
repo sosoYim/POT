@@ -1,0 +1,342 @@
+@import '../utils/';
+@import '../components/toast';
+
+.membership-body {
+  background-image: url('../images/signin-background.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50%;
+  min-height: 100vh;
+}
+
+.membership-header {
+  padding-top: rem(40px);
+  padding-bottom: rem(40px);
+
+  h1 {
+    @include autoMargin;
+    width: rem(90px);
+    height: rem(90px);
+  }
+
+  img {
+    display: block;
+    width: rem(90px);
+    height: rem(90px);
+  }
+}
+
+.membership-main {
+  position: relative;
+  background-color: white;
+  border-radius: 1%;
+  @include autoMargin;
+  @include desktop {
+    width: rem(380px);
+  }
+  @include mobile {
+    min-width: rem(260px);
+    width: 80%;
+  }
+}
+
+.login-form {
+  padding: 0 10%;
+  padding-top: rem(20px);
+
+  &__title {
+    text-align: center;
+    font-weight: bold;
+
+    @include desktop {
+      font-size: rem(26px);
+      padding: 5% 0;
+    }
+
+    @include mobile {
+      font-size: rem(18px);
+      padding: 5% 0;
+    }
+  }
+
+  &__error-message {
+    display: block;
+    text-align: center;
+    font-weight: bold;
+    font-size: rem(10px);
+    text-align: center;
+    min-height: rem(20px);
+
+    color: $inputErrorPlaceholder;
+
+    @include desktop {
+      font-size: rem(15px);
+      margin-top: rem(-20px);
+      margin-bottom: rem(30px);
+    }
+
+    @include mobile {
+      margin-top: rem(-10px);
+      margin-bottom: rem(20px);
+    }
+  }
+
+  &__input-container {
+    position: relative;
+  }
+
+  &__input {
+    display: block;
+    width: 100%;
+    min-width: rem(200px);
+    min-height: rem(40px);
+    border-radius: rem(5px);
+    background-color: $input;
+    outline: none;
+    font-weight: bold;
+    box-sizing: border-box;
+
+    & + label {
+      position: absolute;
+      font-weight: bold;
+      color: $inputPlaceholder;
+      top: -0.5rem;
+      left: 1rem;
+      line-height: 60px;
+      transition: 0.3s ease;
+
+      @include desktop {
+        font-size: 1rem;
+      }
+
+      @include mobile {
+        font-size: 0.7rem;
+      }
+    }
+
+    &:hover {
+      background-color: #e5e5e5;
+      transition: 0.1s;
+    }
+
+    &:focus {
+      background-color: $white;
+      @include desktop {
+        outline: 3px solid black;
+      }
+
+      @include mobile {
+        outline: 1px solid black;
+      }
+
+      + label {
+        @include desktop {
+          top: -40%;
+          left: 0.5rem;
+          font-size: 0.8rem;
+        }
+
+        @include mobile {
+          top: -50%;
+          left: 0.5rem;
+          font-size: 0.6rem;
+        }
+      }
+    }
+
+    &:valid {
+      + label {
+        @include desktop {
+          top: -40%;
+          left: 0.5rem;
+          font-size: 0.8rem;
+        }
+
+        @include mobile {
+          top: -50%;
+          left: 0.5rem;
+          font-size: 0.6rem;
+        }
+      }
+    }
+
+    @include desktop {
+      text-indent: 0.5rem;
+      font-size: rem(15px);
+      margin-top: rem(15px);
+      margin-bottom: rem(15px);
+      padding: rem(20px) 0 rem(10px);
+      padding-right: 0;
+    }
+
+    @include mobile {
+      text-indent: 0.5rem;
+      font-size: rem(12px);
+      margin-top: rem(10px);
+      margin-bottom: rem(10px);
+      padding: rem(15px) 0 rem(5px);
+      padding-right: 0;
+    }
+  }
+
+  &__password-icon {
+    display: block;
+    position: absolute;
+    cursor: pointer;
+    background-image: url('../images/hidden.svg');
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    @include desktop {
+      width: rem(20px);
+      height: rem(20px);
+      left: rem(270px);
+      top: rem(14px);
+    }
+
+    @include mobile {
+      width: rem(15px);
+      height: rem(15px);
+      right: 5%;
+      top: 30%;
+    }
+  }
+
+  &__checkbox {
+    display: block;
+    position: relative;
+    user-select: none;
+
+    line-height: 1.8;
+
+    margin: rem(20px) 0;
+
+    @include desktop {
+      font-size: rem(12px);
+      padding-left: rem(30px);
+    }
+
+    @include mobile {
+      font-size: rem(8px);
+      padding-left: rem(24px);
+    }
+
+    input:checked ~ &--checkmark {
+      background-color: $main;
+    }
+
+    &--checkmark {
+      position: absolute;
+      top: 0;
+      left: 0;
+      cursor: pointer;
+
+      @include desktop {
+        height: rem(20px);
+        width: rem(20px);
+      }
+
+      @include mobile {
+        height: rem(15px);
+        width: rem(15px);
+      }
+      border-radius: rem(2px);
+      background-color: $input;
+
+      &:hover {
+        background-color: #e5e5e5;
+        transition: 0.1s;
+      }
+
+      &:after {
+        content: '';
+        position: absolute;
+        display: none;
+      }
+    }
+
+    input:checked ~ &--checkmark:after {
+      display: block;
+    }
+
+    .login-form__checkbox--checkmark:after {
+      border: solid white;
+      -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      transform: rotate(45deg);
+      @include desktop {
+        left: 6px;
+        top: 1px;
+        width: 7px;
+        height: 15px;
+        border-width: 0 3px 3px 0;
+      }
+
+      @include mobile {
+        left: 5px;
+        top: 0.8px;
+        width: 6px;
+        height: 11px;
+        border-width: 0 2.5px 2.5px 0;
+      }
+    }
+  }
+
+  &__button {
+    display: block;
+    box-sizing: border-box;
+    padding: 16px 48px;
+    border-radius: 4px;
+    background-color: $main;
+    font-size: 20px;
+    font-weight: 700;
+    width: 100%;
+    border: none;
+    color: $white;
+    margin-bottom: rem(30px);
+    transition: 0.3s;
+
+    box-shadow: 0 4px 4px 0px $gray04;
+
+    &:disabled {
+      color: #dadada;
+      background-color: $white;
+      box-shadow: none;
+      cursor: not-allowed;
+      box-shadow: 0px 0px 0px 2px $gray04;
+    }
+  }
+
+  &__goto-signup {
+    display: block;
+    text-align: center;
+    margin-bottom: rem(50px);
+
+    @include desktop {
+      font-size: rem(15px);
+    }
+
+    @include mobile {
+      font-size: rem(12px);
+    }
+  }
+}
+
+.error-input {
+  background-color: $inputError;
+  border: 3px solid $inputErrorBorder;
+
+  &:hover {
+    background-color: $inputErrorHover;
+  }
+
+  &::placeholder {
+    color: $inputErrorPlaceholder;
+  }
+}
+
+.show {
+  background-image: url('../images/show.svg');
+  transform: translateY(15%);
+}

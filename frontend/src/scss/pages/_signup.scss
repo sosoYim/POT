@@ -1,0 +1,233 @@
+@import '../utils/';
+
+.signup-form {
+  padding: 0 10%;
+  padding-top: rem(20px);
+
+  &__title {
+    text-align: center;
+    font-weight: bold;
+
+    @include desktop {
+      font-size: rem(26px);
+      padding: 5% 0;
+    }
+
+    @include mobile {
+      font-size: rem(18px);
+      padding: 5% 0;
+    }
+  }
+
+  &__input-container {
+    position: relative;
+  }
+
+  &__input {
+    display: block;
+    width: 100%;
+    min-width: rem(200px);
+    min-height: rem(40px);
+    border-radius: rem(5px);
+    background-color: $input;
+    outline: none;
+    font-weight: bold;
+
+    & + label {
+      position: absolute;
+      font-weight: bold;
+      color: $inputPlaceholder;
+      top: -0.5rem;
+      left: 1rem;
+      line-height: 60px;
+      transition: 0.3s ease;
+
+      @include desktop {
+        font-size: 1rem;
+      }
+
+      @include mobile {
+        font-size: 0.7rem;
+      }
+    }
+
+    &:hover {
+      background-color: #e5e5e5;
+      transition: 0.1s;
+    }
+
+    &:focus {
+      background-color: $white;
+
+      @include desktop {
+        outline: 3px solid black;
+      }
+
+      @include mobile {
+        outline: 1px solid black;
+      }
+
+      + label {
+        @include desktop {
+          top: -40%;
+          left: 0.5rem;
+          font-size: 0.8rem;
+        }
+
+        @include mobile {
+          top: -50%;
+          left: 0.5rem;
+          font-size: 0.6rem;
+        }
+      }
+    }
+
+    &:valid {
+      + label {
+        @include desktop {
+          top: -40%;
+          left: 0.5rem;
+          font-size: 0.8rem;
+        }
+
+        @include mobile {
+          top: -50%;
+          left: 0.5rem;
+          font-size: 0.6rem;
+        }
+      }
+    }
+
+    @include desktop {
+      text-indent: 0.5rem;
+      font-size: rem(15px);
+      margin-top: rem(15px);
+      margin-bottom: rem(15px);
+      padding: rem(20px) 0 rem(10px);
+      padding-right: 0;
+    }
+
+    @include mobile {
+      text-indent: 0.5rem;
+      font-size: rem(12px);
+      margin-top: rem(10px);
+      margin-bottom: rem(10px);
+      padding: rem(15px) 0 rem(5px);
+      padding-right: 0;
+    }
+  }
+
+  &__message {
+    position: relative;
+    padding-left: rem(1px);
+    margin: rem(10px) 0;
+    min-height: rem(20px);
+    @include flexbox(row, $justify-content: flex-start, $align-items: flex-start);
+
+    @include mobile {
+      min-height: rem(15px);
+    }
+
+    & img {
+      display: inline-block;
+      opacity: 0;
+
+      @include desktop {
+        width: rem(15px);
+        height: rem(15px);
+      }
+    }
+  }
+
+  &__text {
+    display: block;
+    margin-left: rem(5px);
+    word-break: keep-all;
+
+    @include mobile {
+      font-size: rem(12px);
+    }
+  }
+
+  &__check {
+    display: flex;
+    position: relative;
+
+    min-height: rem(40px);
+    justify-content: space-between;
+    margin-top: rem(10px);
+    margin-bottom: rem(10px);
+
+    &-duplication {
+      width: 15%;
+      border-radius: rem(5px);
+      background-color: $main;
+      color: $white;
+      font-weight: bold;
+      transition-duration: 0.3s;
+
+      &:disabled {
+        border: 2px solid #dadada;
+        color: #dadada;
+        background-color: $white;
+        cursor: not-allowed;
+      }
+
+      @include desktop {
+        font-size: rem(14px);
+        padding: 2%;
+      }
+
+      @include mobile {
+        padding: 2%;
+        font-size: rem(8px);
+      }
+    }
+  }
+
+  &__button {
+    display: block;
+    box-sizing: border-box;
+    padding: 16px 48px;
+    border-radius: 4px;
+    background-color: $main;
+    font-size: 20px;
+    font-weight: 700;
+    width: 100%;
+    border: none;
+    color: $white;
+    margin-top: rem(20px);
+    margin-bottom: rem(30px);
+    transition-duration: 0.3s;
+
+    box-shadow: 0 4px 4px 0px $gray04;
+
+    &:disabled {
+      color: #dadada;
+      background-color: $white;
+      box-shadow: none;
+      cursor: not-allowed;
+      box-shadow: 0px 0px 0px 2px $gray04;
+    }
+  }
+
+  &__goto-login {
+    display: block;
+    text-align: center;
+    margin-bottom: rem(40px);
+
+    @include desktop {
+      font-size: rem(15px);
+    }
+
+    @include mobile {
+      font-size: rem(12px);
+    }
+  }
+}
+
+.signup-form__input.check-input {
+  min-width: rem(130px);
+  margin: 0;
+  width: 80%;
+}

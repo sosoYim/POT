@@ -1,0 +1,17 @@
+@import '../utils/';
+
+.main {
+  &__title {
+    background-color: $white;
+  }
+
+  &__container {
+    width: 100%;
+  }
+
+  &__wrapper {
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+}

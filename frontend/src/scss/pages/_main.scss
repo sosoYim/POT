@@ -1,0 +1,138 @@
+@import '../utils/';
+
+.main-container {
+  .over-main__wrapper {
+    background-color: $white;
+    padding: 0 0 rem(20);
+
+    .banner {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: rem(245);
+      position: relative;
+      margin: 0 auto;
+    }
+
+    .banner::before {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 100%;
+      margin: 0 auto;
+      padding: 0 rem(40);
+      background-image: url(../images/mainBanner.png);
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: 50%;
+    }
+
+    .pot-button {
+      display: flex;
+      justify-content: flex-end;
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 0 20px;
+
+      @include mobile {
+        justify-content: space-between;
+      }
+
+      &__btn {
+        width: rem(90);
+        // margin: 0 rem(12);
+        padding: rem(11);
+        font-size: rem(12);
+        &:nth-child(1) {
+          margin-right: rem(12);
+        }
+        &:nth-child(2) {
+          margin-left: rem(12);
+        }
+
+        @include mobile {
+          width: 40%;
+        }
+      }
+
+      &__btn.button-deactive {
+        box-shadow: 0 0 0 1px $purple inset;
+      }
+    }
+  }
+
+  .main {
+    &__filter-position-list {
+      width: 100%;
+
+      @media (max-width: 620px) {
+        & img {
+          width: 32px;
+        }
+      }
+      @media (max-width: 620px) {
+        .main__filter-position-item {
+          margin-right: rem(6);
+          &:last-child {
+            margin-right: 0;
+          }
+        }
+      }
+      // @include mobile {
+      //   & img {
+      //     width: 32px;
+      //   }
+      // }
+      // @include mobile {
+      //   .main__filter-position-item {
+      //     margin-right: rem(6);
+      //     &:last-child {
+      //       margin-right: 0;
+      //     }
+      //   }
+      // }
+    }
+
+    &__filter-position-item--selected {
+      box-shadow: 0 0 0 4px $main inset;
+      background-color: rgba($color: $main, $alpha: 0.2);
+      border-radius: 10px;
+    }
+
+    &__wrapper {
+      margin: rem(40) auto;
+    }
+
+    &__filter {
+      &-container {
+        box-shadow: 0 -6px 6px 0 rgba($color: #000000, $alpha: 0.1);
+        min-height: 100px;
+        background-color: $white;
+      }
+
+      &-wrapper {
+        max-width: 1040px;
+        margin: 0 auto;
+        padding: 20px 20px;
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+      }
+
+      &-position {
+        display: flex;
+        justify-content: space-evenly;
+      }
+    }
+  }
+
+  .loading {
+    padding: rem(30) 0;
+  }
+}
+
+.main__wrapper.card-list {
+  padding-top: rem(54px);
+  padding-bottom: rem(54px);
+}

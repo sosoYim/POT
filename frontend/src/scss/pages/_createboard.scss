@@ -1,0 +1,184 @@
+@import '../utils/';
+
+.createboard-container {
+  padding: 0 20px 20px;
+  min-width: rem(365);
+  max-width: rem(1040);
+  @include autoMargin;
+
+  .button {
+    width: rem(88);
+    height: rem(35);
+    line-height: rem(35);
+    text-align: center;
+    padding: 0;
+    font-weight: 500;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  }
+
+  .form {
+    margin-top: rem(45);
+    &__row {
+      width: 100%;
+      &--title {
+        font-size: rem(36);
+        height: rem(70);
+        margin-bottom: rem(45);
+        border-bottom: 1px solid $black;
+      }
+      &--type {
+        margin-bottom: rem(28);
+      }
+      &--position {
+        margin-bottom: rem(14);
+      }
+      &--editor {
+        min-height: rem(351);
+        margin-bottom: rem(26);
+      }
+      &--buttons {
+        display: flex;
+        justify-content: end;
+        .create-button {
+          padding: 16px 48px;
+          width: 327px;
+          height: 79px;
+          font-size: 20px;
+          @include mobile {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  .editor {
+    // scrolling editor
+    height: 100%;
+    overflow-y: auto;
+    &__api {
+      height: auto;
+      padding: rem(50);
+    }
+    .ql-editor {
+      overflow-y: visible;
+      min-height: 350px;
+    }
+  }
+
+  .form-text {
+    width: 100%;
+    height: 100%;
+    padding: rem(10);
+  }
+
+  .form-radio-type {
+    width: 100%;
+    height: 100%;
+    .button {
+      box-sizing: border-box;
+      border-radius: 4px;
+      font-size: 20px;
+      font-weight: 700;
+      background-color: $white;
+      box-shadow: 0 0 0 4px $main inset;
+      color: $main;
+    }
+    &__label {
+      cursor: pointer;
+      display: inline-block;
+      margin-right: rem(8);
+      &:hover {
+        box-shadow: 0 0 0 4px $main inset;
+        background-color: rgba($color: $main, $alpha: 0.2);
+      }
+    }
+    &__radio {
+      &:checked + label {
+        background-color: $main;
+        color: $white;
+      }
+    }
+    // &__radio:focus ~ label {
+    //   border: 2px solid $inputBorder;
+    //   border-spacing: 5px;
+    // }
+  }
+
+  .form-checkbox {
+    font-weight: 700;
+    &__icons {
+      margin-top: rem(16);
+      @include mobile {
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+    &__label {
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+      padding: 8px;
+      border-radius: 10px;
+      margin: 0;
+      line-height: 0;
+      // background-color: transparent;
+      width: rem(51);
+      height: rem(51);
+      display: inline-block;
+      background-repeat: no-repeat;
+      background-size: contain;
+      &--top {
+        background-image: url(../images/position/top.png);
+      }
+      &--jug {
+        background-image: url(../images/position/jug.png);
+      }
+      &--mid {
+        background-image: url(../images/position/mid.png);
+      }
+      &--adc {
+        background-image: url(../images/position/adc.png);
+      }
+      &--sup {
+        background-image: url(../images/position/sup.png);
+      }
+      &:hover {
+        cursor: pointer;
+        outline: 4px solid $main;
+        // box-shadow: 0 0 0 4px $main inset, 0px 4px 4px rgba(0, 0, 0, 0.15);
+        background-color: rgba($color: $main, $alpha: 0.2);
+      }
+    }
+  }
+
+  input[name='position']:checked + label {
+    outline: 4px solid $main;
+    background-color: rgba($color: $main, $alpha: 0.2);
+  }
+
+  input[name='position']:disabled + label,
+  input[name='position']:disabled:hover + label {
+    cursor: default;
+    opacity: 0.2;
+    background-color: rgba($color: $main, $alpha: 0.2);
+    outline: 4px solid $gray03;
+  }
+
+  // .form-radio-type__radio:checked + label {
+  //   background-color: $main;
+  //   // color: $white;
+  //   color: red;
+  // }
+
+  @include mobile {
+    padding: 0 rem(20);
+
+    .form-radio {
+      display: inline-flex;
+      flex-wrap: wrap;
+      gap: rem(10);
+      &__label {
+        margin: 0;
+      }
+    }
+  }
+}

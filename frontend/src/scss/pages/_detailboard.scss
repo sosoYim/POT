@@ -1,0 +1,128 @@
+@import '../utils/';
+
+.detailboard-main__container {
+  .form {
+    width: 100%;
+    padding-bottom: rem(30);
+    &__position {
+      // width: 50%;
+      margin: rem(42) 0;
+      // @include mobile {
+      //   width: 100%;
+      // }
+      @media (min-width: 820px) {
+        width: 100% !important;
+        min-width: 380px;
+      }
+    }
+    &__content {
+    }
+    &__button {
+    }
+  }
+
+  .form-radio {
+    font-weight: 700;
+    &__icons {
+      margin-top: rem(16);
+      @include mobile {
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+    &__label {
+      min-width: 3.1875rem;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+      padding: 8px;
+      border-radius: 10px;
+      margin: 0;
+      line-height: 0;
+      // background-color: transparent;
+      width: rem(51);
+      height: rem(51);
+      display: inline-block;
+      background-repeat: no-repeat;
+      background-size: contain;
+      &--top {
+        background-image: url(../images/position/top.png);
+      }
+      &--jug {
+        background-image: url(../images/position/jug.png);
+      }
+      &--mid {
+        background-image: url(../images/position/mid.png);
+      }
+      &--adc {
+        background-image: url(../images/position/adc.png);
+      }
+      &--sup {
+        background-image: url(../images/position/sup.png);
+      }
+      &:hover {
+        cursor: pointer;
+        outline: 4px solid $main;
+        background-color: rgba($color: $main, $alpha: 0.2);
+      }
+    }
+  }
+
+  input[type='radio']:checked + label {
+    outline: 4px solid $main;
+    background-color: rgba($color: $main, $alpha: 0.2);
+  }
+
+  input[type='radio']:disabled + label,
+  input[type='radio']:disabled:hover + label {
+    cursor: default;
+    opacity: 0.2;
+    background-color: rgba($color: $main, $alpha: 0.2);
+    outline: 4px solid $gray03;
+  }
+
+  // ====
+  .position-wrapper {
+    margin-top: 80px;
+    width: 50%;
+    @include mobile {
+      margin-top: 40px;
+      width: 100%;
+    }
+  }
+  .main__filter-position {
+    &-list img {
+      @include mobile {
+        width: 40px;
+      }
+    }
+    &-item {
+      @include mobile {
+        margin-right: 6px;
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}
+
+.main__board-content {
+  margin-top: 40px;
+  font-size: 20px;
+  line-height: 2;
+  padding: 0;
+}
+
+.detailboard-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  font-size: 24px;
+  font-weight: 700;
+  padding: 24px 120px;
+
+  @include mobile {
+    position: fixed;
+    width: calc(100% - 40px);
+    padding: 24px 0;
+  }
+}

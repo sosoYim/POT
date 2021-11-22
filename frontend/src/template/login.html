@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>로그인</title>
+  </head>
+  <body class="membership-body">
+    <header class="membership-header">
+      <h1>
+        <a href="/"><img src="./images/membership-logo.png" alt="팟" /></a>
+      </h1>
+    </header>
+    <main class="membership-main">
+      <form class="login-form">
+        <fieldset>
+          <legend class="login-form__title"><h2>로그인</h2></legend>
+          <span class="login-form__error-message"> </span>
+          <div class="login-form__input-container">
+            <input type="text" class="login-form__input" id="signin-userid" name="email" required autocomplete="off" />
+            <label for="signin-userid">이메일</label>
+          </div>
+          <div class="login-form__input-container">
+            <input type="password" class="login-form__input" required autocomplete="off" name="password" />
+            <label for="signin-userid">비밀번호</label>
+            <button type="button" tabindex="-1" class="login-form__password-icon"></button>
+          </div>
+          <label class="login-form__checkbox"
+            >로그인 상태 유지
+            <input type="checkbox" />
+            <span class="login-form__checkbox--checkmark"></span>
+          </label>
+          <button class="login-form__button" disabled>로그인</button>
+          <a href="./register" class="login-form__goto-signup"
+            ><span class="login-form__goto-signup">계정 생성하기</span></a
+          >
+        </fieldset>
+      </form>
+    </main>
+    <div id="toast">
+      <div id="img">POT</div>
+      <div id="desc">로그인에 실패하였습니다.</div>
+    </div>
+  </body>
+</html>

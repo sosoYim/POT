@@ -1,0 +1,37 @@
+@import '../utils/';
+
+.button {
+  box-sizing: border-box;
+  padding: 16px 48px;
+  border-radius: 4px;
+  background-color: $main;
+  color: $white;
+  font-size: 20px;
+  font-weight: 700;
+  cursor: pointer;
+
+  &.button-warn {
+    background-color: $red;
+  }
+
+  &.button-deactive {
+    background-color: $white;
+    box-shadow: 0 0 0 4px $main inset;
+    color: $main;
+  }
+
+  &:disabled {
+    background-color: $white;
+    box-shadow: 0 0 0 4px $gray04 inset;
+    color: $gray04;
+    cursor: default;
+  }
+
+  &.closed {
+    background-color: $gray05;
+  }
+
+  @include mobile {
+    font-size: 16px;
+  }
+}

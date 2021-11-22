@@ -1,0 +1,51 @@
+@use 'sass:math';
+
+// 미디어 쿼리 중단점 (Breakpoints) --------------------------------------------------------------- /
+$break: 500px;
+$break2: 768px;
+
+@mixin mobile {
+  @media (max-width: #{$break - 1}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$break}) {
+    @content;
+  }
+}
+
+// 루트 요소 기본 단위 --------------------------------------------------------------- /
+$rootUnit: 16px !default;
+
+// 단위 제거 함수 ------------------------------------------------------------------ /
+@function removeUnit($value) {
+  // @return ($value / ($value * 0 + 1));
+  @return math.div($value, $value * 0 + 1);
+}
+
+// px을 rem 단위로 변경하는 함수 ------------------------------------------------------- /
+@function rem($value, $base: $rootUnit) {
+  @return (removeUnit(math.div($value, $base))) * 1rem;
+}
+
+// px을 em 단위로 변경하는 함수 ------------------------------------------------------- /
+@function em($value, $base: $rootUnit) {
+  @return (removeUnit(math.div($value, $base))) * 1em;
+}
+
+// 플렉스 박스 믹스인 ---------------------------------------------------------------- /
+@mixin flexbox($direction: row, $justify-content: flex-start, $align-items: stretch, $flex-wrap: nowrap) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify-content;
+  align-items: $align-items;
+  flex-wrap: $flex-wrap;
+}
+
+// Auto Margin을 활용한 박스 가운데 정렬 ------------------------------------------------ /
+@mixin autoMargin($marginX: auto) {
+  margin-left: $marginX;
+  margin-right: $marginX;
+}
