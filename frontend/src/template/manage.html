@@ -1,111 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <style></style>
+    <title>신청자 관리</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <style>
-  </style>
-  <title>신청자 관리</title>
-</head>
-
-<body class="background-gray">
-  <div class="loading__container">
-    <div class="loading"></div>
-  </div>
-
-  <!-- 헤더 -->
-  <header class="header">
-    <div class="header__wrapper">
-      <h1>
-        <a class="header__logo-link" href="/">
-          <img class="header__logo" src="/images/logo.png" alt="logo">
-        </a>
-      </h1>
-      <nav class="header__nav">
-        <a class="header__nav-link" href="javascript:void(0);"><span class="header__nav-create-pot">POT 생성</span></a>
-        <span class="header__nav-link login-info"></span>
-      </nav>
+  <body class="background-gray">
+    <div class="loading__container">
+      <div class="loading"></div>
     </div>
-  </header>
-  <div class="manage-main__container">
 
-    <main class="main">
-      <h2 class="main__title"></h2>
-      <div class="main__container">
-        <div class="main__filter-container">
-          <div class="main__filter-wrapper">
-            <div class="main__filter-position">
-              <h3 class="main__filter-position-title">남은 포지션</h3>
-              <ul class="main__filter-position-list">
-                <li class="main__filter-position-item all">
-                  <button class="select" data-position="all">
-                    <img src="/images/position/all.png" alt="all">
-                  </button>
-                </li>
-                <li class="main__filter-position-item top">
-                  <button data-position="top">
-                    <img src="/images/position/top.png" alt="top">
-                  </button>
-                </li>
-                <li class="main__filter-position-item jug">
-                  <button data-position="jug">
-                    <img src="/images/position/jug.png" alt="jug">
-                  </button>
-                </li>
-                <li class="main__filter-position-item mid">
-                  <button data-position="mid">
-                    <img src="/images/position/mid.png" alt="mid">
-                  </button>
-                </li>
-                <li class="main__filter-position-item adc">
-                  <button data-position="adc">
-                    <img src="/images/position/adc.png" alt="adc">
-                  </button>
-                </li>
-                <li class="main__filter-position-item sup">
-                  <button data-position="sup">
-                    <img src="/images/position/sup.png" alt="sup">
-                  </button>
-                </li>
-              </ul>
-            </div>
-            <button class="main__filter-button">
-              <span class="main__filter-button-title" data-filter="rank">티어 순</span>
-              <box-icon name='chevron-down'></box-icon>
-            </button>
-            <div class="main__filter-list hidden">
-              <a href="javascript:void(0);" data-filter="rank">티어 순</a>
-              <a href="javascript:void(0);" data-filter="order">등록일 순</a>
-              <a href="javascript:void(0);" data-filter="summoner">소환사명 순</a>
+    <!-- 헤더 -->
+    <main-header></main-header>
+
+    <div class="manage-main__container">
+      <main class="main">
+        <h2 class="main__title"></h2>
+        <div class="main__container">
+          <div class="main__filter-container">
+            <div class="main__filter-wrapper">
+              <div class="main__filter-position">
+                <h3 class="main__filter-position-title">남은 포지션</h3>
+                <ul class="main__filter-position-list">
+                  <li class="main__filter-position-item all">
+                    <button class="select" data-position="all">
+                      <img src="/images/position/all.png" alt="all" />
+                    </button>
+                  </li>
+                  <li class="main__filter-position-item top">
+                    <button data-position="top">
+                      <img src="/images/position/top.png" alt="top" />
+                    </button>
+                  </li>
+                  <li class="main__filter-position-item jug">
+                    <button data-position="jug">
+                      <img src="/images/position/jug.png" alt="jug" />
+                    </button>
+                  </li>
+                  <li class="main__filter-position-item mid">
+                    <button data-position="mid">
+                      <img src="/images/position/mid.png" alt="mid" />
+                    </button>
+                  </li>
+                  <li class="main__filter-position-item adc">
+                    <button data-position="adc">
+                      <img src="/images/position/adc.png" alt="adc" />
+                    </button>
+                  </li>
+                  <li class="main__filter-position-item sup">
+                    <button data-position="sup">
+                      <img src="/images/position/sup.png" alt="sup" />
+                    </button>
+                  </li>
+                </ul>
+              </div>
+              <button class="main__filter-button">
+                <span class="main__filter-button-title" data-filter="rank">티어 순</span>
+                <box-icon name="chevron-down"></box-icon>
+              </button>
+              <div class="main__filter-list hidden">
+                <a href="javascript:void(0);" data-filter="rank">티어 순</a>
+                <a href="javascript:void(0);" data-filter="order">등록일 순</a>
+                <a href="javascript:void(0);" data-filter="summoner">소환사명 순</a>
+              </div>
             </div>
           </div>
+          <div class="main__wrapper">
+            <ul class="participant-list"></ul>
+          </div>
         </div>
-        <div class="main__wrapper">
-          <ul class="participant-list"></ul>
+      </main>
+      <!-- 모달 -->
+      <div class="modal-outer hidden">
+        <div class="modal">
+          <button class="modal__close">
+            <box-icon name="x" color="#4c4c4c"></box-icon>
+          </button>
+          <div class="modal__title">정훈님과 POT 하시겠습니까?</div>
+          <button class="modal__button button">POT!</button>
         </div>
-      </div>
-    </main>
-    <!-- 모달 -->
-    <div class="modal-outer hidden">
-      <div class="modal">
-        <button class="modal__close">
-          <box-icon name='x' color="#4c4c4c"></box-icon>
-        </button>
-        <div class="modal__title">정훈님과 POT 하시겠습니까?</div>
-        <button class="modal__button button">POT!</button>
       </div>
     </div>
-  </div>
 
-  <!-- 토스트 -->
-  <div id="toast">
-    <div id="img">POT</div>
-    <div id="desc"></div>
-  </div>
-</body>
-
+    <!-- 토스트 -->
+    <div id="toast">
+      <div id="img">POT</div>
+      <div id="desc"></div>
+    </div>
+  </body>
 </html>

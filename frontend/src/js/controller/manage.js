@@ -2,7 +2,7 @@ import axios from '../utils/axiosConfig';
 import renderParticipantList from '../view/manage';
 import { changePositionAbleState, filterParticipantList } from '../utils/manage';
 import { getLastPath } from '../utils/helper';
-import setHeader from '../utils/header';
+import defineMainHeader from '../components/Header';
 import launchToast from '../utils/toast';
 import {
   champ,
@@ -24,7 +24,7 @@ const $modalOuter = document.querySelector('.modal-outer');
 const $modalButton = document.querySelector('.modal__button');
 
 const fetchManage = async () => {
-  setHeader();
+  defineMainHeader();
   setBoardId(+getLastPath(window.location.href));
   const { data: boardData } = await axios.get(`/api/boards/manage/${getBoardId()}`);
   const { userIdList } = boardData;

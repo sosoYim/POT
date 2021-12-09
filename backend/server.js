@@ -2,7 +2,7 @@ const express = require('express');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
 const path = require('path');
-const { blockUserAuth, blockGuestAuth, checkUserAuth, accessWriterAuth } = require('./utils/verifyToken');
+const { blockUserAuth, blockGuestAuth, accessWriterAuth } = require('./utils/verifyToken');
 const routes = require('./routes');
 require('dotenv').config();
 
@@ -19,6 +19,10 @@ app.use(express.static('public'));
 app.use(cors(corsOptions));
 app.use(cookieParser());
 app.use('/api', routes);
+
+app.get('/', blockUserAuth, (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/index.html'));
+});
 
 app.get('/register', blockUserAuth, (req, res) => {
   res.sendFile(path.join(__dirname, '../public/register.html'));

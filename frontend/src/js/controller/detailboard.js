@@ -1,12 +1,11 @@
 import axios from '../utils/axiosConfig';
 import { setBoard, setState } from '../store/detailboard';
 import { getLastPath } from '../utils/helper';
-import setHeader from '../utils/header';
-// import setHeaderRequest from '../utils/modal';
+import defineMainHeader from '../components/Header';
 
 const fetchBoard = async () => {
-  setHeader();
   try {
+    defineMainHeader();
     const boardId = getLastPath(window.location.href);
     const { data } = await axios.get(`/api/boards/detail/${boardId}`);
     const state = { myBoard: data.userId === data.board.userId, myRequest: data.myRequest };

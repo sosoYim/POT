@@ -1,11 +1,11 @@
 import { fetchBoards, changeTypeFilter, changePositionFilter } from '../controller/main';
-import setHeader from '../utils/header';
+import defineMainHeader from '../components/Header';
 
 const $potButton = document.querySelector('.pot-button');
 const $mainFilterPositionList = document.querySelector('.main__filter-position-list');
 const $loading = document.querySelector('.loading');
 
-window.addEventListener('DOMContentLoaded', setHeader);
+window.addEventListener('DOMContentLoaded', defineMainHeader);
 
 $potButton.onclick = ({ target }) => {
   if (!target.classList.contains('button') || !target.classList.contains('button-deactive')) return;
@@ -37,11 +37,7 @@ $mainFilterPositionList.onclick = ({ target }) => {
   changePositionFilter($li.dataset.position);
 };
 
-const options = {
-  threshold: 0.01,
-};
-
 const observer = new IntersectionObserver(([{ isIntersecting }]) => {
   if (isIntersecting) fetchBoards();
-}, options);
+});
 observer.observe($loading);

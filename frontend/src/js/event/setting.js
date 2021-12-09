@@ -1,3 +1,4 @@
+import defineMainHeader from '../components/Header';
 import setHeader from '../utils/header';
 import {
   summonerNameValid,
@@ -15,7 +16,6 @@ const [$summonerInput, $summonerDuplicationButton, $messageContainer] =
 const [$img, $span] = $messageContainer.children;
 
 const $completeButton = document.querySelector('.submit');
-const $deleteAccount = document.querySelector('.button-warn');
 
 $summonerInput.onkeyup = ({ target }) => {
   const isValid = summonerNameValid(target.value);
@@ -32,7 +32,7 @@ $summonerInput.onkeyup = ({ target }) => {
   }
 };
 
-window.addEventListener('DOMContentLoaded', setHeader);
+window.addEventListener('DOMContentLoaded', defineMainHeader);
 
 $summonerDuplicationButton.onclick = async () => {
   await checkSummonerNameExists($completeButton);
@@ -55,7 +55,3 @@ $completeButton.onclick = e => {
   $completeButton.disabled = true;
   $summonerDuplicationButton.disabled = true;
 };
-
-// $deleteAccount.onclick = e => {
-//   console.log(e.target);
-// };
