@@ -9,6 +9,8 @@ import {
   getBoards,
 } from '../store/main';
 
+const MAX_NUMBER_OF_LINE = 4;
+
 const resetBoard = () => {
   try {
     setCurrentPageNo(0);
@@ -33,7 +35,7 @@ const fetchBoards = async () => {
       },
     });
 
-    if (!data.length) document.querySelector('.loading').classList.add('hidden');
+    if (data.length <= MAX_NUMBER_OF_LINE) document.querySelector('.loading').classList.add('hidden');
 
     setBoards([...list, ...data]);
   } catch (error) {

@@ -1,13 +1,13 @@
 import axios from '../utils/axiosConfig';
 import { getLastPath } from '../utils/helper';
-import setHeader from '../utils/header';
+import defineMainHeader from '../components/Header';
 import { setBoardType, setBoards } from '../store/pot';
 
 const fetchBoards = async () => {
   try {
-    const $potTitle = document.querySelector('.pot-title');
+    defineMainHeader();
 
-    setHeader();
+    const $potTitle = document.querySelector('.pot-title');
     const params = getLastPath(window.location.href);
     $potTitle.innerHTML = params === 'created' ? '작성한 POT' : '신청한 POT';
 
@@ -20,4 +20,5 @@ const fetchBoards = async () => {
     console.error(error);
   }
 };
+
 export { fetchBoards };

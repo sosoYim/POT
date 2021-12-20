@@ -1,5 +1,5 @@
-import { createBoard, setCheckboxByType, isPositionChecked, focusLegend } from '../controller/createboard';
-import setHeader from '../utils/header';
+import { createBoard, setCheckboxByType, isPositionChecked } from '../controller/createboard';
+import defineMainHeader from '../components/Header';
 
 const quill = new Quill('#editor__api', {
   modules: {
@@ -15,7 +15,7 @@ const quill = new Quill('#editor__api', {
   theme: 'snow',
 });
 
-window.addEventListener('DOMContentLoaded', setHeader);
+window.addEventListener('DOMContentLoaded', defineMainHeader);
 
 document.querySelector('.createboard-form').onsubmit = e => {
   e.preventDefault();
