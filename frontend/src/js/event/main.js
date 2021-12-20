@@ -5,6 +5,12 @@ const $potButton = document.querySelector('.pot-button');
 const $mainFilterPositionList = document.querySelector('.main__filter-position-list');
 const $loading = document.querySelector('.loading');
 
+const observer = new IntersectionObserver(([{ isIntersecting }]) => {
+  if (isIntersecting) fetchBoards();
+});
+
+observer.observe($loading);
+
 window.addEventListener('DOMContentLoaded', defineMainHeader);
 
 $potButton.onclick = ({ target }) => {
@@ -36,8 +42,3 @@ $mainFilterPositionList.onclick = ({ target }) => {
 
   changePositionFilter($li.dataset.position);
 };
-
-const observer = new IntersectionObserver(([{ isIntersecting }]) => {
-  if (isIntersecting) fetchBoards();
-});
-observer.observe($loading);
